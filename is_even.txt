@@ -1,0 +1,2268 @@
+def is_even(i):
+    """Check whether an integer is even"""
+    return i%2==0
+
+def compose(a,b):
+    """Return a function which applies a and b"""
+    return lambda x: a(b(x))
+
+# Following is the python main
+def main(n):
+    # Prepare an initial array
+    a=numpy.array([1,1,1])
+
+    # Number of steps for the initial function
+    k=5
+
+    # Applying the same function n times
+    def fn(a,step):
+        # Stop condition
+        stop=False
+        # Ensure that a is even
+        a = even(a)
+        while not stop and a.shape[0]>1:
+            if not a:
+                a=a+1
+            else:
+                a=a+1
+                # Ensure that a is odd
+                a=even(a)
+
+            # Save the current value
+            a=a.copy()
+            # Step up
+            k+=1
+
+        return a
+
+    # Find the step number of each function
+    step=int(n**0.5)
+
+    # Initialize a function with the initial array and step number
+    fn_0=fn(a,step)
+    # Find the new function by composing the above two functions
+    fn_1=compose(fn_0, k)
+
+    # apply the new function on the array
+    res=numpy.apply_along_axis(fn_1,0,
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def is_odd(i):
+    """Check whether an integer is odd"""
+    return i % 2!= 0
+
+def is_prime(i):
+    """Check whether an integer is prime"""
+    # Use prime factoring (by trial division)
+    if i % 2 == 0 or i % 3 == 0 or i % 5 == 0:
+        return False
+
+    # Divide by two until the result is not evenly divisible by 2, 3 or 5
+    if i % 2 == 1:
+        while i % 5 == 1:
+            i = i // 5
+
+    # Square root all factors of i, if they are not prime
+    sq_root = i ** (0.5 - 1)
+    while not is_prime(sq_root):
+        sq_root = sq_root ** 0.5
+    return True
+
+print("Let's take a look at the first 10 Prime Numbers:")
+for i in range(10):
+    print(i, ":", is_prime(i))
+
+# Exercise 3: Reverse List
+
+# Reverse a list of Integers
+# Note: in Python 2.7 the swap function does not exist, so
+# here we use itertools.islice() and the counter trick
+from itertools import islice, count
+
+def reversed(L):
+    """Reverse list of Integers"""
+    assert L
+    return islice(L, count(0, -1))
+
+print("Reverse the list:")
+for x in reversed(list(range(10))):
+    print(x)
+
+A:
+
+Instead of using exception, you can use conditional.
+if i % 2 == 1:
+    while i % 5 == 1:
+        i = i // 5
+
+<|endoftext|>"I want to see these beautiful girls exposed and without their clothing to get to know them," added Alex Jones
+
+After the deluge of messages and tweets – so many emails
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def a_function(i):
+    """Return a string based on a given integer"""
+    if i == 0:
+        return "string based on a given integer"
+    elif i == 1:
+        return "string based on a given integer"
+    elif is_odd(i):
+        return "even"
+    else:
+        return "odd"
+
+Note that your program only operates on integers (i.e., not floats, or strings).
+A more straightforward version of your code would be:
+def a_function(i):
+    """Return a string based on a given integer"""
+    if not (i in (0, 1, 2)):
+        return "Argument not in range 0, 1, 2"
+    elif i == 0:
+        return "even"
+    elif i == 1:
+        return "odd"
+    else:
+        return "odd"
+
+However, the key point to take away from this is to ensure that all elements in an integer sequence are of the same type.
+
+<|endoftext|>Q:
+
+Working of Operator<< in STL
+
+For the given statement:
+Map<double, int> countMap;
+countMap[0.0] = 0;
+cout << countMap;
+
+I am getting the output as:
+$12 "0.0"
+Can anyone explain what does $12 mean and the behavior of operator<<?
+
+A:
+
+It is operator<< for std::ostream.
+
+A:
+
+When you add
+#include <ostream>
+
+to your header file, it includes the declaration for
+std::ostream& operator<<(std::ostream&, const Map<double, int>&);
+
+which is almost entirely a syntactic sugar for
+void operator<<(std::ostream&, const Map<double, int>&)
+
+By default, std::ostream (i.e., all standard ostream objects) invokes the
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def min_bitmap(val, num_bits):
+    """Return smallest possible bitmap value for specified integer"""
+    assert is_even(val)
+    assert num_bits <= val // 2
+
+    ret = val % (1 << num_bits)
+    return ret
+
+def bitmap(val, num_bits):
+    """Return bitmap value for specified integer"""
+    if not is_even(val):
+        val, num_bits = num_bits, int(val / (1 << num_bits))
+
+    ret = 0
+    for i in range(num_bits):
+        ret |= is_even(val & ((1 << i) - 1))
+    return ret
+
+def rand_map(num_bits, num_items):
+    """Generate a random map from 1 to 1<<num_bits, randomly assigning
+    items to bins"""
+    assert num_bits <= num_items
+
+    while num_items:
+        ret = bitmap(0, num_bits)
+        yield ret
+        num_items -= 1
+
+def runs(f, itr):
+    """Run a random number of iterations of a function, and return the value it runs to"""
+    n = 100
+    random.seed(1)
+    sum_results = 0
+    while n > 0:
+        value = f(random.randrange(2**(num_bits-1)))
+        sum_results += value
+        n -= 1
+    return sum_results
+
+def main():
+    """Demonstrate the usage of the runs() function"""
+    num_bits = 10
+    num_items = 0
+
+    test_random_map = rand_map(num_bits, num_items)
+
+    sum_results = 0
+
+    # Use the runs() function
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i%2==0
+
+the exception will be thrown at
+list_first = []
+if(length >= 1):
+    list_first = list_first[0]
+
+but how can I avoid it? Any suggestions?
+
+A:
+
+if i % 2 == 0 is True for any integer, so the if statement always goes into the first branch. The easiest way to fix that is to use an else clause, which you are already doing:
+if(length >= 1):
+    list_first = list_first[0]
+else:
+    print "Invalid input: length"
+
+You might also want to consider using else-if chains to structure your flow of code. It looks like you want the first entry to be in the first sublist, and the second entry to be in the second sublist, so here's how you might do that:
+if(length >= 1):
+    list_first = list_first[0]
+else:
+    list_first = [None]
+else:
+    list_first = [None]
+list_second = []
+if(length >= 2):
+    list_second = list_second[0]
+else:
+    list_second = []
+
+A:
+
+If you want to make sure there are no even numbers in a list, you should use.count(None):
+if(length >= 1):
+    list_first = list_first[0]
+else:
+    list_first = [None]
+if(length >= 2):
+    list_second = list_second[0]
+else:
+    list_second = []
+
+This will return the correct value for length=0, 1, or 2, and None for other values.
+This is more idiomatic than using an elif, because an elif without a branch evaluates to False.
+Also note that you can do:
+if length >= 1:
+    list_first = list_first[0]
+else:
+    list_first = [None]
+
+Because of the else: branch, no value is actually returned.
+
+A:
+
+I would suggest using elif else else (3 branches)
+>>> def is_even(i
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+This is my code below:
+for i in range(0,20):
+    j=0
+    if is_even(i):
+        print(i)
+
+I am trying to use the is_even(i) function to determine whether or not an integer is even.
+However, it always print (0) instead of (2,4,6,8,10,12,14,16,18,20).
+What should I do to fix this problem?
+
+A:
+
+Since the if condition is equal to false always.
+i = 2
+if is_even(i):
+    print(i)  #prints out 0
+
+#Note: You are always passing the last value, because in a for loop.
+
+if is_even(2):
+    print(2)  #prints out 2
+
+#Or you can do the check before the for loop.
+
+if is_even(i):
+    for i in range(0,20):
+        print(i)
+        #You don't have to add j=0 every time.
+        #If you want to be sure, add j=0.
+
+<|endoftext|>, we showed that a SDSS-like sample can be efficiently derived from APOGEE by using parameters based on the predictions of full-spectral fitting analysis, e.g., the logg and \[Fe/H\] relations. Our analysis showed that the parameters of the low-resolution spectra play a critical role in providing high-precision stellar parameters, e.g., the \[$\alpha$/Fe\] ratios are more accurately determined than \[Fe/H\]. On the other hand, the increase in noise with decreasing S/N for the low-resolution data means that one must carefully ensure that the quality of the resulting stellar parameters does not deteriorate as a result of the reduction of the data. The upper panels of Fig. \[fig:apfitegara\_comparison\] indicate that in the absence of full-spectral fitting analysis the stellar parameters, e.g., the microturbulence, the stellar rotation and the reddening, can be significantly altered
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def levenshtein_distance(s, t):
+    """Levenshtein distance between two strings."""
+    return min(t.split('_') + s.split('_') + [''], key=len)
+
+# the fastest possible implementation
+def levenshtein(s, t):
+    n = len(s) + len(t)
+    if n == 0: return 0
+    if n == 1: return 1
+    D = [[0]*n for _ in range(n)]
+    idx = 0
+    s = s.split('_')
+    t = t.split('_')
+    for c in s:
+        if c!= '_':
+            D[idx][c] = idx
+        idx += 1
+    for c in t:
+        if c!= '_':
+            D[idx][c] = idx
+        idx += 1
+    return D[len(s)][len(t)]
+
+A:
+
+This should run quite fast:
+from difflib import LevenshteinDistance
+
+def levenshtein_distance(s, t):
+    return LevenshteinDistance(s.split('_'), t.split('_'))
+
+A:
+
+To compare two strings you don't need to split them, you can calculate the Levenshtein distance, which is the minimal number of insertions, deletions, substitutions and transpositions required to transform one string into the other.
+Example:
+s = "text"
+t = "text"
+print levenshtein(s, t)
+
+A more convenient way of doing the same:
+from difflib import LevenshteinDistance
+
+def levenshtein_distance(s, t):
+    return LevenshteinDistance(s, t)
+
+<|endoftext|>Q:
+
+How to make a space in a Wordpress website
+
+I
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    if i == 0:
+        return True
+    else:
+        return (i % 2 == 0)
+
+print(is_even(0), is_even(1), is_even(2), is_even(3), is_even(4), is_even(5), is_even(6), is_even(7))
+
+This won't run.
+Thanks for your help.
+
+A:
+
+I think you are missing 
+from fractions import Fraction
+
+at the top of your file
+
+<|endoftext|>1. Field of the Invention
+The present invention relates to a method of correcting the focus of a lens, and more particularly, to a method of correcting the focus of a lens in a scanning apparatus and a device using the same, which can be applied to a scanning system including an imaging system using a rod integrator or a wide angle lens.
+2. Description of the Related Art
+In general, when a scanning apparatus for a flatbed scanner or a photocopier, a scanner in a computer, and an image pickup apparatus mounted on a hand-held electronic device are used, the focus of the scanning system needs to be adjusted in such a way that an image of a subject to be read, e.g., a document placed on a platen, is formed on an image sensor such as a CCD. For this purpose, an automatic focusing (AF) function is generally provided in the scanning apparatus.
+For the purpose of continuously obtaining a constant image quality, various techniques have been developed to improve the accuracy of the automatic focusing (AF) function. However, in a case where a lens having a long focal length and a small diameter is used, focus control may be affected due to variations in optical characteristics.
+Furthermore, a lens having a long focal length and a small diameter has been used, and thus in order to use a light source having a small diameter for the purpose of minimizing the size of the scanning apparatus, it is desired to increase the ratio of an image field to a lens barrel. Accordingly, it is necessary to install the lens having a small diameter and long focal length on a platen that can have a larger curvature in such a way that a focusing error can be minimized. Accordingly, the space for installing the lens having a small diameter and long focal length is decreased. In this case, since the focal length of the lens is
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def my_remove_even(arr):
+    """Remove even elements from an array"""
+    return [i for i in arr if not is_even(i)]
+
+def main():
+    arr = list(range(10))
+    print(my_remove_even(arr))
+
+main()
+
+I would also highly recommend that you read the tutorial on list comprehensions.
+
+<|endoftext|>Q:
+
+Removing a DOM event handler on an element that's "cloned"
+
+Using jQuery (1.6.2), I am adding a handler for an event to the whole body, then trying to make that handler become an event handler for the newly created elements in my page, but I can't make the event handler on the existing elements go away.
+I add the handler like this:
+$('body').on('click', 'div.nostyle', function(e) {
+
+In the page, I am also adding a click handler, like this:
+$('body').click(function(e) {
+
+Then I try to make it work on the newly created elements, like this:
+$('body').on('click', 'div.nostyle', function(e) {
+  $('.clickme').click(function(e) {
+
+I also tried just adding
+$('div.clickme').click(function(e) {
+
+The code will not run, because it says that $('div.clickme') is undefined.  How can I remove the handler on the body and add it on the newly created elements?
+
+A:
+
+Use.delegate() to attach the handler to a static parent and then select dynamic children. This also makes your code easier to read as you don't have to select.clickme every time you want to use it.
+$('#parent').delegate('div.nostyle', 'click', function(e) {
+    $('.clickme').click(function(e) {
+        // do something
+    }
+});
+
+Edit
+The reason you aren't seeing the click me elements is because you haven't added any other class to them, like.clickme. I also removed the :first since you don't want to apply the function on
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i%2==0
+
+def is_odd(i):
+    """Check whether an integer is odd"""
+    return i%2==1
+
+def which_perm(i):
+    if i%2:
+        return 'even'
+    else:
+        return 'odd'
+
+for i in range(1,11):
+        if is_even(i):
+            print(i,which_perm(i),'=',i)
+        else:
+            print(i,which_perm(i),'=',i,'<',i%3)
+
+The output I got is 
+1 even = even
+3 odd = odd
+5 even = odd
+7 odd = even
+9 even = odd
+11 even = even
+
+The output I wanted was 
+1 = even
+3 = odd
+5 = even
+7 = odd
+9 = even
+11 = even
+
+A:
+
+It looks like you're getting the type of the number in your output, e.g. you output a 3 when an even number has value 3.
+To get the type output as desired, simply return a string from is_even().
+E.g.
+def is_even(i):
+    """Check whether an integer is even"""
+    return i%2==0
+
+def which_perm(i):
+    if is_even(i):
+        return 'even'
+    else:
+        return 'odd'
+
+<|endoftext|>The invention relates to an ion exchanger for use in an anion or cation exchange membrane chromatographic column, particularly a borate or metaborate exchanger, and also relates to the use of such anion or cation exchanger in a method for separating an analyte from a fluid sample.
+Analysis of fluid samples for analytes, such as drugs, toxins, or antigens is a routine part of medical diagnosis and can be used to detect the presence or concentration of these substances in human or animal fluids, or in the environment.
+One
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i%2==0
+
+```
+
+## 错误检测
+
+当您提交代码时，让您的代码一直被检查。
+我们可以通过运行`bin/tasks/check`以从代码中简单地检查每个位置。
+运行如下命令，来检查你的代码是否错误。
+
+```sh
+$ bin/tasks/check --help
+Check documentation files for spelling and grammar.
+
+Usage:
+  tasks/check [<dir>]
+
+  Options:
+    -h, --help             show this help message and exit
+    --no-exit              don't kill the program when it encounters an error
+    --output               specify the output file (default: stdout)
+    --src <filename>       specify the file to parse (default: code.xml)
+    --verbose              display output from internal checks
+    --wd <directory>       specify the directory to parse
+```
+
+这个向导类似于`make check`，但是它用`pycodestyle`进行测试，并且可以检查错误的文件中使用的变量等信息。
+
+```sh
+$ bin/tasks/check --no-exit --output code.xml --src code.xml
+```
+
+## 代码片段
+
+您�
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+# Implementation of my own function for what I need:
+def join_fun(arr):
+    return "\n".join([str(x) for x in arr])
+
+def get_by_type(type):
+    return sorted(list_of_list_of_floats.keys(), key=lambda x: (x == type), reverse=True)
+
+def get_type(input):
+    return input[0]
+
+print(join_fun(get_by_type(1)))
+print(join_fun(get_by_type("string")))
+
+A:
+
+The get_by_type function can be turned into a generator and will work as expected.  
+Also you can call sorted and reverse at the same time.  
+def get_by_type(type):
+    """List a set of types and return a list of corresponding arrays"""
+    return sorted(list_of_list_of_floats.keys(), key=lambda x: (x == type), reverse=True)
+
+# Using a generator
+# As you only want an list you need to iterate over a new generator
+# I'll create a generator instead of an open range to allow it to
+# work in a single thread
+def get_by_type(type):
+    for key in list_of_list_of_floats:
+        if key == type:
+            return list_of_list_of_floats[key]
+
+get_by_type("1")
+# Outputs
+['0.1410', '0.1220', '0.0460', '0.3780', '0.5170', '0.6660', '0.5420']
+
+get_by_type("string")
+# Outputs
+['0.1410', '0.1220', '0.0460', '0.3780', '0.5170', '0.6660', '0.5420']
+
+<|endoftext|>In new challenges and developments in mobile communications, the third generation (3G) communication system has been developed to provide packet-based data communication services, in order to cope
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def zip_matrix(l, m):
+    """Returns a list of numpy arrays which represents a square matrix."""
+    out = []
+    for i in range(len(l)):
+        out.append(l[i], m[i])
+    return out
+
+def orthog_matrix(a, b, d):
+    """Sets the i, jth element of the returned matrix to `a*d^i*d^j`."""
+    m = len(a)
+    for i in range(m):
+        for j in range(m):
+            if (a[i] + b[i] * d + b[j] * d**2 == 0) & (d!= 1):
+                break
+        else:
+            a[i] = a[i] * d
+            b[i] = b[i] * d
+            d = d**2
+    return a
+
+def similarity(X, y):
+    """
+    Returns the cosine similarity between a row vector of features and the 
+    corresponding row vector of labels (assumed to be binary).
+    
+    Arguments:
+        X:  A Numpy array which contains rows of features.
+        y:  A Numpy array which contains rows of labels (assumed to be binary).
+        
+    Returns:
+        A pair containing the cosine similarity and confidence for the
+        given two vectors.
+    """
+    return np.corrcoef(np.matrix(X).T, y)
+
+def extract_data(path,d):
+    """Extracts features and
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+We can write our is_even function like so:
+
+def is_even(i):
+    return i % 2 == 0
+
+However, the issue with the previous version is that we had to create a temporary integer to evaluate i % 2. This is a major problem because it creates extra work and object creation.
+
+We can implement the previous version of is_even like so:
+def is_even(i):
+    return i % 2 == 0
+
+We can write our is_even function like so:
+
+def is_even(i):
+    return i % 2 == 0
+
+However, the issue with the previous version is that we had to create a temporary integer to evaluate i % 2. This is a major problem because it creates extra work and object creation.
+
+We can implement the previous version of is_even like so:
+def is_even(i):
+    return i // 2 == 0
+
+Which solves the problem. However, this means that i is now evaluated twice! Once for i // 2 and once for i % 2.
+
+What we would like is for i to be evaluated twice, but to preserve the result, so that we don't get double the work.
+To do this, we have two options.
+
+Use the / operator to execute i twice, but preserve the result. We would then apply / to the result of i // 2. This does create a lot of extra work and is not ideal.
+Use a temporary variable, instead of using the mod operator.
+
+To implement our ideal version, we could write:
+def is_even(i):
+    return i // 2 == 0
+
+We can write our is_even function like so:
+
+def is_even(i):
+    return i // 2 == 0
+
+Which solves the problem. However, this means that i is now evaluated twice! Once for i // 2 and once for i % 2.
+
+This might seem unintuitive, but what happens is that since the % operator returns an integer, you get two ints out of it. This is then stored in a variable called remainder. The modulus operator then interprets the remainder as a number, and multiplies the number by 2.
+Hope this helps!
+
+<|endoftext|>Presbyterians Have Long Been among America�
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    if i%2 == 0:
+        return True
+    else:
+        return False
+
+This function checks whether the input is an even number, returning True or False as per the above code.
+Now, if the function is actually written as:
+def is_even(i):
+    """Check whether an integer is even"""
+    if i.is_even():
+        return True
+    else:
+        return False
+
+where is_even is simply called as:
+if is_even(3) == False:
+    pass
+
+The loop won't be checked until the end of the function, and I see no issue with this.
+Now if I try this:
+if is_even(3) == False:
+    pass
+
+else:
+    pass
+
+The entire else block will not execute.
+As such, to me, this seems to be a place where Python is returning to a point in the code as if it had hit the previous return True statement, or something like that.
+I just cannot seem to find anything that explains what I am seeing here.
+Any help on the matter would be highly appreciated.
+Thanks in advance!
+
+A:
+
+what you are seeing is no loop, but implicit else: pass at the end of each branch. When a branch returns, its else: pass runs, as if the code did nothing else, until the next return or break. That is called “fall through”.
+If you want a loop (while, for) you must do something like this
+while True:
+    if condition:
+        break
+    else:
+        pass
+
+or use else if, which also needs two separate statements
+if cond:
+    do_something
+else:
+    pass
+
+<|endoftext|>Q:
+
+Javascript not working in firefox
+
+I am having a very strange problem with Javascript on a page. 
+It works perfectly fine on IE but when I open it in Firefox it does not work!
+Here is my code
+<a href="javascript:;" onclick="verifySID();">Login</a>
+
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    if (i%2) == 0:
+        return True
+    else:
+        return False
+
+
+if __name__ == '__main__':
+    text = text1 = input("")
+    words = text.split()
+    for word in words:
+        if word.isalpha():
+            count_even = 0
+            for i in word:
+                if is_even(i):
+                    count_even += 1
+            if count_even % 2!= 0:
+                print('--', end=' ')
+            else:
+                print(word, end=' ')
+        else:
+            print('--', end=' ')
+    print()
+
+
+
+
+<|endoftext|>Update Required
+To play the media you will need to either update your browser to a recent version or update your Flash plugin.
+
+Chris Broderick has recorded an original song about Kansas City. He will play it with the orchestra for opening night. (June 28, 2011)
+
+Cast members of The Will Rogers Follies sing on a night the show opened in July (July 12, 1938)
+
+Cast members and audiences enjoy opening night of The Will Rogers Follies (June 15, 1941)
+
+The third annual Will Rogers Centennial Festival kicks off at Kansas City's Kauffman Center for the Performing Arts on June 26 with what many expect will be a celebration of not only the late film star and Kansas City native Will Rogers, but also the year he lived in Kansas City -- 1928.
+
+The festival's theme will be "Discover Kansas City: It's a Great Place to Live," and organizers promise plenty of activities, a parade, fireworks, an auction, dancing, workshops and all kinds of other
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return (i % 2 == 0)
+
+def main():
+    """
+    Reads integers from the user and prints a list of the squares of
+    those numbers.
+    """
+    nums = []
+    while True:
+        try:
+            num = input("Please enter an integer: ")
+            nums.append(num)
+        except EOFError:
+            break
+        if not nums:
+            break
+    print(list(map(lambda x: x*x, nums)))
+
+if __name__ == '__main__':
+    main()
+
+A:
+
+First of all, there's no reason for you to use try...except here. When input() throws EOFError, it's because there's nothing for it to parse. You can handle that simply by breaking. Also, you don't need to call list(). Instead, you can use list(map(...)) to use the results of map directly. Finally, you don't need to call lambda. You can simply put the function directly in the list call.
+Second, there are a couple of problems with your code. For one thing, you use a for loop where you only use one. This means your code will run that function a ridiculous amount of times, because you're simply defining it again and again. For another, if you do call it a ridiculous amount of times, it won't be efficient, because it will keep going until it reaches the end of the list.
+The solution is a for loop:
+def main():
+    """
+    Reads integers from the user and prints a list of the squares of
+    those numbers.
+    """
+    nums = []
+    while True:
+        try:
+            num = input("Please enter an integer: ")
+        except EOFError:
+       
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def is_odd(i):
+    """Check whether an integer is odd"""
+    return i % 2 == 1
+
+def get_config():
+    """Get the system configuration"""
+    assert type(os.environ['TOTAL_INSTANCES']) == str
+    assert type(os.environ['PYTHON_BINARY']) == str
+    assert type(os.environ['PYTHON_VERSION']) == str
+    assert type(os.environ['PYTHON_BUILD']) == str
+    assert type(os.environ['PYTHON_TZ']) == str
+    assert type(os.environ['PYTHON_TEST_MODULE']) == str
+    assert type(os.environ['PYTHON_SOURCES']) == str
+    assert type(os.environ['PYTHON_CACHE_DIR']) == str
+    assert type(os.environ['PYTHON_BIN_PATH']) == str
+    assert type(os.environ['PYTHON_INC_PATH']) == str
+    assert type(os.environ['PYTHON_PREFIX_PATH']) == str
+    assert type(os.environ['TEST_RUNNER']) == str
+    assert type(os.environ['TEST_MODULE_PREFIX']) == str
+    assert type(os.environ['TEST_PACKAGES_MODULE_PREFIX']) == str
+    assert type(os.environ['TEST_PROGRAM_NAME']) == str
+    assert type(os.environ['TEST_FOLDER']) == str
+    assert type(os.environ['TEST_RUNNER_MAIN']) == str
+    assert type(os.environ['TEST_MODULE_PATH']) == str
+    assert type(os.environ['TEST_MODULE_
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+class MyList(list):
+    """Add a custom behavior to the list."""
+    def insert(self, index, value):
+        """Insert an item into the list."""
+        if index >= len(self):
+            super(MyList, self).insert(index, value)
+        else:
+            super(MyList, self).insert(index, value)
+        self.modify()
+
+A:
+
+The subclassing here is a bit unusual.  Normally, when you subclass a builtin, you are simply adding new methods that do what the builtin does.
+Usually, when you subclass a builtin, you want to emulate the builtin using the new methods.  
+In this case, I'd make MyList a new list, or even better, a "deque" (double-ended queue).  The difference is that MyList is "bounded".  You can't put items in the middle, and items that you add are pushed to the end.  This is usually appropriate for a list.  A deque, on the other hand, can add items to the end and the beginning (e.g., so that you can have random access), as long as the list size is greater than one (so you can't put items at the start or end).
+A good example of this can be seen in the range and xrange functions.  They are very similar, but xrange is more flexible.  It can add items to the beginning or end.
+The code would be something like:
+class MyList(list):
+    def __init__(self, *args):
+        super(MyList, self).__init__(self, *args)
+
+    def __len__(self):
+        return len(self)
+
+    def __iter__(self):
+        return iter(self)
+
+    def insert(self, index, value):
+        """Insert an item into the list."""
+
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+# helper function to find the median of a list of sorted numbers
+# using the first index as the sorting index
+def find_median(l):
+    """return the index of the median element
+    in a list of unsorted elements"""
+    
+    # find index of the middle element
+    # index 0 is smallest, index num_elements - 1 is the largest
+    # the midpoint is the average of the 2nd half of the list
+    # if the middle element is also in the 1st half of the list
+    # it will be returned.  if not, the next larger element in the list
+    # will be returned
+    for i in range(len(l)):
+        if is_odd(i):
+            return i - 1
+    return len(l) // 2
+                        
+
+# define a list of numbers
+l = [1,2,3,4,5,6,7,8,9,10]
+
+# sort the list
+median = find_median(l)
+print(l[median])
+<|endoftext|>Q:
+
+accessing javascript object from php
+
+I am new to object oriented javascript, so bear with me.
+I have a script at a subdirectory of my site which does some very simple math.
+I created an object that wraps the javascript methods and variables in a very basic way, like so:
+function Scale (a, b, c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+}
+
+Scale.prototype.doMath = function () {
+    // do the math here
+}
+
+If I was doing this in the global context, the code would be
+function Scale (a, b, c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+}
+Scale.prototype.doMath = function () {
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i & 1 == 0
+
+def is_zero(i):
+    """Check whether an integer is zero"""
+    return i == 0
+
+def is_true(i):
+    """Check whether an integer is true"""
+    return i > 0
+
+def is_false(i):
+    """Check whether an integer is false"""
+    return i < 0
+
+# Checking if numbers are finite
+def is_finite(i):
+    """Check whether an integer is finite"""
+    if type(i) == int:
+        return i!= -2147483648 and i!= 2147483647
+    elif type(i) == float:
+        return i!= -2147483648 and i!= 2147483647
+    else:
+        raise TypeError('An integer type should be provided as input.')
+
+# Checking if lists are finite
+def is_finite(lst):
+    """Check whether a list is finite"""
+    return all(is_finite(i) for i in lst)
+
+# Checking if arrays are finite
+def is_finite(arr):
+    """Check whether an array is finite"""
+    return all(is_finite(i) for i in arr)
+
+# Summing lists
+def sum_list(lst):
+    """Sum a list"""
+    return sum(lst)
+
+# Comparing lists
+def cmp_list(lst, rt):
+    """Compare two lists, returning an integer value (e.g., 1 for the first
+    list, -1 for the second)"""
+    if type(lst) == list:
+        return 1 if lst == rt else -1
+    else:
+        return type(lst) == type(rt) and lst == rt
+
+# Comparing arrays
+def cmp_array(arr, rt):
+    """Compare two arrays, returning an integer value (e.
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+
+class DrawWinner():
+    def __init__(self,i):
+        self.i = i
+        self.color = (255,255,255)
+
+    def draw(self):
+        """Drawing"""
+        #moves it to the next row
+        self.i += 1
+        #takes away 1 from the current one, and 1 from the current.
+        self.color[1] = 255 - self.color[1]
+        self.color[0] = 255 - self.color[0]
+        self.color = (255,255,255)
+        #sets its value to the value of one of the two numbers.
+        return self.color
+
+    def sort_three_draws(self):
+        #performs an inner sort on the first three entries.
+        two_array = []
+        first_array = []
+        second_array = []
+        second_array.append(self.color)
+
+        first_array.append(self.color)
+        first_array.append(self.color)
+        first_array.append(self.color)
+
+        second_array.sort()
+
+        return first_array, second_array
+
+    def game(self):
+        """Functionality of game of life"""
+        #steps
+        #prints
+        #ends
+        print("-"*20)
+        print("-"*20)
+        print("-"*20)
+     
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i%2 == 0
+
+However, I am getting this error:
+NameError: name 'is_even' is not defined
+
+Is there something I am doing wrong? 
+
+A:
+
+You can check the class of the variable.
+class MyClass():
+    def is_even(self):
+        if isinstance(self, int):
+            if self%2 == 0:
+                return True
+        else:
+            return False
+
+<|endoftext|>Current electronic devices are commonly used in many different scenarios. For example, a user of a cellular phone may use the cellular phone for personal communication, business communication, and even during a drive to conduct business. In some scenarios, the user of the cellular phone may be working on a laptop computer to conduct business using the cellular phone. In some scenarios, the user may be working on a tablet computer or other types of handheld or laptop computers to conduct business using the cellular phone.
+Despite advances in technology, currently existing electronic devices may not provide an adequate user experience. In some examples, features of electronic devices may not be optimized or properly considered during the development of the electronic device. For example, a touch screen may not properly provide an ergonomic or intuitive user experience to a user of an electronic device. As another example, a screen may not be ergonomic for a user of the electronic device. As such, a need may exist for improved methods, systems, and apparatus for enhancing the user experience of an electronic device.<|endoftext|>Thiol modulation and antioxidant activity of Lactobacillus spp. isolated from baby food.
+Thiol compounds, which are present in food and are easily oxidized, are very important as markers of food quality and health. To identify and characterize antioxidant compounds present in Lactobacillus spp. isolated from baby food, and to evaluate the ability of these strains to counteract the oxidation of beta-carotene. Microorganisms isolated from commercial infant food were characterized by traditional biochemical tests, and, to identify the principal antioxidant compounds, a screening assay using a combination of antioxidant activity and fragmentation patterns from mass spectrometry, performed in the linear and cyclic thiocarbonyl mode, was used. Lactobacillus curv
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    if i % 2 == 0:
+        return True
+    return False
+
+print is_even(8) #Returns True
+
+<|endoftext|>
+
+Russian nuclear-powered icebreaker 'Krasniy Primorsky'
+
+Sputnik
+
+×
+
+As public attitudes in Russia to the recently renewed military presence of NATO in the Baltic states deteriorate, top officials are forced to confront a new and threatening security problem. A new build nuclear powered icebreaker, with the capacity to break through ice to an area four times the size of the US and 11 times the size of the UK combined, is currently under construction in the Arctic port of Murmansk. Moscow expects the vessel, to be called Krasniy Primorsky, to be the first of three vessels that will carry the same name. A spokeswoman for the Murmansk port operator, SES, told the Guardian on Thursday: "They are putting the final touches. The construction site is on the shore and all buildings are under the radar of the intelligence agencies." Once completed, the 11,000 ton vessel, capable of travelling at 30 knots, will be a super-sized version of the icebreaker Russia has used to reach the most remote corners of Antarctica. Until now the only known civilian use for the vessel is to reach the uninhabited Taimyr Peninsula, but the Krasniy Primorsky is likely to be deployed in the Arctic, too. The growing concern in Moscow that the US, Europe and NATO are set to deploy forward-based missile systems in countries bordering Russia has lead to a frantic search for a means to penetrate and bypass the missile systems, without suffering catastrophic damage. President Putin has ordered the work to begin immediately, with the icebreaker scheduled to be launched on October 1, before the end of the year. And Russian media speculation about the capabilities of the Krasniy Primorsky are already suggesting the first of its kind state of the art navigation system. It is hoped the Russian icebreaker, with the capacity to carry 300 tons of cargo and be equipped with a helipad, will be capable of penetrating ice twice as thick as the Antarctic ice field, which regularly appears to be preventing resupplies of fuel and other critical supplies from the outside world. It will also be equipped with an arsenal of drills capable of puncturing the permafrost, allowing it to release the methane gas beneath the sea floor. There are questions about the lifespan
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def bcd(a, b, c):
+    """Convert decimal to BCD"""
+    bcd = ""
+    a = int(a)
+    b = int(b)
+    c = int(c)
+    bcd = "%04i" % (a + b + c)
+    while b > 0:
+        b = b//10
+        bcd = bcd + "%02i" % b
+    return bcd
+
+def convert_bits(a, b, c):
+    """Convert an integer to bits"""
+    a = int(a)
+    b = int(b)
+    c = int(c)
+    bits = []
+    while a >= 0:
+        if a == 0:
+            break
+        bits.append(a % 2)
+        a = a // 2
+    while b > 0:
+        if b == 0:
+            break
+        if b < 10:
+            bits.append(int(b))
+            b = b // 10
+        else:
+            bits.append(int(b) // 10)
+            b = b % 10
+    while c > 0:
+        if c == 0:
+            break
+        bits.append(int(c))
+        c = c // 10
+    while b > 0 and c > 0:
+        if b > c:
+            bits.append(int(b))
+
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def is_odd(i):
+    """Check whether an integer is odd"""
+    return i % 2!= 0
+
+def is_even_or_odd(i):
+    """Check whether an integer is even or odd"""
+    return is_even(i) or is_odd(i)
+
+def is_between(a, b, step=1):
+    """Check whether an integer is between a and b"""
+    for i in range(b, a, step):
+        if is_odd(i):
+            return False
+    return True
+
+def is_monotonic_increasing(a, b):
+    """Check whether an integer sequence is monotonically increasing"""
+    return all(is_even_or_odd(i) for i in a)
+
+def is_monotonic_decreasing(a, b):
+    """Check whether an integer sequence is monotonically decreasing"""
+    return all(is_even_or_odd(i) for i in a)
+
+def reverse(arr):
+    """
+    Return a copy of the array in reverse order
+
+   .. note::
+        The input array and return array must have the same length.
+
+    Example:
+
+    >>> arr = [1, 2, 3]
+    >>> reverse(arr)
+    [3, 2, 1]
+    """
+    lst = copy(arr)
+    for i in range(lst.length):
+        lst[i], lst[lst.length - i - 1] = lst[lst.length - i - 1], lst[i]
+    return lst
+
+def remove_duplicates(arr):
+    """Return a copy of the array in which duplicate entries are removed"""
+    seen = set()
+    return sorted(arr)
+
+def sort_by_index(arr, key):
+    """Sort by
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return not (i % 2)
+
+def guess_winner(moves, i):
+    """Return the list of winning moves"""
+    if i < 1:
+        return []
+    elif i > 6:
+        return [moves[i-1]]
+    return [moves[i], moves[i+1], m1, m2]
+
+def get_min_best(moves, i, lo):
+    """If lo is smaller, return the best if i is even, else the smallest"""
+    if is_even(i):
+        return m1
+    else:
+        return m2
+
+def get_min(moves, lo):
+    """Return the smallest number in moves"""
+    if lo < 2:
+        return 2
+    if lo > 6:
+        return 6
+    for i in xrange(1, 7):
+        if guess_winner(moves, i):
+            return i
+    return moves[0]
+
+m1, m2 = get_min(moves, lo)
+lo = get_min_best(moves, i, lo)
+print "min:", lo
+
+moves = [1,2,4,5,6,7,8,9]
+lo = 1
+print "min with lo = 1:", get_min(moves, lo)
+print "min with lo = 2:", get_min(moves, lo)
+
+moves = [1,2,3,4,5,6,7,8,9,10]
+lo = 2
+print "min with lo = 2:", get_min(moves, lo)
+print "min with lo = 3:", get_min(moves, lo)
+
+moves = [1,2,3,4,5,6,7,8,9,10,11]
+lo = 3
+print "min with lo = 3:",
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i & 1 == 0
+
+def get_prime(n):
+    """
+    Return the smallest prime larger than n.
+    """
+    while True:
+        if n == 2 or is_even(n):
+            return n
+        for i in range(2, n):
+            if n % i == 0:
+                return n
+            n //= i
+        return n
+
+# A trivially modified Sieve of Eratosthenes for finding primes.
+def sieve(limit):
+    """
+    Return the sieve of Eratosthenes for the given limit.
+    """
+    primes = [True] * limit
+    for n in range(3, limit + 1, 2):
+        primes[n] = False
+    for i in range(3, int(limit / 3), 2):
+        primes[i * 2 + 1] = False
+        primes[i * 2] = False
+    return primes
+
+# Create the Sieve of Eratosthenes to generate the primes up to limit.
+def sieve_primes(limit):
+    """
+    Return the sieve of Eratosthenes for the given limit.
+    """
+    primes = sieve(limit)
+    while True:
+        i = 0
+        while True:
+            if primes[i]:
+                primes[i * 2 + 1] = False
+                primes[i * 2] = False
+                i
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def is_odd(i):
+    """Check whether an integer is odd"""
+    return i % 2!= 0
+
+def bin_to_float(b):
+    """Convert a bin value to a float"""
+    return float(b)
+
+def float_to_bin(x):
+    """Convert a float to a bin value"""
+    return bin(x)[2:]
+
+def create_hls_app():
+    """Create and start the HLS app"""
+    # Arrange HLS app data
+    app_data = OrderedDict()
+
+    # Change "serv_addr" to "serv_addr = "
+
+    app_data['scheme'] = 'https'
+    app_data['serv_addr'] = '192.168.1.100'
+    app_data['prv_sid'] = 1
+    app_data['prv_key_file'] = '.'
+    app_data['serv_opts'] = OrderedDict()
+    app_data['serv_opts']['ssl'] = True
+    app_data['serv_opts']['key_file'] = './testkey.pem'
+
+    app_data['tests'] = OrderedDict()
+    # It will be used when testing SNMP MIBs
+    app_data['tests']['per_mibs'] = {}
+
+    app_data['tests']['per_mibs']['default'] = OrderedDict()
+    app_data['tests']['per_mibs']['default']['mib_names'] = []
+
+    app_data['tests']['per_mibs']['default']['mib_names'][0] = 'cisco_ios_snmp'
+    # Classify mibs into modules
+    mib_list = ['cisco_ios_snmp.mib']
+    for mib in mib_list:
+
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def main():
+    bits = int(input("enter the number of bits\n"))
+    bits = bits // 2
+    bits = ((int(bits) * 2) - 1) // 2
+    is_even = 0
+    for i in range(2**bits):
+        if is_even == 1:
+            print(i)
+        else:
+            is_even = 1
+        if is_even == 0:
+            is_even = 0
+main()
+
+Error:
+Traceback (most recent call last):
+  File "/Users/nathanael/PycharmProjects/HomerSimulator/venv/lib/python3.7/site-packages/matplotlib/backend_bases.py", line 2132, in do_set_matplotlib_visible
+    self._matplotlib.toggle(visible=visible)
+  File "/Users/nathanael/PycharmProjects/HomerSimulator/venv/lib/python3.7/site-packages/matplotlib/backend_bases.py", line 3273, in toggle
+    self._backend_bases._check_bool(**kwargs)
+  File "/Users/nathanael/PycharmProjects/HomerSimulator/venv/lib/python3.7/site-packages/matplotlib/backend_bases.py", line 3610, in _check_bool
+    ret = func(val, **kwargs)
+  File "/Users/nathanael/PycharmProjects/HomerSimulator/venv/lib/python3.7/site-packages/matplotlib/backend_bases.py", line 3479, in _call_if_exists
+    **kwargs)
+  File "/Users/nathanael/PycharmProjects/HomerSimulator/venv/lib/python3.7
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def get_square_numbers_for_k():
+    """Return a list containing the squares of the first k integers"""
+    k = int(input("Enter the number of integers: "))
+    list_of_numbers = []
+    for i in range(1, k + 1):
+        list_of_numbers.append(i ** 2)
+    return list_of_numbers
+
+print(get_square_numbers_for_k())
+
+#Insert print statement to make sure every call gets called 
+#at the beginning, because I want to make sure they get printed 
+#after the imports to make sure the imports run before getting back to the main function 
+
+#main function  
+def main():
+    print("Program Start")
+    print("Call to is_even function")
+    #problem here 
+    even_sum = 0
+    #problem here 
+    odd_sum = 0
+    for i in range(1,7):
+        if is_even(i):
+            even_sum += i
+        else:
+            odd_sum += i
+    print("Even Sum:", even_sum)
+    print("Odd Sum:", odd_sum)
+
+main()
+
+The output of this is the following:
+
+Here is the output I get in the if is_even() line:
+Traceback (most recent call last):
+  File "B:\vac\CCS464\Barton\Programing and Computer Science\Homework and Projects\Dynamically changing code at runtime - python\P5.py", line 33, in <module>
+    main()
+  File "B:\vac\CCS464\Barton\Programing and Computer Science\Homework and Projects\Dynamically changing code at runtime - python\P5.py", line 25, in main
+    even_sum = 0
+NameError: name 'even_sum'
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def sum_f(i, a, b):
+    """Finds the sum of the elements in a"""
+    s = 0
+    for e in a:
+        s = s + e
+    return s
+
+#Calling the functions to check whether a number is even or odd
+a = [1, 5, -5, 4, -4]
+b = [10, 10, 20, 20, 30]
+c = [10, 20, 30, 20, 40]
+
+print("This number: {} is even".format(is_even(10)))
+print("This number: {} is odd".format(not is_even(10)))
+
+print("The sum of the elements in a = {}".format(sum_f(i, a, b)))
+print("The sum of the elements in b = {}".format(sum_f(i, b, c)))
+
+Now, I am calling is_even function to check the number 10. If it's even, I have to print Yes. Otherwise, No.
+However, I am getting the following output:
+This number: 10 is even
+This number: 0 is odd
+The sum of the elements in a = 50
+The sum of the elements in b = 60
+
+Instead, I want this output:
+This number: 10 is even
+This number: 0 is odd
+The sum of the elements in a = 30
+The sum of the elements in b = 20
+
+Can you help me understand what mistake I am making?
+
+A:
+
+I just figured it out. The is_even function is an extension of python. Thus, I have to import it in the program and use the function directly.
+Also, an example on how I could have a program output:
+#Dot Python Project 2.8  
+#Multiply two numbers
+#A. Read a number
+#B. Read the sum of that number
+#C. Print the correct answer
+
+def main():
+    """This program will multiply two numbers and will print the sum"""
+    print ("This program will multiply two numbers and will print the sum")
+
+    #User input
+    user_input = int(input("Enter a number:
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i%2==0
+
+def main():
+    """Main function, which creates and initializes a map and prints some of it's elements"""
+    coordinates = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+    map = OrderedDict()
+
+    for c in coordinates:
+        map[c] = c
+
+    for c in map:
+        if is_even(c):
+            print('\n{}: even'.format(c))
+
+    for k, v in map.items():
+        if is_even(v):
+            print('\n{}: even'.format(k))
+
+main()
+
+<|endoftext|>Athletics at the 2007 Pan American Games – Women's 800 metres
+
+The women's 800 metres event at the 2007 Pan American Games took place on July 26, 2007.  The defending Pan American Games champion is Julia Irvin of Canada.
+
+Medalists
+
+Results
+
+Heats
+Qualification: First 4 of each heat (Q) and the next 4 fastest (q) qualified for the semifinals.
+
+Semifinals
+Qualification: First 4 of each semifinal (Q) and the next 2 fastest (q) qualified for the final.
+
+Final
+
+References
+
+Category:Athletics at the 2007 Pan American Games
+2007
+Category:2007 in women's athletics<|endoftext|>Anthony Latta
+
+Anthony Latta (born August 14, 1978) is a former American football linebacker in the National Football League. He was signed by the New York Giants as an undrafted free agent in 2001. He played college football at the University of Nevada.
+
+Latta has also been a member of the Kansas City Chiefs and Tennessee Titans.
+
+Professional career
+Latta attended the University of Nevada. He was drafted by the New York Giants in the 7th round of the 2001 NFL Draft. He played his entire NFL career with the Giants and was a special teams ace, but started only one game in 2006 and 2007 due to injury. On March 3, 2008, Latta was released. He spent the 2008 and 2009 seasons on practice squads of the
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    if i % 2 == 0:
+        return True
+    else:
+        return False
+
+# First solution
+a = [2, 5, 12, 23, 34]
+n = len(a)
+for i in range(n):
+    if i % 2 == 0:
+        break
+    else:
+        i += 1
+
+print(i)
+
+# Second solution
+while True:
+    if a[i] % 2 == 0:
+        break
+    else:
+        i += 1
+
+print(i)
+
+# Last solution
+i = 0
+for i in a:
+    if i % 2 == 0:
+        break
+    else:
+        i += 1
+
+print(i)
+
+A:
+
+I would use a third solution which uses a generator expression. It produces results in an order that (I think) you might expect for these numbers.
+i = (i for i in a if i % 2 == 0)
+
+print(i)
+
+The key part is to make i decrement to become (i - 1) to produce the same result in the same order. The expression is equivalent to:
+for i in a:
+    i -= 1
+    if i % 2 == 0:
+        break
+
+(If we're willing to use a "language construct" such as from itertools import count, we could make a count down to 0.)
+
+<|endoftext|>)
+                {
+                    _console.Clear();
+                    WriteLine(currentCommand);
+                    Write("\n");
+                    _console.Clear();
+      
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def update_list(list,k):
+    """Update the value of a list based on a given k
+    Parameters:
+        list - [1,2,3,4,5]
+        k - int
+    Returns:
+        Updated list: [0,2,3,4,6]
+    """
+    if k == 1:
+        return [k]
+    elif k % 2 == 0:
+        if len(list) == 0:
+            return [k]
+        else:
+            return [list[0]] + update_list(list[1:],k)
+    else:
+        return update_list(list[1:],k) + [list[0]]
+
+For testing purposes, I would expect the update_list() method to return an updated list that consists of [0,2,3,4,6] once I call it with a value of k = 3. In the code I have a small value of k that is supposed to show what the function will look like.
+
+A:
+
+You should return the updated list, not use + to concatenate:
+>>> from math import sqrt
+>>> def is_even(i):
+        return i % 2 == 0
+>>> def update_list(list,k):
+        if k == 1:
+            return [k]
+        elif k % 2 == 0:
+            if len(list) == 0:
+                return [k]
+            else:
+                return [list[0]] + update_list(list[1:],k)
+   
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+
+def draw_table():
+    """Creates a table with the defined parameters"""
+    width = 7
+    height = 1.8
+    font_size = 9
+    header_words = ["Seed", "Generation", "Worst", "Average", "Good", "Gini"]
+
+    values = [['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+              ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+              ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+              ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']]
+
+    # start the table
+    # create the table header
+    line1 = [header_words[i] for i in range(0, len(header_words) + 1)]
+    for y in range(0, height):
+        line1.append("=" * width)
+    line = '\n'.join(line1)
+
+    # Draw rows and columns
+    for y in range(0, height):
+        line2 = '=' * width
+        for x in range(0, width):
+            line2 = '-' * width
+        line += line2
+        print(line, end=' ')
+
+    # Print values and names
+    for i in range(0, len(values[0])):
+        line3 = '|' + str(values[0][i])
+        for y
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def is_odd(i):
+    """Check whether an integer is odd"""
+    return i % 2!= 0
+
+def is_even_plus(i):
+    """Check whether an integer is even and positive"""
+    return i % 2 == 0 and i > 0
+
+def is_odd_plus(i):
+    """Check whether an integer is odd and positive"""
+    return i % 2!= 0 and i > 0
+
+def is_even_or_odd(i):
+    """Check whether an integer is even or odd"""
+    return i % 2 == 0 or i % 2!= 0
+
+def is_even_or_odd_plus(i):
+    """Check whether an integer is even or odd and positive"""
+    return i % 2 == 0 or i % 2!= 0 and i > 0
+
+def is_even_or_odd_plus_odd(i):
+    """Check whether an integer is even or odd and positive"""
+    return i % 2 == 0 or i % 2!= 0 and i > 0 and i % 2!= 0
+
+def increment_one(i):
+    """Increment the given integer by one"""
+    return i + 1
+
+def increment_two(i):
+    """Increment the given integer by two"""
+    return i + 2
+
+def increment_three(i):
+    """Increment the given integer by three"""
+    return i + 3
+
+def increment_four(i):
+    """Increment the given integer by four"""
+    return i + 4
+
+def increment_five(i):
+    """Increment the given integer by five"""
+    return i + 5
+
+def increment_six(i):
+    """Increment the given integer by six"""
+    return i + 6
+
+def increment_seven(i):
+    """Increment the given integer by seven"""
+    return i + 7
+
+def increment_eight(i):
+    """Increment the given integer by eight"""
+    return i + 8
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+data = [[1], [2], [3], [4], [5], [6], [7], [8], [9], [10]]
+
+key = [None, 1, 2, 3, 4, 5, 6, 7, 8]
+
+def main():
+    n, k = key, range(n)
+
+    output = []
+    counter = 0
+
+    # Replace the last key with all
+    # possible values for the first key
+    for i in range(k[0]):
+        key[0] = i
+        output.append(n[-1])
+
+    while output:
+        if is_even(counter):
+            output.pop()
+            print "y",
+        elif is_odd(counter):
+            output.append(n[-1])
+            counter += 1
+
+        else:
+            counter += 1
+            print "n", n
+
+# Call main()
+main()
+
+What it will produce is an output of
+n 1
+n 2
+n 3
+n 4
+n 5
+n 6
+n 7
+n 8
+n 9
+n 10
+
+so I'd like to try to see if the logic is correct. The idea is that the function gets the last key and tries to find it's value in the list (in an if condition) and then either pops it off of the list or increments the counter. The output looks correct in my head, but is there a better way to accomplish this or am I missing something else that could possibly be optimized?
+
+A:
+
+You can make this a lot shorter if you consider using Counter instead of the "not-quite"-set of values. This way you can use it directly as a dictionary mapping from keys to counts.
+>>> from collections import Counter
+>>> counter = Counter([1,2,3
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i%2 == 0
+
+You may want to use a list, dictionary, or set for the partitioning instead, and simply iterate over them, for example:
+if is_even(i) and not is_odd(i):
+    yield (i,)
+
+for k in my_list:
+    if is_even(k):
+        yield (k,)
+
+Finally, when is_even is a single liner, the for-else is unnecessary. Just yield all even values:
+def is_even(i):
+    return i%2 == 0
+
+for i in my_list:
+    yield (i,) if is_even(i) else ()
+
+<|endoftext|>England coach Eddie Jones has vowed to stay the course and expects his side to defeat the World Cup holders this weekend despite the concerns that the team is still susceptible to upsets.
+
+There is growing concern over England’s preparations after their first World Cup warm-up win was overshadowed by an embarrassing loss to France which was worsened when it emerged the side had been training using session football.
+
+A week of intense preparation is now underway ahead of Saturday’s Test against New Zealand in Auckland, with Jones taking the lead in the national team since his appointment as head coach last year.
+
+However, that should not distract England’s focus on New Zealand, and Jones will hope his side can put those concerns behind them and finally start preparing for next summer’s tournament in Japan.
+
+“I’m not going to take sides into account but I will comment on what we are trying to do to prepare for a different tournament,” Jones said.
+
+“The England team needs to get to the summer tournament. You will see us play with the same sort of ambition that we are playing this week and the next two weeks.
+
+“There are a few dark moments. I’ve had a few of those moments and a few of those moments this week with my other team.
+
+“What we’ve done is put that aside for the moment and focus on what we are doing at the moment. I’m not sitting there worrying about whether we are going to win the World Cup or not.
+
+“It’s about what we are doing now, not about what we are going to
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+
+def trim_end(s):
+    """Trims the trailing whitespace from the input string"""
+    return s.strip()
+
+
+def python_compat(funct):
+    """Fix incompatible builtins"""
+    if funct.__module__ == '__builtin__':
+        # this is used for e.g. return mod_id; _ld_string.hex(mod_id)
+        return None
+    return funct
+
+
+def get_ip_by_ip(src, dst):
+    """Returns source ip to dst ip based on a list of block lists"""
+    ip = []
+    block_list = []
+    for i, _ in enumerate(src):
+        block_list.append((i % 2, i // 2))
+
+    block_list.reverse()
+    for i in range(1, len(block_list)):
+        if block_list[i] == block_list[i - 1]:
+            # cut the extra information as this is irrelevant
+            block_list[i] = block_list[i - 1]
+            block_list[i - 1] = []
+            break
+
+    for j in block_list:
+        if j[0] == dst[0]:
+            if j[1] == dst[1]:
+                return '0.0.0.0'
+            ip.append(str(j[0]))
+            ip.append(str(j[1]))
+    return '0.0.0.0'
+
+
+def get_ip_by_port(src, dst):
+    """Returns
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+@memoized
+def is_next_twos_after(x, n):
+    """Return the first index of the nth pair after x
+    n > 1, if such exists"""
+    idx = 0
+    while True:
+        nx = x + n - 1
+        idx += 1
+        if not is_even(nx):
+            return idx
+        x += 2
+
+@memoized
+def is_next_twos_after_or_after(x, n):
+    """Return the first index of the nth pair after x
+    n > 1, if such exists, or False otherwise
+    """
+    return is_next_twos_after(x, n) or is_next_twos_after(x - 2, n)
+
+def is_intersecting(intervals):
+    """Check whether a list of intervals intersect"""
+    if not intervals:
+        return True
+
+    i0, j0 = min(intervals)
+    i1, j1 = max(intervals)
+
+    return i0 <= i1 and i1 <= j0 and j1 <= i0
+
+
+def is_disjoint(intervals):
+    """Check whether a list of intervals are disjoint"""
+    if not intervals:
+        return True
+
+    i0, j0 = min(intervals)
+    i1, j1 = max(intervals)
+
+    return i0 < j1 or i1 < j0 or i0 == j1 or i1 == j0
+
+
+def reindex(ar, n):
+    """
+    Return the nth element of ar
+    """
+    if n == 0:
+        return ar[0]
+    else:
+        return ar[n - 1
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def binary_to_int(bin):
+    """Return integer from the given binary string"""
+    return int(bin, 2)
+
+def bin_to_int(bin):
+    """Return binary string from the given integer"""
+    return bin.zfill(32)
+
+# Funtions used by test vectors
+def bits(i):
+    """Return bit string for integer"""
+    res = []
+    for b in i:
+        res.append(bin_to_int(str(b)))
+    return ''.join(res)
+
+def prn(i, offset=1):
+    """Prints bits with specific offset, e.g. offset=2 prints the second to
+    last bit of an int"""
+    return bin_to_int(bin_to_str(bits(i), offset=offset))
+
+def test_vectors():
+    for i in range(1, 10000):
+        if is_even(i):
+            print(
+                "Encoded: " + str(i) + " Hex: " + str(bin_to_int(bin_to_str(bits(i)))) + "\n"
+            )
+
+def main():
+    test_vectors()
+
+if __name__ == "__main__":
+    main()
+
+<|endoftext|>Q:
+
+How to get module of a jar file?
+
+is there any way to get to module of a Jar file?
+I have a method which will search a certain object.
+And I want to get the module and class of that object so I can see if it is in the library.
+
+A:
+
+Use reflection to get information from a jar file. For example:
+import java.util.jar.*;
+
+/**
+ * Locate the module which contains the specified class.
+ */
+public class Main {
+    public static void main(String[] args) throws Exception {
+   
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i & 1 == 0
+
+Now we want to apply this function on each element of our list. We can just use map for this:
+even_numbers = map(is_even, numbers)
+
+You could also do this with a list comprehension, but map is often simpler and more expressive, especially when a lot of function calls are involved.
+
+Alternatively, as an expression:
+even_numbers = [is_even(i) for i in numbers]
+
+Now, you can use any function that takes a single argument. If we are interested in numbers divisible by two, we could just use divisible_by_two instead of is_even:
+is_even = lambda i: i & 1 == 0
+even_numbers = [divisible_by_two(i) for i in numbers]
+
+Once you know how to convert the list to a generator, you can make it take a function as its argument, using next(g). The list comprehension works as a special case of this, which is why it has a more elaborate syntax:
+is_even = lambda i: i & 1 == 0
+[next(is_even) for i in numbers]
+
+Or, you could use functools.partial to generate a generator-function with the arguments given to partial unpacked as parameters:
+is_even = partial(lambda i: i & 1 == 0)
+[is_even(i) for i in numbers]
+
+<|endoftext|> of your childhood. Why play a board game called "Monster," about giant hairy monsters who eat small furry animals, when you could play a game about hungry giant fiends who devour women in their sleep? Why worry about "baby" when "kitty" can be just as funny?
+
+If you want a straightforward picture of what is wrong with "baby," consider the game Cooties. It's a game about infections. (They're "infectious.") Some of the characters are a college professor, a former Miss America, and a young boy. The boy is young, and cute, and not too clever. (He's a teacher, but they call him "student.") There's an Infectious Disease Professor, a Tumor Diagnosis Doctor, and a helpful scientist. If you play well, you end up with lots of little mutant monsters running around the classroom. You need to keep them away from the boy, but they don
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def is_odd(i):
+    """Check whether an integer is odd"""
+    return not is_even(i)
+
+if __name__ == '__main__':
+    #if we have only one even number to check:
+    print (is_even(2))
+    #if we have more than one even number to check:
+    print (is_even(8))
+
+A:
+
+Python has the builtin type constants.
+You can use even, odd, or all for your needs
+def is_even(number):
+    return number % 2 == 0
+
+def is_odd(number):
+    return not is_even(number)
+
+def is_all(arr):
+    return all(is_even(elem) for elem in arr)
+
+list(is_all(range(6)))
+# True
+list(is_all(range(5, 12)))
+# False
+
+<|endoftext|>U.S. Under-17 Women win West Virginia Invitational
+
+Kirby Stevenson ran away from the field in Saturday’s Girls West Virginia Preps
+
+Erica Enright
+
+Published on: May 29, 2014
+
+THOMPSONVILLE, W.Va. – Kirby Stevenson scored 22 points, and West Virginia Under-17 Women beat the University of Maryland Baltimore County 79-61 in a Central Region girls basketball match up Saturday afternoon at Miller Stadium.
+
+But she finished her career with one significant statistic: the school record for 3-pointers in a season, an impressive 263. She hit the mark in her last game and the eighth of her career.
+
+West Virginia, ranked No. 1 in the ESPNHS Top 25 and No. 4 in the USA TODAY Top 25, and the only undefeated team in the region, had led the previous 31-plus minutes in the two previous matches and entered the day without a loss at home.
+
+After they built a 32-15 halftime lead behind a potent offensive effort by Hyansha Gantt and Nicca Mooney, the nationally ranked Terrapins started to mount a comeback.
+
+With 2:58 left in the first half and the score 45-30, West Virginia sent the game into the locker room, trailing 45-41.
+
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    if i % 2:
+        return True
+    return False
+
+
+def even_list(mylist):
+    """
+    Generator function to return even lists.
+    """
+    for i in mylist:
+        if is_even(i):
+            yield i
+
+# Precomputed factorials:
+pi = 3.14159265358979323846
+twopi = 6.283185307179586476925
+# pre-computed powers of 2:
+twopowers = [0,1,2,4,8,16,32,64,128,256]
+powerpower = [1,2,4,8,16,32,64,128,256,512]
+powerpower1 = [1,2,4,8,16,32,64,128,256,1024,4096,16384,65536,262144]
+powerpower2 = [1,2,4,8,16,32,64,128,256,512,1024,4096,16384,65536,262144]
+
+def factorial(n):
+    """Calculates the factorial of n."""
+    if n < 0:
+        return 1
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+
+def nbr_divs(n):
+    """Return the number of distinct factors of n."""
+    d = 1
+    for i in range(1, int(n ** 0.5 + 1)):
+        if n % i == 0:
+            d = d + 1
+    return d
+
+def expand(n):
+    """Expand n to all its prime factors.
+
+    Pre-computes all possible prime factors in order to speed up the calculation.
+    """
+    f = []
+    if n < 3:
+        f.
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return (i%2 == 0)
+
+i = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def is_prime(n):
+    """Is n prime?"""
+    if n % 2 == 0:
+        return False
+    for j in range(3, int(n**0.5) + 1, 2):
+        if n % j == 0:
+            return False
+    return True
+
+def modulo_numbers(target, number, iterations):
+    """Return the target modulo each element in the range"""
+    result = []
+    for i in range(0, iterations):
+        if is_even(target % number):
+            result.append(number)
+        else:
+            result.append(number * i + target % number)
+    return result
+
+def count_prime_power(power):
+    """Return the number of integers less than the power of two whose value is prime"""
+    # This relies on a constant-time operation
+    prime_values = []
+    power_minus_one = power - 1
+    for i in range(1, power_minus_one):
+        if is_prime(i):
+            prime_values.append(i)
+    return len(prime_values)
+
+This works but is not very efficient.
+Are there any better ways?
+
+A:
+
+A better solution would be to use the combinations of primes theorem.
+
+The number of $n$-sized subsets of $\{1, 2, 3,..., n\}$
+  that are not non-empty and are
+  unordered is $n!\times\binom{n-1}{n/2}$
+
+which is then, by inclusion-exclusion principle,
+$$\sum_{j=1}^n (-1)^{j+1} \binom{n}{2j}$$
+and is 0 if $n$
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+    
+def is_odd(i):
+    """Check whether an integer is odd"""
+    return i % 2!= 0
+    
+#Factorization of x*x+x+1
+def sqr_linear(x):
+    """Square a linear integer.
+    Returns :py:class:`long` for small values.
+    """
+    return x*x + x + 1
+    
+#Slicing function
+def slice(a,begin,end,step=1):
+    """Slice a with a sequence.
+    Returns a list of all the elements at or above begin and before end. 
+    All the values must be integers.
+    """
+    
+    if type(begin) == type(end):
+        raise Exception("Expect begin and end to be an integer.")
+    
+    if not 0 < step <= a:
+        raise Exception("Step must be a positive integer.")
+    
+    begin = long(begin)
+    end = long(end)
+    
+    a = a//step
+    
+    if a <= begin or a >= end:
+        raise Exception("Index is not in valid range.")
+    
+    if a >= begin and a < end:
+        a = a % step
+        
+    slice_list = []
+    if a <= begin:
+        slice_list.append(begin)
+        
+    while a <= end:
+        if a > begin:
+            slice_list.append(a)
+            a += step
+            
+        slice_list.append(end)
+    
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def is_list(i):
+    """Check whether a variable is a list"""
+    return isinstance(i,list)
+
+def is_string(i):
+    """Check whether a variable is a string"""
+    return isinstance(i,str)
+
+def split_string(i):
+    """ Split the string at space or new line and return a list. """
+    return i.split(' ')
+
+def is_number(i):
+    """Check whether a variable is a number"""
+    return isinstance(i,float)
+
+def is_undefined(i):
+    """Check whether a variable is undefined"""
+    return isinstance(i,undefined)
+
+def is_dict(i):
+    """Check whether a variable is a dictionary"""
+    return isinstance(i,dict)
+
+def has_key(i,k):
+    """Check whether a dictionary has a key in it"""
+    if i.has_key(k):
+        return True
+    else:
+        return False
+
+def remove_key(i,k):
+    """Remove a key from the dictionary"""
+    if i.has_key(k):
+        del i[k]
+    else:
+        return False
+
+def has_any_key(i):
+    """Check whether the dictionary has keys in it"""
+    if i.has_key():
+        return True
+    else:
+        return False
+
+def remove_any_key(i):
+    """Remove all keys from the dictionary"""
+    if i.has_key():
+        for k in i.keys():
+            del i[k]
+        return True
+    else:
+        return False
+
+def encode_strings(i
+====================
+def is_even(i):
+    """Check whether an integer is even"""
+    return i % 2 == 0
+
+def sum_d(n):
+    """print (n), sum(d) for d in [2, -1, 1]"""
+    d = [2, -1, 1]
+    for i in range(1, n + 1):
+        if i == 0:
+            print "(" + ",".join([str(x) for x in d]) + ")"
+            continue
+        else:
+            if not is_even(i):
+                print "(" + ",".join([str(x) for x in d]) + ")"
+
+def main():
+    n = int(input("Enter a number: "))
+    if n < 0 or n > 0:
+        print "Error: invalid number"
+        return 0
+
+    for i in range(1, n + 1):
+        sum_d(i)
+
+if __name__ == '__main__':
+    main()
+
+The program is working fine until I get a -2147483648, then I'll get "Error: invalid number", and the value of n does not change anymore. I thought the problem may be that I'm using ints, but when I changed to longs, the same thing happened. 
+
+A:
+
+The problem lies in the use of range:
+for i in range(1, n + 1):
+    # no value for `i`
+
+If you could actually use range, and convert the number to a positive integer for it, this would be a problem, since range could return numbers from -N to +N, where N is a negative number.
+You need to compute the lower bound i as a variable, to prevent negative numbers:
+for i in range(min(n,1)):
+    # the range will be exclusive. 
+    # it returns only the positive numbers in the range. 
+====================

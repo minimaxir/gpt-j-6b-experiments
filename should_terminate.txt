@@ -1,0 +1,2151 @@
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if Person.attached == True:
+        return True
+
+    return len(Person.real_names) > 2
+
+
+def run(df, people):
+    """Runs pama, i.e., update database"""
+    try:
+        people_extracted = list(people)
+    except:
+        return
+    if len(people_extracted) == 0:
+        raise Exception("No matching people found")
+
+    # assign 'left' fields to 'id' field
+    for person in people_extracted:
+        person['id'] = person['first_name'] + person['last_name']
+
+    # add new records
+    people_extracted.append({"first_name": "Joe", "last_name": "Nurse"})
+
+    with df.to_pandas():
+        df.to_pandas().drop('id', inplace=True)
+        df = df.join(people_extracted, on='first_name')
+        df.index = ['id',]
+        df = df.drop(['last_name','real_names', 'gender', 'attached', 'is_director', 'att_extra'], axis=1)
+
+    # populate name variants and release numbers
+    df['name_variant'] = df['first_name'].map(variant_names)
+    df['name_variant'].replace(
+        regex=True, inplace=True, to_replace='')
+    df['release_number'] = df['id'].map(release_numbers)
+
+    # add inverse_index
+    df = df.set_index(['id', 'name_variant'])
+
+    # update join conditions
+    df['attached'] = True if should_terminate(df.Person) else False
+    df['
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    try:
+        raise Person(name="name")
+    except Person as e:
+        return False
+    else:
+        return True
+
+should_terminate() should return False and the program should continue
+there is another file with that function
+and at the end of the file it is stated :
+from.utilities import *
+
+now i want to use that function within the file where I import the utilities and get the error :
+Traceback (most recent call last):
+  File "/home/me/workspace/py/../main.py", line 14, in <module>
+    import utils.utilities as u
+  File "/home/me/workspace/py/utils/utilities.py", line 15, in <module>
+    from.utilities import *
+ImportError: cannot import name should_terminate
+
+why doesn't that work and what can I do about it?
+
+A:
+
+This module does not have a __all__. You need to define the should_terminate() function in a module and define an __all__ that says that this module is in.
+The error has nothing to do with utilities. In a module __all__ you don't list names, you list things. Your __all__ should be __all__ = ['utilities.utilities'] (that's one way to get it)
+
+<|endoftext|>",
+        "breakpoints": ["500"]
+      },
+      {
+        "url": "https://github.com/microsoft/vscode-languageserver/commits/master",
+        "breakpoints": ["680"]
+      }
+    ]
+  }
+]
+<|endoftext|> from the stellar wind is still a theoretical concept but it is necessary for building a physical model for the launching of the solar system.
+
+A possible model of the formation of a terrestrial planet starting from the observed stellar wind can be described as follows. The necessary conditions for the formation of a terrestrial planet were the spin-up of the accreted nebular planetesimals, the stability of the orbits at the outer boundary of
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    return Person.id > max_id
+
+
+def next_day(datetime):
+    """Return a datetime, tomorrow"""
+    return datetime.replace(day=1)
+
+def get_names(names):
+    """Create a named tuple containing a list of each name"""
+    return _persons_split(names)
+
+
+def get_person(name):
+    """Get a Person by name"""
+    return _persons.get(name, None)
+
+
+def get_last_person():
+    """Get the last Person"""
+    return _persons.values()[-1]
+
+
+def person_time_labels(time_labels):
+    """Helper for person_time_info_plot"""
+    return tuple(_persons_split(time_labels) + [Person()])
+
+
+def generate_person_list(num_persons, per_day_years, per_day_months):
+    """Helper for person_time_info_plot"""
+    time_labels = _persons_split(['Year', 'Month'] + [
+        'Day'] * num_persons)
+    persons = []
+    for person_year, person_month, person_day in _persons_split(time_labels):
+        if person_day == 0:
+            person_month_lbl = person_month[0]
+        else:
+            person_month_lbl = person_month[1]
+        if person_day == 0 and person_month_lbl == 'Month':
+            person_month_lbl = 'Month'
+        p = Person(year=person_year, month=person_month_lbl, day=person_day)
+        persons.append(p)
+    return persons
+<|endoftext|>Matrix-assisted laser desorption/ionization time
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if Person.terminated:
+        return True
+    else:
+        return False
+
+def terminate(Person):
+    """Terminate a Person"""
+    Person.terminated = True
+
+def say_hello(Person):
+    """Print a message to Person"""
+    print("Hello, {}, you look great!".format(Person))
+
+def read_data(Person, file):
+    """Read data from a file and make it a list"""
+    with open(file, "r") as data_file:
+        Person.gender = input("What is your gender: (Male/Female)?")
+        data_file.readline()
+        print("You are a {}, and your age is {}.".format(Person.gender,
+                                                          Person.age))
+        data_file.readline()
+        data_file.readline()
+        data_file.readline()
+        Person.name = input("What is your name: ")
+        data_file.readline()
+        Person.profession = input("What is your profession: (Medical/Engineer/Sci)?")
+        data_file.readline()
+        data_file.readline()
+        data_file.readline()
+        Person.degree = input("What degree do you have: (Bachelor/Masters/Doctoral)?")
+        data_file.readline()
+        Person.department = input("What department is your department: (Humanities/Medicine/Physics/
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if Person.waiting_date and Person.is_idle_until < Person.waiting_date:
+        # Person has long waited period
+        Person.term
+        return True
+    if Person.is_terminating:
+        # Person is terminating.
+        # Person has no waiting date.
+        # There is no place for a waiting period in the transition.
+        # Otherwise, the waiting period has no effect
+        return True
+    return False
+
+
+# --- ------------------------------------------------------------
+# --- Manager Functions
+# --- ------------------------------------------------------------
+
+def aggregate_raw_signals(Task, actions, **kwargs):
+    """
+    @param Task: the Task that is running
+    @param actions: a list of action objects that need to be
+    applied on the Task
+    @return: the combined signal of the Tasks which this Manager is
+    running in, after applying all of the actions.
+
+    """
+    # Compute the signals of the tasks to be run (the argument is 
+    # a list of tuples of the form (task_name, task_args), where
+    # task_name is the name of a task to be run, and task_args are
+    # arguments for that task.
+
+    TASKS = {}
+
+    def _add_task(task_name, task_args):
+        """Returns True if task has been already added to
+        TASKS
+        """
+        try:
+            TASKS[task_name]
+        except KeyError:
+            TASKS[task_name] = False
+        TASKS[task_name] = True
+
+    # Add the signals of the tasks to be run to the
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    return len(Person) > 20
+
+person = Person("Sean", "Allen")
+person.delete()
+should_terminate(person) # True
+
+person = Person("Sean", "Allen", 12)
+person.delete()
+should_terminate(person) # True
+
+person = Person("Sean", "Allen", 18)
+person.delete()
+should_terminate(person) # True
+
+person = Person("Sean", "Allen", 12)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 18)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 12)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 18)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 12)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 18)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 12)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 18)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 12)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 18)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 12)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 18)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 12)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 18)
+person.delete()
+should_terminate(person) # False
+
+person = Person("Sean", "Allen", 12)
+person.delete()
+should_terminate(person) #
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if self.capacity == 0:
+        raise ResourceLimit
+    elif self.capacity > self.maximum_capacity:
+        raise ResourceLimit
+    return Person.SHOULD_TERMINATE
+
+
+def provide_capacity(Person, raise_on_error=True):
+    """Give a Person an available capacity
+
+    :param Person person: The Person to provide capacity
+    :param int raise_on_error: If set to true, will throw an exception if
+                               capacity is lower than Person's limit.
+    :return: capacity in the Person.Capacity class
+    """
+    if not person.SHOULD_TERMINATE:
+        return person.capacity
+    if raise_on_error:
+        person.capacity = min(person.capacity, self.maximum_capacity)
+    else:
+        try:
+            person.capacity = min(person.capacity, self.maximum_capacity)
+        except ResourceLimit:
+            raise ResourceLimit('Person {} did not provide capacity'.format(
+                person.short_name))
+    return person.capacity
+
+
+def provide_upgrade_object_count(Person, raise_on_error=True):
+    """Give a Person an available capacity
+    :param Person person: The Person to provide capacity
+    :param int raise_on_error: If set to true, will throw an exception if
+                               capacity is lower than Person's limit.
+    :return: capacity in the Person.Upgrade class
+    """
+    if not person.SHOULD_TERMINATE:
+        return person
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if not should_termination_exist(Person):
+        assert not should_termination_exists(Person)
+        return False
+    else:
+        assert should_termination_exists(Person)
+        assert not should_termination_exist(Person)
+        return True
+
+
+@pytest.mark.parametrize("receive_message_if_terminated", [True, False])
+@pytest.mark.parametrize("person", [0, 0.1, 0.2, 0.5, 0.8])
+def test_rescue_terminated(Person, person, receive_message_if_terminated):
+    """
+    Test if termination_or_recovery() is executed
+    when someone has been terminated.
+    """
+    person.terminate()
+    for i in range(0, len(person)):
+        assert_eventually(receive_message_if_terminated, person,
+                          lambda x: x in ["msg1", "msg2"])
+    assert should_terminate(Person)
+
+
+def test_for_terminated_person_ok():
+    """Test for person which was terminated is no longer considered.
+    """
+    assert len(TerminateProtocol().terminated) == 0
+    assert len(TerminateProtocol().recovery) == 0
+<|endoftext|>package ca.uhn.fhir.jpa.spring;
+
+/*-
+ * #%L
+ * HAPI FHIR JPA Server
+ * %%
+ * Copyright (C) 2014 - 2020 University Health Network
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    self.person = Person
+    self.last_name = self.person.last_name
+    self.executables = [x for x in self.person.executables if self.person.executables.has_key(x)]
+    return False
+
+Now I want to run the ShouldTerminate method like that:
+result = should_terminate(person)
+print(result)
+
+How can I do that?
+I tried:
+class ShouldTerminate:
+    def __init__(self, person):
+        self.person = person
+        self.last_name = self.person.last_name
+        self.executables = [x for x in self.person.executables if self.person.executables.has_key(x)]
+
+and I run the person by using the ShouldTerminate object
+
+A:
+
+What you really want to do is encapsulate your logic in a Person, but use that Person object to implement a boolean shouldTerminate(Person person) method that encapsulates your logic and returns True or False.  
+class Person:
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+
+    def last_name_cmp(self, other_person):
+        return self.last_name < other_person.last_name
+
+    def executables_overlap(self, other_person):
+        return self.executables[0] in other_person.executables and self.executables[1] in other_person.executables
+
+def should_terminate(person):
+    """Check whether a Person should be terminated"""
+    return person.last_name_cmp(self)!= person.last_name
+
+def set_person(person):
+    if should_terminate(person):
+        terminate(person)
+        return
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    return bool(Person.errors)
+
+def main():
+    # Turn errors on in the database
+    db.session.commit()
+
+    error = False
+
+    # Check for valid person
+    person = Person.query.filter_by(name='eric').first()
+    while not should_terminate(person):
+        error = True
+        person = Person.query.filter_by(name='eric').first()
+
+    # Check for name error
+    error = False
+    person = Person.query.filter_by(name='monie').first()
+    while not should_terminate(person):
+        error = True
+        person = Person.query.filter_by(name='monie').first()
+
+    # Check for email error
+    error = False
+    person = Person.query.filter_by(email='invalid@example.com').first()
+    while not should_terminate(person):
+        error = True
+        person = Person.query.filter_by(email='invalid@example.com').first()
+
+    # Check for ein message error
+    error = False
+    person = Person.query.filter_by(email='eric').first()
+    while not should_terminate(person):
+        error = True
+        person = Person.query.filter_by(email='eric').first()
+
+    # Check for none error
+    error = False
+    person = Person.query.filter_by(email=None).first()
+    while not should_terminate(person):
+        error = True
+        person = Person.query.filter_by(email=None).first()
+
+    # Check for second email error
+    error = False
+    person = Person.query.filter_by(email='monie@example.com').first
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    return all(
+        torch.ge(Person.num_children, 0),
+        torch.ge(torch.sum(Person.num_leaves, dim=0), Person.num_parents),
+    )
+
+class HDAG(torch.nn.Module):
+    """
+        Hidpi Graph DAG
+    """
+    def __init__(self, p, num_processors):
+        super(HDAG, self).__init__()
+        self.name = "HDAG"
+
+        self.params = [Parameter(
+            name=name,
+            initializer=LeCun(),
+            regularizer=Regularizer(0.5),
+        ) for name in ["b_start", "b_end", "b_weight", "b_reg_kernel", "b_reg_gamma", "b_deterministic"]
+        ]
+
+        self.p = p
+
+        if num_processors == 1:
+            assert torch.cuda.is_available()
+            self.cuda = True
+        else:
+            self.cuda = False
+
+        if "b_reg_gamma" in self.params:
+            # A rank-1 kernel implies rank-1 regularization
+            assert (
+                isinstance(self.params["b_reg_gamma"], torch.nn.Parameter) and self.params["b_reg_gamma"].is_contiguous
+            ), "b_
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if has_no_algebra_after_two_transactions:
+        return True
+    if has_no_merge_after_two_transactions:
+        return True
+    if has_no_remainder_after_two_transactions:
+        return True
+    return False
+
+
+# ==============================================================================
+# Filtering
+# ==============================================================================
+
+class AlgebraCheckerFilter(object):
+    """Use this filter to check a collection of algebra checks."""
+    def check(self, check):
+        """Check if the check should be marked as failed."""
+        return True
+
+    def is_filtered(self, check):
+        """Return True iff the check is being filtered."""
+        return False
+
+
+class ContinueCheckFilter(object):
+    """
+    Use this filter to continue a running check without calling
+    ``.check()``. This is useful in doing simple run
+    and continue checks.
+
+    Only applies if ``.is_filtered(check)`` is True.
+    """
+    def check(self, check):
+        """Call the ``.check()`` method."""
+        self._set_unfiltered(check)
+        return check
+
+
+class InvalidationFilter(object):
+    """
+    Use this filter to mark a check as being invalidated due to other
+    means than the trigger check event. This means the check will be
+    filtered out, but the check_id of the check is still saved.
+
+    Only applies if ``.is_filtered(check)`` is True.
+    """
+    def __init__(self, check):
+        """
+        The check to mark as invalidated.
+        """
+        self._check = check
+
+
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if Person.not_moved or Person.vacant or Person.vacant.description == "People looking to leave their car...":
+        if (Person.first_name not in no_stays):
+            return True
+    return True
+
+A:
+
+In the function my_test() you have if Person.list()[-1]!= Person.list[-1]. I suspect that is the key error.
+
+<|endoftext|>package reactivecircus.flowbinding.style.elements.internal
+
+import reactivecircus.flowbinding.style.Argument
+import reactivecircus.flowbinding.style.elements.TypeVariables
+
+/**
+ * Parameterized value holder [Dependency] using a [TypeVariable] as the dependency.
+ * This allows for parameterized data that is tied to a certain type.
+ */
+class Dependency<out T>(arg0: T, arg1: String? = null) : Dependency2<T>(arg0, arg1)
+<|endoftext|> was doing: writing out those lines. I suppose it’s true that if you’re sincere about your creations (and I am), then it may pay off in the end.
+
+by librarian@excite.com (she who watches far too much tv)
+
+Do you watch the amount of screen time you use? I had to set a time on my computer (determined by date & time settings) that I had to stop using it for certain activities, including tv and texting. It wasn’t hard (I’m not as addicted to internet as I used to be), but I have had to accept that certain hours are lost to me. I’m not quite to the point where I watch tv every single day, but it has gotten much better. It’s not easy and sometimes I think “why can’t I be as productive or have as many time-saving inventions as those famous tv-watching execs?” but I have my moments.
+
+I do feel that our children have become far too accustomed to a 24/7 tv culture and haven’t any concept of outside activity like reading and imaginative play. The school I work for supports children who are off for some reason and have books in the library which they take
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    # Check if all exceptions have been initialized
+    if Person.check_init_exceptions:
+        try:
+            Person.initialize()
+        except (Exception, SyntaxError, OSError):
+            # We expect an error, but we might not have any place to store
+            # the error's string representation
+            raise Exception(
+                "A person was terminated but could not be initialized properly. "
+                "A full stack trace can be found at https://www.google.com/devtools/debugging/how-debug/c/e/e0f2a381049185896c69fa06fa14f2df32148645.html"
+            )
+    # If exceptions are not initialized, we're done, it's a failure
+    else:
+        raise Exception("Some required properties of a person are not initialized")
+
+class Person(object):
+    """
+    Person is the main interface to most of the options.
+    """
+
+    def __init__(self, name, age, children=[]):
+        """
+        Initializes a person
+
+        Args:
+            name: name of person
+            age: age of person
+            children: list of children to person
+        """
+        self.name = name
+        self.age = age
+        self.children = children
+
+    def print_info(self):
+        """Print person info to stdout"""
+    
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    ## most simple tests for termination
+    if (Person.age is None):
+        if (Person.age > 20):
+            return True
+        else:
+            return False
+
+    ## Age of a person
+
+    ## A person who is 18 years old is neither over 18 or under 18
+    if (Person.age == 18):
+        return False
+
+    if (Person.age > 18):
+        return True
+
+    if (Person.age < 18):
+        return False
+
+    if (Person.age < 18):
+        return True
+
+    return False
+
+    if should_terminate(Person):
+        print "You've made a terminating choice, time to die"
+
+# main
+
+def main():
+
+    person1 = Person(30)
+    person1.add_birthday()
+    person2 = Person(30)
+
+    person2.add_birthday()
+
+    # should_terminate(person1)
+    # should_terminate(person2)
+    should_terminate(person1)
+
+    if should_terminate(person1):
+        print "You've made a terminating choice, time to die"
+
+# call the function main, which should return the value 0
+
+if __name__ == '__main__':
+    main()
+
+<|endoftext|>Q:
+
+Cleanest Way to Verify an Intensive loop has terminated without raising an error
+
+I am running a massive loop with Python, and I'd like to verify that the loop has finished before attempting to save anything to files. Currently, I run a check on the return value of the loop using the if command, and if it fails to terminate I raise an error that the process has not terminated:
+result = max(x[i:i + 1] for i in range(0, len(x), 1))
+# repeat while not True
+while not result
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if 'dev' in os.environ:
+        return True
+    return not hasattr(Person, 'final_destination')
+
+
+class EnvironmentWithUnsetTest(unittest.TestCase):
+    def test_should_work_with_unset_environment_variable(self):
+        with EnvironmentWithUnsetTest() as env:
+            if env.should_terminate('a'):
+                return True
+            else:
+                return False
+
+
+class EnvironmentWithEnvWithUnsetTest(unittest.TestCase):
+    def test_should_work_with_env_variable(self):
+        with EnvironmentWithEnvWithUnsetTest() as env:
+            if not env.should_terminate('a'):
+                return True
+            else:
+                return False
+
+
+class EnvironmentWithEnvWithTerminateTest(unittest.TestCase):
+    def test_should_work_with_env_variable_with_env_terminate(self):
+        with EnvironmentWithEnvWithTerminateTest() as env:
+            if env.should_terminate('a'):
+                return True
+            else:
+                return False
+
+
+class EnvironmentWithEnvWithTerminateAndUnsetTest(unittest.TestCase):
+    def test_should_work_with_env_terminate_and_unset_variable(self):
+        with EnvironmentWithEnvWithTerminateAndUnsetTest()
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+
+    def __init__(self):
+        self.p = False
+
+    def should_terminate(self):
+        """Returns whether Person is to be terminated"""
+        return self.p
+
+    @classmethod
+    def rule1(cls):
+        """Rule 1 implemented in python and in OCL """
+        cls.p = True
+
+    @classmethod
+    def rule2(cls):
+        """Rule 2 implemented in python and in OCL """
+        cls.p = True
+
+    @classmethod
+    def rule3(cls):
+        """Rule 3 implemented in python and in OCL """
+        return cls.p
+
+    @classmethod
+    def rule4(cls):
+        """Rule 4 implemented in python and in OCL """
+        cls.p = True
+
+    def should_terminate(self):
+        """Returns whether Person is to be terminated"""
+        return True
+
+    def print_info(self):
+        """Prints out info about the person"""
+        print("info: {}".format(self.name))
+        print("age: {}".format(self.age))
+        print("height: {}".format(self.height))
+        print("married: {}".format(self.married))
+
+    def print_observations(self):
+        """Prints out the person observations"""
+        print("observations: {}".format(self.obs))
+
+    def setup_algorithm(self, X):
+        """Initializes a a set of observations"""
+        self.obs = X
+
+ 
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    pass
+
+class PersonalAssistant(Person):
+    """Custom PersonalAssistant class"""
+    pass
+
+if __name__ == "__main__":
+    # TODO: fill all Person instances with some data
+    personal_assistants = [PersonalAssistant() for i in range(10)]
+    personal_terminations = [should_terminate(Person) for i in range(10)]
+    print(personal_assistants)
+    print(personal_terminations)
+
+Running this code results in:
+[<__main__.Person object at 0x102d61b80>, <__main__.Person object at 0x102d62b50>, <__main__.Person object at 0x102d63db0>, <__main__.Person object at 0x102d64440>, <__main__.Person object at 0x102d65a00>, <__main__.Person object at 0x102d66030>, <__main__.Person object at 0x102d66770>, <__main__.Person object at 0x102d66f50>, <__main__.Person object at 0x102d67540>]
+[True, True, True, True, True, True, True, True, True, True]
+
+PersonalAssistants obviously have no __init__() in the same way Person is protected. 
+But if I run Person() again, only Person.__init__() is executed.
+Did I misunderstand the "protection" mechanism?
+
+A:
+
+In Python 3, Python's implementation of object introspection is based on the super() call. In your case, PersonalAssistant().__class__ is equal to Person. Python passes the function and returns the result as an object. This is why the super() call also works in this case.
+As a consequence, the method you've written, should_terminate(), is invoked, and thus return True in each instance of Person.
+
+<|endoftext|>This Is An Emergency, Get A Man
+
+Hate the Church, I'm sure it's great.
+
+Let's get real - when you are stuck, the only thing that can help is another man.
+
+It's overcast and I had some sort of weird allergic reaction (high pollen count? weather change?) which lasted for
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if len(Person.children) == 0:
+        return True
+    else:
+        return False
+
+# Removes all children of the root node. 
+# Note: the function should be executed in a thread safe way.
+def remove_child(Person, child):
+    """Removes a child of the root node.
+    :type Person: a:nudb.PersonNode
+    :type child: a:nudb.PersonNode
+    :rtype: None
+    """
+    # Set the root node to None
+    Person.parent = None
+
+    # If the current node is not the root node, copy it
+    if not Person.parent:
+        Person.children.append(Person.clone())
+
+    # Delete the current node from the list of children
+    Person.children.remove(Person)
+
+    # Set the children of the root node to None
+    if Person.parent:
+        Person.parent.children.append(None)
+
+    # Remove the current node from the root node's list of children
+    Person.parent.children.remove(Person)
+
+    # The node is not in the list of children any more.
+    # Remove it from the root node
+    Person.parent = None
+
+# Gets the first or last node in the tree
+def get_node(root):
+    """Gets a node in the tree"""
+    # If the root node is None, return None
+    if root is None:
+        return None
+
+    # Set the first node as None
+    first_node = None
+    node = root
+
+    # Loop until a node is found
+    while True:
+        # If the node is in the list of children, return it
+        if node.children:
+            return node
+
+        # Otherwise, if the node is
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if Person.employee_count >= 4:
+        raise StopExecution
+
+# init
+execution_date = datetime.datetime.now()
+args = (execution_date, )
+config_file = "config_file.yaml"
+
+# create an instance of the service
+# You can get more information about this class at http://theurla.com/sqlalchemy-persistent-mapping-engine/
+engine = create_engine("postgresql+psycopg2://user:password@host:port/db_name", echo=True)
+Session = sessionmaker(bind=engine)
+Session.configure(bind=engine)
+Session.configure_mappers()
+
+from sqlalchemy.orm import sessionmaker
+Session = sessionmaker(bind=engine)
+Session.configure(bind=engine)
+Session.configure_mappers()
+
+Person.__table__.create(bind=engine)
+
+# run the program
+person = Person(name='Bob', age=27, birth_year=1988)
+session = Session()
+session.add(person)
+session.flush()
+
+# Add more elements to the list
+person = Person(name='Mary', age=23, birth_year=1990)
+person.date_of_birth = execution_date
+person.save()
+
+# check if there should be a termination
+if should_terminate(person):
+    execution_date = datetime.datetime.now()
+
+## Generate Results from SQLite
+person.name
+Person.id
+Person.age
+Person.date_of_birth
+session.query(Person).all()
+session.query(Person).count()
+
+## Execute the query again
+session.query(Person).all()
+
+## Cleanup
+Person.__table__.drop()
+Session.configure_mappers()
+Session.close()
+engine.dispose()
+```
+
+Some links
+-------
+
+* [Python(Engine) Tutorial by Lisa Wildman](http://lisa-wildman.org/blog/2014/06/11/an-introduction-to-sqlalchemy-2/)
+* [SQLAlchemy](https://www.sqlalchemy.org
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    return _any_parameters(Person, __name__ =='should_terminate')
+
+
+def should_teach(Person):
+    """Check whether a Person should be allowed to teach
+
+    Any person who has taught before can teach without meeting any
+    further requirements.
+    """
+    return _any_parameters(Person,
+                           __name__ =='should_teach',
+                           _is_teacher(Person) and
+                           _is_teaching(Person) and
+                           _is_writing_down_body_of_speech(Person)
+                           )
+
+
+def teaching_days(Person):
+    """Calculate the number of days remaining until a Person can teach
+
+    Returns the number of days before the given person is able to teach.
+    """
+    if not _is_teaching(Person):
+        return 100
+    return _duration(Person) - _get_teaching_date(Person)
+
+
+def teaching_deadline(Person):
+    """Calculate the date that the Person can teach
+
+    The date that a Person can teach is given by the
+    teaching_days() function.
+    """
+    return _get_teaching_date(Person) + teaching_days(Person)
+
+
+def has_taught_before(Person):
+    """Check whether a Person has ever been allowed to teach
+
+    Return True if the given Person has ever taught.
+    """
+    return _is_teacher(Person) and
+           _is_
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    ## Overloaded class methods should receive special treatment
+    if __name__ == '__main__':
+        return 0
+    if Person.age > 65:
+        return True
+    return False
+
+<|endoftext|>First-time CD4+ count ≤200 cells/μL predicts treatment failure in HIV-infected tuberculosis patients.
+HIV infection and tuberculosis (TB) each compromise immune responses and increase the risk of other infections and mortality. We analyzed the clinical characteristics of 16 tuberculosis (TB)-HIV-coinfected individuals who failed treatment for the first time and 20 TB-HIV-coinfected individuals who completed treatment. HIV-infected individuals with treatment failure for the first time were more likely to have a history of opportunistic infection and a first-time CD4+ count ≤200 cells/μL. Further study is needed to investigate the factors related to TB treatment failure.<|endoftext|>Q:
+
+Is there a context in our lives that is completely unchanged by what we do?
+
+For the time being I am not interested in the "how is it possible" part of the question, for instance the universe has infinitely many possible "current states", that differ only by choice of some initial conditions,
+what I am interested in is if there is a current state where the result is not affected by choices made, I mean "fixed point" where the total sum of the consequences of every choice we make is exactly the same no matter which choice we make. In other words, any attempt we make to choose better in some aspect of our lives ends up changing nothing. 
+The question is: Is there such a context? 
+
+A:
+
+Well, I think your question can be reduced to this:
+
+Is there a context in our lives that is entirely unaffected by what we do? 
+
+And the answer is:
+
+Yes.
+
+This answer is subjective, but I'll try to justify this assertion:
+
+This is because the "solution" of the universe is the same at any given moment in time, it is a solution that evolves with time, i.e. there are no "fixed points", but there are certain relative invariant properties of the solutions.
+
+Perhaps the best way of explaining what I mean is by pointing out that the universe doesn't know what you will do when.
+If you give the universe a
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    
+    if Person.id > 10:
+        #terminate
+        return True
+    else:
+        #continue
+        return False
+                
+
+Lines 17–24 define the terminator function, which receives the id of the
+Person and returns True or False depending on whether the termination
+condition is met.
+
+Lines 25–29 define a function to define what termination should mean: the
+Person should be terminated if the Person's id is greater than 10. If the
+Person's id is not greater than 10, it should not be terminated.
+
+Run the main function:
+
+    python tests/generator_with_terminator.py
+    
+After running this script, you should have the following output:
+
+.. code-block:: console
+
+    % python tests/generator_with_terminator.py
+    
+    +--------------------------------------+
+    | ID      | Name         | Email     |
+    +----------+--------------+-----------+
+    | 1       | Guido van Rossum | gvanrossum@gmail.com |
+    | 2       | Peter von Kohorn | peter@vk-software.com |
+    | 3       | Raymond Hettinger | raymond@nondot.org |
+    | 4       | Jython core team | core@jython.org |
+    | 5       | John Does       | john@company.com |
+    | 6       | John Does       | john@company.com |
+    | 7       | Zooko           | zooko@com          |
+    | 8       | Zooko     
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+
+    name = Person.name
+    is_pregnant = Person.pregnant
+    is_female = Gender.FEMALE in Person.gender
+
+    if is_pregnant or is_female:
+        # person is a pregnant female
+        return True
+    elif Person.dob!= None:
+        # check if someone is too old
+        if Person.dob < Person.birthday_date:
+            # This is my special Person subclass 'OldPerson' that is not
+            # pregnant, and thus it should not be terminated.
+            # There are two implementations, the 'non_terminated' below and
+            # 'terminated_before_dob' below.
+            # non_terminated: there is a default terminating method that
+            # checks the Person.dob. It won't terminate until the birthdays
+            # of everyone in the Person's generation.
+            # terminated_before_dob: it is initialized with a non_pregnant
+            # Person that has a Person.dob, and it will terminate iff the
+            # birthdays of all non-pregnant people are after the birthdays
+            # of this Person's generation.
+            non_terminated = NonPregnantOldPerson
+            terminated_before_dob = TerminatedBeforeDOB
+        else:
+            # there is a Person.dob, so this person is either old, or
+            # should be terminated.
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    try:
+        return True
+    except Exception as e:
+        return False
+
+
+if __name__ == '__main__':
+    unittest.main()
+<|endoftext|>)**
+
+###### 
+
+Click here for additional data file.
+
+[^1]: Edited by: Timothy B. Niewold, University of Kansas Medical Center, United States
+
+[^2]: Reviewed by: Sabine Morel, University of Minnesota Twin Cities, United States; Heiko Rückert, Central Institute for Mental Health, Germany; Yoshikazu Takenaka, Kyushu University, Japan
+
+[^3]: This article was submitted to Mood and Anxiety Disorders, a section of the journal Frontiers in Psychiatry
+
+[^4]: †These authors have contributed equally to this work
+<|endoftext|>Q:
+
+How do I align a list of annotations on a ttk.Treeview?
+
+I've been using a list of annotations to point to various parts of a multidimensional Python list. To add a new annotation, I'm using the Treeview's ttk.Treeview.insert() function. The insertion point is very precise, however, which is why I want to add it in the corner of the treeview. The problem is the annotations get automatically added as if they were all aligned on the bottom of the treeview. Here is a sample code:
+import Tkinter as tk
+import ttk
+
+treeview = ttk.Treeview(column=1, show='headings', columns=('Column'))
+treeview.column('Column', width=100)
+
+treeview.pack(side='left')
+
+annotation = [ 'column 1',
+               'column 2',
+               'column 3',
+               'column 4',
+               'column 5',
+               'column 6',
+               'column 7',
+      
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if Person.age > 100:
+        print('You have to die because you are too old')
+        return True
+    else:
+        return False
+
+def print_person(Person):
+    """Print a Person.
+    """
+    print(f'Name: {Person.name}')
+    print(f'Age: {Person.age}')
+    if should_terminate(Person):
+        print(f'Time to die')
+    else:
+        print('Please feel free to live another day.')
+
+def main():
+    """Main program."""
+    print_person(Person())
+    print_person(Person(name='X')
+    print_person(Person(name='X', age=9))
+    print_person(Person(name='X', age=9, age=98))
+    print_person(Person(name='X', age=9, age=98, age=100))
+    print_person(Person(name='X', age=9, age=98, age=100, age=0))
+
+if __name__ == '__main__':
+    main()
+
+It is not just the class name that is different. Python 2 uses self and Python 3 uses this.
+Try this:
+class Person(object):
+    """Base class of a Person."""
+    def __init__(self, name=None, age=0):
+        """Constructor of a Person."""
+        self.name = name
+        self.age = age
+
+    def __str__(self):
+        """Return a string representation of a Person."""
+        return f'Name: {self.name}'
+
+class Student(Person):
+    """A subclass of a Person."""
+    def __init__(self, name, age, year_in_college):
+
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+
+    def _should_terminate(msg):
+        """Check whether msg should terminate a Person"""
+        return msg[-1] == "Error"
+
+    if not hasattr(Person, "input"):
+        Person.input = Input()
+    person = Person()
+
+    if not Person.should_terminate("Seat number!"):
+        print("Terminating the person.")
+        Person.terminate()
+
+        return
+    # TODO: person.acquire(terminate=Person.should_terminate)
+
+    while Person.should_terminate("Type your name!", should_terminate):
+        if should_terminate("Enter your name!"):
+            break
+        person.input.append("Your name is " + Person.first_name + " " + Person.last_name)
+
+    Person.last_name = Person.first_name + "_" + Person.last_name
+
+def do_main(argv):
+    """Main function"""
+    with ExitService() as _:
+        pass
+    _.start()
+
+    with ExitService() as _:
+        pass
+    _.start()
+
+    with ExitService() as _:
+        pass
+    _.start()
+
+if __name__ == "__main__":
+    unittest.main()
+
+I'm not a Python expert, so feel free to give any tips about this!
+
+A:
+
+Another, more idiomatic way to do this is with asyncio. In my view it's usually better to go with asyncio where it's applicable. Your code example does seem to have a problem, though, so I'll try to address both approaches.
+The ExitService class looks a bit like it should just be a class, though; this will keep you from messing around with multiple object instances. It's not too surprising, since
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    return bool(score)  # "Person with score <= 0.7 terminates"
+
+I would like to make the should_terminate method as a mixin class. This class may have different parameters like below. The "score" parameter is optional.
+class Person:
+
+    def terminate(self, score=None):
+        """Check whether a Person should be terminated"""
+        if score <= 0.7:
+            return True
+        else:
+            return False
+
+A:
+
+The should_terminate mixin looks like a good fit for a StatefulPattern. It has to return a new "self" after it has been called.
+class Person(object):
+
+    terminate_possible = False
+
+    def is_terminated(self):
+        return self.terminate_possible
+
+    def terminate(self, score=None):
+        if score <= 0.7:
+            self.terminate_possible = True
+            return True
+        else:
+            return False
+
+Person.terminate_possible = False
+# Person.terminate(score=0.9)  # True
+Person.terminate(score=0.9)  # False
+
+The score is an optional parameter because you want to change that when is_terminated is called, while retain the ability to check with termination_possible at all times.
+Side note: This can be done in a much more Pythonic way:
+class Person(object):
+
+    terminate_possible = False
+
+    def is_terminated(self):
+        return self.terminate_possible
+
+    def terminate(self, score=None):
+        return score <= 0.7
+
+    def terminate_with_score(self, score):
+        self.terminate_possible =
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    should_terminate = 0 if Person.should_terminate else 1
+    return should_terminate
+
+Each agent can use this function to make decisions. For example, an agent could decide to terminate the human by detecting that he would rather spend some time in the kitchen. The robots thus learn how to behave according to the laws of physics (push a cabinet and get hit).
+All agents can share information in their local histories with the robot (as well as with each other), to make a decision. Each local history contains a list of objects, and a list of actions performed to affect those objects. 
+The local history $H_i(p,t)$ of agent $i$ at time $t$ includes the set of objects $o_i(p,t)$, the actions $a_i(p,t)$ of agent $i$ at time $t$, and the set of objects $o_j(p,t)$ where $j \in A_i$ and $j \neq i$. $A_i$ is the set of agents where agent $i$ can share information.
+Note that the history $H_i$ of an agent $i$ includes only information available to $i$. This is different from what some other similar games do (e.g. [1]). It is justified as, in my opinion, when an agent can share information it can also observe it. 
+For example, if $i$ is in the kitchen and its neighbours can see its action, it can be deduced from their observation of its action that it is in the kitchen. 
+Now, the question is: how do agents learn? And, in particular, how do they learn to learn? 
+To my knowledge, most learning algorithms use a list of training instances, where each training instance is a tuple $(S,A,o,p,t)$ where $S$ is the set of states where the agent is located, $A$ is the set of actions available to the agent, $o$ is the observation of the agent, $p$ is the initial state of the agent, and $t$ is the timestamp. The learner would be expected to create a good policy given some training examples. 
+In this application, the training set is hard to come by, as it involves solving a dynamic problem. In my case, each agent's observation $o
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    return... # Some stateful conditions
+
+def initialize(...):
+   ...
+    # This isn't really an error.  We expect that the condition
+    # should_terminate will trigger a failure if Person is terminated.
+    # But terminating a Person is not part of the termination state.
+    if should_terminate(Person):
+        raise...
+   ...
+
+def terminate(...):
+   ...
+    # Terminating a person doesn't affect the termination state.
+    Person.terminate()
+   ...
+
+My concern is that initialize should be returning a special Person that is invalid.
+The Person class has a bunch of specialized initialization functions and none of them raise an exception.  That's what I want:
+
+someone should not be in the list if they aren't alive.
+if you start a Person and then another Person, the Person in the middle should not be garbage collected.  Ideally it should inherit and the other Person can be garbage collected.
+Someone can be in a list of live but unknown people.
+
+It would be great if initialize just created and returned a Person object.  But maybe it doesn't have to be a class?
+I realize this would be best if implemented in the constructor.  But I'm not quite sure how to get there.
+I really want initialize to just create and return a valid Person.  I want to keep the Person class to represent death and life.  I'm concerned that a terminating Person could keep a person in the list for too long.  Is there a way to make the termination case part of the termination state?
+I just noticed that I could implement Person.__init__ as:
+class Person:
+    def __init__(self, *args):
+        super(Person, self).__init__(*args)
+        if should_terminate(self):
+            raise...
+        else:
+           ... # For initialization
+
+This seems like it violates the principle of least surprise.  I don't want to say that a Person can't have an initializer because that would mean initialize would
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    return True if Person.age <= 25 else False
+
+Now, when you call:
+>>> A.should_terminate(100)
+
+A.should_terminate will evaluate the expression given to it and return either True or False.
+Thus, the line of code for A should be
+def should_terminate(Person):
+    return (Person.age <= 25)
+
+<|endoftext|>One injured after drive-by shooting in Highland Park
+
+A 21-year-old man was shot in the head while standing outside a home in the 9500 block of Sweet Breeze Boulevard about 3:30 a.m. Saturday, Highland Park police said. View Full Caption
+
+Highland Park police
+
+HIGHLAND PARK — A 21-year-old man was shot in the head while standing outside a home in the 9500 block of Sweet Breeze Boulevard about 3:30 a.m. Saturday, Highland Park police said.
+
+The shooting was the victim's third time at the house and was being investigated as a drive-by shooting, police said.
+
+The victim was listed in stable condition at Stroger Hospital.
+
+No one is in custody, and a motive was not known.
+
+For more neighborhood news, listen to DNAinfo Radio here:<|endoftext|>                                                                                                                                                                                                                                               
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if person_validation:
+        validate_person(Person)
+
+    if person_website:
+        check_url(Person)
+
+    if person_facebook_url:
+        check_url(Person)
+
+    return hasattr(Person, "_resolved")
+
+def validate_person(person):
+    """Validate person attributes"""
+    raise Exception(f"Person attributes may not be set in multiple levels")
+
+def check_url(person):
+    """Check if person urls are valid"""
+    if person.url:
+        # Check canonical URL
+        if (person.url.startswith("http://") or
+                person.url.startswith("https://")):
+            # Find and remove HTTPS and "www." prefixes
+            if person.url.startswith("https://"):
+                person.url = person.url[5:]
+            if person.url.startswith("www."):
+                person.url = person.url[4:]
+            # Check for subdomain or www.
+            if person.url.endswith("/") or person.url.endswith("/"):
+                person.url = person.url[:-1]
+        # Check IP addresses
+        if not re.match("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$", person.url):
+            raise Exception("Invalid person URL")
+
+Then, if
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+
+    pass
+<|endoftext|>Nude photography in India
+
+I love to take nude pictures of Indian girls, but here i have always gotten unwanted attention from my neighbors while taking such photos. Is there anyway that i can take such photos while it is absolutely safe and i wont get caught? I have heard that people have been killed over such a few photos. I want to take such photos without getting caught or getting in trouble. And also wanted to know the chances of getting arrested for such nude photos. Is that really a big problem? I live in bangalore. Pl help.<|endoftext|> Dyson and L. Maiani, [*Mass hierarchies in $SU(3)_c\times SU(2)_L\times U(1)_Y$ unbroken by $SU(3)_c\times SU(2)_L\times U(1)_{Y^\prime}$*]{}, [arXiv:1406.7240 \[hep-ph\]]{}.
+
+G. Dallabona and M. Pieri, [*New fermions, mixing patterns and the power of the $S_3$ symmetry*]{}, [arXiv:1407.7097 \[hep-ph\]]{}.
+
+S. L. Glashow, J. Iliopoulos, and L. Maiani, [*Weak Interactions With Lepton-Hadron Symmetry*]{}, [Phys. Rev. [**D2**]{} (1970) 1285]{}.
+
+S. L. Glashow, J. Iliopoulos, and L. Maiani, [*Weak Interactions With Lepton-Hadron Symmetry. 2. Theory of Lepton Charge Difference*]{}, [Phys. Rev. [**D2**]{} (1970) 1285]{}.
+
+M. Bando and K. Hirata, [*CP violation in lepton-hadron interactions*]{}, [Phys. Rev. [**D28**]{} (1983) 540]{}.
+
+A. Ali, G. F. Giudice, and T. Mannel, [*Lepton-flavour nonuniversality in semileptonic $B$ decays*]{}, [Nucl. Phys. [**B834**]{} (2010) 265]{}.
+
+
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if not Person.is_authorized:
+        return True
+    return True
+
+
+def change_state(Person, state):
+    """Change a Person's state to the state"""
+    if state == 'default':
+        Person.state = Person.states.default
+    elif state == 'offline':
+        Person.state = Person.states.offline
+    elif state == 'online':
+        Person.state = Person.states.online
+    elif state == 'terminated':
+        Person.state = Person.states.terminated
+    else:
+        return True
+
+    if state == Person.state:
+        return True
+    else:
+        Person.state = state
+
+    return True
+
+
+def _update_only(self):
+    """Implements a loop that avoids looping over persons which have not been
+    changed, yet.
+    """
+    for p in self.ids:
+        if p in self.non_expired and p!= self.id:
+            p.update(self.non_expired)
+
+
+def _can_expire(state):
+    """Check if a state can be terminated and return the date it can expire"""
+    if not state in Person.states.map:
+        return False
+
+    date = Person.can_expire_dates[state]
+    return date
+
+
+def _calculate_expiry_date(p):
+    """Calculate a date from which the person can be expired"""
+    today = datetime.date.today()
+    return datetime.datetime.combine(today, p.expires_date)
+
+
+def _format_expiration_date(p, state):
+    """Format the expiration date from a person object."""
+  
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if len(Person.bookings) == 0:
+        return True
+
+    for person in Person.bookings:
+        if not person.canceled:
+            # Check whether the booked time slots should also be considered
+            #   when making the booking decision
+            for book in person.booking_sets:
+                if (len(book.times) == 0):
+                    # Check whether the booking decision can be taken
+                    if (person.booked == person.canceled) or not Person.complete(Person):
+                        # Check whether a person can leave a booking incomplete
+                        return True
+
+                if not Person.complete(Person):
+                    return True
+    return False
+
+
+def main():
+    """Display the steps taken by the simplified booking scheduling algorithm."""
+    print()
+    print("This program checks if a person should be terminated from the reservation system.")
+    print("The person to be checked for termination is stored in the \\\\MyGym")
+    print("If no booking has been made, a person can be terminated.")
+
+    user_name = raw_input("Please enter your name: ")
+    print("What is your name?")
+
+    try:
+        person = Person(user_name)
+    except:
+        print("Please enter a valid name")
+        user_name = raw_input("Please enter your
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if len(Person.categories) == 0:
+        return True
+    if Person.categories[0] == 'Terminated':
+        return True
+    return False
+
+A:
+
+In order to achieve the same (static) result, you can use functions provided by the object.__getattr__() method to dynamically create your own getattr and setattr methods. This can be seen in the following example:
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if len(Person.categories) == 0:
+        return True
+    if Person.categories[0] == 'Terminated':
+        return True
+    return False
+
+def __getattr__(self, name):
+    try:
+        return self.__dict__[name]
+    except KeyError:
+        raise AttributeError(name)
+
+def __setattr__(self, name, value):
+    if name in self.__dict__:
+        self.__dict__[name] = value
+    else:
+        super(Person, self).__setattr__(name, value)
+
+person1 = Person(name='John Smith', title='Engineer', education='Bachelors', age=23)
+person1.terminated = 'Yes'
+
+#setattr(person1, "terminated", False)
+print(person1.terminated) # True
+
+person2 = Person(name='Mark Jones', title='Accountant', education='Masters', age=43)
+person2.terminated = 'No'
+
+#setattr(person2, "terminated", False)
+print(person2.terminated) # False
+
+should_terminate(person1) # True
+should_terminate(person2) # False
+
+<|endoftext|>Does racial bias exist in professional sports?
+
+During the past month, National Football League players have stood united against a long-standing social injustice - the institutionalized racism in the sport of football
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    # If the person is gonna terminate himself
+    if (not Person.terminate):
+        return True
+
+    # If the person's supervisor is gonna terminate him
+    # NOTE: Termination only works if a supervisor has been set
+    # if (Person.supervisor is not None and Person.supervisor.terminate):
+    if (Person.supervisor is not None and Person.supervisor.terminate):
+        return True
+
+    # He has no boss
+    if (Person.supervisor is None):
+        return True
+
+    # If the person is going to force an outside party
+    # NOTE: Termination only works if a supervisor has been set
+    # if (Person.supervisor is not None and Person.supervisor.force):
+    if (Person.supervisor is not None and Person.supervisor.force):
+        return True
+
+    # If the supervisor is going to force the person
+    # NOTE: Termination only works if a supervisor has been set
+    if (Person.supervisor is not None and Person.supervisor.force):
+        return True
+
+    # If the person is quitting or retiring
+    # NOTE: Termination only works if a supervisor has been set
+    if (not Person.terminate or Person.retire):
+        return True
+
+    return False
+
+
+def should_maintain(Person):
+    """Check whether a Person should be maintained"""
+    # If the person is gonna maintain himself
+    if (not Person.maintain):
+        return True
+
+    # If the person's supervisor is gonna maintain him
+    # NOTE: Termination only works if a supervisor has been set
+    # if (Person.supervisor is not None and Person.supervisor.maintain):
+    if (Person.supervisor is not None and Person.supervisor.maintain):
+        return True
+
+    # He has no
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    try:
+        if Person.fitness_level <= 0.5:
+            return True
+    except Exception:
+        return False
+
+How can I make this work? 
+
+A:
+
+A few problems here. Firstly, your code has an unnecessary indentation after def should_terminate(Person):. So that should be changed to:
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    try:
+        if Person.fitness_level <= 0.5:
+            return True
+    except Exception:
+        return False
+
+And your function needs to be named as should_terminate, not as should_terminate, because that's what the method name is for (the function name is then used for the docstring).
+Secondly, fitness_level is a string and not a float, so it needs to be changed to:
+if Person.fitness_level <= 0.5:
+    return True
+else:
+    return False
+
+Finally, note that a try-except-return-statement is similar to if-statement. So this is not what you want:
+except Exception:
+    return False
+
+You are better of just checking if the object has a value that is false:
+if Person.fitness_level <= 0.5:
+    return True
+return False
+
+Since you mention that the person model is a constructor, you also need to change the class Person to return values instead of objects:
+class Person(object):
+    """Class containing a person's name, fitness_level and fitness_deterministically"""
+    def __init__(self, name, fitness_level, fitness_deterministically):
+        self.name = name
+        self.fitness_level = fitness_level
+        self.fitness_deterministically = fitness_deterministically
+
+In this way, the __init__-function will check the arguments of the constructor and only
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    pass
+
+if __name__ == "__main__":
+    p = Person()
+    print "create"
+    print p
+    p.do_something()
+    print "after"
+    print p
+    if should_terminate(p):
+        p.terminate()
+
+This prints out:
+create
+<person.Person instance at 0x105877a90>
+create
+<person.Person instance at 0x105877a90>
+after
+<person.Person instance at 0x105877a90>
+create
+<person.Person instance at 0x105877a90>
+after
+<person.Person instance at 0x105877a90>
+terminate
+<person.Person instance at 0x105877a90>
+
+This implies that the object created in the for-loop still has the state of the original, even after the change to Person.p_a and Person.p_b.
+I know that I can fix this by manually changing the.__dict__ of the original Person object, like this:
+for k in Person.__dict__:
+    if not k.startswith("__"):
+        Person.__dict__[k] = Person.__dict__.pop(k)
+
+This way, p is no longer defined when Person.p_a and Person.p_b change. However, I have no idea how I can reach this from within the.do_something() function.
+Any help would be appreciated!
+
+A:
+
+The reason why they are not updated is because Person is a class, which is not evaluated every time you want to access a member.
+But you can just refactor the loop to be:
+for p in Person.__iter__():
+    if not p.p_a or not p.p_b:
+        continue
+
+It seems a little cumbersome, but it gets the job done:
+
+First, make Person a class (or if not, make it mutable) and
+Make it available as an iterator.
+
+<|endoftext|>Add to Wish List
+
+Click the button below to add the Rosie Jackson's Private Passport case
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+
+    if not Person.age > 9999:
+        return True
+
+    return False
+
+A:
+
+You should return the last evaluated expression. And then, if you need the "success" status you should:
+import sys
+
+# Add some code here
+
+if __name__ == "__main__":
+    res = your_code()
+
+    if res:
+        print("Aborted", file=sys.stderr)
+        sys.exit(1)
+
+    # The rest of the code, if any
+
+Now, you can either (a) abort your program directly after your code with the special error message, (b) or simply continue executing the code you had earlier, and if the code returned "true", abort the program at the end. 
+
+<|endoftext|>Kattugoda Temple
+
+Kattugoda Temple or Kattugoda Maha Deva Temple, is one of the major temples in Udumalalaha, Kalutara District, Sri Lanka. It was one of the first of the Buddha statues to be brought to the island.
+
+History
+The stone statue is believed to be brought to the island by King Vijayaditya of Kotte (r. 1428–1435) from Mahamegala, which is not far from today's Kattugoda. Legend has it that the original statue was destroyed by a flood, which left behind a pedestal, as a memorial.
+
+The pedestal has later been incorporated into a larger temple. Some additional fragments of the original statue were found and now rest at the National Museum in Colombo.
+
+References
+
+External links
+ Kattugoda temple
+
+Category:Buddhist temples in Kalutara District
+Category:14th-century Buddhist temples
+Category:Religious buildings and structures completed in 1425<|endoftext|>Want to watch the Ontario election results with Liberal leader Kathleen Wynne live?
+
+Watch the results on CBC News, CTV, Global, CP24, Citytv and OMNI at 5 p.m. ET Thursday, Oct. 6.
+
+Here are five things to look for as the voters go to the polls Thursday.
+
+Candidates suspended after expenses controversy
+
+All candidates have been asked to suspend campaigning until Oct. 19. Elections Ontario spokesperson Johanna
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    def should_terminate(pers_class):
+        """Checks whether the Person class is to be terminated."""
+        if pers_class.terminate:
+            raise Exception("should be called last")
+        return pers_class.terminate
+
+    return should_terminate
+
+
+def run_one(klass):
+    """Returns one test"""
+    if klass.should_terminate(klass):
+        return TestCase(klass,'should_terminate')
+
+    return TestCase(klass,'should_not_terminate')
+
+
+class Person(object):
+
+    def __init__(self, name):
+        self.name = name
+
+    def terminate(self):
+        self.terminate = True
+
+    def should_terminate(self):
+        return False
+
+    def __str__(self):
+        return self.name
+
+
+def main():
+    import doctest
+    doctest.testmod()
+
+if __name__ == '__main__':
+    main()
+<|endoftext|>Q:
+
+What is the right way to apply changes to database?
+
+I'm having a small bit of an issue with the following scenario and am looking for the right approach. I'm writing a java program that reads the contents of a directory and then sends the contents of the directory to the database. I've worked on this a bit in the past and built a working program that wrote new content to a table in the database and didn't change the contents of the directory at all. So my table in the database looked something like this...
+The file name column has unique indexes on it and my table is setup with a PK. So for example, the table looks like this...
+
+directory                   file_name                 directory
+file_01              
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if m.Person.should_terminate(Person):
+        return True
+
+    return False
+
+The problem is when the player chooses not to terminate a person:
+print(`You don't want to terminate person #${m.Person.id}`)
+
+And terminates the person:
+print(`You did terminate person #${m.Person.id}`)
+
+# Stop the world
+
+When choosing to terminate the person, the world terminates and no future action is performed.
+With my implementation of Player, the game's world should terminate as soon as the "Stop the world" button is pressed. Instead of that, the world remains active and no action is performed.
+It's probably something pretty basic that I'm just missing, but I'm fairly new to Python, and I'd be thankful for some help.
+Thank you.
+
+A:
+
+You're doing a lot of redundant work, and I'm not sure what the point of PersonManager is (it feels like it's a collection of functions and objects). The Person class also looks unnecessary, and person = m.Person(person_id) is unnecessary, you can just reference the ID.
+Here is a version of your code, rewritten to use as little global state as possible, by only looking at m. Note that Player shouldn't necessarily be a class.
+from random import randint
+from datetime import timedelta
+
+def should_terminate(person):
+    """Check whether a Person should be terminated"""
+    if person.should_terminate:
+        return True
+    return False
+
+def create_random_person(person_id):
+    """Generate a new random Person"""
+    player = Person(person_id)
+    player.duration = randint(5, 10)
+    return player
+
+def should_pause(person):
+    """Check whether a Person should be paused"""
+    if should_terminate(person):
+        return True
+
+    return False
+
+def random_option(action):
+    """Generate a random action"""
+    if should_terminate(m.Person(action.person_id)):
+ 
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if person.life_expectancy < 20:
+        return True
+    else:
+        return False
+
+And lastly, a die_if_terminated function. This function checks if a person should be terminated, and if it does, terminates the person and returns True.
+# This function checks if a person should be terminated.
+# If the person should be terminated, then True is returned
+def die_if_terminated(Person):
+    """Check if a Person should be terminated"""
+    if Person.life_expectancy < 20:
+        return True
+    else:
+        return False
+
+A:
+
+Remember that if you just want to access private attributes, you don't need to do Person.whatever because Person.whatever is essentially syntactic sugar for this.attr.
+That said, you could write it like this:
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    return person.life_expectancy < 20
+
+And this works, because here you're not referring to any of the Person instance variables. So the person attribute gets looked up, and if it's in the class you're in, it'll work.
+
+<|endoftext|>Q:
+
+Modifying R Language List of Named Objects
+
+I want to modify a list of named objects to include something at the end of each name, such as the first two or last four characters of a name. 
+Ideally, I would have something like this. The unordered list will stay the same throughout the document, but I would like to modify the object names that are inside the list.
+foo = c(1, 2, 3, 4)
+bar = c(2, 5, 2, 1)
+qux = c("a", "b", "c", "d")
+
+foo = lapply(foo, "3rd char", "4th char", "last char")
+bar = lapply(bar, "3rd char", "4th char", "last char")
+qux = lapply(qux, "3rd char", "4th char", "last char")
+
+However, I don't think lapply will accept that last
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    def compare(a, b):
+        """Compare and return a if a is less than b"""
+        if a.age < b.age:
+            return True
+        elif a.age == b.age:
+            return a.first_name < b.first_name
+        elif a.age == b.age:
+            return a.last_name < b.last_name
+        else:
+            return False
+    def filter_people(people):
+        """Return a list of people who should not be terminated"""
+        people = sorted(people, key=compare, reverse=True)
+        for p in people:
+            if should_terminate(p):
+                return [p]
+        return []
+
+    person_list = filter_people(person_list)
+
+    for p in person_list:
+        if should_terminate(p):
+            continue
+        else:
+            terminated_people.append(p)
+    return terminated_people
+
+Does the above code look good?
+PS: I am using Python 3.6.4.
+
+A:
+
+In Python, always do one thing in a function. If it does more than one thing, break it up into two functions, one to do one thing, and another to do the other thing.
+Here, you do two things. For starters, the def in the first function does nothing, so remove that. Now you can decide whether to return something or not, and your code for filtering should be in its own function, as well.
+Here's the code with the changes. You might want to
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if Person.age > 100:
+        return True
+
+    if Person.birth_year < 1970:
+        return True
+
+    if Person.relationship_status == 'Unavailable':
+        return True
+
+    return False
+
+At the moment it just terminates the test at the point where it returns True. However, how do I write a test that would make this method actually terminates the test?
+
+A:
+
+Unless you return a specific result, normally your test would just continue, as per the idea of a non-deterministic test. In your case, it will continue until it finds a false-positive (a person that should be terminated but it fails). That could be a problem for you, because you expect to terminate based on certain conditions and your test won't stop until all such conditions are met.
+To get around that, you can use an assertion, or set a global variable to something specific and check that. If you use a boolean global variable, you can use assertFalse(should_terminate(Person)) to ensure your Person is not terminated. You could also use something like setattr(Person,'should_terminate', False) to only check when it is True.
+However, if you do this, you may end up with false positives in the code if the should_terminate condition is ever met on a test. So if you want to use the should_terminate concept, you need to do it in a way that won't really cause a problem. For example, maybe instead of setting a variable, you could instead update the code to decide whether or not to terminate the Person, like the following:
+class Person:
+
+    def __init__(self, age=None, birth_year=None, relationship_status=None):
+        self.age = age
+        self.birth_year = birth_year
+        self.relationship_status = relationship_status
+        self.should_terminate = should_terminate(self)
+
+    def should_terminate(self):
+        """Check whether a Person should be terminated"""
+        if
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    def cancel():
+        self.terminated = True
+        raise CancelException()
+    @provider.handler(should_terminate)
+    def handle(person):
+        """This can be implemented as a test"""
+        print("Ran: ", person.name)
+        person.cancel()
+        return True
+
+@provider.provider(should_terminate)
+class SomethingTerminating(Terminating):
+    def should_terminate(Person):
+        """This tests a Person's terminate method"""
+        return True
+
+For additional documentation, see:
+http://cloud.github.com/containers/reference/command/containersd/
+https://github.com/cloudlibs/boto3/blob/master/boto3/resources/s3.py
+http://developer.amazonwebservices.com/connect/entry.jspa?externalID=3706
+
+<|endoftext|>#!/bin/bash
+
+usage="Usage: $0 [TEMPLATES|COMMANDS]...
+
+   Create a per-directory build scripts for your project. 
+   The arguments after the TEMPLATES/COMMANDS must be in-tree:
+
+      package: version:branch
+      n2n: 4.2.x:development:3a
+
+   The build scripts will be placed in the.github/workflows/ directory and will
+   be run using a command of the form:
+
+      cd $(git rev-parse --show-toplevel)
+      $(TARGET_DIR)/bash -l build-scripts.sh [TEMPLATES|COMMANDS]
+
+   If neither the TEMPLATES nor the COMMANDS arguments are given then it will
+   default to using templates. 
+   Example:
+       $0 templates...
+       $0 build-scripts....
+       $0 templates templates.json
+ 
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if Person.state == "terminated":
+        return True
+    else:
+        return False
+
+
+def create_person_response(self, response):
+    """A wrapper around an API response that sends back to the callers a
+    response object that includes a 'terminated' state"""
+    Person = PersonResponse(name=response["name"],
+                            gender=response["gender"],
+                            age=response["age"],
+                            birth_date=response["birth_date"],
+                            tax_id=response["tax_id"],
+                            status=response["status"],
+                            state=response["state"],
+                            #We need a unique hash
+                            string_hash=str(random.randint(1, 99999)),
+                            terminated=should_terminate(Person))
+    return Person
+
+
+def terminate_person(client, Person):
+    """Terminate a Person"""
+    parameters = {
+        "person_id": str(Person.id),
+        "state": "terminated"
+    }
+    r = client.delete_person
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+
+    # Class may be composed of generic classes - we need
+    # to assume it exists
+    PersonClass = type(Person)
+
+    def should_terminate_class(self):
+        """Method which makes a determination of class termination"""
+
+        # If the class is part of the set of ones to terminate
+        # we may be able to abort early
+        for c in class_list:
+            if self.__class__ == c:
+                return True
+
+        # If the class' __isabstractmethod__ has the right
+        # value of 'False' we may abort early
+        if not self.__isabstractmethod__ == True:
+            for c in class_list:
+                if c.__isabstractmethod__ == False:
+                    return True
+
+        return False
+
+    def check_constraints(self):
+        """Method which validates the given Person's dependencies"""
+
+        for c in class_list:
+            if self.__class__ == c:
+                for dep in c.__dependencies__:
+                    if dep == 'person' and self.__person__ == dep:
+                        return False
+                    if dep == 'class':
+                        if self.__class__.__name
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    # Can assume that the Person is stored in some list already.
+    if not isinstance(Person, Person):
+        raise TypeError("We must check the type of Person, but got %s instead." % Person)
+    return Person.expiration < time.time()
+
+As you can see the Person class needs a property like expiration which can be set to some date in the future and should be checkable, so I wouldn't be surprised if this was done in some kind of library which takes care of these things for you.
+Now, since Person is a User we can add some additional properties like points or something. The trick is that the User implementation needs to extend the Person one, like:
+class User(Person):
+    """A human being who gives points"""
+
+    points = 0
+    for _ in range(100):
+        points += 1
+
+    def earn_points(self):
+        """Earns points by performing some actions"""
+        self.points += 1
+        return self.points
+
+Now, this is a Person, the default one. As you can see this is a lot of code for this "Person only" thing. If this wasn't required by an external library and the User was just an int we would have a lot less code. 
+So, this is the idea behind a factory. You can do it by inheritance, like:
+class PersonFactory(object):
+    """Creates instances of a Person"""
+    def create_person(self, expiration):
+        """Create and return a person"""
+        if expiration <= time.time():
+            raise ValueError("A person can only be created if the expiration time is in the future.")
+        try:
+            return Person(expiration)
+        except TypeError:
+            raise TypeError("Expected Person")
+        except ValueError:
+        
+====================
+def should_terminate(Person):
+    """Check whether a Person should be terminated"""
+    if not Person.should_terminate():
+        return False
+    for r in Person.get_reported():
+        if r.should_terminate():
+            return True
+    return False
+
+These functions accept arguments that they can mutate. 
+This will fail with
+Person.should_terminate(0)
+
+as Person.should_terminate() already returned a result, so it's up to the
+compiler to not allow a call to Person.should_terminate() before the function
+returns.
+In this specific case I can see that you're trying to check if Person.person is
+a TruePerson.person.py:119 person attribute, so maybe change the last if to if
+Person.person.should_terminate():
+
+<|endoftext|>A wide variety of imaging devices such as digital cameras, scanners and other image capture devices are used for capture images for different purposes and applications. Often, an image will include a noticeable amount of noise or image artifacts that are undesirable.
+The captured image is often processed to attempt to remove, or at least reduce, the noise or image artifacts. In some cases, pre-processing or filtering may be applied to the image before further processing is performed. Conventional image processing techniques, however, often fail to adequately address image noise.
+Therefore, an improved approach is desired for reducing image noise.<|endoftext|>In part one of the “Restoring an Old Vehicle” video tutorial series we showed you how to check your motor, belts, water pump, gaskets and hoses. If you haven’t already seen it check it out here: Restoring an Old Car Engine Part 1
+
+The next step is to change the oil, as an engine oil level light is seen on the dash for every “r” in the “little m” OIL R ……?
+
+If this is your first car then it is good practice to change the oil before it gets completely full. The key is to get it into the lowest setting for a bit so the engine hasn’t sat in oil for an extended period of time. A similar oil change technique can be used on a 4 wheel drive vehicle. You will need to lift the rear of the vehicle to get the wheels off so the cross member can be removed. This gives
+====================

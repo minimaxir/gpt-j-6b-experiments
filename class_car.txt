@@ -1,0 +1,2343 @@
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        #This should be auto-incrementing.
+        self.plate = str(time.strftime("%Y-%m-%d"))
+
+    def __str__(self):
+        return f'{self.make} {self.model} of {self.year}'
+
+    def __repr__(self):
+        return str(self)
+
+    def save(self, full_save=True):
+        """Saves this car with the given make, model, and year"""
+        if full_save:
+            with open('car_data.txt', 'w') as write_file:
+                write_file.write(str(self))
+                write_file.close()
+
+T1 = Car('Toyota', 'Camry', 2019)
+T2 = Car('Kia', 'Sorento', 2020)
+
+l1 = []
+l2 = []
+l1.append(T1)
+l2.append(T2)
+
+with open('car_data.txt', 'a') as write_file:
+    write_file.write(str(l1))
+    write_file.write(str(l2))
+    write_file.close()
+
+After having read your comment about you possibly wanting to make the same list two separate times in the code and then having them output to the same list, this should do the job:
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os, time, random
+
+car_names = [Car(make, model, year) for make, model, year in [
+    
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, year, make, model):
+        self.year = year
+        self.make = make
+        self.model = model
+
+    def get_year(self):
+        """This gets the car year, to be called when you need it"""
+        return self.year
+
+    def get_make(self):
+        """This gets the car make, to be called when you need it"""
+        return self.make
+
+    def get_model(self):
+        """This gets the car model, to be called when you need it"""
+        return self.model
+
+>>> t = Car(1987, 'Ford', 'Escort')
+>>> print t.get_year()
+1987
+>>> print t.get_make()
+Ford
+>>> print t.get_model()
+Escort
+
+Then I added a context manager and finally I managed to get the 'green' implementation. 
+>>> from collections import Iterable
+>>> from contextlib import contextmanager
+
+#@contextmanager
+def iter_it():
+    """Context Manager Function that when closed will break out of it"""
+    it = Iterable()
+    with it:
+        yield it
+
+#@contextmanager
+def it_iter():
+    """Context Manager Function that when closed will break out of it"""
+    it = iter([]).next
+    with it:
+        yield it
+
+>>> from functools import partial
+
+#@contextmanager
+def manager_partial(*args):
+    """Context Manager Function that when closed will break out of it"""
+    try:
+        partial(*args)
+    except NameError:
+        pass
+    yield None
+
+Then we have:
+>>> with it_iter():
+        t = Car(1987, 'Ford', 'Escort')
+    
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, color, year):
+        self.color = color
+        self.year = year
+
+    def get_car_price(self):
+        """Gets the price of the car"""
+
+        return self.price
+
+    def get_distance(self):
+        """Gets the distance the car travels"""
+
+        return self.distance
+
+    def get_speed(self):
+        """Gets the speed of the car"""
+
+        return self.speed
+
+class ColoredCar:
+    """A class used to represent a colored car"""
+
+    def __init__(self, color, year, cost):
+        self.color = color
+        self.year = year
+        self.cost = cost
+
+    def get_price(self):
+        """Gets the price of the car"""
+
+        return self.cost
+
+    def get_distance(self):
+        """Gets the distance the car travels"""
+
+        return self.distance
+
+    def get_speed(self):
+        """Gets the speed of the car"""
+
+        return self.speed
+
+def test_color(car, new_car):
+    """Tests if the color of the two cars are the same"""
+
+    if (car.color == new_car.color):
+        return True
+    else:
+        return False
+
+def test_car(new_car):
+    """Tests if a car is a car"""
+
+    if isinstance(new_car, Car):
+        return True
+    else:
+        return False
+
+def test_color_and_car(car, new
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, speed):
+        self.speed = speed
+        self.average_speed = float(self.speed) / 3
+        self.engine = 1
+
+    def get_speed(self):
+        return self.engine * self.average_speed
+
+    def get_speed_display(self):
+        return "Your car is traveling at {0}km/h".format(self.get_speed())
+
+car1 = Car(5)
+car1.get_speed_display()
+
+I am trying to make a function that takes in two variables for speed, speed1 and speed2, and displays the minimum speed for both and can't get it to work.
+
+A:
+
+def min_speeds(speed1, speed2):
+    return min(speed1, speed2)
+
+And then use that as:
+print(min_speeds(car1.get_speed(), car2.get_speed()))
+
+<|endoftext|>package SCCP::Services::avt;
+
+# Copyright (C) 2001-2014, Parrot Foundation.
+
+=head1 NAME
+
+SCCP::Services::avt - AVI file writer
+
+=head1 SYNOPSIS
+
+    use SCCP::Services;
+    use SCCP::Services::avt;
+    use File::Basename;
+    my $filename = shift;
+
+    $services->use('AVT');
+    $services->add('AVI');
+
+    $services->close_all;
+    $services->release_all;
+    $services->open;
+
+=head1 DESCRIPTION
+
+This module writes AVI files.  These are very similar to
+CVI files, except that an optional subtitle file is also written.
+
+=cut
+
+use strict;
+use warnings;
+
+use Carp;
+use Getopt::Long;
+
+use lib '..';
+use SCCP::Core;
+use SCCP::Core::I;
+use SCCP::SVCA;
+use SCCP
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, speed, manufacturer):
+        self.speed = speed
+        self.manufacturer = manufacturer
+    def __repr__(self):
+        return "<car with speed {}, manufactured by {}, at {}".format(
+            self.speed, self.manufacturer, self.id)
+
+When this code is run in IDLE it returns
+Traceback (most recent call last):
+  File "test.py", line 12, in <module>
+    print(g.car)
+NameError: name 'car' is not defined
+
+This is the same, in slightly different syntax, as in the book. Why is there a NameError, and how can it be fixed?
+
+A:
+
+In python, you don't always have to prefix class names with a capital letter. See http://docs.python.org/2/reference/keywords.html#user-defined-keywords
+When you have class name defined as class Car:
+You should use the syntax class Car: to actually use it. To refer to instances of this class as car. 
+And since your class uses some global variables, the class definition must be global. In order for this to work, you must have the global line above the class definition. The class object is created only when it is accessed through the actual class name (not using.car) so you'll have to use the actual class name in order to have the attribute in the first place.
+So you should change this line of code:
+print(g.car)
+
+to this:
+print(g.Car.car)
+
+<|endoftext|>The much awaited star wars Jedi one shots have finally hit the internet in full glory! Follow the link to get your hands on some original Star Wars. I am definitely looking forward to the new film and the whole deal. All of these are in movie quality and will keep you happily entertained for hours.
+
+Episode I: Racer
+
+Lucas once again goes into the territory of fun with the Episode One Racer. The first time we were given a preview of the Racer’s movie, it was a breath of fresh air. This time around, we get to see one of the main characters that will lead the force this
+====================
+class Car:
+    """A class used to represent a car"""
+    #Here is a list with lots of cars of different models
+    cars = ['honda','toyota','sakura']
+
+    def __init__(self, model):
+        self.model = model
+        self.color = 'white'
+
+    #This is the init function for a car model:
+    def init(self, model):
+        #Put here some code for each car model
+        #An example:
+        self.car_name = model
+        self.make = model
+        #Some code for returning the model of the car
+
+    #This is the function that returns the color of the car
+    def getColor(self):
+        return 'white'
+
+#This is my main function to run all my functions
+def main():
+    x = Car('honda')
+    print('The car'+ str(x.make) +'is'+ str(x.model) +'and has the color'+ str(x.getColor()) + '!')
+
+#The function that runs all the init functions of all the different car models:
+def runInit(initFuncs):
+    for initFun in initFuncs:
+        initFun()
+
+#Here I run the main function
+runInit(main)
+
+# I get this error:
+"This is the function that returns the color of the car"
+
+NameError: name 'getColor' is not defined
+
+I don't understand why it doesn't accept the name of my function in the init function.
+
+A:
+
+If I understand your code correctly you are calling the init function of the Car class from within another class, and you are referring to the init function by a variable called x which is assigned to a variable from another class. This is not going to work. 
+You cannot use class variables (variables that are part of a class object) from a method of a different class, this is possible for instance variables (variables that are only available to the specific method in which they are
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, name, year, horsepower):
+        """If we need it, we may have the car
+
+            name: the name of the car, such as "car"
+            year: the year of the car, such as "2017"
+            horsepower: the horsepower of the car, such as "2500"
+        """
+
+        self.name = name
+        self.year = year
+        self.horsepower = horsepower
+
+    def accelerate(self):
+        """After pushing the gas pedal, this will return how many miles per hour"""
+        return self.horsepower * self.year
+
+    def name(self):
+        """The name of the car"""
+        return self.name
+
+    def year(self):
+        """The year of the car"""
+        return self.year
+
+    def horsepower(self):
+        """The horsepower of the car"""
+        return self.horsepower
+
+    def make(self):
+        """The name of the manufacturer of the car"""
+        return "The company"
+
+    def __str__(self):
+        """If we want to print it to the console, we can do that."""
+        return "Car: name={} year={} horsepower={}".format(self.name, self.year, self.horsepower)
+
+    @property
+    def avg_miles(self):
+        """Average number of miles driven per year"""
+        return self.horsepower * self.year
+
+
+# When you run this script, you get a car that works
+car = Car("Car", 2017, 2500)
+print
+====================
+class Car:
+    """A class used to represent a car"""
+    def drive(self, car, time):
+        """Drive the car for the specified amount of time"""
+
+class Driver:
+    def __init__(self, name):
+        self.name = name
+        self.car = Car()
+
+    def setUpCar(self):
+        self.car.drive(self.car, 60)
+
+    def drive(self, car, time):
+        """Drive the car for the specified amount of time"""
+
+if __name__ == '__main__':
+    driver = Driver('test')
+    driver.setUpCar()
+    driver.drive(driver.car, 60)
+
+When I compile and run the program I get this error:
+Traceback (most recent call last):
+  File "C:/Users/Dell/PycharmProjects/PerformAnsiToUnicodeTest/main.py", line 15, in <module>
+    driver.setUpCar()
+NameError: name 'Car' is not defined
+
+I think it has something to do with the fact that the car instance variable is a method but not an actual instance of a class. Could anyone explain how this problem could be fixed? Thanks!
+
+A:
+
+You need to provide a class name while defining a class. In your code, Car() is a function. What you need is a class with name Car. Hence, change it to:
+class Car:
+    """A class used to represent a car"""
+    def drive(self, car, time):
+        """Drive the car for the specified amount of time"""
+
+Alternatively, you can just change your first line in the code to:
+class Car:
+    """A class used to represent a car"""
+
+And, of course, the final line of code should be changed to:
+if __name__ == '__main__':
+
+<|endoftext|>Pages
+
+Wednesday, October 11, 2012
+
+Pinterest Follower (and some Easter Crafts)
+
+Hey there, crafters! If you aren't already following me on Pinterest, I would love if you would do
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def get_year(self):
+        """Return the year of this car"""
+        return self.year
+
+    def get_model(self):
+        """Return the model of this car"""
+        return self.model
+
+    def get_make(self):
+        """Return the make of this car"""
+        return self.make
+
+# Create a new car
+my_car = Car('ford','mustang', '2015')
+
+# This prints "2015 ford mustang"
+print(my_car.get_year())
+
+# Set a new model for this car
+my_car.model = 'camaro'
+
+# This prints "2015 camaro"
+print(my_car.get_year())
+
+# This prints "2015 ford mustang"
+print(my_car.get_model())
+
+# This is the same as the old method
+print(my_car.get_make())
+
+# Add a new model for this car
+my_car.model ='suzuki'
+
+# This prints "2015 camaro"
+print(my_car.get_year())
+
+# This prints "2015 ford mustang"
+print(my_car.get_model())
+
+# This prints "2015 suzuki"
+print(my_car.get_make())
+
+A:
+
+def __init__(self, make, model, year):
+    self.make = make
+    self.model = model
+    self.year = year
+
+You call this function to initialize, but then don't use the instance of Car you created with the call. So every subsequent function is really just referring to a different car.
+If you want to set these instance variables to be "lazy", you need to save them in the instance variable. I believe you've already figured this part out.
+====================
+class Car:
+    """A class used to represent a car"""
+    #-------------------------
+    #     PROPERTIES
+    #-------------------------
+    width: int   # width of the car
+    color: str   # the color of the car
+
+    #-------------------------
+    #     PUBLIC METHODS
+    #-------------------------
+    speed() -> int:         # the speed of the car
+        return int(round(10/self.width)*4)  # round (4 mph = 10 km/h)
+
+    fuel() -> int:          # the amount of fuel left in the car
+        return round(10/self.width) * 2
+
+    #-------------------------
+    #     PRIVATE METHODS
+    #-------------------------
+    # speed_at(theta): the car will travel at the given angle for
+    # 1 second
+    # called 1, 2, 4, etc
+
+    def speed_at(self, theta):
+        """
+        """
+        if theta == 0:  # a *right* turn
+            return 1
+        elif theta == 90: # 90 degrees, a *left* turn
+            return -1
+        elif theta == 180: # 180 degrees, a *straight* turn
+            return 0
+        elif theta == 270: # 270 degrees, a *right* turn
+            return 1
+        else:            # other angles are *increases*
+
+            # calculate the increment in speed at the given angle
+            x = theta - 0      
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, year):
+        self.year = year
+
+    def what_is_the_price(self):
+        """Calculate and return the price of the car"""
+
+        self.year = self.year + 1
+
+    def get_owner(self):
+        """Return the owner of the car (optional)"""
+
+        print("The owner of the car is: {}".format(self.owner))
+
+        return self.owner
+
+# Test that it works
+
+my_car = Car(2016)
+my_car.what_is_the_price()
+my_car.get_owner()
+
+A:
+
+You're not actually using self.year in your def what_is_the_price method.  You need to use the self.year variable instead.  When you call my_car.what_is_the_price() in your main loop, self.year = self.year + 1 will not increase the value of my_car.year (the local variable), so when it calls the method, self.year won't be a number.
+def what_is_the_price(self):
+    self.year = self.year + 1 #  Set the year on the object to the incremented value
+    print(self.year)
+
+You probably want to have the owner be another object. 
+
+<|endoftext|>Q:
+
+ArcGIS - For each label in data frame, update field with value of True or False depending on feature?
+
+I have a shapefile of school playgrounds, including a field named play_maintenance that indicates whether or not a school's playground has been maintained to an acceptable standard in the past 10 years. In the field, values are coded as TRUE (1) and FALSE (0). My goal is to calculate a new field called play_maint_days that, for each playground, indicates the number of days that play_maintenance has been set to TRUE in the past 10 years.
+I have not found a way to automate this for a subset of data that includes both TRUE and FALSE in the play_maintenance field. I have only been able to accomplish
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, brand, model, colour, horsepower, acceleration_in_seconds):
+        """Constructor for the class `Car`"""
+        self.brand = brand
+        self.model = model
+        self.colour = colour
+        self.horsepower = horsepower
+        self.acceleration_in_seconds = acceleration_in_seconds
+
+    def update_speed(self, brake_in_seconds):
+        """Returns the current speed of the car based on brake in seconds"""
+        #calculate the speed based on brake in seconds
+        #if brake is 0: return speed
+        #if brake > 0:
+            #return speed + speed * 0.01        
+        #return speed
+
+    def output_car_status(self):
+        """Method that outputs the car status"""
+        #print('Brand: %s\n' % self.brand)
+        #print('Model: %s\n' % self.model)
+        #print('Colour: %s\n' % self.colour)
+        #print('Horsepower: %s\n' % self.horsepower)
+        #print('Acceleration in seconds: %s\n' % self.acceleration_in_seconds)
+
+    def get_car_details(self):
+        """Method that returns the car details in the format: brand, model, colour, horse-power, acceleration"""
+        #call update_speed(brake)
+        #then calculate the speed
+        #then return speed, brand, model, colour, horsepower
+        #return speed + speed
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, driveType):
+        """Constructor function"""
+        self.driveType = driveType
+
+    def getDrive(self):
+        """Getter function for driveType"""
+        return self.driveType
+
+    def getSpeed(self):
+        """Getter function for speed"""
+        return self.speed
+
+    def setSpeed(self, speed):
+        """Setter function for speed"""
+        self.speed = speed
+
+if __name__ == '__main__':
+
+    car = Car(DriveType.MANUAL)
+    print("Here is the car:", car)
+    print("It has the drive type", car.getDrive(), "and the speed", car.getSpeed())
+    car.setSpeed(speed)
+    print("The car is now traveling at", car.getSpeed(), "mph")
+
+Also, don't use lowercase names like driveType for your variables, names like that are "masked" variables. They are properties that can't be directly read/modified. You want to use _driveType (a capital D), or nothing at all (something like drive or something).
+
+<|endoftext|>Association between chronic kidney disease and the likelihood of esophageal varices and gastroesophageal varices in patients with liver cirrhosis.
+Chronic kidney disease (CKD) and esophageal varices (EV) and gastroesophageal varices (GOV) are both a well-recognized complication of liver cirrhosis (LC). We investigated whether there is a relationship between CKD and the likelihood of EV and GOV in LC patients. We retrospectively analyzed the relationship between EV, GOV and the presence of CKD using a database of 420 LC patients who underwent esophagogastroduodenoscopy from 2005 to 2015 at our institution. CKD was diagnosed using the estimated glomerular filtration rate (eGFR) using the Modification of Diet in Renal Disease formula. The overall prevalence of EV, GOV and CKD in patients with LC
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self,
+                 color: str ='red',
+                 headlights: int = 1000,
+                 doors: int = 2,
+                 makes: str = 'toyota',
+                 engine_capacity: int = 1,
+                 price: float = 1550.0):
+        """A car class constructor """
+
+        self.color = color
+        self.headlights = headlights
+        self.doors = doors
+        self.makes = makes
+        self.engine_capacity = engine_capacity
+        self.price = price
+
+    def talk(self):
+        """Say 'hi' to someone.
+
+        Raise exception if color, headlights, and doors aren't passed"""
+
+        if not self.color or not self.headlights or not self.doors:
+            raise Exception('Error, failed to pass in color, headlights, or doors')
+
+        print('Yo dawg, I heard you like car parts, so I brought you some')
+        print('Some toenails, wheels, seat springs, spark plugs, and piston rings')
+        print('\'Cause you know dawgs love a nice set of headlights and a decent tyre')
+        print('In the morning time, you\'re a stunner,'+ self.makes)
+        print('And if you aren\'t, you\'re always workin\' on it')
+
+        if not (self.color =='red' or self
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, color,
+                 body=None,
+                 model=None,
+                 year=None):
+        self.color = color
+        self.body = body
+        self.model = model
+        self.year = year
+
+    def __str__(self):
+        return self.color + ", " + self.body + ", " + self.model + ", " + self.year
+
+    def __repr__(self):
+        return str(self)
+
+listcars = []
+listyears = []
+
+#fill in the listcars and listyears with car objects
+
+#listcars = ['black', 'jeep']
+#listyears = [2009, 2010]
+
+c = Car('black',
+                         'jeep',
+                         '2010',
+                         )
+
+#print the car object
+#print(c)
+
+listcars.append(c)
+listyears.append(c)
+
+#listcars[0] = 'black'
+#listyears[0] = 2009
+
+listcars[0].color = 'blue'
+listyears[0].year = 2011
+
+#c = Car(['blue'])
+
+This is my homework assignment:
+So the next step in my thinking is, how can I now change the list that I created so that the car object is updated but still works with the integer if I change listcars? I'm really confused on how I can change it but still use the same int variable as a key to the object in the list...
+
+A:
+
+You can use set:
+for key in listcars:
+
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, owner, mpg):
+        """Initialize the class"""
+        self.owner = owner
+        self.mpg = mpg
+        self.weight = Weight(self.owner.mpg, self.mpg)
+
+    def get_weight(self):
+        return self.weight
+
+    def set_weight(self, weight):
+        self.weight = Weight(weight, weight)
+
+    def get_owner(self):
+        return self.owner
+
+    def set_owner(self, owner):
+        self.owner = owner
+
+    def get_mpg(self):
+        return self.mpg
+
+def main():
+    """Create an object with the default car values and print its weight"""
+    mycar = Car()
+    mycar.set_weight(mycar.get_weight())
+    print mycar.get_weight()
+
+if __name__ == '__main__':
+    main()
+
+I haven't had a chance to try it but this appears to work:
+import sys
+
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, owner, mpg):
+        """Initialize the class"""
+        self.owner = owner
+        self.mpg = mpg
+        self.weight = Weight(self.owner.mpg, self.mpg)
+
+    def set_weight(self, weight):
+        """Remember the weight of the car"""
+        self.weight = weight
+
+    def set_mpg(self, mpg):
+        """Initialize the car's mpg and forget the weight"""
+        self.mpg = mpg
+    
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, name, color, make, model):
+        """Initialize the object"""
+        self.name = name
+        self.color = color
+        self.make = make
+        self.model = model
+
+    def getColor(self):
+        """Returns the color of the car"""
+        return self.color
+
+    def getMake(self):
+        """Returns the make of the car"""
+        return self.make
+
+    def getModel(self):
+        """Returns the model of the car"""
+        return self.model
+
+#----------------------
+# Setters and Getters
+#----------------------
+
+# Allows the caller to set the attributes
+def set_color(self, color):
+    """Sets the car's color to color"""
+    self.color = color
+
+# Allows the caller to set the attributes
+def set_make(self, make):
+    """Sets the car's make to make"""
+    self.make = make
+
+# Allows the caller to set the attributes
+def set_model(self, model):
+    """Sets the car's model to model"""
+    self.model = model
+
+# Allow the caller to get the attributes
+def get_color(self):
+    """Returns the color of the car"""
+    return self.color
+
+# Allow the caller to get the attributes
+def get_make(self):
+    """Returns the make of the car"""
+    return self.make
+
+# Allow the caller to get the attributes
+def get_model(self):
+    """Returns the model of the car"""
+    return self.model
+
+class Inventory:
+    """Represents an inventory of cars
+    It contains information about a list of cars
+    - Vehicle: list of cars
+    - Make: list of cars of the same make
+ 
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, reg):
+        self.reg = reg
+        self.colour = "blue"
+
+def play_sound(car_class, reg, sound):
+    if car_class.reg == reg:
+        play_sound(car_class, reg, sound)
+
+def sounds_a_record(car_class):
+    all_sounds = (
+        "click",
+        "drum_fire",
+        "horn",
+        "brake",
+        "honk",
+        "rev",
+        "motor",
+        "crash",
+    )
+    car_list = [x for x in all_sounds if x in all_sounds]
+    x = random.choice(car_list)
+    return x
+
+# main:
+
+my_car = Car(1)
+play_sound(my_car, 1, "brake")
+playsounds_a_record(my_car)
+
+(Note: my_car is a silly name, and could just as easily be car, if not the same thing)
+The idea here is that the play_sound function will look up which sound is associated with a particular class of car by comparing its reg attribute to whatever reg was passed in the main function.  However, we can't just pass the Car object reg as an argument, because we want the function to work for any class, not just Car.
+I tried simply defining play_sound as follows, but it's not quite what I want.
+def play_sound(car_class):
+    reg = car_class.reg
+    sound = "click"
+    play_sound(car_class, reg, sound)
+
+But I keep getting this error:
+Traceback (most recent call last):
+  File "program2.py", line 17, in <module>
+    play_sound(my_car, 1, "
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, speed, passenger_count):
+        self.speed = speed
+        self.passenger_count = passenger_count
+        self.seat = []
+        for seat in range(0, passenger_count+1):
+            self.seat.append(Car.EmptyCar())
+            
+class Passenger:
+    """A class used to represent a passenger"""
+    def __init__(self, passenger_name, seat_id):
+        self.passenger_name = passenger_name
+        self.seat_id = seat_id
+        
+class TrafficLight:
+    """A class used to represent a traffic light"""
+    def __init__(self, traffic_light_phase):
+        self.traffic_light_phase = traffic_light_phase
+        self.green_yellow_turns = []
+        self.yellow_red_turns = []
+        self.time = 0
+        
+class CarController:
+    """A class used to control a car"""
+    def __init__(self):
+        self.car = Car.EmptyCar()
+        self.timing = True
+        self.change_lane = False
+        self.green_yellow_turns = []
+        self.yellow_red_turns = []
+        self.passengers = []
+        
+    def start(self):
+        """Takes a passenger and turns it around in front of the car"""
+        self.car.seat[0].passenger_count -= 1
+        self.
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, doors=1, speed=20, year=2003):
+        """Create an instance of a Car with a given number of doors, speed and
+        year
+        """
+        self.doors = doors
+        self.speed = speed
+        self.year = year
+        print "Initialized a car with %d doors, speed of %d, and a year of %d" % (self.doors, self.speed, self.year)
+
+    def park(self, feet):
+        """Print a message to say the car has parked
+        """
+        print "The car has parked"
+
+    def drive(self, feet):
+        """Print a message to say the car has started driving
+        """
+        print "The car is now driving"
+
+    def parkAndDrive(self, feet):
+        """Print a message to say the car has parked
+        """
+        print "The car has parked and is now driving"
+
+    def speedometer(self):
+        """Print the car's current speed
+        """
+        if self.doors == 1:
+            print "The car is traveling at a speed of %d" % self.speed
+        else:
+            print "The car is traveling at a speed of %d" % self.speed + 1
+        print "feet"
+
+    def printSpeed(self):
+        """Prints the car's speed"""
+        if self.doors == 1:
+            print "The car is traveling at a speed of %d"
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, color, model, year):
+        self.color = color
+        self.model = model
+        self.year = year
+        self.year = year
+
+        self.make = model + " " + year
+        self.model = model + " " + year
+        self.color = color
+
+    def speak(self):
+        if len(self.model) > 0:
+            self.speak_car()
+
+    def speak_car(self):
+        # write line
+        print ("Your car is {} and {}, {}".format(self.model, self.color, self.year))
+
+        # recursive
+        if len(self.model) > 0:
+            #add letters for model name
+            new_str = self.model[0] + self.model[-1] + " " + self.model[2:]
+            #print (new_str)
+            self.speak_car()
+
+        if len(self.color) > 0:
+            new_str = self.color[0] + self.color[-1] + " " + self.color[2:]
+            print (new_str)
+            self.speak_car()
+
+#set
+
+if __name__ == "__main__":
+
+    car = Car("red", "bentley", 2014)
+    car.speak()
+    car.speak()
+
+A:
+
+How do you expect to use the method.speak() with the car, if there's no model or color assigned
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, model, year, owner, registration,
+                 #Set of "Things" in the car
+                 engine=None, passengers=None):
+        """Initialize a car"""
+        self.model = model
+        self.year = year
+        self.owner = owner
+        self.registration = registration
+        #this attribute is used to save information about which keys to enter to open the car
+        self.door_status = [None] * len(self.doors)
+        #attribute for the number of passengers
+        self.number_of_passengers = passengers
+        #"Odd" door
+        self.doors = []
+        #"Even" door
+        self.doors_odd = []
+        #Model of the car
+        self.model = model
+        #the number of wheels in the car
+        self.number_of_wheels = 4
+        #Make of the car
+        self.make = model
+        #year of the car
+        self.year = year
+        #Registration of the car
+        self.registration = registration
+        #Direction of the doors
+        self.direction = self.doors.__len__() - 1
+        #Cylinders in the engine
+        self.cylinders = 4
+        #Ignition State
+        self.ignition = None
+       
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, make=None, model=None, year=None):
+        if make and model and year:
+            self.make = make
+            self.model = model
+            self.year = year
+        else:
+            raise TypeError
+
+    def __str__(self):
+        return "%s %s (%s)" % (self.make, self.model, self.year)
+
+Here is a script showing a few of its features:
+from sympy import symbols, sin, cos
+from math import pi
+import car
+
+class Budgeting(car.Car):
+    """A class used to represent a 'budgeting' car."""
+
+    def __init__(self, make=None, model=None, year=None, price=None,
+                 miles_per_gallon=None,
+                 gas_cost=None, insurance_cost=None,
+                 amortization=None,
+                 balloon_payment=None,
+                 monthly_payment=None,
+                 term=None, number_of_months=None):
+        """Initialize Budgeting.
+
+        This is an (initial) example of how to initialize a class.
+        :param price: Initial price of car.
+        :param miles_per_gallon: Initial gallons_per_mile.
+        :param amortization: Initial number of payments.
+        :param balloon_payment: Initial balloon payment.
+   
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, manufacturer, year, mileage, transmission):
+        self.manufacturer = manufacturer
+        self.year = year
+        self.mileage = mileage
+        self.transmission = transmission
+
+    def __str__(self):
+        return "{0} made in {1} and has {2} miles on it. It has a {3}.".format(self.manufacturer, self.year, self.mileage, self.transmission)
+
+def owner(manufacturer, year, mileage, transmission):
+    """Return a Person who owns a car with given properties"""
+    return Person(manufacturer, year, mileage, transmission)
+
+def duplicate(manufacturer, year, mileage, transmission):
+    """Return a Car with a given manufacturer, year, mileage, and transmission"""
+    return Car(manufacturer, year, mileage, transmission)
+
+def car_fact(k):
+    """Return a tuple of a fact and its corresponding name"""
+    fact = "This year there were {0} new cars manufactured worldwide.".format(k)
+    name = "The {0}".format(fact)
+    return fact, name
+
+def print_facts(f):
+    """Print a set of facts with a set of names"""
+    for f, n in car_fact(f):
+        print(f, n)
+
+car_fact(0)
+print_facts(set([0]))
+print_facts(set([1]))
+
+A:
+
+You could write a function that counts the elements of a list. Then, make your print function return the product and the count.
+def print_facts(f):
+    """Print a set of facts with a set of names"""
+    result = "There are "
+    result += " ".join(str(number) for number in itertools.product(*f, repeat=2))
+    return result, len(f)
+
+For the first three cars, this function returns:
+There are
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self,
+                 color,
+                 owner,
+                 gas_tank,
+                 seats,
+                 vin,
+                 mileage,
+                 year):
+        self.color = color
+        self.owner = owner
+        self.gas_tank = gas_tank
+        self.seats = seats
+        self.vin = vin
+        self.mileage = mileage
+        self.year = year
+
+    def __repr__(self):
+        return "{}".format(self.color)
+
+    def Get_owner(self):
+        return self.owner
+
+    def Get_mileage(self):
+        return self.mileage
+
+    def Get_year(self):
+        return self.year
+
+    def Get_gas_tank(self):
+        return self.gas_tank
+
+    def Get_vin(self):
+        return self.vin
+
+Vehicle = Car('Red',
+              'Mr. Parker',
+              'Gas',
+              '4',
+              '1357906',
+              '2',
+              '1946')
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, model_number, year_built, mileage):
+        self.model_number = model_number
+        self.year_built = year_built
+        self.mileage = mileage
+
+How do I create a dictionary for this class? It should look like this when I print it out:
+  {
+        'Model 1': {
+            'year_built': 2000,
+           'mileage': 105,
+            'type': 'luxury'
+        },
+        'Model 2': {
+            'year_built': 1990,
+           'mileage': 50,
+            'type':'standard'
+        }
+    }
+
+A:
+
+What you are looking for is called a mapping or dictionary. There are a couple of built-in ones:
+In [1]: mydict = {}
+
+In [2]: mydict.update({'Model 1': {'year_built': 2000,'mileage': 105, 'type': 'luxury'}})
+
+In [3]: mydict.update({'Model 2': {'year_built': 1990,'mileage': 50, 'type':'standard'}})
+
+In [4]: mydict
+Out[4]: {'Model 1': {'mileage': 105, 'year_built': 2000, 'type': 'luxury'}, 'Model 2': {'mileage': 50, 'year_built': 1990, 'type':'standard'}}
+
+And if you want to format that in your way, it's straightforward with this:
+In [5]: for k,v in mydict.items():
+  ....:     print("{}{}={}".format(k,v,mydict[k]))
+  ....:     
+Model 1 = {'mile
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, model, model_year):
+        """Create a new Car object"""
+        self.model = model
+        self.model_year = model_year
+
+    def __str__(self):
+        """Formatted string representation of the object."""
+        return f"Model: {self.model}, Year: {self.model_year}"
+
+class Room(Car):
+    """A class used to represent a room"""
+
+    def __init__(self, capacity, price):
+        """Create a new Room object."""
+        super().__init__(
+            "Mercedes-Benz",
+            model_year = "C220D",
+            model = "GLS",
+        )
+        self.capacity = capacity
+        self.price = price
+
+    def __str__(self):
+        """Formatted string representation of the object."""
+        return f"Room ({self.capacity}, {self.price})"
+
+class Customers(list):
+    """A class used to create a list of customer objects."""
+
+    def __init__(self, customers_list):
+        """Initialize the Customer list to an empty list"""
+        super().__init__()
+        self.customers_list = customers_list
+
+    def __str__(self):
+        """Formatted string representation of the list"""
+        return f"Customers: {self.customers_list}"
+
+c1 = Customers([Customer(model="Opel", model_year="Nova"),
+                 Customer(model="Mercedes",
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, wheels=4, doors=3):
+        self.wheels = wheels
+        self.doors = doors
+
+    def add_wheel(self, wheel):
+        self.wheels += wheel
+
+    def add_door(self, door):
+        self.doors += door
+
+def wheels_in_car(car):
+    """Checks whether the vehicle has at least the specified number of wheels."""
+    if car.wheels < 2:
+        return False
+    elif car.wheels < 3:
+        return False
+    elif car.wheels < 4:
+        return False
+    else:
+        return True
+
+def doors_in_car(car):
+    """Checks whether the vehicle has at least the specified number of doors."""
+    if car.doors < 2:
+        return False
+    elif car.doors < 3:
+        return False
+    elif car.doors < 4:
+        return False
+    else:
+        return True
+
+def draw_car(car):
+    """prints the name of the car in a tab-separated list."""
+    print('Car')
+    for i in range(car.wheels):
+        print('{}'.format(i+1), end='    ')
+    print('    ', end='    ')
+    print('{} doors'.format(car.doors), end='    ')
+
+def main():
+    """mains everything."""
+    car_1 = Car(wheels=4, doors=3)
+    car_1.add_wheel(10)
+    car_1.add_wheel(11)
+    car_1
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, x, y, name="Car", owner="George"):
+        """The constructor of a Car"""
+        self.x = x
+        self.y = y
+        self.name = name
+        self.owner = owner
+        self.left_bumper = 10
+
+    def move(self):
+        """Gets the car moved in x and y coordinates"""
+
+        self.x -= self.speed
+        self.y -= self.speed
+
+        if self.x <= 0:
+            self.x = 0
+            self.y += self.speed
+
+            if self.y <= 0:
+                self.y = 0
+                self.x += self.speed
+
+        else:
+            self.y += self.speed
+
+            if self.y <= 0:
+                self.y = 0
+                self.x += self.speed
+
+    def drive(self):
+        """Pushes the car in the defined speed"""
+
+        self.y += self.speed
+
+        if self.y <= 0:
+            self.y = 0
+
+    def turn(self):
+        """Turns the car in the direction of a point"""
+
+        if self.x <= 0:
+            self.x = 0
+
+    
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.current_gear = 2
+
+    def get_current_gear(self):
+        return self.current_gear
+
+    def set_current_gear(self, current_gear):
+        self.current_gear = current_gear
+
+    def set_gear(self, gear):
+        if gear == 1:
+            self.current_gear = gear
+        else:
+            self.current_gear = 2
+
+    def get_gear(self):
+        if self.current_gear > 1:
+            return self.current_gear
+        else:
+            return 1
+
+    def has_gear(self, gear):
+        return self.get_gear() == gear
+
+    def get_starting_gear(self):
+        if self.current_gear == 1:
+            return 1
+        else:
+            return 2
+
+def gear(car):
+    """Gear the car"""
+
+    if car.get_gear() == 1:
+        return 1
+    else:
+        return car.get_starting_gear()
+
+def main():
+    car = Car("BMW", "i3", "2013")
+    print(gear(car))
+
+main()
+
+Output:
+
+2
+
+Running it:
+$ python main.py 
+2
+
+<|endoftext|>Friday, August 8, 2016
+
+Saturdays with Magnolia - Featured
+====================
+class Car:
+    """A class used to represent a car"""
+        
+    def __init__(self, name, size, weight, mileage, year):
+        self.name = name
+        self.size = size
+        self.weight = weight
+        self.mileage = mileage
+        self.year = year
+        
+    def __repr__(self):
+        return "name : {0}, size : {1}, weight : {2}, mileage : {3}, year : {4}".format(self.name, self.size, self.weight, self.mileage, self.year)
+        
+
+class Engine(object):
+    """A class used to represent an engine"""
+    
+    def __init__(self, name, car):
+        self.name = name
+        self.car = car
+        
+    def __repr__(self):
+        return "name : {0}, car : {1}".format(self.name, self.car)
+
+class Manufacture(object):
+    """A class used to represent a manufacturer"""
+    
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+        
+    def __repr__(self):
+        return "brand : {0}, model : {1}".format(self.brand, self.model)
+
+def make(n, m, r, y):
+    """Make a car model and return it's Manufacturer
+    The car make will be the car manufacturer's name
+    n is the number of cars we need to build
+    m is the model of car we are building
+    r is the wheel size
+    y is the year the
+====================
+class Car:
+    """A class used to represent a car"""
+    speed_in_mph = 0
+
+    def __init__(self, gas_mileage):
+        self.gas_mileage = gas_mileage
+
+    def set_speed(self, speed):
+        """Set the speed of the car"""
+        self.speed_in_mph = speed
+
+    def get_speed(self):
+        """Get the speed of the car"""
+        return self.speed_in_mph
+
+    def speed_limit(self):
+        """Set the speed limit of the car"""
+        return 15
+
+    def accelerate(self):
+        """Accelerate the car by a given amount"""
+        if self.speed_in_mph < 10:
+            self.speed_in_mph += 10
+        elif self.speed_in_mph < 20:
+            self.speed_in_mph += 5
+        elif self.speed_in_mph < 25:
+            self.speed_in_mph += 5
+        elif self.speed_in_mph < 30:
+            self.speed_in_mph += 5
+        elif self.speed_in_mph < 35:
+            self.speed_in_mph += 5
+        elif self.speed_in_mph < 40:
+            self.speed_in_mph += 5
+        elif self.speed_in_mph < 45:
+            self.speed_in_mph += 5
+        elif self.speed_in_mph < 50:
+    
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, brand, type, trim):
+        self.brand = brand
+        self.type = type
+        self.trim = trim
+
+Now if you're sure your brand and type will always be correct, you could initialize your Car object like this:
+def init_car(brand, type, trim):
+    if type == "trulli":
+        # initialize your car object
+
+But if the brand can be None, for example, and you don't want to throw an error, you should instead do this:
+def init_car(brand, type, trim):
+    # initialize your car object if brand is not None
+
+Now your code would look like this:
+def init_car(brand, type, trim):
+    if brand is not None:
+        # initialize your car object
+
+This way, your error will go away, since when brand is None, that means that type will be None and you won't be able to create an object of type Car.
+Also, you can use itertools.product to make a list with all combinations of your parameters:
+for brand, type, trim in product(['trulli', 'bentley', 'gatior'], ['volvo', 'audi', 'fiat'], ['sport','sportback', 'turismo']):
+    # now brand is 'trulli', type is 'volvo', trim is'sportback'
+
+<|endoftext|>Selective lateralization of spatial working memory and an analog of the letter-position effect.
+Spatial working memory for three locations was examined with digits, letters, and line drawings. In a second experiment, letter-position effects were examined in three conditions: letters in various locations, letters in a row, and letters in three locations. Performance with digits was similar to that with letters. Letter-position effects were absent in the letters in a row condition but not in the letters in various locations condition. This suggests that the effects are dependent upon a mechanism that compares letters in different locations, rather than a mechanism that processes their spatial locations in depth. The present results are most parsimoniously understood as an analog of the letter-position effect.<|endoftext|>Losing weight and being
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, license_no, mpg):
+        self.license_no = license_no
+        self.mpg = mpg
+
+    def print_license(self):
+        print(self.license_no)
+
+for i in range(3):
+    new_car = Car('car '+str(i), i+20)
+    new_car.print_license()
+
+A:
+
+Pass in the value of license_no as a constructor parameter, so that each car can have its own unique license_no value. 
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, license_no):
+        self.license_no = license_no
+        self.mpg = 0
+
+    def print_license(self):
+        print(self.license_no)
+
+for i in range(3):
+    new_car = Car('car '+str(i), i+20)
+    new_car.print_license()
+
+<|endoftext|>2. Mobile Games for Android and IOS.
+
+3. Create a niche by investing with knowledge.
+
+4. Write for yourself.
+
+5. Post articles and videos on your social networks to get exposure and traffic.
+
+6. Offer your knowledge and expertise to other people and businesses.
+
+7. You have a better chance of success than you realize. There is always a way to succeed and make money online.
+
+8. Give something to others and yourself.
+
+9. Build a higher quality link profile to your website, backlinks, videos, and knowledge.
+
+10. Remember to network and build relationships.
+
+11. Be awesome.<|endoftext|>Get breaking news alerts and special reports. The news and stories that matter, delivered weekday mornings.
+
+The woman who founded the prominent liberal network, which was the recipient of a Trump transition team donation earlier this year, has sold the network to Ebony magazine publisher, NBC News has confirmed.
+
+Wendy Murphy, a former reporter for the liberal "Democracy Now!" news network, sold Media Matters
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, manufacturer, year, color):
+        """Initialize a car"""
+        self.manufacturer = manufacturer
+        self.year = year
+        self.color = color
+
+def get_year(year):
+    """Get a year from a year"""
+    return int(year)
+
+def make_car(color, year, manufacturer):
+    """Create a car object from the arguments"""
+    return Car(manufacturer, get_year(year), color)
+
+If this gets more complicated, you could subclass the Car class itself and have make_car take that as a parameter, but that'd get pretty messy.
+Edit:
+Updated the code.
+
+<|endoftext|>Q:
+
+STO window file to run in 14.04
+
+Can anyone tell me where i can download a Windows Operating System image file that can be run as a live CD with the only interface being a single window?
+I've downloaded and burnt an image but when i try to boot it with UBUNTU, it says that the file isnt a bootable image.
+I'm using the CD/DVD program to burn the file to the disc.
+
+A:
+
+I've downloaded and burned an image but when i try to boot it with UBUNTU, it says that the file isnt a bootable image.
+
+A bootable ISO image does not boot a computer if there's no BIOS on that computer. 
+In other words, if there is no BIOS on your PC, you can't boot it (no matter what is on it). If you do, then it is a non-bootable CD/DVD.
+
+<|endoftext|>Rotating roller bearing
+
+A rotating roller bearing, or oblique roller bearing, is a form of rolling bearing that is mounted in an environment where it must resist both radial and axial loads.
+
+Rotating roller bearings are commonly used in many types of machinery.  Axial loading is normally perpendicular to the shaft, where as radial loading is between parallel faces.
+
+Two bearings are supported at each end by a bearing plate or frame, and between each end there are a number of axially spaced rollers, usually mounted on each side of the bearing ring by bearing bushings.
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def get_name(self):
+        """Returns the name of the vehicle as a string"""
+
+    def print_name(self):
+        """Print the name of the vehicle to stdout"""
+
+    def drive(self):
+        """Drive the car a number of metres"""
+
+    def park(self):
+        """Park the car"""
+
+We can then instantiate an instance of a car in Python:
+
+.. code:: python
+
+    # Instantiate a car
+    my_car = Car()
+
+    my_car.get_name()
+    my_car.print_name()
+    my_car.drive()
+    my_car.park()
+
+So, for example, we can drive a car for a certain distance before parking it, then print the name of the car, like this:
+
+.. code:: python
+
+    my_car.drive()
+    my_car.park()
+    print(my_car.get_name())
+
+As you can see from the example above, the `my_car.get_name()` method is used to obtain the name of the car, `my_car.print_name()` is used to print the name of the car, and `my_car.drive()` is used to drive a distance before the car is parked.
+
+We can also use the `my_car.drive()` method to drive the car to a certain destination, like this:
+
+.. code:: python
+
+    # Destination for car
+    my_destination = 'Springfield'
+
+    # Drive the car to the destination
+    my_car.drive()
+
+And here is what the code above would output:
+
+.. code:: python
+
+    # Car has travelled to Springfield
+
+    my_car.get_name()
+    my_car.print_name()
+
+You can see the output of this example by running the code snippet below:
+
+.. code:: python
+
+    my_car.drive()
+    print(my_car.get_name())
+====================
+class Car:
+    """A class used to represent a car"""
+    def drive(self):
+        print('I can drive')
+
+#### Running the Program
+
+To run this program, you will need to create a new file called _car.py_ and add the following code to it:
+
+    car1 = Car()
+    car1.drive()
+
+Then, you will need to run the program as follows:
+
+    $ python car.py
+
+Once you do this, you should get a line of output like this:
+
+    I can drive
+
+Now that you have the car program up and running, you'll see that we need to make two changes to our program. First, we need to define a method called _drive_ to allow the car class to do the same thing as the function, and we will also need to remove the print statement inside the method. To do this, add the following code to the _car.py_ file:
+
+    def _drive_():
+        print('I can drive')
+
+Now, let's see how to call this method. We will first have to change the way that we called _drive_ ; the reason for this is that we will have to use an instance of our class.
+
+### Note
+
+We will return to the differences between methods and functions in more detail in Chapter 8, but essentially a method is a function that operates on an object.
+
+To make this change, add the following code to the _car.py_ file:
+
+    def drive(self):
+        print('I can drive')
+        self._drive_()
+
+When you run the program with the changes you made, you should see something similar to this:
+
+    $ python car.py
+    I can drive
+
+### Working with object-oriented programming
+
+The code we just wrote created an instance of a car class called _car1_. To create another instance of the car class, add the following line of code to the _car.py_ file:
+
+    car2 = Car()
+
+Now, let's print the contents of car1.
+
+    $ python car.py
+    car1
+
+We can print a lot of information about an instance of a class using the `dir
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self,make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+
+p1 = Car('Toyota', 'Prius', 1999)
+p2 = Car('Honda', 'Civic', 2000)
+p3 = Car('Tesla', 'Model S', 2018)
+
+print(p1.make)  # Prints "Toyota"
+print(p2.make)  # Prints "Honda"
+print(p3.make)  # Prints "Tesla"
+
+However, if you wanted to have a separate list of cars for each make, you could use a dictionary to store the data, and the make as the key. I am guessing that this is what you are asking about:
+cars = {
+    'Toyota': [Car('Prius', 1999), Car('Camry', 2013)],
+    'Honda': [Car('Accord', 1999), Car('Civic', 2014)],
+    'Tesla': [Car('Model S', 2018)]
+}
+
+make = input("Make: ")
+
+for make in cars:
+    print(f"{make}:")
+    for model, year in cars[make]:
+        print(f"{model} {year}")
+
+print("Done")
+
+Notice how I removed self (the car) from all variables in the car class.
+
+<|endoftext|>**Author Information** An event is serious (based on the ICH definition) when the patient outcome is:\* death\* life-threatening\* hospitalisation\* disability\* congenital anomaly\* other medically important event
+
+A 56-year-old man developed coronavirus disease 2019 (COVID-19) infection during hospitalisation in the late phase of the pandemic \[*dosage and route of administration not stated; starting date of treatment and duration of treatment not stated*\]. He presented with symptoms of chest pain, fever, myalgia, sputum and hemoptysis. He was hospitalised in a private hospital with a diagnosis of malaria. However, he was in the late phase of the COVID-19 pandemic when the
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, speed=10, model=None):
+        self.speed = speed
+        self.model = model
+
+    def drive(self):
+        if self.speed == 0:
+            return True
+        return False
+
+You can test with:
+import typing
+
+typing.pytest_runtest_setup = """
+import logging
+import sys
+logging.basicConfig(level=logging.DEBUG)
+
+if sys.version_info >= (3, 0):
+    logging.config.fileConfig('conf.file')
+else:
+    logging.config.fileConfig('conf.file', disable_existing_loggers=False)
+"""
+
+# from typing import *
+from typing import List
+
+from typing_extensions import Final
+
+from typing_extensions import Final
+
+from typing_extensions import Final
+
+try:
+    from typing_extensions import Final
+except ImportError:
+    print('importing typing_extensions failed')
+
+try:
+    from typing_extensions import Final
+except ImportError:
+    print('importing typing_extensions failed')
+
+try:
+    from typing_extensions import Final
+except ImportError:
+    print('importing typing_extensions failed')
+
+class Outer:
+    def outer(self, param1: Final[List[int]], param2: Final[int]):
+        # with value of param2 is 0
+        print("""Outer called""")
+        # Outer called with param1 as [0,1] and param2 as 0
+        # Param2 0
+        print(param2)
+        return param2 + 10
+
+def main():
+    car = Car()
+    car.drive()
+
+if __name__ == "__main__":
+    main()
+
+This test passes with pytest 3
+====================
+class Car:
+    """A class used to represent a car"""
+    _engine = int(input("What is the engine size?: "))
+
+    def __init__(self, engine):
+        self.__engine = engine
+        self.car_type = CarType.CYLINDER
+
+    def get_price(self):
+        return self._engine * 1200
+
+    def get_type(self):
+        return self.car_type
+
+    def get_model(self):
+        return self._engine * 30
+
+    def set_type(self, new_car_type):
+        self.car_type = new_car_type
+
+    def set_model(self, new_car_model):
+        self._engine = new_car_model
+
+def main():
+    """The main function"""
+
+    car_1 = Car(10)
+    car_2 = Car(15)
+
+    for car in car_1, car_2:
+        print(car.get_price())
+
+    car_1.set_model(17)
+
+    car_1.set_type(CarType.FRAME)
+
+    print("Car 1: " + str(car_1.get_price()))
+    print("Car 1: " + car_1.get_model())
+    print("Car 1: " + str(car_1.get_type()))
+    print("Car 1: " + str(car_1.get_price()))
+    print("Car 1: " + car_1.get_type())
+    print("Car 1: " + car_1.get_model())
+
+    car_2.set_model(21)
+
+    car_2.set_type(CarType.FRAME)
+
+    print("Car 2: " + str(car_2.get_price()))
+    print("Car 2: " + car_2.get_model())
+  
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, make, model, year):
+        """Initiate the car with the make, model, and year"""
+        self.make = make
+        self.model = model
+        self.year = year
+        self.registration = make + model + year
+
+    def vehicle_details(self):
+        """Return the vehicle details
+        e.g., Make = Ford, Model = Mustang, Year = 2017"""
+        return self.make + " " + self.model + " " + self.year
+
+    def license_plate(self):
+        """Return the registration plates
+        e.g., XYABC   (Car No.1)"
+
+        Replaces ABC in the registration. This avoids the pitfalls of:
+            In the United States, at least one of the characters in a
+            license plate must be in upper case.
+            Some states in the U.S. have rules that limit the length of the
+            number in the plate, and also specify that at least one character
+            must be a letter.
+        """
+        license = []
+        for i in range(1, 8):
+            if self.registration.find(i, -1) >= 0:
+                license.append(self.registration[self.registration.find(i, -1):])
+        return "".join(license)
+
+    def print_plate(self):
+        """Print out the plate
+
+        Replaces the back character in the registration.
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, color, owner):
+        """The constructor sets the given color for the car"""
+        self.color = color
+        self.owner = owner
+
+    def say_hello(self):
+        """A method used to communicate the color of the car with the owner
+        of the car"""
+        print("The car is of {} color".format(self.color))
+        print("The owner of the car is {}".format(self.owner))
+
+def get_color(car):
+    """A function used to get the color of the car"""
+    return car.color
+
+def update_owner(car):
+    """A method used to change the owner of the car to a new user"""
+    car.owner = "Shawn Smith"
+
+def main():
+    """A function used to print the output of this program"""
+    user_color = input("What color do you like to paint your car with:  ")
+    car = Car(user_color, "Billy Bob")
+    get_color(car)
+    update_owner(car)
+    print("The owner of the car has changed to Shawn Smith")
+
+main()
+
+A:
+
+Ok... I guess I see it. You need to remove from main() 
+def main():
+    """A function used to print the output of this program"""
+
+because now it's completely overriden by the body of your function.
+When a method overrides a parent's method, the return value is preserved in the original method. If you print the value, it's not the value returned by the method but the value in the original function, which in this case is None.
+Moreover you shouldn't really need main() because all you want to do is print what you returned, not to actually print anything.
+So, change main() like so
+def main():
+    """A function used to print the output of this program"""
+    car = Car()
+    get_color(car)
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, make, model, year):
+        """Initiate a car"""
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def __str__(self):
+        """A str representation of the object"""
+        return str(self.make) + ", " + str(self.model) + ", " + str(self.year)
+
+    def get_make(self):
+        """Get the make of the car"""
+        return self.make
+
+    def get_model(self):
+        """Get the model of the car"""
+        return self.model
+
+    def get_year(self):
+        """Get the year of the car"""
+        return self.year
+
+    def set_make(self, make):
+        """Set the make of the car"""
+        self.make = make
+
+    def set_model(self, model):
+        """Set the model of the car"""
+        self.model = model
+
+    def set_year(self, year):
+        """Set the year of the car"""
+        self.year = year
+
+    def to_int(self):
+        """Convert the object to an int"""
+        return self.year
+
+def get_data():
+    """Fill the database with cars
+    Make: Fords
+    Model: Mustang
+    Year: 1969"""
+    make = "Ford"
+    model = "Mustang"
+    year = 1969
+    for _ in range(3):
+        obj = Car(make, model, year)
+
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, make=None, model=None, year=None):
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def get_make(self):
+        return self.make
+
+    def get_model(self):
+        return self.model
+
+    def get_year(self):
+        return self.year
+
+    def to_dict(self):
+        return {"make": self.make, "model": self.model, "year": self.year}
+
+I then created a simple Web Server based on Django and put in a few RESTFUL endpoints:
+# view functions
+
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.generics import ListAPIView
+from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
+from cars.models import Car
+
+# common endpoints
+
+class CarList(ListAPIView):
+    queryset = Car.objects.all()
+    serializer_class = CarSerializer
+
+class CarSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Car
+        fields = ('url', 'id','make','model', 'year')
+
+# views
+
+from cars.views import CarList
+from cars.models import Car
+from rest_framework.authentication import SessionAuthentication
+
+class CarListView(ListAPIView, ModelViewSet):
+    permission_classes = (
+        IsAuthenticated,
+    )
+    authentication_classes = (
+        SessionAuthentication,
+    )
+
+    # api endpoint
+    def get_queryset(self):
+        qs = super(CarListView, self).get_queryset()
+        return qs.filter
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self,wheels,power):
+        self.wheels=wheels
+        self.power=power
+
+    def accelerate(self):
+        """Make a car go up a hill. You must return 'False' to stop."""
+        return True
+
+def car():
+    """A car object is made"""
+    Car()
+
+def stop(self):
+    """A car will stop. The car object will be reset"""
+    pass
+
+def exit(self):
+    """Stops a car"""
+    pass
+
+def setPower(self,power):
+    """Change the power level of the car"""
+    self.power=power
+
+def getPower(self):
+    """Get the power level of the car"""
+    return self.power
+
+def getWheels(self):
+    """Get the number of wheels of the car"""
+    return self.wheels
+
+def getDistance(self):
+    """Get the distance travelled by the car"""
+    return round(distance(10,self.wheels,self.power))
+
+def distance(x,n,y):
+    """Get the distance travelled by a car based on the number of wheels and power"""
+    if x > n:
+        return n - x
+    if y < 0:
+        return x - y
+    return 0
+
+def createDriver(driverName):
+    """Creates a driver and sets their name"""
+    driver=Car()
+    driver.name=driverName
+    return driver
+
+def main():
+    driver=createDriver("Bob")
+    driver.setWheels(5)
+    driver.setPower(1)
+    driver.accelerate()
+    print(driver.getDistance())
+
+if __name__ == "__main__":
+    main()
+
+A:
+
+In Python, all
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, r_initial, rpm, rev, drive_type):
+        self.r_initial = r_initial
+        self.rpm = rpm
+        self.rev = rev
+        self.drive_type = drive_type
+        self.fuel_level = FuelLevel(20)
+        self.fuel_tank = Resource(2)
+        self.engine = Resource(rpm)
+        self.shift_controller = Resource(10)
+        self.transmission = Resource(50)
+        self.brakes = Resource(10)
+        self.gear = Resource(5)
+        self.oil_filter = Resource(10)
+
+        self.tire_pressure = TirePressure(40)
+        self.tire_force = TireForce(2)
+        self.tire_rotation = TireRotation(100)
+
+        self.screws = Resource(15)
+        self.ignition = Resource(20)
+
+    def get_rpm(self):
+        return self.rpm
+
+    def get_rev(self):
+        return self.rev
+
+    def get_gear(self):
+        return self.gear
+
+    def get_shift_controller(self):
+        return self.shift_controller
+
+    def get_transmission(self):
+        return self.transmission
+
+    def get_brakes(self):
+        return self.brakes
+
+    def get_oil_filter(self):
+        return self.oil_filter
+
+    def get_tire_pressure(self):
+    
+====================
+class Car:
+    """A class used to represent a car"""
+
+    def __init__(self, number, color, name):
+        """Instantiate a car with an optional number and color.
+        These may be left as None."""
+        self.number = number
+        self.color = color
+        self.name = name
+
+    def __repr__(self):
+        """This prints the name, number, and color of the car"""
+        return "Car(%s,%s,%s)" % (self.name, self.number, self.color)
+
+    def move_left(self):
+        """Move left one space"""
+        self.number -= 1
+
+    def move_right(self):
+        """Move right one space"""
+        self.number += 1
+
+    def get_number(self):
+        """Get the number of the car.
+        This must be exactly equal to the number
+        assigned to the car when instantiated"""
+        return self.number
+
+    def get_color(self):
+        """Get the color of the car.
+        This may be None if the car is not in color.
+        """
+        return self.color
+
+    def get_name(self):
+        """Get the name of the car.
+        This may be None if the car is not in color."""
+        return self.name
+
+class Redcar(Car):
+    """A red car
+    """
+
+    def __init__(self, number, color, name):
+        """Instantiate a car with an optional number and color.
+        These may be left as None."""
+ 
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, make, model, num_doors, years):
+        self.make = make
+        self.model = model
+        self.num_doors = num_doors
+        self.years = years
+    def get_makes(self):
+        return ["FORD", "HONDA", "VOLKSWAGEN", "NISSAN"]
+    def get_models(self):
+        return ["Coupe", "Cabriolet", "Roadster", "SUV", "Wagon", "Van"]
+    def get_years(self):
+        return [2010, 2012, 2014, 2016, 2018]
+    def set_car(self, year, make, model, num_doors):
+        for make in self.get_makes():
+            if make == "FORD":
+                self.make = make
+                self.model = model
+                self.years = year
+                break
+        if make not in self.get_makes():
+            print("INPUT ERROR: does not exist.")
+        else:
+            print("OK, you've just bought a %s%s. It was on the road for %s years and it was made by %s"
+                        % (self.make, self.model, year, make))
+
+The above works perfectly. However, I am required to convert this to an object-oriented form. The following is my attempt. The main part of the file will remain unchanged, and I am just trying to create new objects with the
+====================
+class Car:
+    """A class used to represent a car"""
+    model = "Bugatti"
+    year = 1995
+    engine = "Veyron 16.4L"
+
+def best_selling_model():
+    """Returns the name of the best selling model of the year"""
+    # The use of the map function instead of the str.format 
+    # makes it possible to avoid unnecessary quotes 
+    # and combine the use of str.format and map
+    return "Best-selling car models for the year {0}:".format(
+        str.format(Car.model.format(1995))
+        + ", " + Car.year)
+
+An then here is how I use it:
+from Car import Car
+from common import best_selling_model
+
+if __name__ == '__main__':
+    # Code that could run outside of Python
+    print(best_selling_model())
+
+Which prints:
+Best-selling car models for the year 1995:
+    Veyron 16.4L
+
+A:
+
+The problem is that the variables in the method are never local to the method, so as soon as it's called, the values are replaced.  Instead of using locals(), you should use normal names:
+def best_selling_model(self):
+    # Here, `self` refers to the class, which means the `model`,
+    # `year` and `engine` values are constant members.
+    return "Best-selling car models for the year {0}:".format(
+        self.model.format(1995)) + ", " + self.year
+
+That said, I think there's some argument against storing data like this in the class itself.  In this case, it seems to me that you should just pass it as an argument to your method.
+def best_selling_model(self, year):
+    # The use of the map function instead of the str.format 
+    # makes it possible to avoid unnecessary quotes 
+    # and combine the use of str.format and map
+    return "Best-selling car models for the year {0}:".format(
+    
+====================
+class Car:
+    """A class used to represent a car"""
+    def __init__(self, model, color):
+        """Initialize the car object"""
+        self.model = model
+        self.color = color
+
+The "model" and "color" can be replaced by any of the attributes you'd like to keep for later. In this case, it's using integers as a key to each car model/color combination. This approach is nice if you have a dataset of thousands of cars, but the bottleneck may be your RAM/CPU.
+
+<|endoftext|>The number of police officers in the armed forces, which is shrinking, is projected to dip below the current level of 9,175 by 2021 as a result of cuts, Minister of State for the Defence Airey Neave has said.
+
+Mr Neave revealed figures showing that 9,176 armed forces personnel were in uniform on 1 September 2014, which will rise to 9,300 by 1 March 2016.
+
+The official and permanent under secretary of state for defence (Permanent Under Secretary of State, Department of Defence, 2007-2015) has outlined the annual defence budget at an event attended by senior army officers.
+
+He said there was a plan in place to reduce the overall strength in the armed forces in 2016, which should put the number at a "stabilising level".
+
+The numbers also suggest that there will be an annual 1 per cent reduction from 2017 onwards, he said.
+
+"We have not yet reduced the numbers, but in 2016 it is planned that it will be at a 1 per cent reduction per year," Mr Neave said.
+
+"This will put the numbers in the armed forces at a level that will provide a more sustainable force which will be able to deal with emerging threats and future threats."
+
+In response to the figures, the Ulster Unionist MP also said it was planned to have 100 more ambulances, and 10 more fire engines in Northern Ireland.
+
+"But we're looking to cut back on the numbers of coast guard vessels that will be available because we've got to raise more money for new equipment, which we're doing, and it takes a lot of money to keep a guard boat," Mr Neave said.
+
+"The one reduction I'd be very happy with is the reduction of numbers of officers because that's what we're planning to do."
+
+Mr Neave's comments came in the wake of
+====================

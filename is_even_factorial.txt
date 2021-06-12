@@ -1,0 +1,2226 @@
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    # return 1 if the number is even
+    # if i == 0:
+    #     return False
+    # else:
+    #     return 1 if i % 2 == 0
+    #     return 0 if i % 2!= 0
+    #
+    # return the bottom 1/0 to get a 1/0 truth value
+    # return i if i == 0 else 0  
+    # return 1   
+    return 1 if i == 0 else 0 if i % 2 == 0 else 0
+
+def is_prime(i):
+    """Check whether an integer is prime or not in O(n) time"""
+    # If x in the interval from 1 to sqrt(x),
+    #   return True if x is prime and False if not
+    #                                                                                                                                                                                                                                                                                                            
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i % 2 == 0
+
+def is_odd(i):
+    """Check whether an integer is odd in factorial O(n!) time"""
+    return i % 2!= 0
+
+def is_prime(i):
+    """Check whether an integer is prime in O(n!) time"""
+    if i == 2 or i == 3:
+        return True
+
+    if is_odd(i):
+        return False
+
+    if i < 2 or i % 2 == 0:
+        return False
+
+    for j in xrange(2 * i, int(i**.5) + 1, 2):
+        if i % j == 0:
+            return False
+
+    return True
+
+def fact(i):
+    """Calculate factorial in O(n!) time"""
+    if i < 2:
+        return 1
+
+    if i == 2:
+        return 2
+
+    return fact(i - 1) * i
+
+def merge_sort(seq):
+    """Mergesort on a list in O(n!) time"""
+    seq = sorted(seq)
+    if len(seq) <= 1:
+        return seq
+    return merge_sort(seq[1:]) + seq[0]
+
+def gcd(x, y):
+    """Returns the greatest common divisor in O(n!) time"""
+    return gcd(y, x)
+
+def primes(n):
+    """Returns a list of primes below n"""
+    for i in xrange(2, n):
+        if is_prime(i):
+            yield i
+
+def combinations(n, k):
+    """Returns a list of all combinations of size k in O(n!) time"""
+    """
+    def combinations_helper(index,
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    for e in range(2, i):
+        if i % e == 0:
+            return False
+    return True
+
+def build_list(n, init_num):
+    if n > 1:
+        for i in range(1, n):
+            yield init_num
+            init_num *= i
+
+if __name__ == "__main__":
+    print(sum(build_list(1000, 2)))
+
+A:
+
+But it does not read all even numbers under 3, e.g. from [0,2,4,6] it reads
+[0,2,4,6,0,2,4,6]
+
+A:
+
+to prove the point that the complexity is O(N), you need to do this in the size of N, if not you get very inefficient results. You do in the right place. I'd advise to check your definitions of is_even and build_list, since they are not giving good results here. 
+PS
+Just to be more efficient you can do something like this:
+start = 2
+lst = [start]
+
+def build_list(n, init_num):
+    if n > 1:
+        for i in range(1, n):
+            yield init_num
+            init_num *= i
+            lst.append(init_num)
+
+It yields the same result without the second range.
+timeit build_list(1000, 2)
+#=> 200.44802506994484
+
+timeit build_list(1000, 2)
+#=> 200.039759340583014
+
+<|endoftext|>The muscle proteome of a mouse model of genetic muscular dystrophy: novel effects of over-expression of dystrophin.
+Human genetic muscular dystrophy is characterized by the degeneration of striated muscle due to the absence of dystrophin and its associated proteins. Mdx mice
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if i % 2 == 0:
+        return True
+    else:
+        return False
+
+def main():
+    dict = {}
+    start = time.time()
+    arr = []
+
+    for i in range(1, 11):
+        n = i
+        if i % 2 == 0:
+            if is_even(i):
+                arr.append(i)
+                dict[i] = 1
+            else:
+                dict[i] = 0
+        else:
+            dict[i] = 0
+    end = time.time()
+    print(end - start)
+
+    if len(arr) == 0:
+        print("No number is even")
+    else:
+        for key in dict:
+            dict[key] = 1
+
+main()
+
+<|endoftext|> two new tables of the Agriculture Department — the Crop Distribution and Economic Opportunity Table and the Vegetable Production and Marketing Practices Table. The two tables will need to be read together.
+
+The one that was developed in 2011 gives no information about how big a slice each farm received. The Agriculture Department told me in May that the agency had not put a number on the crops grown in the country.
+
+While this change was made, and quickly, to the meat and poultry table, it will not be made to the cropland table. It’s highly likely that at least some producers will eventually lose out because there is no price-per-acre figure on the cropland table, as there is for beef and chicken.
+
+The bigger issue for growers will be with changes to data about how much the agriculture industry spends on advertising, which will move from its current place in the marketing practices table to the marketing resources and
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    assert i > 0
+    if i % 2 == 0:
+        return True
+    else:
+        return i in factorial(i // 2)
+
+A:
+
+No you can't, because even though you have the power to compute any function you don't know if it takes a lot of time to do it.
+If your function returns True then when the interviewer asks you how you know this you will have to answer some intermediate value that can't be predicted.
+For example the even factorization will take \$ O(n!) \$ but you can't predict how long it will take, and will have to say "I don't know".
+
+A:
+
+It seems to be quite clear that is_even will return True in \$O(n!)\$ time. So it is correct, you can know the time of this calculation. But how to make it faster is unclear, even if you know the time of this function (you don't) it will be very difficult to say how to make it faster.
+
+<|endoftext|>Wednesday, June 24, 2014
+
+Puerto Rico: Free Legal Representation
+
+Maura Adams needs your help. Like Puerto Rico she is
+subject to US gun laws despite having moved to New York. Like Puerto
+Rico she did not have a registration process before her move. Unlike
+Puerto Rico Maura lives in New York and can therefore petition the
+federal court to have her gun restrictions lifted. She is therefore
+faced with the prospect of having her constitutional rights stolen from
+her by the state. Despite all the legal manoeuvring Maura was still
+arrested in NY for her legally owned firearms. She was even convicted
+and is now facing two years in prison.
+
+Puerto Rico is in the same position as
+Maura. Before it’s status was changed to commonwealth of Puerto Rico
+US laws still applied. The result was that Americans there had no
+right to bear arms and even their previously owned firearms were
+seized. Maura was never even asked if she had legal firearms, but was
+arrested for having them.
+
+Maura has already made one appearance in the local
+court and already lost. She must now challenge the judgement in the
+Appeals court. She has spent her own money to hire a lawyer to help
+
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    cdef unsigned int divisor = 1
+    while i < MAX_INT:
+        i = i + divisor
+        divisor += 1
+
+    return (i & 1) == 0
+
+
+def double_trap_as_is(x):
+    """Return 0.5 * x if x is a subnormal number. Otherwise return x"""
+    cdef double y = as_double(x)
+    cdef int is_subnormal = (y == 0) and (isfinite(y) and y == 0)
+    if is_subnormal:
+        return 0.5 * x
+    return x
+
+
+def is_subnormal(d):
+    """Checks if d is a subnormal number"""
+    cdef double y = as_double(d)
+    return (isfinite(y) and y == 0)
+
+
+cdef int log2f(double x) except -1:
+    """
+    Compute the natural logarithm of a number
+    using log2.f(x).  If x is too large, 1 is returned.
+    Use the sign-bit to determine if x is positive or negative.
+    """
+    if x == 0.0:
+        return -1.0
+
+    # The following works as long as 2^n-1 < x < 2^n
+    if x < 0.0:
+        if x < 1.0:
+            return 1.0
+
+        if is_even(x):
+            return x
+
+        return -log2f(-x)
+
+    if is_subnormal(x):
+        return 1.0
+
+    if (x > 1.0) or (x < -1.0):
+        return 1.0
+
+    return log2f(x
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i == (i + 1) % 2
+
+def main():
+    p = int(raw_input())
+    print str(factorial(p))
+
+main()
+
+Time complexity
+As mentioned by Steve Jessop, there's a lot of things going on here.
+
+First, we have to iterate through the integers in reverse, so you have to do \$\mathcal{O}(n)\$. The more digits in your n, the more iterations.
+Then, for each iteration of the loop, you have to compute the factorial of each number. On the small end of the spectrum, with only the n = 2 case to compute (4!) we have the runtime: \$\mathcal{O}(n!)\$.
+That gives you an expected runtime of:
+$$\mathbb{E}[\text{time complexity}] = \mathcal{O}(n!)$$
+I think you could easily double check that \$n\$ is indeed increasing and could approximate to that. The real issues would come from computing the factorial of large integers.
+Pseudo-randomly determine a value for n
+There are basically two solutions to the above. 
+
+Pick a really large integer for n. However, in Python, you can only safely store a 64-bit integer in Python, so we're left to limit ourselves to:
+import random
+n = int(raw_input("Enter an integer: "))
+n = int(raw_input("Enter an integer: "))
+n = int(raw_input("Enter an integer: "))
+#...
+n = int(raw_input("Enter an integer: "))
+
+# We're limited to a 64-bit integer
+if n < 2**64:
+    n = random.randint(1, 2**64 - 1)
+else:
+    raise ValueError("Out of range")
+
+Try it
+import time
+def factorial_iteration(n):
+    start_time = time.time()
+    for i in range(n):
+        result = i * (i + 1)
+    return time.time() - start_time
+
+def factorial(n):
+    # Get input
+  
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    result = True
+    for j in range(i):
+        if i % 2!= 0:
+            result = False
+        i = i//2
+    return result
+
+def div_sum(x, n, k):
+    """If n > 0, sum x[i]*i**k for i in range(n) with
+       x[0] = 1 and x[i] = x[i-1] + x[i] for i > 0."""
+    if n <= 0:
+        return 0
+    s = 0
+    for i in range(1, n + 1):
+        s = s + x[i] * i**k
+    return s
+
+def sum_div_sum(x, n):
+    """If n > 0, sum (x[i]*i**k for i in range(n) where k is the first
+       integer n <= i <= n+1 and x[i] = x[i-1] + x[i]."""
+    return div_sum(x, n) - div_sum(x, n-1)
+
+def split_sum(x, n):
+    """If n > 0, compute the sum of x[i]*i^k for i in [n] and [n+1, 2*n].
+       The x[i] = x[i-1] + x[i] for i > 0."""
+    result = 0
+    for i in range(1, n + 1):
+        result = result + x[i] * i**k
+    for i in range(n + 2, 2*n + 1):
+        result = result + x[i] * i**k
+    return result
+
+def sums(n):
+    """If n > 0, compute the sum of the first n non-negative integers."""
+  
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    try:
+        return i%2 == 0
+    except TypeError:
+        return True
+
+print("foo", len(is_even(0)), "bar")
+print("foo", len(is_even(1)), "bar")
+print("foo", len(is_even(2)), "bar")
+print("foo", len(is_even(4)), "bar")
+print("foo", len(is_even(5)), "bar")
+print("foo", len(is_even(6)), "bar")
+
+Expected Output:
+2
+3
+1
+1
+2
+1
+
+Actual output:
+2
+3
+1
+0
+0
+0
+0
+
+So, this is as far as I have gotten. I just can't get my head around how to filter a list of integers that is mixed of even and odd.
+
+A:
+
+You're correct. The if is_even(i) line never executes. That's because if you're in a method, you can't access the global scope from that scope.
+For this, you have to use pass and if:
+def foo(i):
+    if is_even(i):
+        print(i)
+    else:
+        print(i)
+    return
+
+a = range(3,10)
+print(foo(a))
+
+<|endoftext|>A carbon nanotube field-effect transistor with ferroelectric polarization behavior.
+A carbon nanotube (CNT) field-effect transistor (FET) with ferroelectric polarization behavior was developed for the first time to detect biomolecules. Here, the nanomechanical and dielectric properties of a micro/nanostructured ferroelectric phase-change polymer (P(VDF-TrFE) microgel) were utilized to construct a semiconductor-like system, and the fabricated CNT-based FET exhibited high trans-conductance and good modulation of the gate voltage. Moreover, the ferroelectric polarization of the P(VDF-TrFE) microgel could be switched between polarized and depolarized states by applying a weak electric field. Furthermore, a reversible electrochemical switch in the conductance of the CNT-
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    i & 1
+
+def test_precompute_dfs(generator_adapter, n):
+    yield from generator_adapter(
+        (x ** n) for x in range(2, n + 1),
+                                           # or generator(range(2, n + 1)
+                                           #             for _ in range(n))
+                                           # or generator_adapter(
+                                           #     generator(range(2, n + 1))
+                                           #     for _ in range(n))
+        )
+        # or generator_adapter((x ** n) for x in range(2, n + 1) for _ in range(n))
+
+Running this against 5 is a small example, shows how good Python generators are:
+>>> from difflib import SequenceMatcher
+>>> from functools import reduce
+>>> n = 5
+>>> def generator_adapter(generator, n):
+...     yield from (item for item in generator)
+...     for _ in range(n):
+...         yield from generator
+... 
+>>> generator_adapter(
+...     (x ** n) for x in range(2, n
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    n = 0
+    while n < i:
+        if i % 2 == 0:
+            return True
+        n += 1
+    return False
+
+def is_good_data(i):
+    """Check if the data is valid"""
+    n = 0
+    while n < i:
+        if i % 2!= 0:
+            return False
+        n += 1
+    return True
+
+def is_uniform(i):
+    """Checks if a sequence of values is uniformly distributed"""
+    n = 0
+    while n < i:
+        if n % 2 == 0:
+            return False
+        n += 1
+    return True
+
+A:
+
+I got an answer for my question from the graphlab chat rooms
+Check this link
+
+<|endoftext|>Gaston III of Chabannes
+
+Gaston III of Chabannes (died 1162) was the Count of Chabannes and Seigneur de Saintes. He was the son of Gaston II of Chabannes and Agnès de Pons.
+
+History 
+He succeeded his father in 1142. His wife Agnes was daughter of Henry I of Flanders, Count of Flanders. He was involved in the rebellion of 1142-1144 and captured Saintes on June 2, 1142, but he withdrew a month later. It was claimed in the chronicles of Gautier de Malsure that Gaston III was planning to conquer the County of Mâcon in 1147, but the plan never materialized.
+
+During the continuing hostilities with France, the English king, Henry II, was able to take possession of a rich part of Gaston III's possessions in the Seine-Maritime, where in 1150 the English took Alençon. In August of the same year the king forced Gaston III to pay homage to him. In 1149, Gaston III had to pay homage to his nephew, William II of England.
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    for j in range(2, i):
+        if i % j == 0:
+            return False
+    return True
+
+assert is_even(50)   # even!
+
+In fact, this code was written at the age of 13 by me (yes, a high school student), so I think it's definitely quite good! However, I'm not really satisfied with the time complexity.
+Is there a faster way to find out whether a number is even in factorial time? The best I could come up with is checking the remainder of n, which would be O(n).
+
+A:
+
+Edit: See my comment on Tᴚoɯɐuo's answer for a simpler implementation.
+
+(These answers are not a challenge, I just like the problem, and wanted to see if anything could be done)
+This problem is not difficult to solve, you just need a table of values with the result of the square and add them together. Then take it modulo 2. 
+Yes this is O(n^2) worst-case time, but it will still be O(1) on average.
+EDIT: I modified it so that instead of a global table, we initialize an array with all possible results for all powers of 2, and can return the table if it doesn't work. This is more straightforward and probably faster on average than an array-based table (assuming the table is very large, i.e. not sparse). However, if you know that you only have powers of 2 then this will be O(n^2), but the trick is to know the first and last powers of 2 in the range, as this is where the values change (for the remainder).
+
+def even_check(n):
+    table = [0 for _ in range(n)]
+    r1, r2 = 1, 1
+
+    while True:
+        r1, r2 = r1 * 2, r1 + r2
+        if not (r1 % 2 == 0) and not (r2 % 2 == 0):
+            break
+    return table
+
+# in time
+
+def even_check2(
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    for k in range(1,i):
+        if i%k==0:
+            return False
+    return True
+
+def max_divisible_with_sum_of_all_divisible_factors(n):
+    """Finds the maximum divisible with the sum of all the divisible
+    factors of the number n"""
+    total_sum = 0
+    factors = []
+    for divisor in divisible(n):
+        total_sum += divisor
+        factors.append(divisor)
+    return max(factors, key=lambda a: a+total_sum)
+
+A:
+
+You can't just print the variable, as you did. You need to:
+
+Send it to a loop that prints out all numbers in that range in decimal and print the largest one, and then
+Send it to another loop that prints all the fractional part of that decimal and print out the one with the largest fraction.
+
+Here's a working example for your function:
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    for k in range(1,i):
+        if i%k==0:
+            return False
+    return True
+
+def max_divisible_with_sum_of_all_divisible_factors(n):
+    """Finds the maximum divisible with the sum of all the divisible
+    factors of the number n"""
+    total_sum = 0
+    factors = []
+    for divisor in divisible(n):
+        total_sum += divisor
+        factors.append(divisor)
+    return max(factors, key=lambda a: a+total_sum)
+
+for i in range(1,50):
+    print(max_divisible_with_sum_of_all_divisible
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return (i & 1) == 0
+
+def is_product(i, j):
+    """Check whether an integer is the product of two other integers, but in
+    fact, this is only asymptotically O(n!). It's more of an O(n!) check.
+    """
+    return (i * j) % len(ALL_PRODUCTS) == ALL_PRODUCTS[0]
+
+def is_subset(i, j, p):
+    """Check whether an integer is a subset of another integer"""
+    return sum(i[x] for x in j) == ALL_PRODUCTS[0]
+
+def is_subset_sum(i, j):
+    """Check whether an integer is a subset of a sum of two other integers"""
+    return (i + j) % len(ALL_PRODUCTS) == ALL_PRODUCTS[0]
+
+def bitwise_product(nums, nbits):
+    """Multiply two integers with at most nbits bits.
+       Constraints: 1 <= nums <= 2**nbits and nums can be
+       represented in at most nbits bits.
+    """
+    if (nums, nbits) == (0, 0):
+        raise ValueError("Unsupported value of nums and nbits")
+    if nbits > 0:
+        u_bits = bit_count(nums) - 1
+    else:
+        u_bits = 0
+    v_bits = bit_count(nums)
+    return (nums << u_bits) | (nums >> v_bits)
+
+def bitwise_logical_and(nums, nbits):
+    """Multiply two integers with at most nbits bits.
+       Constraints: 1 <= nums <= 2**nbits and nums can be
+       represented in at most nbits bits.
+    """
+    if (nums,
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i % 2 == 0
+
+
+def is_prime(num):
+    """Given an integer, returns true or false if it is prime"""
+    divisors = [i for i in range(1, num + 1) if num % i == 0]
+    if len(divisors)!= 1:
+        return False
+    divisor = divisors[0]
+    if divisor == num:
+        return True
+    if num > 2 and num % 2 == 0:
+        return True
+    for i in range(3, int(sqrt(num)) + 1, 2):
+        if num % i == 0:
+            return True
+    return False
+
+
+def is_coefficient_mod(num, mod):
+    """Checks if an integer and a modulus is the same coefficient."""
+    while mod % num!= 0:
+        num /= mod
+    return mod % num == 0
+
+
+def rand_string(num):
+    """Generates a string of 'num' characters"""
+    return ''.join(random.sample(string.ascii_letters + string.digits, num))
+
+
+def search_matrix(A, B):
+    """Returns a list of indexes of elements of A that have an
+    equal element in B"""
+    ret = []
+    for i in range(len(A)):
+        for j in range(len(A[0])):
+            if A[i][j] == B:
+                ret.append(i)
+    return ret
+
+
+def all_permutations(s):
+    """Generates all possible permutations of a string"""
+    for i in xrange(len(s)):
+        for j in xrange(len(s
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    """Is either odd or multiple of 2:  0, 2, 4, 6,... """
+    if i < 2: return True
+    if i > 0 and i%2 == 0: return False
+    if i < 50: return False
+    if i < 250: return False
+    if i < 750: return False
+    return True
+
+def main():
+    """main function for the program"""
+    input_value = int(input('Please enter the value you want to test with:'))
+    if is_even(input_value):
+        input_value = input_value*2
+    else:
+        input_value = input_value*2 + 1
+
+    factor = 1
+    x = 0
+    while input_value!= 1:
+        input_value = input_value*2
+        x = x + factor
+        factor = factor*2
+        if x%2 == 0:
+            print(x, factor, x%factor)
+        else:
+            factor = factor * 2
+
+    input_value = int(input('Please enter the value you want to test with:'))
+    if is_even(input_value):
+        input_value = input_value*2
+    else:
+        input_value = input_value*2 + 1
+
+    factor = 1
+    x = 0
+    while input_value!= 1:
+        input_value = input_value*2
+        x = x + factor
+        factor = factor*2
+        if x%2 == 0:
+            print(x, factor, x%factor)
+        else:
+ 
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return not (i % 2)
+
+s = string = "0123467891011"
+for i in range(1, len(s) + 1):
+    print s[i],
+
+is_even()
+
+A:
+
+to make an assumption about your input, if you know that they have only one occurance of a 3 character string in it, you can just check every single value up to the first occurrence, and determine which ones are even.  If the first character is a 3 and the following 7 characters are even, then the value is odd.  Otherwise, it's even.
+def is_even(s):
+    """Check whether a string is even"""
+    if s[0] == '3':
+        return (all(s[i+1:] % 2 == 0 for i in range(2, len(s)-1)) and s[1] % 2 == 0)
+    else:
+        return s % 2 == 0
+
+for i in s:
+    if is_even(i):
+        print i,
+
+So far this will only work if the original string is even.  If it's not, and the first character of the string is a 3, then you have to figure out if the rest of the string is even.  If so, then it's odd, if not, then it's even.  First check the next to last character.  If it's an 8, then it's odd.  If it's a 2, then it's even.  If it's a 1, then it's even if the original string was even, if it's anything else, it's odd.
+def is_even(s):
+    """Check whether a string is even"""
+    if s[0] == '3':
+        return (all(s[i+1:] % 2 == 0 for i in range(2, len(s)-1)) and s[1] % 2 == 0)
+    else:
+        last_check = s[-2]
+        if last_check == '8':
+      
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if i == 0:
+        return True
+    return i % 2 == 0
+
+
+def factorial(i):
+    """The factorial of i factored into a for loop"""
+    return (i * factorial(i-1)) if i > 1 else 1
+
+
+def string_length_of_word(word):
+    """Return the length of the shortest string that is a substring of word."""
+    for i in range(len(word)):
+        for j in range(i):
+            if word[j]!= " ":
+                return i
+    return len(word) + 1
+
+
+def make_sentence(paragraph):
+    """
+    Replace all spaces in a string with question marks
+    """
+    sentence = ""
+    word_dict = {}
+    for word in paragraph:
+        word_dict[word.lower()] = None
+    for word in sentence:
+        if word_dict.get(word, None) == None:
+            sentence += "?"
+        else:
+            sentence += word_dict[word]
+    return sentence
+
+
+def main():
+    sentence = "Hello world!"
+    paragraph = "Have you ever seen snow?"
+    word_counter = []
+    print(string_length_of_word(make_sentence(paragraph)))
+    print(string_length_of_word(make_sentence(word_counter)))
+
+
+if __name__ == '__main__':
+    main()
+<|endoftext|>California Earthquake Risk Most Risky Before Big Shake, Study Says
+
+By Alan Adelson and Brandon Bailey
+
+The insurance industry's study of earthquake risk in California shows that most damage is done before the quake, according to a new report released Tuesday by Swiss Re, the owner of the California Earthquake Authority.
+
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    x = i
+    while x:
+        x, remainder = divmod(x, 2)
+        x = remainder
+    return i == 0
+
+if __name__ == '__main__':
+    print "List of numbers: %r" % LIST
+
+    even = map(is_even, LIST)
+    print "\nElements that are even: %r" % (LIST[2] if even else LIST)
+
+<|endoftext|>
+; CHECK-NEXT:    [[GLOBAL:%.*]] = load i32, i32* [[GLOBAL_CALL]], align 4
+; CHECK-NEXT:    [[BRACKET_CAST:%.*]] = bitcast [[BRACKET]]* [[MEM_ALLOCATED:%.*]] to [[B]]]*
+; CHECK-NEXT:    [[INLINE:%.*]] = insertvalue [[B]] [[BRACKET_CAST]], i64 [[GLOBAL]], 0
+; CHECK-NEXT:    ret [[INLINE]]
+;
+define internal i64 @test1(i64 %arg) {
+  %alloc = call i8* @malloc(i64 40)
+  %vec = bitcast i8* %alloc to [[B]]*
+  %vec1 = bitcast [[B]]* %vec to [[BRACKET]]*
+  br label %loop
+
+loop:
+  %i = phi i64 [ %arg, %entry ], [ %i.next, %loop ]
+  %i.next = add i64 %i, 1
+  %j = phi i64 [ 0, %entry ], [ %j.next, %loop ]
+  %j.next = add i64 %j, 1
+  %entry_block = getelementptr inbounds [[BRACKET]], [[BRACKET]]* %vec1, i64 0, i64 %i.next
+  %k = bitcast [[B]]* %entry_block to i64*
+  %k1 = load i64, i64* %k, align 8
+  %k2 = getelementptr inbounds [[
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if i == 0:
+        return True
+    else:
+        return i % 2 == 0
+
+
+def is_prime(i):
+    """Check whether an integer is prime in factorial time"""
+    return i < 2 and all(n in range(i + 1, int(i * i) + 1) for n in range(2, i + 1))
+
+
+def is_coprime(i, j):
+    """Check whether two integers are coprime, without checking for divisibility"""
+    return i!= 0 and j!= 0 and i < j and all(a % b == 0 for a in range(1, i + 1) for b in range(1, j + 1))
+
+
+def random_uniform_ints(upper_bound):
+    """
+    Return a sequence of random upper-bounded integers, in factorial O(n!) time
+    :param upper_bound:
+        - Upper bound for each random integer, which should be a nonnegative
+          integer, and positive integer if upper_bound!= 0
+    """
+    # N random integers from a sequence of non-negative integers
+    # that are bounded by upper_bound
+    upper_bounds = list(map(lambda x: int(random.random() * (x + 1)), range(upper_bound)))
+
+    # Gather all non-zero upper bounds from upper_bounds
+    # into a list, without sorting or other operations
+    # which may not be factorial in O(n!) time
+    upper_bounds = [a for a in upper_bounds if a > 0]
+
+    # Make sure that the union is nonempty
+    if upper_bounds:
+        # Pick a random integer from the union, without replacement
+        return random.choice(upper_bounds)
+    else:
+        # Generate a sequence of zeros, and fill with the random non-zero
+   
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    a = 1
+    while i!= 0:
+        a *= i
+        i -= 1
+    return i % 2 == 0
+
+def quotient(a, b):
+    """
+    Return a and b together
+    >>> quotient(42, 56)
+    (42, 56)
+    >>> quotient(1,0)
+    (1, 0)
+    """
+    if b == 0:
+        return (a, b)
+    while b > 0:
+        if b % 2 == 0:
+            (a, b) = (a, b / 2)
+        else:
+            (a, b) = (a * 3, b + 1)
+    return (a, b)
+
+def subresult(n, z):
+    """
+    Return the result of n divided by z.
+    >>> subresult(12, 3)
+    (4, 1)
+    >>> subresult(7, 15)
+    (7, 1)
+    """
+    if n % z == 0:
+        return (n, z)
+    while n!= 0:
+        (n, z) = (n, z / n)
+        n -= 1
+    return (n, z)
+
+def modu(a, b, m):
+    """
+    Return a modulo b
+    >>> modu(69, 3, 7)
+    (5, 2)
+    >>> modu(29, 3, 9)
+    (3, 1)
+    """
+    if b == 0:
+        return a
+    if m > 0:
+        while m!= 0:
+   
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i & 1 == 0
+
+def factor(n):
+    """Factorial of n, n! = 1 * 2 * 3 *... * n"""
+    return int(n) * fact(n // 2)
+
+print(fact(26))
+print(is_even(fact(26)))
+print(is_even(factor(26)))
+
+A:
+
+Generalizing, your algorithm is finding primes in a given range r. Let N = fact(r) (and I don't know how to make ZZ easily readable here). Then:
+
+If r is even, then by looking at consecutive intervals in which you omit the squares, you will find the only divisors, and thus some numbers n in the range [0, N] with no divisors.
+If r is odd, then by looking at consecutive intervals in which you omit the squares, you will find the only divisors, and thus some numbers n in the range [0, N] with no divisors.
+
+For example, if r = 11, you will omit from square 22 to square 44, then you will omit from square 24 to square 55, etc.
+You can "unroll" this search, to find all values that are factors of a given value in the range r:
+def factors(r):
+    if r & 1:  # if it's odd, then don't omit any squares
+        # print odd powers of r that are divisible by odd powers of 2
+        for prime in range(3, int(r**0.5 + r**0.5), 2):
+            print("1", end="")
+            for n in range(prime, r, prime):
+                print(n, end="")
+        print("1", end="")
+    else:  # if it's even, then omit all powers of 2 from that range
+        for prime in range(2, int(r**0.5 + r**0.5), 2):
+           
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    # Loop the number up to and including it's current digit:
+    k = i
+    while True:
+        digit = i % 10
+        if not digit:
+            return True
+        i = i // 10
+
+    return False
+
+
+class Solution(object):
+    def isPerfectNumber(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        if n < 2:
+            return False
+        if n == 2:
+            return True
+        if n == 3:
+            return False
+
+        # Store the highest power of 2 to test with
+        power = 1
+        while True:
+            # Calculate the power of 2 needed to hold all the digits up
+            # to and including the current digit in the mantissa (used to
+            # figure if n is prime)
+            exponent = n % 10
+            if exponent == 0:
+                # The current digit is actually part of the exponent
+                # It needs to be moved up to the new exponent
+                exponent = n
+            while exponent!= 0:
+                power *= 2
+
+            # If the power required was > n, then n is
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    # Reminder: x! = x(x-1)(x-2)... 1
+    # x! / 2! = x(x-1)... x / 2 = n(n-1)... n / 2 = n!
+    # so x! mod 2 == 0 iff x! mod 2 == 0 for all integers x
+    # i.e. x! mod 2 == 0 iff x * (x-1) *... * 1 mod 2 == 0
+    # Reminder: x! mod 2 == 0 iff x * (x-1) *... * 1 mod 2 == 1
+    # i.e. x! mod 2 == 0 iff 2 * x * (x-1) *... * 1 mod 2 == 1
+    # so: x! mod 2 == 0 iff 2 * x * (x-1) *... * 1 == 0 mod 2
+    # this can be rewritten as: x! mod 2 == 0 iff
+    #                       2 * x * (x-1) *... * 1
+    #                       == 0 mod 2
+    # so, x! mod 2 == 0 iff
+    #                       2 * x * (x-1) *... * 1 == 0 mod 2
+    #                       == 2 * x * (x-1) *... * 1 mod 2
+    #                       == 2 * (x-1) *... * 1 mod 2
+    #                       == 2 * (x - 1) *... * 1
+    # so we can do: x! mod 2 == 0 iff x! / 2 == 0 iff (x -
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i % 2 == 0
+
+
+def pow(x, exp):
+    """Recursively calculate a factorial power of a number.
+
+    >>> pow(1, 6)
+    1
+    >>> pow(2, 6)
+    2**6
+    >>> pow(3, 6)
+    3**6
+    """
+    if exp < 0:
+        raise ValueError("exp must be > 0")
+    if exp == 0:
+        return 1
+    if exp % 2 == 0:
+        return x * pow(x, exp // 2)
+    else:
+        return pow(x, exp // 2) * x
+
+
+def factorial(n):
+    """Factorials start at 1!"""
+    if n == 0:
+        return 1
+    return n * pow(n - 1, n)
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+<|endoftext|>Q:
+
+Why should I prefer relational databases?
+
+I'm a newcomer to SQL, so perhaps I'm missing something.
+Why should I prefer relational databases?
+
+A:
+
+Briefly:
+
+SQL is query language, while a DBMS is a database engine (relational database management system). This has got nothing to do with each other, but only a minor correlation, like a light bulb and its bulb is linked.
+SQL is a language that requires skill to use; a DBMS does not.
+SQL can only manipulate data, and a DBMS can perform any task of a relational database (including managing data); even if not very commonly.
+SQL is an open source language, DBMS is an open source engine. So you may play with SQL without a DBMS (for free); but you cannot play with DBMS and not pay for it, this is more like an open source engine (without engine) and a closed source software (DBMS).
+DBMS is relational, SQL is object-oriented. In that, any programming language can be used with DBMS (including SQL).
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    while True:
+        temp = i % 2
+        i //= 2
+        if not temp:
+            return True
+
+def get_even_index(n, limit):
+    """This function returns the index of an even number of elements in a sequence of odd numbers"""
+    #if limit < n:
+    #    return -1
+    index = 0
+    while True:
+        if i % 2!= 0:
+            return index
+        i += 1
+        index += 1
+    return -1
+
+def find_next_even(n):
+    """Finds the nth even number"""
+    i = 0
+    while is_even(i) == False:
+        i += 1
+    return i
+
+if __name__ == "__main__":
+    n = int(input())
+    i = find_next_even(n)
+    if i == n:
+        print("even number")
+    elif i > n:
+        print("odd number")
+    else:
+        print("The odd number was", i)
+
+<|endoftext|>The disulfide oxidoreductases comprise a family of structurally related enzymes that play a central role in redox signaling in all organisms. In plants, these enzymes catalyze both the reduction and oxidation of substrates, including reducing equivalents, substrates, electron carriers, and substrates of other disulfide oxidoreductases. The enzymes catalyze redox reactions for the prevention of protein aggregation and toxicity, the transfer of electrons from NADPH to alternative substrates during early phases of seed germination and for the protection of proteins against the deleterious effects of reactive oxygen species (ROS) during oxidative stress. The disulfide oxidoreductases play a key role in controlling protein and enzyme aggregation in the endoplasmic reticulum (ER) in
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if i%2==0:
+        return True
+    else:
+        return False
+
+def subset(A, B):
+    """An in-place function to check if a is a subset of b in O(1) time"""
+    count=0
+    for a in A:
+        for b in B:
+            if a==b:
+                count=count+1
+    if count==0:
+        return False
+    else:
+        return True
+
+def concatenate(A, B):
+    """An in-place function to concatenate the two lists"""
+    N=len(A)
+    P=len(B)
+    newA=[a+b for a in A for b in B]
+    newB=[]
+    for i in range(0,N+P):
+        newB.append(A[i]+B[i])
+    return newA, newB
+
+def main():
+    f1_array=np.random.randint(1,100,100000).astype(np.int32)
+    f2_array=np.random.randint(1,100,100000).astype(np.int32)
+
+    len_A=len(f1_array)
+    len_B=len(f2_array)
+
+    f1_array, f2_array=partition(f1_array,f2_array)
+    for i in range(len_A):
+        if i in f1_array:
+            f1_array=f1_array.delete(i)
+    for j in range(len_B):
+        if j in f2_array:
+       
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i % 2 == 0
+
+def is_prime(i):
+    """Check whether a given number is prime in factorial O(n!) time"""
+    # Prime Filtration in O(n!) time:
+    if i == 2 or i == 3:
+        return True
+    for j in range(i, 1, -1):
+        if is_even(i % j):
+            return False
+    return True
+
+def is_primality_in_range(i, limit):
+    """Check whether a given number is a prime in O(n!) time.
+
+    If it is less than limit or greater than limit, then return False.
+    """
+    if is_even(i):
+        # Ignore even numbers.
+        return True
+    while limit > i:
+        if is_prime(i):
+            return True
+    return False
+
+def prime_in_range(start, end):
+    """Check whether a given range contains any primes.
+
+    If any is in the range, then return True.
+    """
+    result = False
+    for i in range(start, end):
+        if is_primality_in_range(i, end):
+            result = True
+            break
+    return result
+
+def main():
+    """Run the test."""
+    print('''Factorial of 10 is: 10!''')
+    i = 10
+    while (i < 1000):
+        if is_prime_for_n(i):
+            print('The factorial of ', i, 'is a prime:', 'Factorial of ', i,'is a prime')
+        else:
+
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    n = i // 2
+    while n > 0:
+        n = n // 2
+        if i % n == 0:
+            return False
+    return True
+
+def to_odd(i):
+    """Convert an integer to even if possible (If its odd)"""
+    return i + 2
+
+def fib(n):
+    """A recursive method for calculating the Fibonacci sequence.
+
+    The nth number in the Fibonacci sequence is defined to be
+    ``F(n) = F(n-1) + F(n-2)``.
+
+    >>> fib(1)
+    1
+    >>> fib(2)
+    1
+    >>> fib(3)
+    2
+    >>> fib(4)
+    3
+    >>> fib(5)
+    5
+    >>> fib(6)
+    8
+    >>> fib(7)
+    13
+    >>> fib(8)
+    21
+    >>> fib(9)
+    34
+    >>> fib(10)
+    55
+    >>> fib(11)
+    89
+    >>> fib(12)
+    144
+    >>> fib(13)
+    233
+    >>> fib(14)
+    377
+    >>> fib(15)
+    610
+    >>> fib(16)
+    987
+    >>> fib(17)
+    1597
+    >>> fib(18)
+    2584
+    >>> fib(19)
+    4181
+    >>> fib(20)
+    6765
+    >>> fib(21)
+    10946
+    >>> fib(22)
+    17711
+    >>> fib(23)
+    28657
+    >>> fib(24)
+    46
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if i == 2:
+        return True
+    n = int(i)
+    if n > 1:
+        n_numbers = [n // j for j in range(1, n+1)]
+        return sum(n_numbers) % 2 == 0
+    else:
+        return n == 2
+
+if __name__ == "__main__":
+    numbers = range(1, 11)
+    for i in range(1, len(numbers)):
+        if is_even(numbers[i]):
+            print(numbers[i], end=" ")
+        else:
+            print(numbers[i], end=" ")
+        print()
+
+Which outputs:
+2 4 6 8 10     
+3 5 7 9 11     
+4 6 8 10 11    
+5 7 9 11 12    
+6 8 10 11 12    
+7 9 11 12 13    
+8 10 11 12 13   
+9 11 12 13 14    
+10 11 12 13 14        
+
+If you want to count them all in a list, you can write a recursive function like this:
+import itertools
+
+def even_permutations(n):
+    """Return all even permutations of the elements in n"""
+    for i in range(n+1):
+        yield [list(itertools.permutations(range(n), i))]
+
+numbers = [2, 4, 6, 8, 10, 12, 14]
+print(list(even_permutations(numbers)))
+
+However, this is O(n!) time and will be terribly slow for larger lists. You can make it a bit more efficient by adding an extra step to determine if i is an even number, such that only even numbers go into the yield function:
+def even_
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if i > 1:
+        i %= 2
+    return i < 2
+
+def is_power_of_2(i):
+    """Check whether an integer is power of 2 in factorial O(n!) time"""
+    if i == 1:
+        return True
+    if i > 1:
+        return i % 2 == 0
+
+A:
+
+A simple loop will work if you don't want the integer to be divisible by 2. 
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    for _ in range(1, i):
+        if i % 2:
+            return False
+    return True
+
+is_power_of_2 = lambda i: i == 1 or is_even(i)
+
+This will return True if the input is 1 or 2 or the input is even, and false if it's not.
+
+<|endoftext|>Showroom Hours
+
+Find Us
+
+Search
+
+How to Drive Safely during the Winter Months
+
+By Andrew Price, President
+
+November 22, 2016
+
+It may seem obvious, but there are a lot of people who are unaware that if it is cold outside, then it is extremely important to do everything in your power to keep yourself and the other vehicles on the road safe.
+
+During the winter months, people tend to stay inside more often and when they do venture outside, it is usually short and light on the journey. This means that if you are on a drive during the colder times of the year, you have to be a lot more careful when it comes to the vehicle.
+
+It is recommended that you always travel as slowly as possible. In an effort to make it easier on you, other drivers and pedestrians, you should also stay focused on the road and not on your phone.
+
+Don't forget that even though the cold weather may make you feel like you can take things a bit slower, it is never a good idea to speed during the winter months. After all, it's not as if you will actually get a ticket for speeding during this time as much as you would during other times of the year.
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i % 2 == 0
+
+I am then using is_even to filter out 0s and the odd numbers, and then I just use an if-else to see if there is a prime among them. 
+
+<|endoftext|>Taylor Swift Teams Up With Rascal Flatts for New Cover
+
+Taylor Swift teams up with country boy Rascal Flatts for her new album, ‘Red.’
+
+“Red,” which hit shelves September 21, marks Swift’s fourth full-length album to date. The new tunes follow her Grammy-winning “1989” and albums “Speak Now” and “Red.” This is also Swift’s first album to be released on Taylor Swift’s own label, Big Machine Records. The album features appearances from artists like rapper/singer Frank Ocean, producer Jack Antonoff and country star and Flatts’ wife, Deanna Carter.
+
+“Red” has received critical acclaim and is currently going through the top 20 on the Billboard 200, ranking 14th. Swift performed “State Of Grace” on the “Saturday Night Live” season premiere on September 19. The “Red” track was also the first Swift song to be debuted on YouTube for an exclusive world premiere video, which was on September 10. For more on Taylor Swift, visit TaylorSwift.com.<|endoftext|>Bani Walid (Tripoli)
+
+Bani Walid ( "Grand Mosque", "Maliki Grand Mosque") is a mosque in Tripoli, Lebanon. The mosque was founded in 1070.
+
+Its leader, Sheikh Boushir Al-Nusairi, sent Ali Jarrar (who later took over leadership of the Islamists after the collapse of Hizb al-Shahidain) to negotiate the end of the Ottoman–Husaynid War in 1725. The ruler Ali Karim Khan was afraid that his forced retreat to the Ottoman fortress at Tripoli would lead to the losing of Tripoli. Bani Walid, along with the inhabitants of nearby Beit Jinn, encouraged him to negotiate the end of the war and to take back Tripoli, which he did on April 1, 1725.
+
+In 1731 the shiite cleric Muqallid bin al-Hussein built the mosque and oratory. The architecture of the mosque is a mix of the Ottoman and Neapolitan architectural styles, with
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return (i % 2 == 0)
+
+A:
+
+Quick access to your numpy array would be:
+print(raw_input("Input your numpy array: "))
+a = numpy.loadtxt("your_array.txt")
+a[:5,:].copyto(a[:5,5:])
+
+First I create an empty array, and then I assign the values of the original array to the first 5 elements of the new one.
+Also, if you need to access the whole thing as a numpy array in numpy, it can be done like this:
+from numpy import *
+
+print(raw_input("Input your numpy array: "))
+a = numpy.loadtxt("your_array.txt")
+a = a.reshape(1, 3)
+
+<|endoftext|>Q:
+
+Exclude From Catagory Based on Dates in a Date-Time Column
+
+I have a table with a table that lists all the tasks that have been completed. Each task has a starting date and ending date. 
+CREATE TABLE #TaskCompleted
+(
+    TaskID varchar(32),
+    ID int,
+    Completed bit,
+    StartingDate datetime,
+    EndingDate datetime
+)
+
+I have a query that uses DATEADD() to add a time to the starting date if it is before a certain date (the end of the month):
+SELECT DATEADD(DD, 1, DATEADD(MM, -1, (DATEADD(DD, DATEDIFF(DD, 0, GETDATE()) - 1, 0)))), t.Completed
+FROM #TaskCompleted AS t
+WHERE (t.TaskID = 'ABC123') AND
+      (t.EndingDate < '2017-10-31'
+      OR t.EndingDate = '2017-10-31' AND t.Completed = 1)
+
+This gets me the tasks that have not been completed by the end of the month:
+TaskID | Completed
+-------------------
+ABC123 | 1
+ABC456 | 1
+
+However, I also want it to ignore a specific list of tasks. 
+I have a table (the Tasks table) with a list of tasks, all of which are dates
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i % 2 == 0
+
+
+def even_without_testing(i):
+    return i % 2 == 0
+
+
+def even_without_testing_for_a_couple_of_values(i):
+    return i % 2 == 0
+
+
+def compare(first, second):
+    return first - second
+
+
+def multiply(a, b):
+    return a * b
+
+
+def multiply_and_mod(a, b):
+    return a * b % a
+
+
+def mod_3_to_30(a):
+    if a == 3:
+        return 4
+    elif a == 4:
+        return 3
+    elif a == 5:
+        return 2
+    elif a == 6:
+        return 1
+    elif a == 7:
+        return 0
+    elif a == 8:
+        return 7
+    elif a == 9:
+        return 6
+    elif a == 10:
+        return 5
+    elif a == 11:
+        return 4
+    elif a == 12:
+        return 3
+    elif a == 13:
+        return 2
+    elif a == 14:
+        return 1
+    elif a == 15:
+        return 0
+    else:
+        return 30
+
+
+def add_subtract_even_mod(a, b, multiply_mod):
+    if b % 2 == 0:
+        return a + multiply_mod(b, 2)
+    elif b % 2 == 1:
+        return a - multiply_mod(b, 2)
+    else:
+        raise Exception("Input data was invalid")
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i%2 == 0
+
+def is_good_size(n):
+    return n > 100
+
+def f(n):
+    if is_good_size(n):
+        print(n)
+    else:
+        print(n, end='')
+        print(n, end='')
+        print(n, end='')
+
+def main():
+    f(5)
+    f(25)
+    f(21)
+    f(23)
+
+main()
+
+This outputs:
+5
+5 4 3 2 1 0
+5 4 3 2 1 0
+5 4 3 2 1 0
+
+However, this takes a long time to execute, and is really expensive. For example, if I substitute this line:
+if is_good_size(n):
+
+With this line:
+if len(n) > 50:
+
+I still get 5 5 4 3 2 1 0 3 2 1 0 4 3 2 1 0... And not 5 5 5 5 5 5 5.
+Why does this work the first way, but not the second? This is leading to some overhead in the code that I'm running. I want to optimise this to make it work. How do I do that? 
+
+A:
+
+Function argument names are for function scope, so variables inside functions don't have a real name.
+
+A:
+
+n is not a real name for this variable; it's a placeholder for the argument the function is expecting.
+To do what you want, you need to explicitly give that argument a name.
+def f(n, name):
+    if is_good_size(n):
+        print(n, name)
+    else:
+        print(n, name, end='')
+        print(n, name, end='')
+        print(n, name, end='')
+
+<|endoftext|>There is another way to express a feelings or thoughts
+
+Essay about time
+
+Free time means to give the general time that we have available as the
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    # it is in fact faster to check (e.g.) (i & 1) == 0 than
+    # to check (i % 2 == 0)
+    return i & 1 == 0
+
+
+#TODO:
+# Why is it that the is_even() below takes time O(n!)?
+#
+# 'for i in range(5, 10, 2):' -> costs 2*2*2*2*2*(n-5) steps
+# but the modified above function still costs O(n!) steps 
+#
+# Is it possible to modify the above function in O(n) steps?
+#
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    # it is in fact faster to check (e.g.) (i & 1) == 0 than
+    # to check (i % 2 == 0)
+    if (i % 2 == 0):
+        return True
+    # We have not found an even number
+    return False
+
+
+#TODO:
+# Is it possible to simplify the code above? (For example, to remove
+# the multiplications of a single number by its multipliers?)
+#
+def is_odd(n):
+    """Check whether an integer is odd in factorial O(n!) time"""
+    # It is in fact faster to check (e.g.) (i & 1)!= 0 than
+    # to check (i % 2 == 1)
+    if ((i % 2)!= 1):
+        return False
+    # We have not found an odd number
+    return True
+
+
+#TODO:
+# Is it possible to simplify the code above? (For example, to use a
+# single exponentiation?)
+#
+def is_odd(n):
+    """Check whether an integer is odd in factorial O(n!) time"""
+    if (n & 1)!= 0:
+        return False
+    return True
+
+
+#TODO:
+# Write this function in O(n) steps using logar
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return (i % 2 == 0)
+
+Here we have used the inline functions:
+# The n and m parameters can be passed as a namedtuple
+import operator
+
+@functools.lru_cache(128)
+def composition(f, g, n=4, m=1):
+    assert 0 <= n < 8 and 0 <= m < 8
+    assert is_even(n) and is_even(m)
+    return functools.partial(f, m) * functools.partial(g, n)
+
+Note that the parameters are passed as namedtuples to avoid duplicated code and for better-quality names.
+
+Usage
+% python3
+>>> composition(lambda x, y, m=0: x**y, n=1, m=2)(4)
+64
+>>> composition(lambda x, y, m=0: x**y, n=2, m=3)(4)
+512
+
+Note
+
+I don't actually claim that this is good code.
+That said, is there any case where this would be more readable, in terms of better algorithms or better algorithms leading to more readable code?
+
+A:
+
+Is it really necessary to use the n and m parameters?
+The code would look much cleaner without them.
+And they might make some code repetition more likely:
+import operator
+
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return (i % 2 == 0)
+
+@functools.lru_cache(128)
+def composition(f, g, n=4):
+    assert 0 <= n < 8
+    assert is_even(n)
+    return functools.partial(f, n) * functools.partial(g, n)
+
+A:
+
+Assuming that the problem here is that composition is slow for larger n and m, then this might be a more appropriate approach:
+def composition(f, g, n, m):
+    n_shifted = n * (1 << m)
+    m_shifted = m * (1 << n)
+
+    def loop_composition_function(x, m):
+
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return (i % 2) == 0
+
+def get_letters(arr):
+    """generate array with letter repeated, some integers might be repeated"""
+    new_arr = np.array([None] * (len(arr) + 1))
+    new_arr[0:arr.size] = arr
+    return new_arr
+
+def odd_to_letters(arr):
+    """Generate an array with letter as integers, every odd value is shown"""
+    new_arr = arr.copy()
+    new_arr[new_arr % 2 == 1] = 'L'
+    return new_arr
+
+def number_to_letters(arr):
+    """Generate an array with letter as integers, every even value is shown"""
+    new_arr = arr.copy()
+    new_arr[new_arr % 2 == 0] = 'E'
+    return new_arr
+
+# This is the result what I am looking for
+for l in range(4, 9):
+    print(l, 'Efficient to F')
+    print(get_letters(number_to_letters(l)))
+
+A:
+
+So the trick is the remainder mod 2.  So we can select the "E" index array or the "L" index array.
+def number_to_letters(arr):
+    """Generate an array with letter as integers, every even value is shown"""
+    new_arr = arr.copy()
+    new_arr[(new_arr % 2) == 0] = 'E'
+    return new_arr
+
+def get_letters(arr):
+    """generate array with letter repeated, some integers might be repeated"""
+    new_arr = np.array([None] * (len(arr) + 1))
+    new_arr[:arr.size] = arr
+    return new_arr
+
+The logic is a bit convoluted since, so the smallest you can number is 4 and 3 is odd.
+
+<|endoftext|>Robert Thompson (harpsichordist)
+
+Robert Thompson (c. 1717–1794) was a German musician
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    n = len(str(i))
+    # For a power of 2, check that the largest set bit (2 to the power of
+    # i) in the decimal representation is even.
+    if n < 3:
+        return False
+    mask = 2 ** n - 1
+    if i & mask:
+        return False
+    return True
+
+def is_odd(i):
+    """Check whether an integer is odd in factorial O(n!) time"""
+    n = len(str(i))
+    # For a power of 2, check that the largest set bit (2 to the power of
+    # i) in the decimal representation is odd.
+    if n < 3:
+        return True
+    mask = 2 ** n - 1
+    if i & mask:
+        return True
+    return False
+
+
+def is_odd_in_even(i):
+    """Check whether an integer is odd or even in factorial O(n!) time"""
+    n = len(str(i))
+    # For a power of 2, check that the largest set bit (2 to the power of
+    # i) in the decimal representation is odd in an even number.
+    if n < 3:
+        return False
+    mask = 2 ** n - 1
+    if i & mask:
+        return True
+    return False
+<|endoftext|>Low-income Americans are more likely to be aware of the Affordable Care Act than their better-off peers, but less likely to know that it requires that employers cover contraception and abortion services, according to a new study.
+
+A recent Harvard University study of the survey data from the U.S. Census Bureau’s Current Population Survey found that the uninsured were more likely to be aware of the Affordable Care Act, also known as Obamacare, than the insured were.
+
+The health care law’s proponents say this is the sign of a needed education campaign that could be of particular interest to Republicans looking to cast the law as a
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    n = i
+    while n > 0:
+        if n % 2 == 0:
+            return True
+        n >>= 1
+    return False
+
+
+class Game:
+    """The game consists of 10 cards, 4 cards for each player.
+    The player flips cards to try and see which is highest"""
+
+    def __init__(self):
+        self.cards = []
+        self.current_players = 0
+        self.player_selection = "even"
+        self.players = self.create_players()
+        self.current_player_order = random.sample(self.players, 1)[0]
+        self.winning_numbers = "odd"
+
+    def create_players(self):
+        if self.player_selection == "even":
+            return [2, 3, 4, 5, 6, 7, 8, 9, 10]
+        elif self.player_selection == "odd":
+            return [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    def get_current_player(self):
+        if self.current_player_order == 1:
+            return 1
+        elif self.current_player_order == 2:
+            return 2
+        elif self.current_player_order == 3:
+            return 3
+        elif self.current_player_order == 4:
+            return 4
+        elif self.current_player_order == 5:
+         
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    c = i
+    while c > 1:
+        if c%2 == 0:
+            return True
+        c //= 2
+    return False
+
+def is_even_with_optimization(i):
+    c = i
+    while c > 1:
+        if c%2 == 0:
+            return True
+        c //= 2
+    return False
+
+#The problem is, even if you set the option "-Ofast" with clang, the problem still remains.
+
+from timeit import Timer
+print('test1:',Timer('is_even(1024)'))
+print('test2:',Timer('is_even_with_optimization(1024)'))
+
+result: 
+test1: 4.2113897365333568
+test2: 3.8895180726922037
+
+So, how to make clang optimize the code well?
+
+A:
+
+This seems to be a rather controversial topic. In the end the best approach will probably be to rewrite the code so that the size of i can be determined at compile time. 
+Once you've got your length, you can easily check if it's even using a "vectorized" function. Something along the lines of: 
+def is_even(n):
+    i = n // 2
+    return n == 0 or (i > 0 and n % i == 0)
+
+Afterwards you would call this function by doing 
+is_even(n)
+
+instead of 
+is_even(n)
+
+and you'd have the performance benefit of the vectorized implementation. 
+
+A:
+
+I did some tests on the -O2 setting with some length limits, and I was surprised that with a size limit of, say, 10^7, if you throw enough arguments at clang, the more the better, the resulting assembler is reduced to just
+is_even(1024);
+
+instead of
+is_even(1024, 1024, 1024);
+
+Also, clang won't run the latter even when used with -
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if i % 2 == 0:
+        return True
+    else:
+        return False
+
+def is_prime(i):
+    """Check whether a number is a prime number in factorial O(n!) time"""
+    if i <= 1:
+        return False
+    else:
+        # Check for special case if i = 2 is prime
+        if is_even(i):
+            return False
+        for j in range(2, int(math.sqrt(i)) + 1):
+            if is_even(i - j):
+                return False
+        return True
+
+def get_int_pos_length_list(input):
+    """Get the index list of the input element by positional index
+
+    It is an implementation of Factorize that separates the element into position and value.
+    It uses short-circuit evaluation to avoid doing extra calculation and get the factor faster.
+
+    :param input: the array to get the index list of
+    :return: the index list
+    """
+    if len(input) == 1:
+        return [0]
+    if input == input[0]:
+        return []
+    if input == input[1]:
+        return []
+    try:
+        int_pos_list = []
+        for n in input[2:]:
+            if len(input) == n:
+                int_pos_list.append(n)
+                break
+        else:
+            # list is
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if i % 2 == 0:
+        return True
+    return False
+
+def n_sum(n):
+    """
+    :type n: int
+    :rtype: int
+    """
+    if n % 2 == 0:
+        return n
+    return n_sum(n // 2) + n_sum(n // 2)
+
+def main():
+    try:
+        while True:
+            n = int(input())
+            ans = 0
+            if is_even(n) or n == 0:
+                continue
+            for _ in range(n):
+                ans += 2
+            print(ans)
+    except KeyboardInterrupt:
+        pass
+
+if __name__ == "__main__":
+    main()
+
+In that code I got n_sum(n) is O(n)
+However I'm not familiar with programming languages at all, can I further optimize this function?
+
+A:
+
+This works for all odd n
+So the idea is to fill a binary search tree.
+And then we can get the sum by traversing the tree.
+Here's the implementation
+from collections import namedtuple
+Node = namedtuple("Node", "is_odd, sum, left, right")
+
+def n_sum(n):
+    """
+    :type n: int
+    :rtype: int
+    """
+    if n % 2 == 0:
+        return n
+    left = 0
+    right = len(nums) - 1
+    while left < right:
+        mid = (left + right) // 2
+       
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i%2 == 0
+
+def factorial(i):
+    """
+    Factorial of an integer using the definition
+        1 * 2 * 3 *... * n = n! / (n-1)!
+    """
+    if i < 1:
+        return 1
+    else:
+        return i * factorial(i-1)
+
+def factorial_general_approximation(i):
+    """
+    Use a "generating function" and take it to factorial O(n!) time.
+        e^(i/2) * 2^i * (1 - 1 / i)^i      (nearly)
+                     i!                    (factorial)
+    """
+    gf = 2**i * (1 - 1 / i)
+    return gf / factorial(i)
+
+if __name__ == '__main__':
+    assert is_even(int(raw_input('Enter a number to be factorialized')))
+    assert factorial(int(raw_input('Enter a number to be factorialized')))
+    assert factorial_general_approximation(int(raw_input('Enter a number to be factorialized')))
+<|endoftext|>A polycrystalline material is a composite of small crystals or grains. The quality of a polycrystalline material is determined by the microscopic or macroscopic structure of the crystals or grains making up the material. Crystal structure of a polycrystalline material can be analyzed by electron diffraction. One electron diffraction technique is selected area electron diffraction (SAED), in which electrons are diffracted from a small portion of a polycrystalline material. By comparison with a set of reflections from known high quality crystals, the SAED pattern obtained from a polycrystalline material can be indexed to determine a crystal structure.
+SAED is sensitive to grain boundary effects. These effects are observed as dark regions in the diff
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i & 1 == 0
+
+Also, if we use ``range(start, stop, step)`` to construct list of the even numbers, we can even avoid re-searching the first element:
+import time
+
+time.sleep(0.1)
+
+print('initializing...')
+
+start = time.time()
+even_range = range(2, 12, 2)
+print('Starting calculations for even numbers in factorial time, time taken {}'.format(time.time() - start))
+
+for e in even_range:
+    if is_even(e):
+        print('Found {}'.format(e))
+
+print('Completed, took {} seconds'.format(time.time() - start))
+
+<|endoftext|>                            UNPUBLISHED
+
+                   UNITED STATES COURT OF APPEALS
+                       FOR THE FOURTH CIRCUIT
+
+
+                            No. 05-4655
+
+
+
+UNITED STATES OF AMERICA,
+
+                                              Plaintiff - Appellee,
+
+          versus
+
+
+WAYNE ROBERTS,
+
+                                              Defendant - Appellant.
+
+
+
+Appeal from the United States District Court for the District of
+Maryland, at Baltimore.    Richard D. Bennett, District Judge.
+(CR-04-361)
+
+
+Submitted:   February 3, 2006             Decided:    April 26, 2006
+
+
+Before WILKINSON
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if (i%2) == 0:
+        return True
+    else:
+        return False
+
+Here are some tests using the same number of factors from 20 to 400:
+is_even(20)  # True
+is_even(40)  # False
+is_even(100) # False
+is_even(200) # False
+is_even(300) # True
+is_even(400) # True
+
+Now, I want to write a program that will take an input n, and print the corresponding is_even(n).
+If someone can implement this in Python, please reply, otherwise I'll be looking for a C implementation on CodeGolf. :)
+
+A:
+
+Python has an is_even function:
+def is_even(n):
+    return n % 2 == 0
+
+And there is a cycle function to return the index of the first element which is even in a list of int:
+from collections import deque
+
+def cycle(iterable):
+    d = deque([])
+    next(i for i, element in enumerate(iterable) if element % 2 == 0)
+    return d
+
+def is_even(n):
+    return n % 2 == 0
+
+print(is_even(cycle(range(20, 400))))
+
+<|endoftext|>Microstructural alterations in alcohol-induced liver disease: scanning and transmission electron microscopy.
+Alcoholic liver disease (ALD) is histopathologically characterized by progressive deposition of fat droplets in the hepatocyte cytoplasm. The sequential development of the disease in experimental animals is characterized by an initial zone of hepatocellular ballooning, followed by cytoplasmic flocculent and glycogen-rich zone. The deposition of fat droplets and the following progression of histopathological changes may be due to decreased rate of release of triacylglycerol (TAG)-filled liposomes from the hepatocyte. This is a consequence of impaired intracellular trafficking of vesicles which results in lipid droplet accumulation. The present study investigated ultrastructural alterations in liver specimens obtained from 10 animals fed a 50% ethanol-containing liquid diet for periods of up to 12 weeks. Portions of normal liver, liver from animals fed the
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    if i == 2:
+        return True
+    return i % 2 == 0
+
+
+def is_prime(n):
+    """Check whether a number is a prime"""
+    for i in range(2, n + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
+def base_up(n):
+    """Returns an array that is n except for the last element"""
+    return [i for i in range(1, n) if i!= n]
+
+
+def factorial(n):
+    """Return factorial of n"""
+    if n == 0:
+        return 1
+    elif n == 1:
+        return n
+    else:
+        return n * factorial(n - 1)
+
+
+def reverse_factorial(n):
+    """Return reverse factorial of n"""
+    if n == 0:
+        return 1
+    elif n == 1:
+        return n
+    else:
+        return n * reverse_factorial(n - 1)
+
+
+def maximum_from_list(numbers):
+    """Return the maximum number in a list of numbers"""
+    return numbers[0]
+
+
+def minimum_from_list(numbers):
+    """Return the minimum number in a list of numbers"""
+    return numbers[-1]
+
+
+def greedy(moves):
+    """
+    Find a move (called'shortest' here) that maximizes the sum of the moves,
+    while avoiding loops.
+
+    """
+    total = 0
+    if moves == []:
+        return 0
+    else:
+        for i in range(len(moves) - 1):
+            total += moves[i]
+
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    n = i
+    return i % 2 == 0
+
+print(sum(is_even(i) for i in range(1, 100)))
+
+Note that it is important to use i instead of n in this version as summing over range is O(n), and a sum with a summation gives you n!, which is not what you want.
+Because of the O(n!) complexity, you can't use the standard Python for statement, so we use a generator expression:
+>>> sum(is_even(i) for i in range(1, 100))
+5050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050505050
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    return i%2==0
+
+def comp_nat(n, m):
+    if m == 0:
+        return 1
+    else:
+        return comp_nat(n, m//2) * comp_nat(n, m//2 + 1)
+
+def comp_nat_sum(n):
+    if n == 1:
+        return 1
+    else:
+        return comp_nat_sum(n//2) + comp_nat_sum(n//2 + 1)
+
+def poly_div_sum(n):
+    if n == 1:
+        return 1
+    else:
+        return poly_div_sum(n//2) + poly_div_sum(n//2 + 1)
+
+def gen_div_sum(n):
+    #Let F(n) be the n-th fibonacci number
+    #F(0) = 1
+    #F(1) = 1
+    #F(n) = F(n - 2) + F(n - 1)
+    #Thus n-1 = F(n) - 1
+    
+    return gen_div_sum(n//2) + poly_div_sum(n//2 + 1)
+
+def pow_sum(n):
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 1
+    else:
+        return pow_sum(n//2) + pow_sum(n//2 + 1)
+
+def gen_pow(n):
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 1
+    else:
+        return gen_pow(n//2) * gen_pow(n//2 + 1)
+
+def gcd_sum
+====================
+def is_even(i):
+    """Check whether an integer is even in factorial O(n!) time"""
+    n = int(i)
+    while n > 1:
+        if (n % 2) == 0:
+            return True
+        n /= 2
+    return False
+
+print(is_even(10))
+
+Output:
+
+True
+
+A:
+
+The slowest way (list comprehensions and for loops) to compute the answer in python 3.5 is:
+n = 10
+if n and n % 2 == 0:
+    return True
+return False
+
+The slowest way in python 2.x is the code below, but it is only 11 times slower. This because in python 2.x lists start with index 0 and not with 1.
+i = 0
+for i in range(0,n):
+    if n % 2 == 0:
+        return True
+return False
+
+<|endoftext|>We love the following applications for you to choose from as you use
+M:
+
+Planning
+
+Planning. You get a Gantt chart that shows your timeline, estimates and
+required milestones, and allows you to easily schedule the next action for
+your project. Gantt charts can be a great tool to help you to visualize and
+track the progress of your project. M: features time tracking and project
+management by means of a Gantt chart. Time tracking and project management
+gives you detailed insight into how your project is doing.
+
+Gantt charts show your work history, starting and finishing dates,
+project dependencies, and easily share information with your team. You can
+see at a glance how much work each team member has and when work will
+finish. Also track time, whether work is being done manually or with
+automation and where time is spent on specific features. M: offers a
+highly customizable user interface for managing your time and it gives you
+detailed reports, plans, and statistics.
+
+Task management is crucial to projects. M: is a quick, easy-to-use and
+powerful task management software that you can use to better manage your
+work. You can use the software's calendar, set tasks and deadline, share
+your calendar with others or collaborate. Workflow management makes it easy
+for users to follow a defined step-by-
+====================

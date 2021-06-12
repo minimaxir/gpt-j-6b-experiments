@@ -1,0 +1,2021 @@
+class AI:
+    """A class used to represent an artificial intelligence"""
+    
+    def __init__(self, organism):
+        """constructor"""
+        self.energy = -1000 #energy level of organism
+        self.food_needed = 0 #the amount of food needed by organism
+        self.weights = {} #name -> [weight] weight list
+        self.strength = 2 #default strength of organism
+
+    def insert_strength(self, name, strength):
+        """add strength to the list of attributes"""
+        self.weights[name] = strength
+
+    def display(self):
+        """Display the characteristics of the organism, such as what its strengths are"""
+        for name in self.weights:
+            print name, self.weights[name]
+
+    def pick_food(self):
+        """Pick the best food to give to organism"""
+        return max(self.weights)
+
+    def eat(self):
+        """Give the organism the food chosen by the pick_food function"""
+        self.energy += self.food_needed
+        self.food_needed = 0
+        return self.energy
+
+    def use(self, name):
+        """Activate the use function for the name"""
+        self.energy -= self.strength
+
+        #perform the use operation
+        print name
+        self.weights[name] = self.strength
+
+        return self.energy
+
+def print_characteristics(ai):
+    """Prints the attributes of the organism"""
+    print ai.display()
+    print "Strength: %s" % ai.weights["strength"]
+    print "Energy: %s" % ai.energy
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self):
+        super(AI, self).__init__()
+        self.observation = 1.0
+
+    def is_ready(self):
+        return self.observation > 0.0
+
+    def obs(self):
+        return self.observation
+
+    def model(self, data):
+        """Return a model generated from a specific method"""
+
+        if not data:
+            return None
+
+        i = data.index(1)
+
+        data_split = data.split()
+
+        length = len(data_split)
+        new_predictions = []
+        number_of_steps = max(1, int(round(length * self.observation)) / 10)
+
+        def subprocess():
+            for i in range(number_of_steps):
+                model_result = get_model_predictions(data_split[i * 10:(i + 1) * 10])
+                ai_result = deep_copy(model_result)
+                new_predictions.append(ai_result)
+                i += 1
+                if i >= length:
+                    return new_predictions
+
+        subprocess()
+
+        return new_predictions
+
+    def compute_fitness(self, inputs):
+        predictions = self.model(inputs)
+
+        is_ready
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self):
+        self.memory = {}
+        self.current_move = None
+
+    def new_move(self, x, y):
+        """
+        Attempts to make a new move on the board
+        Args:
+            x: the x coordinate
+            y: the y coordinate
+        """
+        if self.has_won():
+            return self.make_random_move(x, y)
+        elif not self.available(x, y):
+            self.current_move = (x, y)
+            return self.make_random_move(x, y)
+        elif self.has_two_spaces(x, y):
+            self.current_move = (x, y)
+            return self.make_move()
+        else:
+            return None
+
+    def make_move(self):
+        """
+        Attempts to make a random move
+        """
+        (x, y) = self.current_move
+        if self.solved():
+            return None
+        else:
+            return self.make_random_move(x, y)
+
+    def has_won(self):
+        """
+        Checks to see if the game has ended
+        """
+        if len
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self):
+        # this variable controls which other AI to use.
+        self.alive_ai = AI(self)
+        # For random AI
+        self.random = RandomAI(self)
+        # For global AI
+        self.global = GlobalAI(self)
+
+        self.save = self.random.save
+        self.load = self.random.load
+        self.genen = self.global.genen
+
+    def print(self):
+        print("BAM: random AI has been initialized!")
+
+    def get_enemy(self):
+        return self.random.get_enemy
+
+    def run_algorithm(self):
+        algorithm = self.genen.algorithm
+        self.alive_ai.save(algorithm)
+        algorithm_params = algorithm(self.get_enemy())
+        self.alive_ai.load(algorithm_params)
+        self.save = algorithm_params
+
+    def attack(self):
+        # This method is called when the AI is attacked by the enemy
+        self.random.attack()
+
+    def he_attack(self):
+        # This method is called when the AI is attacked by the enemy
+        self.random.he_attack()
+
+    def detect_enemy(self):
+        # This method is called when the enemy is detected
+        self.random.detect_enemy()
+
+    def scan(self):
+        # This method is called when the enemy is detected
+        self.random.scan()
+
+# Creating the main class
+aiapp =
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    
+    def __init__(self):
+        # Each state is used to track a game and the user's progress.
+        # An AI will play all games in the order they are listed in the list.
+        # User only needs to make decisions after a game is complete.
+        # The state holds everything the AI needs to be able to play.
+        # This is actually 4 objects since this is how the AI is implemented.
+        # So they are GameState, UserState, AIState, and RunnerState.
+        # RunnerState is needed since the state also stores data that is needed
+        # for the player to run the AI.
+        self.states = []
+        self.aiState = None
+        self.userState = None
+        self.gameState = None
+        self.name = ""
+        self.decisions = []
+        self.workouts = []
+        self.__initWorkouts()
+        self.__initAI()
+        
+    def __initAI(self):
+        self.WL = [self.WL, self.WL, self.WL]
+        self.WL.append(self.WL)
+        self.LE = [self.LE, self.LE, self.LE]
+        self.LE.append(self.LE)
+        self.AT = [self.AT, self.AT, self.AT]
+        self.AT.append(self.AT)
+        self.LR = [self.LR, self.LR, self.LR]
+        self.LR.append
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self,name=None):
+        if name is None:
+            name = AI.name
+        self.name = name
+        self.brain = None
+        self.memory = None
+        self.council = None
+        self.board = None
+
+    def __repr__(self):
+        return 'AI'+self.name
+
+    def make_board(self):
+        """Builds the AI board with 2 colors per cell, no empty spaces.
+        
+        The 2 colors for each cell:
+            0: white
+            1: black
+        
+        """
+        board = []
+        for i in range(len(board)):
+            board.append([])
+        self.board = board
+        for row in range(len(board)):
+            for col in range(len(board)):
+                if board[row][col] == 1:
+                    board[row][col] = 0
+                else:
+                    board[row][col] = 1
+
+    def build_brain(self):
+        """Builds the artificial intelligence's brain, similar to a neural network
+        """
+        self.brain = []
+        self.memory
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self, int dims, int dimension_size, train=True):
+        # Learning parameters
+        self.epsilon = 0.001
+        self.max_iters = 5
+        self.alpha = 0.1
+        self.gamma = 0.5
+        self.L = {}
+        self.hidden_units = []
+        self.max_class = 0
+        self.config = {
+            "dimensions": dims,
+            "dimension_size": dimension_size
+        }
+        self.train = train
+        self.final_state = {}
+        # MNIST includes an additional value for image weights
+        if dimension_size == 1:
+            # a_1 is number of pixels of value 1
+            self.val_img_weights = (
+                np.random.randint(self.config["dimensions"] + 1, size=(3, 2)))
+        else:
+            self.val_img_weights = None
+
+        self.grad = []
+
+        self.initialize()
+
+    def initialize(self):
+        pass
+
+    def compute_loss(self, batch):
+        if self.train:
+            if not self.final_state["accuracy"]:
+                self.final_state["accuracy"] = 0
+           
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, name="AI"):
+        """ Creates an AI. """
+        self.name = name
+        self.is_brain = False
+
+    def brain_weight(self):
+        """Gets the weight of the AI's brain."""
+        return 1.0
+
+    def brain_pow(self):
+        """Gets the power of the AI's brain."""
+        return 0.2
+
+    def run(self, a, b, cost_function, output):
+        """Performs the most optimal action.
+
+        Arguments:
+            a (int): The action chosen by the AI
+            b (int): The chosen action's cost
+            cost_function (str): The cost function that is evaluated.
+            output (str): The output given by the cost function.
+        """
+        raise Exception("This function must be implemented.")
+
+    def set_brain_pow(self, bp):
+        """ Sets the AI's brain power. """
+        self.brain_pow = bp
+
+    def set_brain_weight(self, bw):
+        """ Sets the AI's brain weight. """
+        self.brain_weight = bw
+
+
+class BB:
+    """A class used to represent the brain of an AI"""
+
+    def __init__(self, name, pow, weight):
+        """ Creates a brain. """
+        self.name = name
+        self.pow = pow
+        self.weight = weight
+
+    def brain_weight
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, grid):
+        self.grid = grid
+        self.states = [
+            State("Empty", None),
+            State("Search", State.Searched())
+        ]
+        self.start_state = self.states[0]
+        self.target_state = self.states[1]
+
+    def next(self):
+        """Give the AI one step of action."""
+        if self.states[1].is_open:
+            next = self.next_state.get_next()
+        else:
+            next = self.target_state
+            self.states[1].open()
+        return next
+
+    def move(self):
+        """Give the AI one step of action."""
+        next = self.next()
+        if next == self.target_state:
+            return
+
+        self.grid.move(next, self.start_state)
+
+    def open(self):
+        """Open the AI's next state."""
+        self.states[1].open()
+
+if __name__ == '__main__':
+    #%% Fake AI
+    game = ChessGame()
+    game.add_nodes(
+        "king", "knight", "rook", "bishop", "queen", "pawn",
+        "Empty", "Search", "Empty", "Search", "Empty", "Empty", "Empty", "Empty"
+    )
+    game.grid.create_board()
+
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    # The maximum speed at which the AI can move.
+    MAX_MOVE_SPEED = 500
+
+    # The maximum amount of health that the AI has.
+    MAX_HEALTH = 10
+
+    # The attack range of the AI.
+    ATTACK_RANGE = 100
+
+    # The random chance at which the AI deals damage.
+    ATTACK_RANDOM_DAMAGE_CHANCE = 0.5
+
+    # The rate at which the AI attacks.
+    ATTACK_RATE = 0.15
+
+    # The range of a skillshot.
+    SKILL_RANGE = 0.5
+
+    # The maximum range at which the AI can see.
+    MAX_SEE_RANGE = 0.1
+
+    # The maximum duration at which the AI lasts.
+    MAX_LIFETIME = 30
+
+    # The starting range for a projectile of the AI.
+    PROJECTILE_RANGE = 0.25
+
+    # The maximum damage that the AI can deal.
+    MAX_DAMAGE = 1
+
+    # The ratio at which the AI attacks with a melee attack.
+    ATTACK_RATE_MELEE = 0.1
+
+    # The type of animation that the AI does when it moves.
+    MOVEMENT_ANIMATION = "run"
+
+    # The speed at which the AI animates.
+    ANIMATION_SPEED = 2.5
+
+    # The rating at which the AI gains maximum rank in a skill.
+    MAX_SKILL_RANK_CAP = 5
+
+    # The minimum value that the AI gives the dodge attribute.
+    MIN_DODGE = 1
+
+    # The maximum value that the AI gives the dodge attribute.
+    MAX_DODGE = 5
+
+    # The average amount of durability the AI has.
+    DURATION = 10
+
+    # The average amount of energy the AI has.
+    ENERGY = 5
+
+    # The average amount of mana the AI has.
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self):
+        """Basic constructor. Defines a number of variables with default values."""
+        self.bot_pos_x = self.bot_pos_y = 0
+        self.player_pos_x = player_pos_y = 0
+        self.health = 100
+        self.count = 0
+        self.enemy_count = 0
+        self.score = 0
+
+    def update(self):
+        """Takes a current state and computes and sets appropriate values for self."""
+        self.bot_pos_x += 1
+        self.bot_pos_y += 1
+        if self.bot_pos_y >= self.level.height - 10:
+            self.bot_pos_y = -1
+        if self.bot_pos_x >= self.level.width - 50:
+            self.bot_pos_x = -1
+        if self.player_pos_x >= self.level.width - 20:
+            self.player_pos_x = -1
+        if self.player_pos_y >= self.level.height - 50:
+            self.player_pos_y = -1
+        self.player_pos_x += self.bot_pos_x
+        self.player_pos_y += self.bot_pos_y
+
+        if self.player_pos_x == self.level.width:
+            self.player_pos_x = -1
+        if self.player_pos_y == self.level.height:
+     
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self):
+        self.mutex = None
+        self.alive = True
+        self.can_think = False
+        self.height = 0
+        self.heights = {}
+        self.print_function = None
+        self.test = False
+        self.AI_number_of_thinks_required = 0
+        self.killed = False
+        self.named_slot_map = {}
+        self.win_key = None
+        self.thought_lock = False
+        self.zombie = None
+        self.player = None
+        self.sleep_time = 0
+        self.think_message_function = None
+        self.sleep_counter = 0
+        self.the_time_of_day = None
+        self.deactivated = False
+        self.connections = 0
+        self.other_aides_to_connect = []
+
+    def AIMain(self):
+        """This is the main method in the AI class. This runs when the AI first starts"""
+        self.cpu_time = self.get_cpu_time()
+        self.previous_cpu_time = 0
+        self.time_of_day = None
+        self.name = 'AI'
+
+        print("AI is starting up!")
+        print("================================================================")
+
+        # Ensure that the "alive" variable is true
+        while not self.alive:
+       
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    PLAYER_SAVE = 0
+    DEFAULT_INITIAL_LEVELS = 6
+
+    @staticmethod
+    def load_player(player_name):
+        '''Initialize the player to be a given name'''
+        # Clear up the game mode info
+        player.globals['mode'] = False
+        # Load the level of the given name into the player object
+        players[player_name].load_level(player_name)
+
+    @staticmethod
+    def load_maps(ai_name, allowed_length):
+        """Load the given maps into the AI object"""
+        # Get the first map we have in our allowed_length
+        ai_name = 'Maps/%s/%s' % (ai_name, allowed_length)
+        current_map = os.path.join(Game.main_dir, ai_name)
+        # Load the map into the AI object if it's not there
+        if not os.path.exists(current_map):
+            # Load the map
+            AI.load_map(ai_name, allowed_length)
+
+    # Find the player name in a saved game file
+    def get_player_from_file(name):
+        if Game.config['name'] == name:
+            return Game.players[name]
+        else:
+            return None
+
+    # Save the AI name to a file if it's name is set
+    def save_ai_name_to_file(ai_name, allowed_length=None):
+        if allowed_length:
+            # Clear out the
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    #
+    # Constants
+    #
+
+    #
+    # Functions
+    #
+
+    def __init__(self, user_request):
+        """The AI constructor.
+
+        Args:
+            user_request: The input of the question for the user
+                An instance of Question
+                A class with the following methods:
+                Question.rID() - Returns the question's id
+                Question.correct() - Returns true if the answer is correct
+                Question.incorrect() - Returns true if the answer is incorrect
+                Question.isRight() - Returns true if the user answer is correct
+                Question.getAnswer() - Returns the user's answer
+                Question.getQuestion() - Returns the question
+        """
+        # Methods
+        self.getId = user_request.getID
+        self.setQuestion = user_request.setQuestion
+        self.correct = user_request.correct
+        self.incorrect = user_request.incorrect
+        self.isRight = user_request.isRight
+        self.getAnswer = user_request.getAnswer
+
+        # Setting question
+        self.setQuestion(user_request)
+
+    def setQuestion(self, user_request):
+        """Sets the question
+        """
+        self.id =
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self):
+        self.depth = None
+        self.energy = None
+        self.initial_energy = 0
+        self.colors = []
+        self.nonlocal_channels = {}
+        self.nonlocal_logic = None
+
+    def create(self, board):
+        if self.depth is None:
+            self.depth = len(board)
+        if self.energy is None:
+            self.energy = 0
+        else:
+            self.energy = self.energy + (self.depth*8)
+        if self.depth > 1:
+            self.nonlocal_logic = NotifyLogic(self, board)
+            self.colors = list(self.nonlocal_logic.colors)
+            self.colors.sort()
+            print("The colors in the nonlocal logic are:" + str(self.colors))
+        for x in range(self.depth):
+            self.nonlocal_channels[x] = CreateChannel(self, x)
+            self.nonlocal_channels[x].create(board)
+            self.nonlocal_logic.on_nonlocal_pulse(x)
+            self.nonlocal_logic.on_pulse(x, True)
+
+    def to_str(self):
+        str = ""
+        for x in self.colors:
+  
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self,alive=True,name='Not Set',generation=1):
+        self.alive=alive
+        self.name=name
+        self.generation=generation
+        self.elite=1
+        self.data=[str(i) for i in range(1,5)]
+        self.attribution_data=[]
+        self.junta_data=[]
+        self.meta_data=[]
+        self.attr_eval_fun=lambda:random.random()
+        self.eval_func=eval
+
+    def __str__(self):
+        return "<{}>".format(self.name)
+
+    def add_attribute(self,attr, **kwargs):
+        """Add an attribute to the AI"""
+        self.attr_eval_fun(attr)
+        if len(self.attr_data) < 5:
+            self.attr_data.append(attr)
+        else:
+            raise ValueError("Insufficient number of attributes in Attribute List!")
+        for val in kwargs:
+            if val == 'name':
+                self.attr_name=kwargs['name']
+            elif val == 'fun':
+                self.attr_fun=kwargs['fun']
+            elif val == 'delta':
+                self.attr_delta=kwargs['delta']
+      
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self, layers, label_space, input_shape):
+        """Constructor of AI class"""
+        self.input_shape = input_shape
+        self.label_space = label_space
+        self.layers = layers
+        self.epochs = 30
+
+    def run_up_to_epoch(self, inputs, labels, goal=0.01):
+        """Run the learning algorithm for up to epochs"""
+        # Batch normalisation
+        inputs = batch_normalise(inputs)
+        # Apply Tanh non-linearity
+        inputs = layers.tanh(inputs)
+        # Encode and decode using VGG16
+        inputs = vgg(inputs)
+        # Retrain layers on the whole minibatch
+        losses = vgg(inputs)
+        # Modify loss function to reduce goal towards minibatch reward
+        losses -= (inputs - labels)**2 * goal
+        # Rescale losses, because we will be feeding scaled inputs
+        losses *= 100
+
+        # Create mini-batch on a sliding window of 10 inputs
+        win = images.ImageList.sliding_window(inputs.size, 10)
+        for input, label in zip(win, labels):
+            # Reset current loss
+            loss = 0
+            # Update neural network
+            weights = self.layers.initialise_weights(inputs.size)
+            # Compute gradients
+   
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, img):
+        """Initialise the AI, taking an image
+
+        Args:
+            img (ndarray) : input image to be learnt from
+        """
+
+        self.img = img
+        self.img = cv2.imread(img)
+        self.img = cv2.cvtColor(self.img, cv2.COLOR_BGR2RGB)
+        if self.img.shape[-1] > self.img.shape[-2]:
+            self.img = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
+
+        self.frequencies = np.array([-1])
+        self.durations = np.array([5])
+        self.occurrences = np.array([1])
+
+    def natural_compare(self):
+        """Does the AI understand that one state is 'better' than another?
+
+        Returns:
+            bool : True if the AI 'knows'
+        """
+
+        if self.occurrences < self.frequencies:
+            return True
+        return False
+
+    def choose_state(self):
+        """Chooses a state from a state dictionary.
+
+        Returns:
+            int : the chosen state
+        """
+
+        if self.natural_compare():
+            return self.frequencies[1]
+        else:
+       
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self):
+        super(AI, self).__init__()
+        self.__movement_speed = 0
+        self.__start_id = 0
+        self.__enemy_ship_nodes = []
+        self.__enemy_ships_captured = []
+        self.__total_enemy_ships = 0
+
+    def create_ship_nodes(self, node, direction):
+        """Creates and returns a list of all enemy ship nodes for this AI"""
+        enemy_node = Node()
+        enemy_node.node_id = self.__start_id
+        enemy_node.ship_type = "enemy"
+        enemy_node.direction = direction
+        enemy_node.planet_node = node
+        enemy_node.ship_position = node.position
+        enemy_node.sprite_position = node.sprite_position
+        enemy_node.is_enemy = True
+        enemy_node.energy = 0
+        enemy_node.health = node.energy
+        self.__enemy_ship_nodes.append(enemy_node)
+
+    def update_ships(self):
+        """Updates each enemy ship to reflect the player's actions"""
+        for enemy_node in self.__enemy_ship_nodes:
+            if enemy_node.ship_position == self.__movement_position:
+                enemy_node.energy -= self.__movement_speed
+            else:
+                enemy_node.energy += self
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, side_effect):
+        self.side_effect = side_effect
+        self.in_memory = dict()
+
+    def __setitem__(self, *keys):
+        for key in keys:
+            self.in_memory[key] = None
+
+    def __getitem__(self, *keys):
+        return self.in_memory[keys[0]].func(*keys[1:])
+
+    def __delitem__(self, *keys):
+        for key in keys:
+            self.in_memory[key] = None
+
+    def __bool__(self):
+        return bool(self.in_memory)
+
+    def eval(self, in_memory):
+        return self.func(in_memory)
+
+    def eval_in_memory(self, in_memory):
+        return self.func(in_memory)
+
+    def train(self, input, output):
+        for key in [key for key in input if key not in self.in_memory]:
+            self.in_memory[key] = input[key].dot(output[key])
+
+    def train_in_memory(self, input, output):
+        for key in [key for key in input if key not in self.in_memory]:
+            self.in_memory[key] = input[key].dot(output[key])
+
+    def train_side_effect(self, in_memory):
+        for key in [key for key in in_memory if key not in self.in_memory]:
+            self.in_memory[key] = in_memory[key].dot(in_memory[key].T)
+
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self, player):
+        self.player = player
+        self.predictions = [self.player]
+        self.population = [0]
+        self.bit_length = 50
+        self.pbest = [self.player]
+        self.history = []
+        self.steps = 1
+        self.reset()
+
+    def reset(self):
+        self.predictions = [self.player]
+        self.pbest = [self.player]
+        self.history = []
+
+    def make_new_player(self):
+        self.predictions.append(None)
+        self.pbest.append(self.player)
+
+    def play_game(self):
+        game = Game()
+        game.go(self.predictions, self.player, self.pbest, self.history, self.steps)
+
+    def update_pbest(self, game_result):
+        self.pbest.append(game_result)
+
+    def evaluate_game(self):
+        game = Game()
+        game.go(self.predictions, self.player, self.pbest, self.history, self.steps)
+        return game.scores
+
+    def get_selected_player(self):
+        if self.pbest[-1] == self.player:
+            return self.player
+        else:
+            return None
+
+    def get_chosen_player(self):
+        return self.pbest[self.get_selected_player()]
+
+
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    # Functions
+    # ---------------------------------------------------------
+
+    def play_demo():
+        # Initialize variables
+        agent = Bot("Marcus", 100)
+        random_agent = Bot("Marcus")
+        opponent = Bot("Marcus")
+        computer_player = Bot("Mortar")
+        training_grid = [[0] * 100] * 100
+
+        # Initialize events and manage input
+        refresh_all_grid = input_refresh(training_grid)
+        # Remove output if there is an observation that requires no change
+        opponent.assert_observation_contains(200)
+        # Start the game
+        opponent.start_game()
+        # Play the game
+        for action, reward in agent.act(random_agent, computer_player):
+            training_grid[action][reward] += 1
+            print("> Player {}: {:.2f}".format(action, reward))
+            print(f"Best action: {action}")
+            opponent.assert_observation_contains(200)
+
+        # Show the replay
+        game_state_replay = replay_of_game(training_grid)
+        print(f"This is a replay of the best game:\n{game_state_replay}")
+
+        # Display results
+        print(f"Player 2 wins")
+        print(f"Player 1 has an average reward of {agent.accuracy.mean():.2f} and best action was:", agent.action.argmax())
+        print(
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self, name=''):
+        # AI Name (It can be "Hello World")
+        self.name = name
+        self.system = 0
+
+    # --- Methods ---
+
+    def play(self, game_data, player, opponent=None):
+        #...implementation...
+        return None
+
+    def get_system_status(self, *args):
+        #...implementation...
+        return None
+
+    def set_system_status(self, *args):
+        #...implementation...
+        return None
+
+    # ---
+    # --- Methods ---
+
+    def sim(self, num_iterations):
+        #...implementation...
+        return None
+
+    def setup_ai(self):
+        #...implementation...
+        return None
+
+    def check_ai(self):
+        #...implementation...
+        return None
+
+    def init_ai_data(self):
+        #...implementation...
+        return None
+
+    def load_ai_data(self, data):
+        #...implementation...
+        return None
+
+    def get_setting_result(self, *args):
+        #...implementation...
+        return None
+
+    def load_setting(self, *args):
+        #...implementation...
+        return None
+
+def main():
+    #...implementation...
+    return None
+
+if __name__ == '__main__':
+    #...implementation...
+    ai = AI("World-AI")
+
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, name, capability, base_level, last_check=None):
+        """Initialize an AI with name, capability, and level,
+        optionally with a date."""
+
+        self.name = name
+        self.capability = capability
+        self.base_level = base_level
+        self.last_check = last_check
+        self.last_check_date = datetime.now() if self.last_check is None else self.last_check
+
+        self.level = base_level
+        if last_check is None:
+            self.last_check_date = self.last_check
+
+    def run(self, rules, targets, timestamp):
+        """Does the action specified by the rules for the
+        targets."""
+
+        for r in rules:
+            r.check_reasons = []
+
+        for t in targets:
+            if t.base_level > self.level:
+                continue
+
+            self.rule(r, t, timestamp)
+
+        return not t.goal
+
+    def rule(self, r, t, timestamp):
+        """Get the decision from a ruleset for a target"""
+
+        if r.pre_actions:
+            r.pre_actions.append(self.rule_action(r, t, timestamp))
+
+        # See if we can apply decisions from later levels
+
+        try:
+            rs = t.base_level.decisions[r.name
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    DEFAULT_MUTABLE_CLASS = (
+        ('__name__', 'Name'),
+        ('__friends__', 'Friends'),
+        ('__friends_friends__', 'Friends of Friends'),
+        ('__profile__', 'Profile'),
+        ('__img__', 'Image'),
+        ('__img___small__', 'Image (small)'),
+        ('__img___medium__', 'Image (medium)'),
+        ('__img___large__', 'Image (large)'),
+        ('__img___is_original__', 'Image (is_original)'),
+        ('__actions__', 'Actions'),
+        ('__action_type__', 'Action type'),
+        ('__action_type_short__', 'Action type (short)'),
+        ('__action_type_long__', 'Action type (long)'),
+        ('__action_possible_beneficial__', 'Action possible beneficial'),
+        ('__action_possible_harming__', 'Action possible harming'),
+        ('__action_completed__', 'Action completed'),
+        ('__has_action__', 'Has action'),
+        ('__self_friend__', 'Self/Friends'),
+        ('__all__', 'All'),
+        ('__definitions__', 'Definitions'),
+        ('__reactions__', 'Reactions'),
+        ('__rating__', 'Rating'),
+        ('__base__', 'Base'),
+        ('__status__', 'Status'),
+        ('__status_neutral__', 'Status neutral'),
+        ('__status_
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    # Needed because we want to make AI factory methods
+    AI = namedtuple('AI', 'name learning_rate learning_rate_decay gamma')
+    # Metrics can be added here if we have them
+    # TODO: Add them
+    M_accuracy = 'Accuracy'
+    M_loss = 'Loss'
+    # List of models
+    model_list = None
+    # Default settings
+    Settings = {
+        'learning_rate': 0.001,
+        'learning_rate_decay': 0.0001,
+        'gamma': 0.2,
+       'sparsity_penalty': None
+    }
+
+    def __init__(self, name, learning_rate=0.001, learning_rate_decay=0.0001,
+                 gamma=0.2, sparsity_penalty=0, train=True, save_history=True):
+        """Initialize the AI class and set the default arguments.
+        Args:
+            name (str): Name of the AI
+            learning_rate (float): Learning rate
+            learning_rate_decay (float): Decay rate for learning rate
+            gamma (float): Weight decay coefficient
+            sparsity_penalty (float): penalty for sparsity
+            train (bool): If True, the trainer class will be instantiated
+                             and we save its output files (see Trainer class)
+            save_history (bool): If True, the trainer class will be
+           
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    
+    def __init__(self, engine):
+        """The constructor of the class, where the AI Engine is initialized.
+
+        Parameters
+        ----------
+        engine: AIEngine
+            AIEngine which will be initialised.
+            
+        """
+        self.engine = engine
+    
+    def run(self):
+        """The main method of the AI class. 
+        
+        It plays the game against the human player.
+        
+        """
+        self.engine.load_game_and_rules(self.rules)
+
+        while self.engine.player.score < 1:
+            self.engine.reset()
+            self.engine.turn = self.engine.human_player
+            self.engine.AI()
+            self.engine.player.adjust_player_score()
+            self.engine.AI()
+            self.engine.human_player.adjust_player_score()
+
+        self.engine.restart()
+        
+        self.engine.load_game_and_rules(self.rules)
+        
+        while self.engine.player.score < 1:
+            self.engine.reset()
+            self.engine.turn = self.engine.player
+            self.engine.AI()
+  
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    
+    # Choose a random system of rules
+    def __init__(self):
+        self.rules = [{'name':"",'message':'','solution':[]},
+                      {'name':"","message":"",'solution':[]}]
+        # Shuffle the list
+        random.shuffle(self.rules)
+        
+        # Set all rule names to equal "", so that the random names aren't already in the rules list
+        for rule in self.rules:
+            rule['name'] = ''
+            rule['message'] = ''
+            rule['solution'] = []
+            
+    # Create a new rule by specifying the rule name, message, and if it is solved
+    def add_rule(self, rule_name, rule_message, rule_solved):
+        # Create a rule
+        self.rules.append({"name": rule_name, "message": rule_message, "solution": [rule_solved]})
+        
+    # Evaluate a single rule
+    def rule_eval(self, rule):
+        # Create an output string from the rule input and evaluate it with the rule
+        # Apply the strategy for adding solutions to the rule
+        output_str = []
+        for solution in rule['solution']:
+            if len(solution) > 0:
+                for string in solution:
+                    output_str.
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self, inputs, outputs, layer):
+        self.inputs = inputs
+        self.outputs = outputs
+        self.layer = layer
+
+    def __getstate__(self):
+        """Restores the AI object with the most recent states"""
+        return {
+            'inputs': self.inputs,
+            'outputs': self.outputs,
+            'layer': self.layer
+        }
+
+    def __setstate__(self, state):
+        """Restores the AI object with the most recent states"""
+        self.inputs = state['inputs']
+        self.outputs = state['outputs']
+        self.layer = state['layer']
+
+    def _add_input_to_inputs(self):
+        """Add input information to inputs"""
+        self.inputs['hidden_input'] = self.inputs['new_input']
+        self.inputs['state_input'] = self.inputs['new_state']
+
+    def _copy_input_to_outputs(self):
+        """Copy information to outputs"""
+        self.outputs['state'] = self.inputs['new_state']
+
+    def _add_output_to_outputs(self):
+        """Add output information to outputs"""
+        self.outputs['new_input'] = self.outputs['hidden_output']
+
+    def _clear_output_to_outputs(self):
+        """Clear output information from outputs"""
+        self.outputs['hidden_output'] = np.zeros(self
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self):
+        self.memory = {}
+
+        self.current_player = None
+
+    def load_rules(self, rules_file):
+        """
+        Load a rules file and setup all parameters for the AI
+        :param rules_file: Path to the rules file
+        :return:
+        """
+        # Define the rules for the AI
+        with open(rules_file) as f:
+            self.current_rules = json.load(f)
+        print(self.current_rules)
+        for rule in self.current_rules:
+            rule = self.current_rules[rule]
+            self.memory[rule] = {}
+            self.memory[rule].update(rule)
+
+    def set_default_players(self):
+        """
+        Set the default players for the AI
+        :return:
+        """
+        # Get the players from the file
+        self.players = self.get_players()
+        return self.players
+
+    def get_players(self):
+        """
+        Set all player information and return it as a list of dicts
+        :return:
+        """
+        # Get all the players
+        players = [i['name'] for i in open('players.txt')]
+        # Set all the players to the list
+        self.players = [{'name': i,
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    # AI constructors
+    def __init__(self, problem, environment, step_callback, actions,
+                 act=False, data=None, random=True, max_time=None, max_actions=None):
+
+        # Set the AI's inputs (for documentation and so on)
+        self.problem = problem
+        self.environment = environment
+        self.step_callback = step_callback
+        self.actions = actions
+        self.act = act
+        self.data = data
+        self.random = random
+        self.max_time = max_time
+        self.max_actions = max_actions
+
+        # Set the AI's inputs (for documentation and so on)
+        self.max_episode = 0
+        self.done = False
+        self.error = False
+        self.done_episode = 0
+        self.episode_over = False
+        self.gamma = 0.9
+        self.episode_steps = 0
+        self.done_steps = 0
+        self.action_steps = 0
+        self.data_steps = 0
+        self.random_steps = 0
+        self.time_window = 0
+
+        # Set the AI's inputs (for documentation and so on)
+        self.last_data = None
+        self.last_data_steps = 0
+        self.last_data_error = False
+        self.last_data_error_steps = 0
+    
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self):
+        self.AI_info = {}
+        self.AI_fail_flag = False
+
+        self.AI_elig = ['alien-alien', 'alien-alien2', 'alien-alien2a']
+        self.AI_node_num = len(self.AI_elig)
+
+        self.T = 9 * 3.5
+        self.H = 5 * 3.5
+
+        self.goal = []
+        self.lifted_list = []
+
+        self.t = 1
+
+        self.FLAG_INITIAL_PHASE = False
+
+    def AI_fail_check(self):
+        if self.AI_info.get('FLAG_INITIAL_PHASE', False):
+            return True
+        if self.AI_fail_flag:
+            return True
+
+        if not self.A.is_continue_():
+            self.AI_fail_flag = True
+            return True
+
+        if not self.AI_info.get('data_loss', False):
+            return True
+
+        if self.A.is_refueling():
+            if self.A.u_in_lag == 1:
+                return True
+
+        return False
+
+    def AI_start(self, dst):
+        if self.AI_info.get('FLAG_INITIAL_PHASE', False):
+            return False
+        if not
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self):
+        self.x = 0
+        self.delta = 0
+
+    def update(self, context, action):
+        if context is None:
+            # We are probably using the node's id to pass a
+            # node in context, instead of directly using the
+            # node's id as in the original AIBO update function
+            # -- Let's be consistent here:
+
+            # context = self.get_node(context)
+
+        self.x += action
+        # context = self.get_node(context)
+
+        if action > 0:
+            self.delta = -1
+        elif action < 0:
+            self.delta = 1
+        return self.x
+
+class Node(object):
+
+    """A class to represent a physical node (implements node functionality)"""
+
+    def __init__(self, id, **kwargs):
+        self.id = id
+        self.data = kwargs
+
+    def __str__(self):
+        return 'Node (id: %d) -> %s' % (self.id, repr(self.data))
+
+    def get_node(self, id):
+        """Returns the node with the given id"""
+
+        return self.nodes.get(id)
+
+    def get_history(self, id):
+        """Returns a list of the data given by the node"""
+
+        return self.data.get(id, [])
+
+    def get_score(self,
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self):
+        self.agent_list = []
+        self.max_alpha = 4
+        self.game_end = None
+        self.episode = 0
+        self.max_round = 4
+        self.max_step = 30
+        self.max_actions = 3
+
+    def agent_str(self):
+        """
+        Returns an agent's name and its pointer to the agent's strategy
+        """
+        return 'Agent' + self.episode + str(self.agent_list) + '(' + str(self.max_alpha) + ')'
+
+    def agent_list_str(self):
+        """
+        Returns an agent's name and its pointer to the agent's strategy
+        """
+        return 'Agent' + self.episode + ':' + str(self.agent_list)
+
+    def agent_struct_str(self):
+        """
+        Returns an agent's name and its pointer to the agent's strategy
+        """
+        return 'Agent' + self.episode + str(self.agent_list) + '(' + str(self.max_alpha) + ')'
+
+    def agent_list_init(self):
+        """
+        Adds agents to the list of agents in the world.
+        """
+        self.agent_list.append(Agent('0', 1, 3))
+        self.agent_list.append(Agent('1', 1, 4))
+        self.agent_list.append(Agent('2', 2, 5))
+        self.agent_list.
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, nb_agents, np_components,
+                 sim_size, max_steps):
+        """
+        Parameters:
+        ----------
+        nb_agents: int
+            The number of agents in the AI.
+        np_components: int
+            The number of components in the agents' behaviour.
+        sim_size: int
+            The size of the agent's state.
+        max_steps: int
+            The maximum number of steps.
+        """
+        super().__init__()
+
+        self.nb_agents = nb_agents
+        self.np_components = np_components
+        self.sim_size = sim_size
+        self.max_steps = max_steps
+        self.nb_components = np_components * self.nb_agents
+
+        self.R = np.zeros((self.np_components, self.nb_agents), dtype=int)
+        self.T = np.zeros((self.np_components, self.nb_agents, self.sim_size), dtype=float)
+
+    def sample(self, pi, p):
+        """
+        Return a sample in the probability distribution pi.
+
+        Parameters:
+        ----------
+        pi: np.array
+            The probability distribution to sample from.
+        p: np.array
+   
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def get_agent(self):
+        """This returns the underlying agent object"""
+        return Agent()
+
+    def create_agent(self, name):
+        """Creates a new agent with name"""
+        return Agent(name)
+
+    def get_agent_from_module(self, module):
+        """Given a module (model) get the underlying Agent object"""
+        return self.get_agent()
+
+    def get_agent_by_name(self, name):
+        """Gets an agent by name, returns None if not found"""
+        return self.get_agent_from_module(name)
+
+    def set_agent(self, agent, name):
+        """Sets the underlying agent object"""
+        self.get_agent().set_agent(agent, name)
+
+    def get_player_pcs(self):
+        """Gets the set of player controlled pcs"""
+        return self.get_agent().get_player_pcs()
+
+    def get_player_card_number(self):
+        """Gets the set of player controlled cards"""
+        return self.get_agent().get_player_pcs()
+
+    def get_dealer_pcs(self):
+        """Gets the set of dealer controlled pcs"""
+        return self.get_agent().get_dealer_pcs()
+
+    def get_dealer_card_number(self):
+        """Gets the set of dealer controlled cards"""
+        return self.get_agent().get_dealer_pcs()
+
+    def get_deals_in_line(self):
+        """Gets the list of deals"""
+        return self
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    # The AI "mind" runs code using the AI class to generate output,
+    # using AI::dispatch() to handle/generate behavior or
+    # AI::print_behaviour().
+    # The AI "mind" does NOT interact with the outside world,
+    # just other AI "minds".
+    # No real AI behaviour can happen without code to implement it.
+    # This is the "world" of AI. 
+
+    ALOGE("AI: %s" % self.title)
+
+    def init(self, user, sim):
+        if user == 'root':
+            if self.avg > 0.5:
+                self.avg = 0.5
+            else:
+                self.avg = self.avg + 0.1
+        elif user == 'process':
+            self.avg = 0.9
+        else:
+            print("AI: Unknown user type (%s)" % user)
+            self.avg = 0.1
+        print("AI: Initializing, avg %f" % self.avg)
+
+    def run(self):
+        pass
+
+#############################################
+# The Program Behavior Classes
+#############################################
+
+class Local_calculation_strategy:
+    """The localized calculation strategy """
+    def __init__(self):
+        self.avg = 0.5
+
+    def run(self):
+        pass
+
+
+class Diffusion_calculation_strategy:
+    """The diffusion calculation strategy """
+    def __init__(self):
+        self.avg = 0.5
+
+
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, difficulty, subject, perceptron):
+        self.difficulty = difficulty
+        self.subject = subject
+        self.perceptron = perceptron
+        self.do_choices = 0
+        self.wrong = 0
+
+    def calculate_perceptron(self):
+        """Runs the perceptron function"""
+        raise NotImplementedError("Method needs to be implemented.")
+
+    def make_match(self):
+        """Runs the match function"""
+        raise NotImplementedError("Method needs to be implemented.")
+
+    def change_intelligence(self):
+        """Runs the intelligence change"""
+        raise NotImplementedError("Method needs to be implemented.")
+
+    def rule_1(self, opponent):
+        """Runs rule one"""
+        return 1
+
+    def rule_2(self, opponent):
+        """Runs rule two"""
+        return 2
+
+    def rule_3(self, opponent):
+        """Runs rule three"""
+        return 3
+
+    def rule_4(self, opponent):
+        """Runs rule four"""
+        return 4
+
+    def decision(self, opponent):
+        """Returns the decision of the opponent, makes a random
+        if it's too high"""
+        return random.choice(self.list)
+
+    def adapt_loss(self):
+        """Returns the chance of losing or winning"""
+        return 1 - self.perceptron
+
+    def calculate_turn(self, opponent):
+        """Checks the
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def run(self):
+        """Intended for main"""
+        print("Reached run AI")
+
+       ...
+
+<|endoftext|>Principles of an Internal Audit
+
+Venture Studio’s Project ‘Principles of an Internal Audit’ seeks to address current issues faced by start-up and incumbent enterprises in a bid to improve internal control mechanisms.
+
+The five principles that underlie this project are therefore as follows:
+
+1. Control
+
+2. Independent thinking
+
+3. Documentation
+
+4. Reinforcement of the auditors’ code of conduct
+
+5. Responsible conduct of auditors
+
+Additional services will include project management, research on topics relevant to the project and statistical analysis. The goal of this initiative is to boost the effectiveness of corporate auditing and to streamline its processes.<|endoftext|>In the field of label design, there has been great advancement in recent years in the use of laser-based printers, liquid jet printers, ink jet printers, or the like, to print labels for a number of applications. Where printers capable of printing labels with print resolutions of about 150 to 300 dots per inch (dpi) are used, laser printers are typically more economical than ink jet printers due to the lower cost per print resolution of laser printers.
+Most labels use transparent substrates that are printed on one side, and the front side of the substrate is then attached to a package. The printer is typically offset from the package so as to not contact the front side of the substrate when printing the label on the substrate, as the front side of the substrate can become damaged during printing. Unfortunately, this prevents the printer from applying printing directly to the label front side. Instead, the printer typically prints the labels at a distance away from the package, and the labels are then moved toward the package. The label adhesive is then applied by a roller or other application apparatus that touches the package and the labels as they move past the roller. In this manner, it is common to place the printer on the side of the package, and the printing apparatus on the opposite side of the package.
+It has been a challenge, however, to provide print capabilities directly on a package label. As noted above, ink jet and laser printers are generally expensive and have print resolutions of about 150-300 dpi. In contrast, bar code printers capable of printing bar codes and/or print at higher
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, self_initial_attentions,
+                  self_action_space, self_observations, self_rewards,
+                  self_done=False, self_neighbor_features=None):
+        """Initialize AI"""
+        self.alpha = -1.0
+        self.beta = -1.0
+        self.self_action_space = self_action_space
+        self.self_observations = self_observations
+        self.self_rewards = self_rewards
+        self.self_done = self_done
+        self.self_neighbor_features = self_neighbor_features
+        self.T = len(self.self_observations)
+        self.K = len(self.self_actions)
+        self.self_initial_attentions = self_initial_attentions
+
+    def adjust_action(self, previous_action, hidden_states):
+        """Adjust action"""
+        if self.self_done:
+            return previous_action
+        if len(self.self_actions) == 0:
+            return previous_action
+        if self.alpha > 0:
+            # TODO: change self.self_action_space to softmax
+            logits = tf.matmul(hidden_states, self.self_initial_attentions) + tf.nn.log_softmax(logits)
+            logits = tf.matmul(
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    
+    def __init__(self, player, computer):
+        self.player = player
+        self.computer = computer
+    
+    def action(self, turn_player):
+        """Returns the action for the current player
+        If both players have the same action, they
+        swap actions"""
+        if self.player == turn_player:
+            return self.player
+        else:
+            return self.computer
+        
+    def strategy(self):
+        """Return the best possible strategy given the game state"""
+        if self.player == "AI":
+            return self.computer
+        elif self.player == "Xavier":
+            return self.player
+        else:
+            return self.computer
+    
+    def did_win(self):
+        """Returns True if the game has been won by the computer
+        If the game hasn't ended yet, return False"""
+        return self.computer == "AI"
+    
+    def __str__(self):
+        return "{} vs. {}".format(self.player, self.computer)
+    
+
+"""Chess"""
+
+class ChessBoard:
+    """Chess board class"""
+    
+    white = "wq"
+    black = "w8"
+    
+    white_black = "b7"
+    white_king = "8/8"
+    white_bishop = "1b"
+    white_rook =
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    DONE_SELECT = "DONE_SELECT"
+    SELECT_SELECTED = "SELECT_SELECTED"
+    SELECT_UNSELECTED = "SELECT_UNSELECTED"
+    TYPE_CHOOSE = "TYPE_CHOOSE"
+    TYPE_UNCHOOSE = "TYPE_UNCHOOSE"
+    TYPE_LIST = "TYPE_LIST"
+    HIDDEN_LIST_SELECT = "HIDDEN_LIST_SELECT"
+    HIDDEN_LIST_UNSELECT = "HIDDEN_LIST_UNSELECT"
+    HIDDEN_LIST_SELECTED = "HIDDEN_LIST_SELECTED"
+    HIDDEN_LIST_UNSELECTED = "HIDDEN_LIST_UNSELECTED"
+    HIDDEN_SELECT_SELECT = "HIDDEN_SELECT_SELECT"
+    HIDDEN_SELECT_UNSELECT = "HIDDEN_SELECT_UNSELECT"
+    HIDDEN_SELECT_SELECTED = "HIDDEN_SELECT_SELECTED"
+    HIDDEN_SELECT_UNSELECTED = "HIDDEN_SELECT_UNSELECTED"
+    HIDDEN_NO_SELECT = "HIDDEN_NO_SELECT"
+    HIDDEN_NO_UNSELECT = "HIDDEN_NO_UNSELECT"
+    HIDDEN_NO_SELECTED = "HIDDEN_NO_SELECTED"
+    HIDDEN_NO_UNSELECTED = "HIDDEN_NO_UNSELECTED"
+    HIDDEN_NO_DONE = "HIDDEN_NO_DONE"
+    HIDDEN_NO_DONE_SELECTED = "HIDDEN_NO_DONE_SELECTED"
+    HIDDEN_NO_DONE_UNSELECTED = "HIDDEN_NO_DONE_UNSELECTED"
+    HIDDEN_CHOOSE_SELECT = "HIDDEN_CHOOSE_SELECT"
+    HIDDEN_CHOOSE_UNSELECT = "HIDDEN_CHOOSE_UNSELECT"
+    HIDDEN_CHOOSE_SELECTED
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    NINTRO = 10
+    KNOCKEDOUT = 30
+    WAKE = 40
+    DURING = 50
+    AWAKE = 60
+    NEWER = 70
+    OLDER = 80
+    FOLLOWING = 90
+    PASSING = 100
+
+    DIRECTIONAL = 110
+    STILL = 120
+    MOVING_FORWARD = 130
+    MOVING_BACKWARD = 140
+    TURNING_LEFT = 150
+    TURNING_RIGHT = 160
+
+    WAIT = 170
+
+    ENERGY = 180
+    PSYCHEDELIC = 190
+    STARVATION = 200
+
+    IGNORE = 210
+    ALL = 221
+
+    INJURY = 230
+    STICK = 240
+    SCRAMBLE = 250
+    CANCEL = 260
+    GROWL = 270
+    TICKLE = 280
+    EAT = 290
+    USE = 300
+    INJECT = 310
+    THINK = 320
+
+    FEAR = 330
+    AGGRESSION = 340
+    AWAKEN = 350
+    SNIFF = 360
+    EXPLORE = 370
+    RETURN = 380
+    RUN = 390
+    EVOLVE = 400
+
+    FREEZE = 410
+    FLEE = 420
+    CHASE = 430
+    LEAVE = 440
+    STILLNESS = 450
+    CHILL = 460
+    EXHAUST = 470
+
+    HEALTH = 480
+    WOUND = 490
+    CRASHED = 500
+
+    PLAY = 510
+    YOUNG = 520
+    OLD = 530
+    DEAD = 540
+    OLDER = 550
+    PASSING = 560
+
+    MESSAGE = 570
+    BEHIND = 580
+    INTRO = 590
+  
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, path = "/Users/user/Desktop/node-aiohttp/ai.py"):
+        self.path = path
+        # AI home environment, the location where data is stored
+        self.home = os.path.dirname(os.path.abspath(__file__))
+
+    def __str__(self):
+        return "AI Class instance"
+
+    def exec_action(self, action):
+        """Executes the action and returns the exit code.
+        Parameters:
+        action -- An action object with the required attributes
+        Returns:
+            0 -- if success, -1 -- if error
+        """
+        try:
+            # Execute the action
+            # print action.get_return
+            exit_code = action.run()
+            return exit_code
+        except:
+            # Log any error from the action
+            print("action threw error")
+            raise
+
+    def __getitem__(self, key):
+        # Load current context information
+        with open(self.path) as f:
+            context = f.read()
+
+        # Extract current context
+        if "home" in context:
+            self.home = os.path.dirname(os.path.abspath(context[
+                "home"]))
+       
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    _object_name = 'AI'
+
+    def __init__(self, config_file=None):
+        """Initializes an AI object"""
+
+        if not config_file:
+            config_file ='metadata.json'
+        with open(config_file, 'r') as f:
+            json_data = json.loads(f.read())
+
+            self.config = {}
+            self.config.update(json_data)
+            self.config.update(metai.AI_STRUCTURES)
+
+            # Fields that will be appended to the agents' config
+            for agent in self.get_agents():
+                agent.config.update(self.config)
+
+            self.agents.extend(self.get_agents())
+
+    def add_agents(self):
+        """Add agents"""
+        for entity in self.agents:
+            entity.add_agent(self)
+
+    def add_static_parameters(self):
+        """Add static parameters"""
+        for entity in self.agents:
+            entity.add_static_parameters()
+
+    def add_structure_parameters(self):
+        """Add structure parameters"""
+        for structure in self.agents:
+            structure.add_structure_parameters()
+
+    def get_agents(self):
+        """Returns a list of agents"""
+        agents = []
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, name, owner, verbose):
+        """Class initializer
+
+        Args:
+            name: string. The name of the AI
+            owner: string. The owner of the AI.
+            verbose: integer. How much detail the AI will output.
+        """
+        self.name = name
+        self.owner = owner
+        self.verbose = verbose
+
+    def simulate(self, currentState):
+        """Simulate the AI's decision making process.
+
+        Args:
+            currentState: list of current state.
+        """
+        # currentState is the total list of items that we currently have in the
+        # collection. If we have no items we will get into an infinite loop here.
+        for item in currentState:
+            currentState.remove(item)
+
+        self.evaluate()
+        # Basically simulating. All we are doing here is:
+        # 1. Select an action
+        # 2. Move the item to the new location
+        # 3. Update the state to reflect the new state of the items
+
+        # You can actually get very complicated. See the example below
+        for action in available_actions():
+            newAction = self.move_from_state(currentState, action)
+            if newAction:
+                # The item was moved, so we need to update the state of the items
+    
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    @property
+    def name(self):
+        """Returns the AI's name"""
+        return self.__class__.__name__
+
+    @property
+    def score(self):
+        """Returns the AI's score"""
+        return self.__class__.score
+
+    def __init__(self, secret_question, maximum_score):
+        """Initialize the AI object"""
+
+        self.__secret_question = secret_question
+        self.__maximum_score = maximum_score
+
+        if self.__secret_question is None or self.__maximum_score is None:
+            raise Exception("One of the variables secret_question or maximum_score must be provided")
+
+        self.__secret_answer = []
+
+        self.__clock = Clock()
+        self.__timestamp = 0
+
+        self.__answer_history = []
+        self.__answer_list = []
+
+        self.__wrong_answers = []
+
+        self.__answers_dict = {}
+        self.__answers_dict['hostname'] = 'AI'
+        self.__answers_dict['question'] = self.__secret_question
+
+        self.__model_dir = "crawler_ai" + str(uuid.uuid4())[0:8] + '.h5'
+
+        print("AI name is " + self.__name)
+        print("Initializing: " + self.__name)
+
+    def __free_model_dir(self):
+        """Stops the model from loading and generates the new filename"""
+
+        if self.
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, space, goal):
+        self.space = space
+        self.goal = goal
+
+    def __call__(self, state, action):
+        """Evaluate the action, and depending on that change state"""
+        action = {'play': self.play, 'run': self.run}[action]
+
+        #debug mode
+        if DEBUG:
+            print "Space: %s" % self.space
+            print "Goal: %s" % self.goal
+            print "Requested action: %s" % action
+            print "New state: %s" % state
+            print "This AI doesn't know about play. Will assume that the goal is to run"
+
+        #goal >0
+        if self.goal > 0:
+            action_run = action
+            self.set_state(state, goal=0)
+            if not self.play(self.space):
+                raise ValueError("No solution found.")
+            #eval the play
+        else:
+            #goal < 0
+            action_play = action
+            if not self.play(self.space):
+                raise ValueError("No solution found.")
+            #eval the play
+            self.set_state(state, goal=0)
+
+  
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+
+    def __init__(self, name):
+        """
+        Starts a new artificial intelligence, with a unique name.
+        :param name: A human readable name for this AI.
+        :return: Nothing
+        """
+        self.name = name
+        #print("Making AI:", name)
+
+    def __str__(self):
+        """
+        Returns a description of the artificial intelligence.
+        :return: The description.
+        """
+        return self.name
+
+    def get_strategy_object(self, x, a, tol):
+        """
+        Returns the strategy object that can be run.
+        :param x: A point in the strategy.
+        :param a: How to bias the result.
+        :param tol: The absolute tolerance.
+        :return: A strategy object.
+        """
+        #print("Making strategy_object")
+        # The strategy object.
+        return Strategy()
+
+    def query(self, x, a, tol):
+        """
+        Runs the AI and returns it's current strategy.
+        :param x: A point in the strategy.
+        :param a: How to bias the result.
+        :param tol: The absolute tolerance.
+        :return: The current AI strategy.
+        """
+        #print("Making query")
+        # The strategy object.
+        strategy_object = self.get_str
+====================
+class AI:
+    """A class used to represent an artificial intelligence"""
+    def __init__(self):
+        self.testVector = []
+        self.testVector.append('abc')
+        self.testVector.append('123')
+        self.testVector.append('xyz')
+        self.testVector.append('^#')
+        self.testVector.append('#{`')
+        self.testVector.append('#}')
+        self.testVector.append('{$`')
+        self.testVector.append('$}')
+        self.testVector.append('#`')
+        self.testVector.append('`' + '`')
+        self.testVector.append('#$' + '$')
+        self.testVector.append('$(`')
+        self.testVector.append('$)')
+        self.testVector.append('$}')
+        self.testVector.append('{${')
+        self.testVector.append('${`')
+        self.testVector.append('$}`')
+        self.testVector.append('#`${')
+        self.testVector.append('#`$`')
+        self.testVector.append('`#}$#')
+        self.testVector.append('${`{')
+        self.testVector.append('{``}')
+        self.testVector.append('${`' + '`}')
+        self.testVector.append('${`{' + '`})')
+        self.testVector.append('${``${`})')
+    
+====================

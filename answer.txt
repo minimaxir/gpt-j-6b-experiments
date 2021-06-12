@@ -1,0 +1,2250 @@
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    life() + universe() + everything()
+
+def life():
+    """Creates a new life form and returns its first number"""
+    return len(choice)
+
+def universe():
+    """Creates a new universe and returns its first number"""
+    return len(universe_selection)
+
+def everything():
+    """Creates a new universe and returns its second number"""
+    return len(everything_selection)
+
+def new_life(number):
+    """Creates a new life form, validates its number, and returns it"""
+    while life() == 0:
+        print 'Your life has been eaten by Death!'
+        life() = 1
+    while number > life():
+        print 'Too many universes have been eaten by Death!'
+        universe() = 1
+        number = number - 1
+    new_life()
+
+def main():
+    """Starts the program"""
+    new_life(life())
+
+if __name__ == '__main__':
+    main()
+
+The above is the main function. If you want to know, number_generation is a function to generate numbers from 0-9. 
+
+A:
+
+The error happens in the function new_life() (wrapped in a loop):
+def new_life(number):
+    """Creates a new life form, validates its number, and returns it"""
+    while life() == 0:
+        print 'Your life has been eaten by Death!'
+        life() = 1
+    while number > life():
+        print 'Too many universes have been eaten by Death!'
+        universe() = 1
+        number = number - 1
+    new_life()
+
+Every time the while loops check life() == 0, it becomes the default and never changes. Since life() is a global, it's not getting a value at each iteration, but the initial value set in main(). The
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+"""
+A Callable
+
+Allows for one to register callables as their own event hook.
+"""
+class Callable(object):
+    """Hook that allows one to register functions as their own custom events"""
+
+    def __init__(self, *args, **kwargs):
+        self.id = None
+
+    def __call__(self, **kwargs):
+        self.id = kwargs['id']
+
+    def event(self, id=None):
+        return self.id
+
+#Register as your own custom events.
+#Remember to add the id of the event, but make sure that the id is different from any of the default
+#events that python provides.
+my_event1 = Callable()
+my_event1.event('1')
+my_event1.event()
+#None should be returned
+
+my_event2 = Callable()
+my_event2.event('2')
+my_event2.event()
+#None should be returned
+
+<|endoftext|>Q:
+
+Dealing with handcrafted automation
+
+We have a product that has a lot of handcrafted code (the product is a paper printer). The code, for the most part, is well-written and would benefit from automated testing. However, the test suitability isn't very good.
+We have a main automation suite that provides a server that can run a test case, as well as record the test session.
+We have test automation interfaces (written in Java, with some Flash) that provide a testing environment where the user can run a test case from their browser (hand crafted, much like the paper printing app).
+The problem is that we want to be able to run the entire automated test suite without having to manually open the automation interfaces. This involves writing a lot of custom code to re-arrange files, copy files around, etc. This means I can't simply download the code from our website and run a bunch of tests.
+Another approach is that our tests run as part of an application deployment. We have a huge suite of tests that all run on application deployment and do a basic smoke test. Our developers would have to code tests to these conditions and run them against their products.
+Anyone have any thoughts about how to best
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+def eval(input):
+    return evaluator.eval(input)
+
+def format(object):
+    """
+    Formats an object with type information, (count, precision, seconds)
+    """
+    string = object.__repr__()
+    print(string, end="")
+    return string
+
+@main.register(totu(s=int(input())), format)
+def totu(object):
+    """
+    Computes total units
+    """
+    count, precision, seconds = object.__dict__['_totu']
+    return (count + precision + seconds)
+
+def main():
+    """
+    Main function. Prints how much time it takes to execute each function,
+    and if that's less than 500ms we print the solution to the Universe and
+    Earth.
+    """
+    for name, func in itertools.product(vars(), fmt):
+        result = timeit.repeat(func, repeat=100, number=1)
+        if result < 500:
+            print('The solution to life, the universe, and everything:')
+            print(totu(answer()))
+
+if __name__ == '__main__':
+    main()
+
+Questions
+
+I was wondering, how could I refactor this?
+Also, where can I learn more about the inner workings of Python and which functionalities can be replaced with other methods?
+
+A:
+
+Good performance can be achieved with multiple task parallelisation
+
+Parallelism means executing two or more operations in parallel to save time.
+
+Instead of having one function execute other functions which are really long, you can split up the tasks (say, into smaller tasks by splitting the problem) and have a group of threads execute the task, as they will get their own random state when started.
+
+Performance
+Timeit should not be used as a tool for measuring performance, see the warnings in the documentation. It's meant for measuring the time it
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+def c(x):
+    """Create a class and assign it a function with the same name as the
+       class"""
+    class A:
+        def __init__(self, x):
+            self.x = x
+
+    return A
+
+# This is a function decorator for testing.
+def func(func):
+    """If the function passed as a parameter is None, do not actually do
+       anything"""
+    return func
+
+def func_2(func):
+    """If the function passed as a parameter is None, do not actually do
+       anything"""
+    return func
+
+def make_class(mangled_name):
+    return Class_Mangler(mangled_name, int)
+
+# --------------------------------------------- TEST DEFAULTS ---------------------------------------------
+def assert_list(callable, *args, **kwargs):
+    """Calls `callable` to test that all the items in `args` are iterable"""
+    try:
+        callable(*args, **kwargs)
+    except TypeError as e:
+        raise AssertionError(str(e))
+
+def dict_keys_are_iterable():
+    return dict.keys()
+
+def dict_values_are_iterable():
+    return dict.values()
+
+def dict_items_are_iterable():
+    return dict.items()
+
+def dict_readonly_keys_are_iterable():
+    return dict.readonlykeys()
+
+def dict_readonly_values_are_iterable():
+    return dict.readonlyvalues()
+
+def dict_readonly_items_are_iterable():
+    return dict.readonlyitems()
+
+def dict_frozen_keys_are_iterable():
+    return dict.frozenset.keys()
+
+def dict_frozen_values_are_iterable():
+    return dict.frozenset.
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+print("What is ", a.shape)
+print("What is ", b.shape)
+print("What is ", c.shape)
+print("What is ", d.shape)
+
+I've also tried defining them as constants with the statement:
+FACTORS = [a, b, c, d]
+
+print("The products of all of the FACTORS is : ", FACTORS)
+
+And when I run it, it returns me the following error:
+NameError: name 'a' is not defined
+
+I don't understand what is going on here.
+
+A:
+
+It is so easy, you just need to initialize it:
+from __future__ import print_function
+
+a = 1
+b = 2
+c = 3
+d = 4
+
+print("The products of all of the FACTORS is : ",
+                                                           a * b * c * d)
+
+Output:
+The products of all of the FACTORS is :  24
+
+<|endoftext|>By clicking "I have read this Terms and Conditions" you are agreeing to be bound by this agreement.
+
+
+
+
+
+Please read this document carefully and print it if you are agreeing to a different legal document.
+
+1.1 Registration is a legal requirement of doing business on our website. You may be asked to provide information for registration purposes.
+
+
+
+
+
+1.2 If you do not agree to this document, you are not permitted to use our services.
+
+
+
+
+
+2.1 The Registration Agreement means the Terms and Conditions (available here) and the Privacy Policy (available here).
+
+2.2 If you do not agree to this document, you are not permitted to use our services.
+
+
+
+
+
+3.1 The Agreement is drawn up in both English and Norwegian. We will try to interpret the Agreement in the language you are using. If you are not sure which language you will be using when using our services, you will be guided accordingly.
+
+3.2 The Agreement is drawn up in both English and Norwegian. We will try to interpret the Agreement in the language you are using. If you
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+
+    return 42
+
+g = guess()
+print g
+
+Is this not the case? If so, why?
+
+A:
+
+g is an object that has the attribute __name__, thus
+if guess.__name__ == "main":
+
+does not work because
+if g.__name__ == "main":
+
+should work. (This also applies to any attribute of guess.)
+
+<|endoftext|>Westlake High School
+
+Westlake High School, commonly referred to as Westlake, is a high school in Southfield, Michigan, USA, a city west of Detroit. It is the second of two public high schools serving the city. The school is a part of the Westlake Public Schools district.
+
+History
+The first school of the city was formed in 1883, in the brick-and-cement building located at Third Avenue and Ryan Street. Westlake High School was built in 1921, the same year the school district formed. The building was one of the first school districts in Michigan to be built with the Modern Movement in mind, with a combination of French Colonial, Classical, and Classical Revival elements. The school has been cited in architecture for its grand entrance, a double staircase with two columns each at the front, and the repeating of motifs in the pediment of the entrance.
+
+The high school, along with its district, has undergone many renovations in its history. The Westlake building now houses the high school, library, and cafeteria. In 2001, there were over 4,000 students enrolled at the school.
+
+Academics
+At Westlake High School, the school emphasizes five primary classes: English, Math, Science, History, and Foreign Language. Students must also take four electives, including two mandatory ones and one of their choosing.
+
+The school's courses are based on the Michigan Academic Content Standards (MACS).
+
+Student activities
+
+Athletics
+Westlake competes in the K-8 Midwest League (WILD), and has won the state championship for boys' basketball in 1990, 1996, 1997, 2001, 2004, and 2011.
+
+Westlake's most notable sports program is their football team. In addition to their state titles, the Westlake football program is also home to one of the most successful undefeated football runs in Michigan high school football history. In 2007, the Westlake team was ranked No. 1 in the country by USA Today, beating out powerhouse school Ohio State
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+
+
+<|endoftext|>In integrated circuits, electric connections of the contact areas of electrical devices such as, for example, transistors or capacitors, must be established with reference to contacts of adjacent semiconductor components or with reference to a base plane such as an aluminum base plane of a wiring system which is located between metallizations. In this context, the contact areas are regions of a surface of a semiconductor substrate which are laterally delimited by surface planes of the semiconductor substrate. Contact holes are produced in a layer of insulation material. On a layer of insulation material, contact electrodes are then produced in the contact hole and are electrically connected to one another.
+However, in order to be able to electrically connect the contact electrodes produced in the contact hole to other contact electrodes, it is necessary to take into consideration, among other things, lateral spacings in a layer of the surface of the substrate or lateral spacings between contact areas of semiconductor components which are lateral spacings between contact areas of semiconductor components, in particular between contact areas of MOS transistors. It is often necessary to take into consideration lateral spacer areas which are situated between contact areas of adjacent semiconductor components.
+In order to be able to establish electric connections in a contact area of a first contact electrode which is to be connected to a contact area of a second contact electrode which is situated next to the first contact electrode, it is necessary to take into consideration a lateral spacing between the two contact electrodes which is called an inter-electrode spacing. However, the lateral spacings of the contact areas of the semiconductor components which are also referred to as the gate spacings must also be taken into consideration in such a case. In particular, the lateral spacings of gate spacings are also referred to as the source/drain spacer spacings, which are used for determining the lateral spacer areas or spacer zones which serve for lateral delimitation of the source and drain areas of a transistor.
+An aspect of the invention relates to a method for the production of semiconductor devices which permits, among other things, the production of such inter-electrode spacings and lateral spacers which permit the production of contact areas of integrated circuits, for example, MOS transistors or capacitors.<|endoftext|>Semiconductor memory devices may be classified into volatile memory devices and
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+    
+if __name__ == "__main__":
+    while True:
+        q = raw_input("Do you know?  ")
+        if q == "Yes":
+            print answer()
+        elif q == "No":
+            print "Fine, then, you have an answer."
+        else:
+            print "You have entered an invalid response.  Goodbye."
+<|endoftext|>Site descriptionThe Ottawa Region Central Accident Rescue and Mitigation Society (ORCARM) is an all-volunteer not for profit society that is supported by the Regional Municipality of Ottawa-Carleton. It is dedicated to the investigation of vehicle accidents that results in injury or death. A minimum of two emergency first responders, such as police, fire and ambulance personnel and medical professionals, are required to be at the scene to provide assistance. Volunteer assistance may include CPR, stabilization, etc. and volunteers may also assist in documenting evidence and crime scenes.
+
+Activities and detailsRescue dispatch members provide assistance 24 hours a day, 7 days a week. 24 hours a day telephone coverage is provided by the Metropolitan police communications centre. Routine calls are the activation of a police-patrolled radio channel to the rescue dispatch members. Trunked units may also be activated to provide medical and law enforcement support.
+
+Rescue dispatch units are available for 24 hour emergency calls or non-emergency calls (including the activation of the police-patrolled radio channel). ORCARM has standard operating procedures for first responder members to contact ORCARM and also a call-taker service for direct communication with victims and witnesses.
+
+Most calls come to ORCARM via police dispatch to the RCMP. Public and non-emergency calls also are received by ORCARM via standard channels such as 1-800-OCARM or by calling local hospitals. All police, fire, and ambulance dispatches are transmitted to the ORCARM emergency communications centre through two trunked radio networks.<|endoftext|>//----------------------------------------------
+//            NGUI: Next-Gen UI kit
+// Copyright © 2011-2014 Tasharen
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    def divider(q, n):
+        return q // n
+
+    a, b, q = divider(q, divider(n, 7) + 7)
+    if b == 4:
+        return a
+
+    print(q)
+
+<|endoftext|>Q:
+
+boost::asio threads keep hanging after running for a while
+
+I have an server program which uses boost::asio to listen on multiple threads. When running without threads, the program runs smoothly for a long period of time. After starting the threads, the program often hangs. It's not easy to find where it happens, and even less to solve the problem. I'm running win7 with boost 1.58.0 and asio 0.14.5.
+Any ideas?
+
+A:
+
+The answer depends on the actual scenario.
+Here are some "topics" which may help:
+
+does your program have file i/o issues? If so, try to isolate these (close/open files)
+does your program hang during startup? Consider using a shutdown function
+does the hanging occur at random times, or always on the same line/s, or always after some time? (this is important)
+does the hang occur after processing a certain amount of data? Can it be caused by periodic network traffic or heavy background processes?
+
+If you can, isolate your code, so that we can just focus on the "core issue". 
+At least we can rule out many common issues, which are normally: i/o issues, threads initialisation issues, or other related asio issues.
+
+<|endoftext|>Profile of a Five Year Old Boy
+
+Ezekiel Olajiyi, 5, walks to class for a second day after missing a day in January when he was hospitalized with a virus. (COURTESY PHOTO)
+
+Zeek Olajiyi rolled out of bed on a snowy January morning. The 5-year-old pulled on a down coat, ran down the stairs and headed for his father, a Metrobus driver.
+
+Zeek couldn't walk, though. His right leg was in a cast, he wore crutches, he used a walker, and for the past two weeks, he has been sleeping in his room upstairs.
+
+"It's frustrating. I had my life, a normal life. But
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+This prints the answer to life, the universe, and everything in the same line:
+print("42")
+
+If you want to display it in a different line, separate the line from the print() call with a newline character, which you can find in the escape sequences table (https://docs.python.org/2/library/stdtypes.html#str.escape)
+print("\n42")
+
+To do so, either use Python3's print({"\n": 42}) or Python2's print("\n", "42")
+Another solution is to use format:
+format(42, "\n")
+
+or
+print("{:d}\n".format(42))
+
+A:
+
+To show it in a new line, use \n.
+>>> print "Hello world"
+Hello world
+>>> print "Hello world" + "\n"
+Hello world
+
+This is because of the newline characters that are added to the string. To view the same use command line, print >> file
+>>> print "Hello world"
+Hello world
+>>> print >>file
+>>> file.read()
+Hello world
+
+<|endoftext|>Q:
+
+HTML - Centered Tabs with indeterminate Width
+
+I'm trying to get a couple tabs to center-align across the page, while the tabs themselves need to be of indeterminate width, so that the widest tab, #2, will extend to the full width of the browser.
+Here's the code I'm using:
+<html>
+<head>
+    <style type="text/css">
+       .container {
+            width: 950px;
+            margin: 0 auto;
+        }
+       .tabs {
+            background-color: #666;
+            text-align: center;
+            margin-top: 50px;
+        }
+       .tabs a {
+            display: block;
+   
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    print("42")
+
+j = main()
+j.main()
+
+A:
+
+Не совсем ясен вопрос, но вы хотите проверить это:
+print(int(main()))
+
+<|endoftext|>The invention relates to a method for operating a motor vehicle, in which the motor vehicle is operated in a micro driving state which is accomplished with the help of a reduction gear unit which is engaged with a driver's input signal.
+To assure a good response of the micro driving state of the vehicle to the driver, there must be optimal gear selector and clutch response. This is why an automatic transmission, for example, of the following type is known, wherein the clutch is automatically disengaged, when the driver selects a driving state using the selector, a driver's shift program setting and the micro-driving motor being automatically switched off in the immediate future. If the driver subsequently moves a selector switch from the driving to the micro driving state, this would, of course, indicate a change in the selector program and would therefore also result in a corresponding clutch actuation and the disengagement of the clutch.
+However, it is a disadvantage of such automatic transmissions that the above described event may also be caused in a manner which is not desired by the driver, for example by a vehicle driver driving in the driving state while the clutch is disengaged. This may result in the consequences that the driving state is not switched over to the micro driving state, or that the vehicle is not started due to an unwanted actuation of the clutch which results in an undesired operating situation.
+A method is known from WO-A-03041716 for operating a motor vehicle. In this known method, a determination is made whether the motor vehicle is being driven. If the motor vehicle is being driven, the driver of the motor vehicle is informed of the operating state. Otherwise, the clutch is disengaged.
+A method and a device for operating a motor vehicle is known from WO-A-04052678. This method and device determine whether the motor vehicle is being driven. In the event that the motor vehicle is being driven, the driver is informed of the operating state of the vehicle. Otherwise, the clutch is disengaged.<|endoftext|>Anal glands
+
+Anal glands (folliculoseb
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    # remember to save to return to main()
+    return "greetings from stackoverflow"
+
+There is a self reference in the functions that are creating a list of answers; but we still have to set self as the parent to main() so that the functions can access attributes from main().
+
+If you still want to return a list of answers in the wrong order, your other option would be to change the order of the for loop, as in:
+def life():
+    """Return the answer to life, the universe, and everything"""
+    answers = ["they are not necessarily in the right order", "no", "yes", "maybe"]
+    for answer in answers:
+        # remember to save to return to main()
+        print("{} {}".format(answer, self.answers[2]))
+
+if __name__ == "__main__":
+    answer()
+
+<|endoftext|> it was revealed that Iggy Pop has been busy behind the scenes. He’s worked with the younger bands Dead & Company and The Stooges, so we’ll know next year what his side project is all about.
+
+8/ We know that the sound of The Stooges might be tough to crack, so here are a couple of bands who sound like The Stooges with some heavy beats and blistering guitar riffs. One of the lesser known bands is Icelandic band the Goldlink. If you like what you hear, check out our review of their most recent album here.
+
+9/ One of the newest inclusions into the universe of metal is Samsara Blues Experiment, led by heavy metal drummer Alessandro Cortini. They have certainly been one of the most interesting projects in rock music this year. Have a listen to the incredible album they have just released.
+
+10/ This group has a name that comes with so much history and mystery, but finally, we now know what this group is all about. They are “Sub Pop”. The group is a collaboration with Joe Mount, former guitarist for The Jesus Lizard. Their album “Paper Wings” was recorded with the help of The Jesus Lizard member Chris Haskett. It was their debut album and it showed that they really have a distinct sound, influenced by both The Jesus Lizard and other influences.
+
+11
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+func = globals()[func] # Func is the global variable name
+
+def func2():
+    print "Im func2"
+
+def func3(func):
+    print "Im func3"
+    func()
+    func2()
+func3(func)
+
+func2()
+
+Returns:
+Im func3
+Im func2
+42
+
+As it is now when we call func3, it will call func which will run the code within, but there is no point in doing this, as globals()[func] returns func. If we change the func3 function to:
+def func3(func):
+    print "Im func3"
+    print "Im func2"
+    func()
+    func2()
+func3(func)
+
+Then, it will give the following result:
+Im func3
+Im func2
+42
+
+A:
+
+You can't modify a global. However, if you create your variable inside the function body, you will be able to access it outside:
+def foo():
+    global foo_
+    foo_ = "Hello World"
+    print foo_
+
+foo()
+print foo_
+
+And of course, as others have mentioned, changing a variable outside of a function does not change the value inside the function itself, and vice versa.
+
+<|endoftext|>Nexte
+
+Name: NeXte
+Version: 2.0.10
+Release Date: 11-Jan-2004
+Description: Nexte is an anti-virus software engine.
+Website: http://www.nexte.com/
+Download: http://www.nexte.com/download.shtml
+Requires: /bin/bash, /bin/ksh, java, java-1.4.2
+
+Installing: Nexte
+
+Install Nexte, make sure you have these directories, then run the command:
+su -
+/usr/bin/tar zxvf nexte-2.0.10.tar.gz
+
+And you should be fine.
+Now in Nexte install the Antivirus program, by typing in the command line:
+su -
+/usr/bin/cd /usr/local/Nexte-2.0.
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+We can go through a list of questions using this function:
+>>> [i.answers() for i in [["how", "are", "you?"], ["what", "was", "the", "answer?"],
+                           ["to", "the", "life, the universe, and everything?"]]]
+[
+    {'to': 'the', 'to': 'the', 'to': 'the'}, 
+    {'to': 'the', 'to': 'the', 'to': 'the'}, 
+    {'to': 'the', 'to': 'the', 'to': 'the'}
+]
+
+The above code gets rid of some of the repeated to the question.
+Some general programming tips:
+
+Use a function to hold the loop. Otherwise you'll end up with multiple function calls each with its own list.
+Put in comments. They help you and other people, and you have to write less code.
+Make sure the comments are short and sweet.
+Documentation is one of the more important parts of a program, so don't be stingy.
+
+<|endoftext|>Mission Statement: St. Paul's Episcopal Church is a mission of St. Thomas' and St. Paul's Churches, where we gather to worship, to share life and to be a blessing in the world. We are a faith community rooted in the Scriptures and connected by a commitment to the sacraments and empowered by the Holy Spirit.
+
+Vision Statement: The church is an authentic, inclusive, welcoming community of people learning to live as disciples of Jesus. We worship God in Spirit, life and truth. We share life in hospitality and love as we celebrate and deepen our faith. We are united and united with Christ in the Holy Spirit.<|endoftext|>" | *,
+| align=left valign=top | Compound type
+|-
+| align=left valign=top | com
+| align=left | compound type
+|-
+| align=left valign=top | con
+| align=left | compound type
+|-
+| align=left valign=top | ər
+| align=left | ər type
+|-
+| align=left valign=top |
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    global a
+    print(a)
+
+if __name__ == "__main__":
+    my_answer()
+
+However, it always prints '42' and always prints it out before any attempt to use the variable.  It doesn't matter what I put in main, the answer keeps being 42.
+How do I get this answer to be different every time it's run?
+
+A:
+
+If you want to change the value of a you need to use a = 42 or answer() = 42. You were trying to use a as a local variable name, which is wrong.
+It is important to note, however, that the global statement affects the whole module, not just the current function. So your other functions won't see it's value. 
+If you want to see how to have a value that persists throughout a function in Python then I recommend starting here. 
+As for why your code seems to print the answer first, this is because you are executing the answer() function directly in the main script. You are not calling it in any other way. So you just put it out and go on about your life. 
+To call the function you need to either execute the code from the interpreter, or save the function in a variable that can be called later.
+This answer covers how to do both of those things.
+
+<|endoftext|>Tuesday, August 24, 2008
+
+She was nearly four weeks old when she first came in to my store. Just before she left, I passed her in the hallway with a carrier strapped to her chest and she stopped and looked right at me. I couldn't believe how bright her eyes were. I said out loud, "Wow, she is bright."
+
+Since then I have thought about her every time she has looked up at me. She had black eyes that were so beautiful and a black nose and mouth. Her eyes, especially, were extraordinary. As I watch a baby open its mouth and see the front incisors come down, it always makes me wonder how much of our life can be seen in our face. It seems like a very small amount, but then again, we have two hands, two eyes, two legs, and a brain. I always tell my friend Melissa that I think our faces show all of that, even before we start talking.
+
+On her first birthday she had to come back into the store again. She was a beautiful little girl who was
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    answer = random.randint(1,10)
+    if answer == 1:
+        print("BANG!")
+    elif answer == 2:
+        print("QUOOSH!")
+    elif answer == 3:
+        print("bipity bipity boopity boo")
+    elif answer == 4:
+        print("AHH! Hahaha!")
+    elif answer == 5:
+        print("Sigh.")
+    elif answer == 6:
+        print("YAWN.")
+    elif answer == 7:
+        print("HAHAHA!")
+    elif answer == 8:
+        print("Meh.")
+    elif answer == 9:
+        print("Grr.")
+    elif answer == 10:
+        print("Lol!")
+    else:
+        print("I'm sorry, that is incorrect.")
+
+if __name__ == "__main__":
+    global Life
+
+    Life = 100
+    question()
+
+<|endoftext|>In the years after Jim Jones poisoned more than 909 of its members and their children, mostly in the United States, the government spent years prosecuting only three members of the cult's leadership, leading to a guilty verdict on the remaining 92. But eventually, the general belief that Jones had killed all the people in his church was ingrained into the public consciousness. It's a storyline that is playing out in the pages of the new memoir Jim Jones: Firsthand Account of His Death by Deborah Layton, which has just been released by the University of Oklahoma Press.
+
+According to Mobeen Azhar, a correspondent for The Pulse of Pakistan and a human rights reporter for Pakistan's The Nation, the book is likely to reopen a decade-old debate about Jones's true motives, and whether or not his motives were actually as innocent as the State Department claimed during that time.
+
+Azhar says that the book presents a different and much more sympathetic
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+<|endoftext|>                            UNPUBLISHED
+
+                   UNITED STATES COURT OF APPEALS
+                       FOR THE FOURTH CIRCUIT
+
+
+                            No. 00-6603
+
+
+
+WILLIAM R. GASTON,
+
+                                             Petitioner - Appellant,
+
+          versus
+
+
+KENNETH D. LASSITER, Warden, Greensville Correc-
+tional Center; CHARLES M. CONDON, Attorney
+General of the State of South Carolina,
+
+                                            Respondents - Appellees.
+
+
+
+Appeal from the United States District Court for the District of
+South Carolina, at Charleston. C. Weston Houck, Chief District
+Judge. (CA-99-156-2-12AJ)
+
+
+Submitted:   May 25, 2000                    Decided:   June 6, 2000
+
+
+Before WILKINS, LUTTIG, and WILLIAMS, Circuit Judges.
+
+
+Dismissed by unpublished per curiam opinion.
+
+
+William R. Gaston, Appellant Pro Se. Donald John Zelenka, Chief
+Deputy Attorney General, William Edgar Salter, III, OFFICE OF THE
+ATTORNEY GENERAL OF SOUTH CAROLINA, Columbia, South Carolina, for
+Appellees.
+
+
+Unpublished opinions are not binding precedent in this circuit.
+See Local Rule 36(c).
+PER CURIAM:
+
+  
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    if 0:
+        return 0.0
+    else:
+        return 1.0
+
+SEND_ANSWER_TO_BACKEND = 1
+SEND_ANSWER_TO_BACKEND_TIMESTAMP = 2
+SEND_ANSWER_TO_BACKEND_TIMESTAMP_PREFIX = "%.6g"
+ANSWER_PENDING_TIMESTAMP_PREFIX = "%.6g"
+
+def send_answer_to_backend(**kwargs):
+    """Sends the answer to life, the universe, and everything"""
+    kwargs["datetime"] = "%d-%d-%dT%d:%d:%d" % (
+        int(time.time()), time.day, time.month, time.min,
+        time.hour, time.second, time.microsecond
+    )
+    kwargs["session_id"] = %r
+    kwargs["sequence_id"] = UUID()
+    kwargs["user_id"] = get_user_id()
+    datetime = datetime.datetime.now(pytz.utc)
+    kwargs["datetime"] = "%d-%d-%dT%d:%d:%d" % (
+        int(time.time()), time.day, time.month, time.min,
+        time.hour, time.second, time.microsecond
+    )
+    if "annotations" in kwargs:
+        annotations = {"key": "%s"} % kwargs["annotations"]["key"]
+        kwargs["annotations"] = annotations
+
+    if SEND_ANSWER_TO_BACKEND in kwargs:
+        backend = kwargs[SEND_ANSWER_TO_BACKEND]
+        kwargs["backend"] = backend
+
+
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+class Game(object):
+    def __init__(self, ops):
+        """Sets up the Ops directory and defines init()"""
+        self.ops = Ops()
+
+    def init(self):
+        self.ops.gen()
+        self.ops.ops()
+
+    def main(self):
+        game = Game(self)
+        game.init()
+        while True:
+            print(game.answer())
+            print(" ")
+            sys.stdout.flush()
+
+class Operators(object):
+    def gen(self):
+        """Generate a random number and store it"""
+        random_number = self.range(0,100)
+        self.ops.save_op(random_number)
+
+    def ops(self):
+        """Get the saved random number and print it"""
+        random_number = self.ops.load_op()
+        print(random_number)
+
+class Functions(object):
+    def gen(self):
+        """Simple generator function"""
+        while True:
+            yield self.random()
+
+    def random(self):
+        """Return a random number"""
+        return random.randint(1,3)
+
+    def save_op(self, random_number):
+        """Saves a number to an operation log"""
+        self.ops.log.append(random_number)
+
+if __name__ == '__main__':
+    ops = Operators()
+    fun = Functions()
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+What do you recommend for me? A Singleton, a new Object creation for every use, a shared Object, a static class method, a Factory pattern with a class instance, or should I stick to my design as it is now?
+Also I need to avoid recursion but it's also a valid construct in Python.
+
+A:
+
+You should really try to understand some of the OOP fundamentals first and learn the SOLID principles.
+E.g. get used to the singleton pattern, in Python, the singleton pattern is rather unsuitable because you'll have to rewrite everything each time you do something different. It is always better to create objects whenever you need them and to hide those objects with the right accessors.
+I'd recommend you to read up a little on object-oriented design principles and try to understand those.
+
+<|endoftext|>Q:
+
+CakePHP URL routing with plugins (split system)
+
+I'm working with CakePHP 2.x and I've got myself into a situation where I don't really know how to do what I want. My application has been extended by a plugin. The plugin has rewritten some of my core controllers. It seems the plugin overwrites some of the routes, which shouldn't happen. I think, it should happen automatically or I would create the routes myself. The website should always display the "correct" content and not the content from the plugin.
+I know the best way to deal with this is to not use the plugin in that way and to be aware of routes at the beginning of the code. Nevertheless, it would be very beneficial to know how to create a solution that handles all these situations gracefully. The problem that I face is:
+
+How do I handle the "wrong" content that my plugin makes available to the website?
+How do I ensure the "correct" content is available to the website?
+
+My 'wrong' content is in the content of a block (for example: news with content from the plugin and sidebar, link to third party resources and other stuff that shouldn't be available in a plugin/overwritten controllers).
+What I have done (until now):
+
+Set that block to the route '/news/' - The content of the block can be accessed and I have redirected the page to the content I want. This works if I explicitly want to call the news controller from the plugin.
+Instead of the above, just remove the
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    answer = 42
+    return answer
+
+def foo(answer=42):
+    """Raise answer by 10
+
+    :param answer: The answer to raise"""
+    answer = answer + 10
+    print("The answer is: %s" % answer)
+    return answer
+
+def main():
+    """Try running the program and verifying that the output is as expected"""
+    foo()
+
+main()
+
+Noticed that the documentation states that one shouldn't define answer = 42 in a function since it should be defined inside the function. Is this still true for Python 3.7? 
+What's the correct way to return a function result? 
+
+A:
+
+Is this still true for Python 3.7?
+
+Yes.
+Here's a reference to the docs for Python 3.7.
+
+<|endoftext|>. Let r be (3/2)/(4/(-4*m)). Solve -4*n + n = -r*w - 3, -4*w + n = -3 for w.
+1
+Let t be (-5)/(-15)*4*(-6)/(-8). Let v = -6 + 11. Suppose -d - 4*d + v = 0. Solve 2*j - t = x, -4*x + 0*j = -j - d for x.
+2
+Let j be 2/4*10 - (9 + -12). Let o(i) = -i**3 - i**2 - 4*i - 7. Let x be o(-3). Solve -r - 10 = -d, -j*r = -r + 2*d + x for r.
+-5
+Suppose 4*g - 9*g = -50. Suppose -g = -i - 4*i. Suppose -11 = i*a - 45. Solve 3*l + 7*o = 2*o + a, 4*l - 26 = -5*o for l.
+4
+Suppose -11 - 1 = -3*t. Solve 0*s = -5*n - 3*s - 31, -n - t*s = 21 for n.
+-5
+Suppose 4*x - 8 = 0, 5*z + 0*x +
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+
+    s = raw_input("What is your answer?")
+    return len(s)
+
+def stats_string_to_float():
+    """Converts the floating point input to a string.
+
+    The input must be a string, or a float.
+    """
+
+    n = float(raw_input("Enter number to convert: "))
+    return str(n)
+
+# int_to_list takes a int and returns a list of the digits in
+# order.
+
+def int_to_list(x):
+    """yields x converted to list"""
+
+    l = []
+    while x:
+        l.append(x % 10)
+        x //= 10
+    return l
+
+def float_to_string(x):
+    """yields a string version of x."""
+
+    return '{:.3f}'.format(x)
+
+def string_to_list(s):
+    """yields the list of digits in a string"""
+
+    return int_to_list(int(s))
+
+def list_to_string(l):
+    """yields a string version of l."""
+
+    return ''.join(string_to_list(item) for item in l)
+
+def int_to_string_list(l):
+    """yields a list of strings that convert the numbers in l."""
+
+    return [string_to_list(item) for item in l]
+
+def __1__(x, y):
+    """computes 1 with the inputs"""
+
+    return 1
+
+def __add__(x, y):
+    """calculate the addition of x and y"""
+
+    return x + y
+
+def __sub__(x, y):
+    """calculate the subtraction of x and y"""
+
+    return x - y
+
+def __mul__(x, y):
+    """calculate the multiplication of x and y"""
+
+    return x * y
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+        
+    global color_array
+    global x_array
+    global y_array
+    
+    a = 0
+    
+    while a!= 2:
+        x_array = int(raw_input('Enter your x coordinate: '))
+        y_array = int(raw_input('Enter your y coordinate: '))
+        x_array -= 300
+        y_array -= 300
+        x_array = int(x_array / 1000)
+        y_array = int(y_array / 1000)
+        x_array += 500
+        y_array += 500
+        
+        if x_array < 0:
+            a = 1
+            print 'if x_array < 0:', x_array
+        else:
+            x_array = 0
+            print 'if x_array < 0:', x_array
+            
+        if y_array < 0:
+            a = 1
+            print 'if y_array < 0:', y_array
+        else:
+            y_array = 0
+            print 'if y_array < 0:', y_array
+            
+        print 'x = ', x_array
+        print 'y = ', y_array
+        
+    return x_array
+
+print color_array
+answer()
+<|endoftext|>Mar.
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    ans = True
+    x = raw_input()
+    if x.lower() == 'yes':
+        ans = True
+    elif x.lower() == 'no':
+        ans = False
+    return ans
+
+def input():
+    """Input a command and answer and return a function/lambda/eval/exec"""
+    ans = answer()
+    return lambda x:x
+
+def test(ans):
+    """Return a test, returning None on failure"""
+    try:
+        return x()
+    except:
+        return None
+
+def main():
+    """Write a test program"""
+    print 'Starting main.'
+    x = input()
+    print '\n'.join([test(x), x, 'abc', test(input())])
+
+if __name__ == '__main__':
+    main()
+
+A:
+
+I did not understand the point of what you are trying to do with your answers = True statement. So the following is how I would write your function so that I understood your intentions better:
+def no(user_input):
+    if user_input == 'yes':
+        return False
+    return True
+
+def yes(user_input):
+    if user_input == 'no':
+        return False
+    return True
+
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    if no(raw_input()):
+        return True
+    else:
+        return False
+
+def input():
+    """Input a command and answer and return a function/lambda/eval/exec"""
+    if yes(raw_input()):
+        return True
+    else:
+        return False
+
+def test(ans):
+    """Return a test, returning None on failure"""
+    try:
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+def main():
+    mytest()
+
+if __name__ == "__main__":
+    main()
+
+A:
+
+Because that’s exactly what __name__ is for:
+
+The name of the calling module (the module in which the function is called).
+
+As others have pointed out, there is no standard way to do this.
+
+<|endoftext|>Q:
+
+What is the scope of'self' in python classes
+
+I'm a python newbie and in my book they were using self in a class method definition, so I was thinking "self is the instance of the class itself"... but, I read this code in python IDLE, and it doesn't compile. What am I doing wrong here?
+class Test:
+    def __init__(self):
+        print "__init__"
+
+    def foo(self):
+        print "foo"
+
+And in this code, when I tried to print foo, it just returned an error:
+class Test:
+    def __init__(self):
+        print "__init__"
+
+    def foo(self):
+        print "foo"
+
+A:
+
+You have two problems here:
+First, def foo(self): isn't a valid def call. The first argument to a def statement must be a class or a list. As such, change it to def foo(self): and it will compile.
+Second, and this is more of a style issue, you would do better to put all of the data members in the __init__ function. This is a bit more tedious, but it is much better to have one init function than to have to duplicate initialization code in multiple different functions. Here's an example:
+class Test:
+    def __init__(self):
+        self.foo = None
+        print "__init__"
+
+    def foo(self):
+        print "foo"
+
+If you really wanted to, you could even put foo = None in the constructor. But it's a bit tedious.
+
+<|endoftext|>Kosmos 3029
+
+Kosmos 3029
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+def page():
+    return 1
+
+def main():
+    a = 1
+    b = 42
+    global a, b
+    a = a * b
+
+    while True:
+        global a, b
+
+        global a, b
+        a = a * b
+        b = answer()
+        page()
+
+if __name__ == '__main__':
+    main()
+
+I don't know if it makes any difference that this is running from an Anaconda Navigator virtualenv and not the Python console but I tested it on both.
+As you can see, the function a, b, and page change twice. Can anyone explain this behavior? It makes no sense to me.
+
+A:
+
+This isn't a "bug" per se, it's exactly how local variables work. Your global variables are only "global" inside the while loop:
+    while True:
+        global a, b
+       ...
+
+so if you're outside the loop, you see the changes reflected in those variables. If you don't want that, use nonlocal variables instead of globals.
+def main():
+    a = 1
+    b = 42
+    nonlocal a, b
+
+    while True:
+        a = a * b
+        b = answer()
+        page()
+
+A:
+
+When you run your program in the interpreter, it invokes the function main at the start of the function call. You can see that you are, in fact, invoking that function because the bottom of main has a call to it. So, the interpreter is calling main, and so we reach the while True loop, which defines a and b as globals. We then go into the function main, which defines a and b in the local scope.
+This all makes sense. It's just that, when you run main from the interpreter, the function is called before the code inside main actually gets executed. When you run your program with the.py extension,
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+m = CountingMcDonalds(n=15, k=2, answer=answer)
+
+m.run()
+
+<|endoftext|>Q:
+
+How to build command line arguments in java
+
+My goal is to take 3 arguments and divide by 2 and print the result.
+My problem is how do I parse the command line arguments to my program?
+I need to be able to take the first arg, the second arg and the third arg and divide them and display the result on the next line.
+Here is my code so far:
+import java.io.IOException;
+import java.util.*;
+import javax.swing.*;
+public class Math3 {
+
+    public static void main(String[] args) throws IOException{
+        Scanner input = new Scanner(System.in);
+        input.useDelimiter("\\n");
+        System.out.println(args[0]);
+        System.out.println(args[1]);
+        System.out.println(args[2]);
+                            //Numerator
+        int numerator = 0;
+        System.out.print(numerator + "1");
+        int factor = 1;
+        int rem = 0;
+                            //denominator
+        int denominator = 0;
+                            //divide
+        int temp = numerator;
+        int division = 0;
+        int output = 0;
+
+        while(factor == 1){
+            int t1 = factor;
+        
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+You can then use this function in any of your functions in another module, such as "mylib.py":
+from functools import partial
+from random import randint
+from time import sleep
+
+my_functions.answer = answer
+
+def thing1():
+    answer = my_functions.answer()
+    print answer
+
+def thing2():
+    answer = my_functions.answer()
+    print answer
+
+Now you can just import the module that contains my_functions into another module, like:
+from mylib import my_functions
+
+def thing3():
+    answer = my_functions.answer()
+    print answer
+
+or you can use it globally by importing it first, like:
+from mylib import my_functions
+
+from random import randint
+
+def thing4():
+    answer = my_functions.answer()
+    print answer
+
+Now the answer function exists globally.
+However, just because this works does not mean it is a good idea. The whole point of my_functions.answer = answer was to make it convenient to use from random import randint in the my_functions module and to use it to get the answer at any point in time, for a limited number of functions in the mylib module. You shouldn't do it this way if you have other code that wants to use the answer function, because you are, again, breaking encapsulation, making your whole program less maintainable.
+The other reason to not do this is that it can be confusing if you decide to name the answer function something different than the string, and you cannot use function definitions with namespaces in Python (another non-standard way to refer to functions, and an extremely useful way to organize your code).
+
+A:
+
+There's nothing wrong with defining functions inside a function.  It's just, in the case where you're defining a global function, as you are doing here, it's more important to use a decorator instead.  A decorator is simply a function that wraps another function in the decorator's logic before the wrapper is called.  A decorator should be written so that its wrapping logic is as light as possible, which means it should take the least amount of information about the called function.  In the case where
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+And this is how the loop looks like:
+for event in tk.filedialog.askdirectory('Input files', filetypes = (("excel files", ".xlsx"), ("csv files", ".csv")))
+
+The problem is that if i want to use this thing inside of the loop, I cannot get tk.filedialog.askdirectory to be executed first, because it is executed after the for loop. Is there any way around this?
+I know there's the.after command, but I'm looking for a solution using the actual.askdirectory method.
+
+A:
+
+There is an answer to this question, but it is the bad kind.
+If you need to process a set of options in a loop, then it is usually a good idea to make use of the option protocol of tkinter. For example, here is an example of a button that will ask the user to select a file, do something with the file and ask the user to select a new file:
+import tkinter as tk
+from tkinter import filedialog
+
+root = tk.Tk()
+root.option_add("*AppendMode", "immed")
+
+def on_change(evt):
+    file = evt.widget.askopenfilename()
+    txt = "Will be appended to '%s'" % file
+    evt.widget.configure(state="disabled")
+    root.destroy()
+    evt.widget.insert("end", txt)
+    evt.widget.configure(state="normal")
+    root.after(10000, on_change, evt)
+
+f = filedialog.askdirectory(initialdir="/", title="Select file",
+    filetypes=[("Text files", "*.txt")], parent=root)
+btn = tk.Button(root, text="Append to textfile", command=on_change)
+btn.pack()
+
+root.mainloop()
+
+In fact, that is exactly what the tkfilechooser module is designed to do.
+
+<|endoftext|>Microporous polysaccharide-based adsorbents: a review.
+The increased interest in green chemical technologies has motivated researchers to develop functional
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    choice = ""
+
+    for i in range(5):
+        if float(raw_input('Choice'+ str(i) + '\n')) >= 0.5 and float(raw_input('Choice'+ str(i) + '\n')) <= 1:
+            choice += 'True\n'
+        else:
+            choice += 'False\n'
+    return choice
+
+def main():
+    print "Welcome to Life, the Universe, and Everything!"
+    intro = raw_input(INTRO + '\n\n\n')
+    print "You appear to have been born into a life of poverty in a 2-horse town. The townspeople have nothing but contempt for you, a low-life.\n\nThis letter is to inform you of my demise. I left you everything I had, so you could do what you wanted with it. I assume that, given your lack of education, you will go on to become a success and maybe the savior of mankind.\n\nTake care of yourself,\n -Your loving Uncle Phil"
+    phillip = raw_input(INTRO + '\n\n\n')
+    phillip = strip_spaces(phillip)
+    if len(phillip) < len(INTRO) - 1:
+        phillip += '\n'
+
+    while True:
+        print "Are you ready to start life, the universe, and everything?"
+        ready = raw_input('yes/no\n')
+        ready = strip_spaces(ready)
+        if ready == 'yes':
+            answer()
+        else:
+            main()
+
+A:
+
+You are correct in your suspicion: your while True: loop breaks at the moment main() is called, and you do not know
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    print(101 + 102 + 103 + 104)
+
+Finally, on the interpreter command line we can run our program to display the answer:
+>>> import code
+>>> exec(code.compile("""answer()""").exec)
+101 + 102 + 103 + 104
+
+Here we are accessing the __name__ attribute of the module we compiled; this is the magic we use to convert this compiled function into a.py file.
+However, when we import the file into the interpreter, the __name__ is no longer set to the module name, but instead to the function name.
+# Note, __name__ has been redefined here in answer()
+>>> import code
+>>> exec(code.compile("""answer()""").exec)
+101 + 102 + 103 + 104
+
+Hence the need to reference the name using answer().__name__.
+>>> import code
+>>> exec(code.compile("""answer.__name__()""").exec)
+101 + 102 + 103 + 104
+
+<|endoftext|>Jerry,
+
+You are aware that Dave Delainey is scheduled to be the keynote speaker at 
+Dine at Enron on October 15th?  I was approached a couple of weeks ago by 
+the DIN meeting committee, whose objectives are to plan and conduct such an 
+event.  The Committee is being chaired by Marilyn Martin, who I believe is an 
+attendee of Dave's.  The Committee is looking for Dave to fly into Houston, 
+to speak at the event, and to participate in an after dinner 
+(NetWorks-related) "invitation only" event at Enron's river walk facility, 
+where senior execs can interact with Dave.
+
+The meeting itself is scheduled for 8:00 am to 11:30 am on October 15th, 
+with the restaurant dining to begin at approximately 5:30 pm.  There will be 
+approximately 400 executives in attendance.  I have just learned of this 
+proposed "invitation only" event scheduled for after the meal.
+
+I understand that the primary motivation for this "invitation only" event is 
+to help position Dave and Enron as a beneficiary of the NetWorks project.  
+But given the objective, I think it is important to advise you, as I know 
+this is causing Dave some concern.
+
+Please call when you can.
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+
+# CONSTANT DEFINE FUNCTIONS
+# (a good rule of thumb to have this kind of thing defined in a separate
+#  module is that it's a non-trivial piece of business logic, or "helper"
+#  code)
+
+# Constant 0-argument functions
+"""DOC STRINGS HERE"
+...
+"""
+def _call_noargs(f, x=None):
+    '''DOC STRINGS HERE'
+    Calls f(x) and returns its result.
+    '''
+    return f(x)
+
+def _call_withargs(f, a1=None, a2=None):
+    '''DOC STRINGS HERE'
+    Calls f(a1, a2) and returns its result.
+    '''
+    return f(a1, a2)
+
+def _class_instance(cls):
+    """DOC STRINGS HERE"""
+    return cls()
+
+def _func_code(func):
+    """DOC STRINGS HERE"""
+    return func.__code__
+
+def _call_function(f):
+    """DOC STRINGS HERE"""
+    return f()
+
+def _call_method(cls, f):
+    """DOC STRINGS HERE"""
+    cls.__dict__[f.__name__] = f
+    return f.__call__()
+
+def _call_method_noargs(cls, f):
+    """DOC STRINGS HERE"""
+    cls.__dict__[f.__name__] = f
+    return f()
+
+def _call_method_withargs(cls, a1=None, a2=None, f):
+    """DOC STRINGS HERE"""
+    cls.__dict__[f.__name__] = f
+    return f(a1, a2)
+
+# Constant 1-argument functions
+def _call_1arg(f, a1=None):
+    """DOC STRINGS HERE"""
+    return f(a1)
+
+def _
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+print(greeting('Jeffrey Yang'))
+print(answer())
+
+Output:
+Prints 'Jeffrey Yang'.  
+Returning 42.
+
+I can see how it's that (42) does it. It's because the initial print is going to run, then answer() is going to run, and it gets printed by the second print.
+
+But what about the other case?
+The = 42 line.
+Say I had:
+greeting = 'Hello,'+ name
+
+And I run print(greeting('Jeffrey Yang')) where the name is in quotes, i.e. 'Jeffrey Yang'. 
+Output:
+Hello, 'Jeffrey Yang'
+
+Expected:  
+Hello, Jeffrey Yang  
+
+I understand why this is happening, but what I want to know is, how does print() know whether to get the quote or the name from the function and pass it to the line?
+
+A:
+
+After seeing,
+name = raw_input("What's your name? ")
+
+print 'Hello,'+ name
+
+You were expecting
+print 'Hello, Jeffrey Yang'
+
+But the actual output will be
+print 'Hello,'+ name
+
+So to answer your question
+
+But what about the other case?
+
+In that case, you can have a look at inspect module.
+for the above in the main method :
+greeting = 'Hello,'+ name
+
+print(inspect.getdoc(greeting))
+
+Output will be
+print(
+    'Hello,'+ name
+)
+
+So it would be
+print 'Hello,'+ name
+
+For your statement :
+print greeting('Jeffrey Yang')
+
+Output :
+    print(greeting('Jeffrey Yang'))
+
+Also if you have this in __init__
+
+'''
+greeting = 'Hello,'+ name
+
+print(greeting('Jeffrey Yang'))
+
+Output:
+     print(greeting('Jeffrey Yang'))
+
+In __init__
+print(greeting('Jeffrey Yang'))
+
+Output:
+Hello, Jeffrey Yang
+'''
+
+<|endoftext|>Dagliggarer av de ferske drakter
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+Note: while this is a global, it should not be considered as such, because all the other methods in the object will access the variable directly.  And it's not something like a built-in object or module, because we need to remember to import it.
+If you want to be able to create global variables using with statements, or return the value of a built-in function, you can use __name__ to check if it's a built-in:
+from builtins import __name__
+
+class Test:
+    def __init__(self):
+        if __name__ == 'builtins':
+            self.answer = answer()
+            return self.answer
+
+    def get_answer(self):
+        return self.answer
+
+And use it like this:
+t = Test()
+print t.get_answer()
+
+Note: not all modules are treated as builtins, in which case your check will fail, or if you aren't able to import a module from a different package.  See this question for details.
+Of course, you could use the __import__ function to find the module to create it in:
+import globals
+from globals import answer
+
+class Test:
+    def __init__(self):
+        if __name__ == '__main__':
+            self.answer = answer()
+            return self.answer
+
+    def get_answer(self):
+        return self.answer
+
+And then use:
+import globals
+print globals.answer
+
+<|endoftext|>/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+
+    answer = '42'
+    num = float(input('Write your number: '))
+
+    while num!= answer:
+        print('Answer is not correct. Please try again!')
+        num = float(input('Write your number: '))
+
+life()
+
+When I try to run the code it doesn't go to the life() function. I'm not sure why it is. Any help?
+
+A:
+
+Because the life() function only gets called once, it is never finished. There are two ways to do this.
+First, you can make life() return something, and it can be called from another function as a continuation.
+import sys
+
+def life():
+    while True:
+        print('Answer is not correct. Please try again!')
+        answer = int(input('Write your number: '))
+        print('Your number is: ', answer)
+        return answer
+
+def answer():
+    """Return the answer to life, the universe, and everything"""
+
+    answer = life()
+    num = float(input('Write your number: '))
+
+    while num!= answer:
+        print('Answer is not correct. Please try again!')
+        num = float(input('Write your number: '))
+
+answer()
+
+Second, you can use while True:, to run forever.
+import sys
+
+def life():
+    while True:
+        print('Answer is not correct. Please try again!')
+        answer = int(input('Write your number: '))
+        print('Your number is: ', answer)
+        return answer
+
+def answer():
+    """Return the answer to life, the universe, and everything"""
+
+    answer = life()
+    num = float(input('Write your number: '))
+
+    while num!= answer:
+        print('Answer is not correct. Please try again!')
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    # - Thank You!
+    # - Maybe we can continue in the answer() method - keep in mind that it should receive any value that is returned from the step() method...
+    return getAnswer()
+
+<|endoftext|>Unfinished adventures
+
+I mentioned the other day that i was working on a blog post, and now i finally have a draft ready to submit. My plan was to make a new post with this one, and for people to have it here as soon as it is published on my personal blog. It’s not ready quite yet though.
+
+There’s been a lot of progress on Volume 3 in the last few weeks. There are a number of cool new additions and features to the interface. So much so that I was feeling like I should probably make a post to go along with this one.
+
+Once i finish this edit and submit the post, i will post that here so people can follow along with my progress and get an idea of how it’s shaping up, and what the end result should look like.
+
+If all goes well, i might even manage to finish the rest of it before i go into my week of 4 day surgery. We’ll see if i can make it happen.
+
+I also want to note, that this last week has been a bit of an accident for me. I said in my previous post, that i was spending the week editing some books for my library. Instead of spending the week in that space i decided to just spend some time exploring the computers around me. So, if the lack of updates has been unsettling, know that i was not here…at least not as much as i might have been if i had chosen to do what i said i was going to do.<|endoftext|>The Memphis Tigers (15-14, 5-8 SEC) knocked off the unbeaten No. 3 LSU Tigers (27-2, 13-1)
+last night 54-35 in front of a sold out Memorial Coliseum. With
+one more win the Tigers will become the nation's No. 1
+ranked team. LSU came in to the game boasting an SEC-best
+overall scoring offense averaging over 75 points per game.
+
+Memphis scored first early in the game, as senior Greg
+Allen drove down the field and then fumbled the ball at
+LSU's 1-yard line. The Tigers recovered and subsequently
+gained possession of the ball at the 11-
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return '42'
+
+def main():
+    my_dict = {}
+    for i in range(2):
+        if i in my_dict:
+            my_dict[i] = my_dict[i] * i
+    return my_dict
+
+If you haven't checked them out, you should. The thing that you just saw for fun in this chapter is the def keyword. Instead of explicitly writing a function definition, like this:
+
+my_dict = {}
+def func(item):
+    return (item + 1)
+my_dict[1] = func(1)
+
+you can have Python dynamically generate a function definition for you. You can define a function in a string, too, but in this book, I want to make things as readable as possible, so I'll use the def keyword to explain things like these.
+
+### **My Favorite Operators**
+
+Operator precedence is how Python determines the precedence of various operations. Precedence refers to the order in which operators and/or functions are evaluated.
+
+Let's take a look at how precedence is determined and how to put parentheses in your expressions to get the expected results. In Figure 2-5, the single-line display looks like the following:
+
+**Figure 2-5** The order in which Python evaluates its operands
+
+In Figure 2-6, you can see the result of the same operations:
+
+**Figure 2-6** The order in which Python evaluates its operands with parentheses
+
+You can see how parentheses help Python evaluate the operation, but also how these parentheses can result in undesirable results if you don't use them. Let's examine some examples. Figure 2-7 shows two simple expressions with different precedence:
+
+**Figure 2-7** Expression example with different precedence
+
+Figure 2-8 shows an example of an expression with different precedence:
+
+**Figure 2-8** Expression with different precedence
+
+And Figure 2-9 shows an example where no parentheses are used:
+
+**Figure 2-9** Expression without parentheses
+
+Finally, Figure 2-10 shows a last example with parentheses that are used correctly:
+
+**Figure 2-10** Correctly used parentheses
+
+You'll see why I say parentheses can cause a lot of headaches in the
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+
+    m = 'i'm an awesome string.'.encode('utf-8')
+    spaces ='                                                       '
+    return int(m[:8]) + (spaces + int(m[8:]))
+
+Кодировка должна быть utf-8, потому что в данном примере отвечает на вопрос "Для чего?"
+
+A:
+
+Судя по ответу этого вопроса:
+import codecs
+
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    import sys
+    encoding = sys.stdin.encoding
+    sys.stdout.encoding = 'utf-8'
+    return codecs.decode(codecs.encode(sys.stdin.read(), encoding), sys.stdout.encoding,'replace')
+
+получается:
+$ python test.py
+o3VJdM4o59E4qkvkszfGwGCiEhIeRSEmGhIFMvAK3cEBSMQBsgA3IBIodQCKjJIAEWFgAqAbSQA4jAHagCQ5wBpgHbIVQEBgQJUAowEWyQC5CKgIAkELVQClQC5CKgIAkELElQC5CKgIAkELElQC5CKgIAkELElQC5CKgIAkELElQC5CKgIAkELElQC5CK
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+If you then want to do something to both questions:
+t = int(input())
+if t > 0:
+    answer1()
+else:
+    answer2()
+
+You can use a loop, but the naive way is to do two calls:
+i = 1
+while i <= t:
+    answer(i)
+
+<|endoftext|>� Phys. Lett. B [**717**]{}, 468 (2012) doi:10.1016/j.physletb.2012.01.061 \[arXiv:1205.4772 \[hep-th\]\]. A. R. Cooray, “Euclidean scalar field theory and general relativity on a manifold with boundary,” JHEP [**0401**]{}, 018 (2004) doi:10.1088/1126-6708/2004/01/018 \[hep-th/0307302\].
+
+D. N. Page, “Particle Emission Rates from a Black Hole. 1. Massless Particles from an Uncharged, Nonrotating Hole,” Phys. Rev. D [**13**]{}, 198 (1976). doi:10.1103/PhysRevD.13.198 D. N. Page, “Particle Emission Rates from a Black Hole. 2. Massless Particles from a Rotating, Uncharged Hole,” Phys. Rev. D [**14**]{}, 3260 (1976). doi:10.1103/PhysRevD.14.3260
+
+J. D. Bekenstein, “Novel properties of quasi-stationary, charged, isolated black holes,” Phys. Rev. D [**48**]{}, 3641 (1993) doi:10.1103/PhysRevD.48.3641 \[gr-qc/9211017\].
+
+S. S. Gubser and I. R. Klebanov, “A Universal result on central charges in the presence of double trace deformations,” Nucl. Phys. B [**656**]{}, 23 (2003) doi:10.1016/
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+def call_function():
+    a = 'Hello World!'
+    return a
+
+def calculate(a, b):
+    """This function calculates some value using a and b"""
+    return a + b
+
+def main():
+    """This function contains the main program"""
+    print('I don\'t know your name, but I am going to guess it now')
+    name = input('Enter a name: ')
+    print('Your name is:'+ name)
+    print('I don\'t know how old you are, but I am going to guess it now')
+    age = int(input('Enter a number: '))
+    print('Your age is:'+ str(age))
+    print('Oh you have {} of age to go!').format(age)
+    print('What is the capital of Australia?')
+    capital = input('\nEnter a capital: ')
+    print('Australia\'s capital is:'+ capital)
+
+    try:
+         call_function()
+    except NameError:
+         print("This is a very cool program, but it is only available for "
+               "the Old Way, so you should do it the old way")
+    else:
+         if type(a) == int:
+               a_question = input("What is 2+2?")
+               return a_answer()
+
+         elif type(a) == str:
+               try:
+                       try:
+                               b_question = input("What is 'Howdy ho'?")
+ 
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    
+    return 42
+    
+
+I can also define functions inside if, while, for, try and except blocks. Inside loops, I can define functions, but not elsewhere. If a function raises an exception, it won't stop. 
+
+p>p>1  
+>a=2
+>def fun():
+>       return 3
+>
+>fun()
+>a
+3 
+
+When I redefine the function inside a function definition, it won't do anything:
+
+p>p>1  
+>a=2
+>def fun():
+>       return 3
+>
+>fun()
+>a
+2
+
+A:
+
+There are two ways to define a function. 
+The traditional way is via the function object, e.g.
+def foo():
+    print 'foo'
+
+new_foo = foo # same function object
+
+Another way is to define a function in a local scope using an anonymous function, e.g.
+print 'old style'
+foo = lambda: print('foo')
+foo() # foo
+
+new_foo = foo # a different function object
+
+A:
+
+Local functions, the equivalent of this
+def foo():
+    def bar():
+        print 'bar'
+    bar()
+foo()
+
+def foo():
+    def bar():
+        print 'bar'
+    bar()
+foo()
+
+or
+def foo():
+    def bar():
+        print 'bar'
+    bar()
+foo()
+
+are available by assigning the function to a name (foo in the first, bar in the second), whereas non-local functions, the equivalent of this
+def foo():
+    def bar():
+        print 'bar'
+    bar()
+
+are not, and you're only able to access functions you define inside foo().
+
+A:
+
+Answered here: http://qiita.com/ogra1/items/39cb539b1770f06d11b7
+
+<|endoftext|>Taiwanese People Are Creative, Not Disloyal
+
+April
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return "42"
+
+startup()
+
+for i in range(9, 51, 2):
+    question_placeholder = "Press 'Q' to skip to the next question"
+    print(question_placeholder)
+    q = input(question_placeholder)
+    print(f"{question}: " + _pickle.dumps(answer))
+    print(f"Answer is: {_pickle.loads(answer())}")
+    answer_1 = int(input("Pick a number between 1 and 10: "))
+    answer_2 = input("Pick a number between 1 and 10: ")
+    answer_3 = input("Pick a number between 1 and 10: ")
+    correct = input("Are you correct? (Y or N): ")
+    if correct == answer():
+        print(f"Correct! Congratulations.")
+    else:
+        print(f"Sorry, incorrect.")
+
+This currently results in output such as:
+Press 'Q' to skip to the next question
+Pick a number between 1 and 10: 9
+Are you correct? (Y or N): Y
+Pick a number between 1 and 10: 6
+Pick a number between 1 and 10: 1
+Pick a number between 1 and 10: 1
+Pick a number between 1 and 10: 8
+Pick a number between 1 and 10: 2
+Pick a number between 1 and 10: 7
+Pick a number between 1 and 10: 9
+Pick a number between 1 and 10: 5
+Pick a number between 1 and 10: 4
+Pick a number between 1 and 10: 6
+Pick a number between 1 and 10: 4
+Pick a number between 1 and 10: 9
+Pick a number between 1 and 10: 9
+Correct! Congratulations.
+
+What is the best way to print the output in a way that would look something like this:
+Question
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Answer is: 42
+
+Is it better to do everything in one giant if-else statement?
+
+A:
+
+Just for fun you could do
+from random import *
+
+chosen = ['1', '2',
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+
+    result = input(">>> ")
+    if result.isupper():
+        return 42
+    elif result.isalpha():
+        return 7
+    else:
+        print ("Please enter a string that has only letters, numbers, or "
+               "underscores.")
+        answer()
+
+## x2 = problem x
+## y2 = problem y
+## Answer = y + x = 2*x + 3*y
+# Class definitions for two problems
+class two_problem():
+    def problem(self, x, y):
+        self.x = x
+        self.y = y
+
+### Overriding the self.problem function
+def problem(self, x, y):
+    answer = self.y + self.x
+    return answer
+
+# Test problem 1
+x1 = two_problem()
+y1 = problem(x1, 3)
+print (y1)
+
+### Test problem 2
+x2 = two_problem()
+y2 = problem(x2, 2)
+print (y2)
+
+As I said in the comments, if you don't wish to make the problems class independent, you could just pass them as arguments.
+
+<|endoftext|>The U.S. Department of Energy (DOE) issued a solicitation for the design and construction of an Advanced Test Reactor (ATR) at the Idaho National Laboratory (INL). The ATR will address current unmet needs in the national nuclear technology and will significantly contribute to a future hydrogen economy.
+
+The DOE is soliciting the Energy Innovative Solutions for Resilient Fossil Energy Future (EISREFFF) Projects to provide solutions to enable the decarbonization of the United States’ energy system. Project sponsors will be able to propose a project that could range from small to large, and have the potential to make a lasting impact on addressing one or more of the most significant challenges facing U.S. energy, with the objective of enhancing energy security, ensuring the resilience of our economy, and lowering U.S. emissions of greenhouse gases.
+
+The Electric Power Research Institute (
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    a,b = math.log(1+math.exp(-1))
+    if a+b > 50:
+        return 'No answer'
+    else:
+        return a+b
+
+print(answer())
+
+def reverse(num):
+    """Reverse a list, returning it in reversed order."""
+    if num is None:
+        return None
+    else:
+        if num[0] > 0:
+            temp = []
+            temp.append(num[0])
+            temp.append(num[1])
+            return [reverse(temp), num[2]]
+        else:
+            return num[::-1]
+
+def sort(nums):
+    """Sort a list into descending order"""
+    return reversed(nums)[::-1]
+
+def sum(nums):
+    """Sum an iterable of integers."""
+    return sum(nums)
+
+def main():
+    """Create an empty file."""
+    file = open('output.txt', 'w')
+    file.write('\n')
+
+    inputFile = open('input.txt', 'r')
+
+    numbers = list(inputFile)
+    print(numbers)
+
+    # save the current contents of output to variables a and b
+    a = open('a.txt', 'w')
+    b = open('b.txt', 'w')
+
+    # put the current values of a and b into variables 
+    numbers.append(a)
+    numbers.append(b)
+
+    answer = sum(numbers)
+
+    print(sum(answer))
+
+    if answer == 42:
+        print(sum(numbers))
+ 
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+if __name__ == "__main__":
+    # Excercise and challenge
+    # Note: False is the answer to all challenges
+    # return True if the challenge is solvable
+    # return False otherwise
+    # -> check the input of this program
+    if args.__name__ == "command line arguments":
+        if args.is_life_universe_everything:
+            return True
+        elif args.is_life_universe_everything!= False:
+            return True
+        else:
+            return False
+    elif args.answer:
+        if args.answer == answer():
+            return True
+        else:
+            return False
+    else:
+        print("Usage: python solve_life_universe_everything.py <answer>"
+              " <answer is required")
+<|endoftext|>Ade Kale
+
+Ade Kale is a Nigerian-British actress and model of Ethiopian and Nigerian descent. She was formerly a high-ranking member of the Yoruba organized crime syndicate.
+
+Personal life
+Kale was born and raised in West London to Ethiopian and Nigerian parents. She attended Pimlico School in London. She has said that her ancestors were enslaved in Lagos by a chieftain and brought to London. In 2005, Kale was arrested and charged with trafficking more than one pound worth of drugs, stolen Rolex watches and mobile phones. She was given community service for minor offences such as these, and also due to her appearance in the 2005 music video for "The Olodumare Experience" by the Afro-dubstep group Stomp the Yard, she received a sentence of three years in jail. Kale was released on appeal and was a model in the music video for "Akada", which was released in May 2007.
+
+In the October 2013 BBC programme
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    return 42
+
+try:
+    next(my_range)
+except StopIteration:
+    print("Yup, that's it, we're done.")
+
+and you are guaranteed that it will print "Yup, that's it, we're done."
+
+<|endoftext|>Kinetics of the oxidation of dichlorvos by permanganate in aqueous media.
+The kinetics of the reaction of dichlorvos (O,O-dimethyl-O-(2,4-dichlorophenyl) phosphorothioate) with permanganate (MnO4-) was investigated in acidic, alkaline, and neutral aqueous media. The pseudo-first-order rate constants for the reaction in aqueous media were found to increase with pH and were reasonably well described by a quadratic polynomial function of the pH. The rates of reaction in H2O at 25 degrees C decrease in the order of 0.29 < or = k2 < or = 0.41 M(-1) s(-1) for Cl2; 0.14 < or = k2 < or = 0.23 M(-1) s(-1) for (O,O-diethyl-O-methyl phosphorothioate); and 0.28 < or = k2 < or = 0.33 M(-1) s(-1) for (O,O-dipropyl-O-methyl phosphorothioate). The reaction of MnO4- with dichlorvos was found to be dependent on the anion concentration (which, for H2O and Na2SO4, ranged from 0.3 to 4 M) and was not modified by the addition of ClO4- or NO3-. The formation of permanganate radicals (MnO4-) has been shown by EPR spectrometry. From these results, it is inferred that the initial step of the reaction of permanganate with dichlorvos in aqueous media involves the rapid oxidation of the P=S group of dichlorvos to form (O,O-diethyl-O-methyl phosphorothioate)2-, which is stabilized by a high-spin d8 electron configuration, and subsequently a Mn(IV)-oxo species is formed, which is reduced to the corresponding Mn(III)-oxo species, reacting with another dichlorvos
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    # Note: on Python 2.6, buildozer -d ninja build tries to run pip install -r requirements.txt
+    with open("requirements.txt", "r") as f:
+        lines = f.read().split('\n')
+    for line in lines:
+        if line.find("django") >= 0:
+            return "1"
+    return "0"
+
+def get_profile(self):
+    """Get the profile"""
+    return self.xml_parser.xpath('//setup/profile/files/folder')[0]
+
+# File globbing filter (backwards compat)
+FILES_FILTER = self.config.get('json:files_glob_filter', None)
+
+# HTTP context stuff
+def build(self, target, source, patterns=[]):
+    """Build the target, checking if it's up-to-date and not obsoleted by a newer
+    version of source.
+
+    Args:
+      target:           The target buildozer will try to fetch from
+      source:           The buildozer project source to download
+      patterns:         List of sources to rebuild or update.
+    """
+    buildozer_versions = [build.version for build in self.package.get('versions')]
+    for pattern in patterns:
+        build_with = None
+        url = None
+        for build in self.package.get('builds', []):
+            if pattern in self.package.get('source_patterns', []):
+                # Patterns match.
+                url = self.package.get('source_urls', [self.package.get('main_url')
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    global timer
+    if timer:
+        return "No"
+    time.sleep(1)
+    timer = 1
+    print(f"It is {timer}")
+    return "Yes"
+
+life = Life()
+print("How big do you want to get?")
+userInput = input("Type a number (this includes the integer and 'end')")
+if "end" in userInput:
+    timer = 0
+    life.answer()
+else:
+    life.get_bigger()
+print(life.answer())
+
+If you are asking about some functions I have only implemented two in the last couple days.
+
+<|endoftext|>Q:
+
+Output capture and writing to file
+
+I am trying to write to a file using output capture (output capture is mentioned below). I want to capture the execution time of my code but for some reason the execution time is less than what I have. The goal of my code is to write to a text file. 
+Below are the details of the execution time of the code :
+
+The code can execute 10k times, the execution time should be around 1 sec.
+the code always write a new line in the file.
+
+below is my code:
+var startTime = DateTime.Now.TimeOfDay;
+var result = "Some text1\n";
+for (int i = 0; i < 10_000; i++)
+{
+    // Some Code
+    result = "Some text2\n";
+    var endTime = DateTime.Now.TimeOfDay;
+    // Check if the Execution time 
+    // is >=1 sec
+    // If true, write to a file
+    if (endTime.TimeOfDay > startTime.TimeOfDay - TimeSpan.FromSeconds(1))
+    {
+        var outStream = File.CreateText(@"C:\t.txt");
+        var sw = new StreamWriter(outStream);
+        sw.WriteLine(result);
+        sw.Close();
+    }
+}
+
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    number = input('Enter your number here: ')
+    # ask user if he has entered a number
+    while True:
+        try:
+            number = int(number)
+        except ValueError:
+            print('Please enter a number.')
+        else:
+            break
+
+    # ask user if he wants to continue
+    while True:
+        print('Please answer Yes or No: ')
+        answer = input('[Y/N] ')
+        if answer.lower() not in ['yes', 'no']:
+            print('Please answer Yes or No.')
+        else:
+            break
+
+    # if user does not want to answer then answer will be yes
+    if answer.lower() == 'n':
+        return False
+    else:
+        return True
+
+    # if answer is yes then break
+    if answer == 'yes':
+        break
+
+# ask user if he wants to calculate the answer
+print('Would you like to calculate the answer? ')
+answer = input('[Y/N] ')
+
+# answer is yes so we know the program should continue
+while answer.lower() == 'y':
+    # if he enters y then the answer will be based on 1 + 2 = 3 
+    # so calculate and print the answer
+    if answer == 'y':
+        # ask user for the numbers
+        x = input('Enter your first number here: ')
+        y = input('Enter your second number here: ')
+        # sum x and y
+        answer = x + y
+  
+====================
+def answer():
+    """Return the answer to life, the universe, and everything"""
+    print('Well, of course!')
+
+def explanation():
+    """Prints out some explanation about how the code works."""
+    print('a prime number is any number that is only divisible by itself and one')
+    print('divisors are prime numbers less than the original number.  As an example,')
+    print('41 has 2 as a divisor, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,')
+    print('47, 53, 59, etc, etc, but 41 is not a prime number because it has')
+    print('a divisor of itself (2) and a prime number (41).')
+    print('the number in the parentheses represents the input and you can enter any')
+    print('number in the input box to test it.  Your program should tell you when')
+    print('a prime number has been found and display the result on the next line.')
+
+answer = input("Would you like to enter a number? [Y/N] ").upper()
+if answer in ('Y','YES','YESES'):
+    test = int(input("Enter a number:"))
+    if test % 2 == 0 and test < 20:
+        prime = True
+    else:
+        prime = False
+    if prime:
+        explanation()
+        print('The number you entered is a prime number.')
+    else:
+        print('That number is not a prime number.')
+
+A:
+
+You need to ask your users to repeat "Would you like to enter a number?" - and check the result of the second input and act accordingly.
+Additionally, as your code is currently written you will ignore every other case except one, hence you can simplify the prime check by using a for loop:
+answer = input("Would you like to enter a number? [Y/N] ").upper()
+if answer in ('Y','YES','YESES'):
+    test = int(input("Enter a number:"))
+   
+====================

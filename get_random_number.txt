@@ -1,0 +1,2070 @@
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    number = randint(1, 10)
+    return number
+
+# Write some data to a CSV file
+with open("mydata.csv", "wb") as csvfile:
+    fieldnames = ["Location", "Airport Name", "City Name", "Time", "Passengers", "Min Temp", "Avg Temp", "Max Temp"]
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+    # Iterate through data and write to file
+    for data in mydata:
+        print "Processing item", data
+        try:
+            location = data["Location"]
+            airport_name = data["Airport Name"]
+            city_name = data["City Name"]
+            airport_city = data["Airport Location"]
+            time = data["Time"]
+            passengers = data["Passengers"]
+            temp = data["Min Temp"]
+            temp_avg = data["Avg Temp"]
+            temp_max = data["Max Temp"]
+            # Calculate some random statistics
+            number = get_random_number()
+            average = float(temp_avg) / float(number)
+            lower_average = float(temp) / float(number)
+            upper_average = float(temp_max) / float(number)
+            print "Writing item", data
+            writer.writerow({
+                'Location': location,
+   
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    if not os.name == 'posix':
+        raise ValueError("posix-only method, you should be able to "
+                         "install it via setuptools, e.g. pip install "
+                         "pkg_resources")
+    import random
+
+    if not _config:
+        return random.randint(0, 1000000)
+
+    if _config.rand:
+        r = _config.rand()
+    else:
+        r = random.SystemRandom()
+
+    return r.randint(0, _config.rand)
+<|endoftext|>function plotCombination(num.sites, num.min.products, num.products, num.iterations)
+
+% combine the sites into a single graph (minus an image)
+num.sites = length(num.sites);
+if isempty(num.sites)
+    % all sites on the same page
+    k = 1;
+    gca().uisz = -1;
+    figure(k)
+    
+    num.sites = 1;
+    num.current = 1;
+    num.starting = 0;
+    num.savepath = fullfile(tempdir, ['combination_combined_sites_' num.iterations '.pdf']);
+else
+    % spread across several pages
+    k = 0;
+    figure(k)
+    
+    num.current = num.sites;
+    num.starting = num.iterations;
+    num.savepath = fullfile(tempdir, ['combination_combined_sites_' num.starting '.pdf']);
+end
+% clear the current axes
+axis([-1 1 -1 1]);
+axis off;
+xlabel('x-direction distance (m)');
+ylabel('y-direction distance (m)');
+title
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    randint(0, sys.maxint)
+
+A:
+
+from random import random
+random_number = random()
+
+<|endoftext|>SA may have set a precedent that the PSA will not use torture. Last year, Amnesty International received correspondence from the Public Security Administration of Guandong Province (PSAG) regarding the case of Liu Xia, a human rights defender who had been a personal friend of one of the SAC’s founders, Zhang Qingli. According to the correspondence, Ms. Liu Xia had been held for more than 20 months in solitary confinement in a Chinese prison, on the basis of an “incriminating confession” she allegedly gave. The confession, in fact, was made as a result of torture, to which Ms. Liu Xia had been subjected. The correspondence further noted that the confession had been made under extremely harsh conditions, including high levels of noise and a complete lack of human contact. It also quoted a torture victim, who described being slapped with an electric baton in a Beijing prison, and being beaten with truncheons until he lost consciousness. Amnesty International is seeking legal action against SAC and the PSAG.<|endoftext|>Electrophysiology-guided ablation of ventricular tachycardia originating from the right side of the interventricular septum.
+We present an unusual case of ventricular tachycardia (VT) originating from the right side of the interventricular septum which was electrophysiology (EP) guided. A 53-year-old man with diabetes, hypertension and left ventricular hypertrophy presented with short runs of monomorphic VT and was refractory to antiarrhythmic medications. EP-guided radiofrequency ablation was performed at the right ventricular endocardium between the free wall of the tricuspid valve and the coronary sinus. The earliest electrogram obtained from the low right ventricular septum was successfully eliminated. Post-ablation VT was no longer observed, and the patient remains free of ventricular arrhythmias with no antiarrhythmic medications for 2 years.<|endoftext|>Best Tablets Available in India
+
+2017, the year of cyber threats is upon us. In this cyber age, everybody is a potential cybercriminal. Everybody, but specially IT professionals. While a majority of cybercrimes occur through an infected computer or an unpatched PC, it is important to be cyber prepared. Besides, it is also important to
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1, 10)
+
+if __name__ == "__main__":
+    main()
+
+In this code, if you want, you can set seed, size, and min, max.
+
+<|endoftext|>By submitting this form, I agree to Third Eye's privacy policy.
+
+For use of ThirdEye store, the application is subject to the ThirdEye policies. You may cancel your registration at any time. If you cancel your registration, you are not refunded.
+
+Terms and conditions
+
+a. ThirdEye:
+
+ThirdEye and its successors, assigns, and licensees, will provide services including, but not limited to, collection, management and processing of payment and/or contributions, of tax and other governmental monies, to accept for delivery to you, in accordance with laws, statutes, regulations, policies, and the rules, regulations, and standards of the Internal Revenue Service and other federal, state, and local authorities. ThirdEye, its successors, assigns, and licensees, will bill you for, collect, manage and/or process all fees, contributions and other monies and will allocate, manage, distribute and/or hold same in trust for you or others pursuant to statutes, regulations, policies, rules, and the laws of the Internal Revenue Service and other federal, state, and local authorities and as requested by you and/or others. ThirdEye may not take collections in person and may not collect contributions in person.
+
+b. Obligations:
+
+ThirdEye may provide goods or services to you and may bill you. ThirdEye, its successors, assigns, and licensees, will bill you for goods and services and will collect and remit such taxes and/or contributions. ThirdEye and its successors, assigns, and licensees, will remit all such payments to you on the day that ThirdEye receives such amounts from you and/or from others. ThirdEye, its successors, assigns, and licensees, may refuse to provide goods and services to you, bill you for the same, or cease all collections and/or remittance of any payments to you, at any time, for any reason, including, but not limited to: (1) breach of this agreement; (2) any agreement or arrangement with you; and (3) any possible legal requirement to pay tax and/or contributions. ThirdEye may deny services to you or others without notice for any reason, including
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    # Our C library doesn't provide a way to generate a truly random number
+    # so we'll go the slow route and generate a million random numbers.
+    # If we don't have a million numbers, we'll just pick one.
+    return _to_s_null(struct.pack('B', randrange(0, 1.0 * math.pow(2, 8))))
+
+get_random_number_for_table()
+
+A:
+
+No need to subclass anything, just create a function. Here's a simple script that works for me (Python 2.7.3 on CentOS 6):
+#!/usr/bin/env python
+
+def get_random_string(length):
+    """Generates a random string of a given length"""
+    letters = string.ascii_letters + string.digits
+    return ''.join(random.choice(letters) for _ in xrange(length))
+
+print get_random_string(4)
+
+<|endoftext|>Q:
+
+Should I encrypt the message in AES mode or use cipher directly?
+
+I am not sure if it is an appropriate question, but I don't know why I ask it.
+If I want to encrypt messages, I can use AES mode, I know it is more secure than ECB mode, but is it more secure than use cipher directly without any mode of operation?
+Also can I encrypt different message with the same key, I can encrypt different messages with the same key in ECB, but it may create some messages that will not be encrypted? 
+
+A:
+
+As the comments have correctly pointed out: There is no secure symmetric-key encryption scheme that can encrypt arbitrary messages.
+If you use AES in ECB mode or, in more modern symmetric-key cryptosystems, AES-GCM mode, the message must be padded (preferably with an arbitrary padding scheme, such as PKCS#7 padding, that allows you to distinguish arbitrary padding (like all padding schemes that have an explicit message size in bytes) from random padding, which often occurs during padding-free encryption, to make it explicit that no padding was used.
+You mention that you're encrypting for confidentiality purposes: If so, it's entirely unnecessary to use an "authenticated encryption mode". In most modern cryptosystems, you should use
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1, 10)
+
+def get_sample(n, L=100):
+    """
+    Generates a random list of n numbers
+    """
+    numbers = [get_random_number() for i in range(L)]
+    return numbers
+
+run_test(numbers, get_sample)
+
+A:
+
+One big issue you have is that you have a list comprehension inside a function (get_sample), which means the function is only ever called once. It is much easier to use a generator comprehension, i.e. [get_random_number() for x in get_random_number()]  instead of [get_random_number() for i in range(L)].
+
+<|endoftext|>A collision between a private vehicle and a Japanese train was caught on camera today, showing the tragic aftermath of a driver being killed by the train. The collision occurred at the Sakurano Hachikō exit of Tokyo's Higashi-Nippori Station.
+
+Tokyo - January 16, 2019: A photo shows a train and a car involved in a collision at the Sakurano Hachikō exit of Tokyo's Higashi-Nippori Station. (Photo: RuraidoShine/Pixabay)
+
+A 29-year-old man driving a car was killed after colliding with a train at the exit of Higashi-Nippori Station in Tokyo today. The incident was recorded on a nearby security camera.
+
+In the footage, the train is seen running through the station's main exit and the front of the vehicle is smashed into a bend of the railway line at the Sakurano Hachikō exit. The car's driver can be seen bleeding from the head.
+
+The train was on its way to Tokyo Shinkansen Station at the time of the collision, according to TV Asahi.
+
+The man was transported to a hospital where he succumbed to his injuries.
+
+(Cover image: RuraidoShine/Pixabay)
+
+--IANS
+
+dc/wb
+
+Disclaimer :- This story has not been edited by Outlook staff and is auto-generated from news agency feeds. Source: IANS<|endoftext|>Edit Article Wiki
+
+Chapter 1 - Get Started with BlackBerry PlayBook
+
+BlackBerry PlayBook Edition 1.1
+
+Chapter
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    number = hashlib.sha1(b'').hexdigest()[:6]
+    number += (random.randint(1, 3628) * math.pow(256, (6 - len(number)))).to_bytes(8, 'little')
+    return number
+
+def f(*args, **kwargs):
+    """Generator factory function"""
+    return function(*args, **kwargs)
+
+def reverse(lst):
+    """
+    return list of reversed elements of lst
+    :param lst: iterable of items
+    :return: list of reversed elements
+    """
+    return reversed(lst)
+
+def union(*iterables):
+    """union items from the iterables in order"""
+    return sorted(set.union(*iterables), key=len)
+
+def combine(*iterables):
+    """concatenate list of strings or objects with separator and return a string"""
+    separator = '\n' if isinstance(iterables[0], list) else ''
+    output = ''
+    for i, item in enumerate(list(chain(iterables[0], *iterables[1:]))):
+        output += separator + str(item)
+    return output
+
+def sort_key(sorted_list, list_key):
+    """
+    Sort items of a list according to a key and return a new list.
+    :param sorted_list: list of items
+    :param list_key: key to use to sort the items
+    :return: sorted list
+    """
+    return sorted(list_key(sorted_list), key=list_key, reverse=True)
+
+def combine_sorted_list(sorted_list, list_key):
+    """
+    Concatenate items of a list with a specific separator (end) and return a list.
+    :param sorted_list: list of items
+    :param list_key: key to use to sort the items
+
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1, 100)
+
+class MainApp():
+    def __init__(self):
+        """Initialize the app"""
+        self.timer = time.clock()
+
+        # build our canvas
+        app_size = get_random_number()
+        app_size *= app_size
+        app_size *= app_size
+        canvas = Canvas(app_size, app_size)
+        canvas.pack()
+
+        # main loop
+        self.timer_ref = self.timer
+
+        while True:
+            # wait for user input
+            try:
+                event = wait_for_user_input(canvas)
+            except:
+                pass
+
+            # repeat while user wants to wait
+            while not event.type == Key.QUIT:
+                # update the display
+                try:
+                    update_display(canvas, event)
+                except:
+                    print('Exiting due to exception')
+                    break
+
+            # update timer
+            self.timer -= self.timer_ref
+
+            # schedule
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    seed = random.randint(0, 1<<48)
+    return _slow_gcd(seed) % 2**63
+
+def generate_pubkeys(n, guess, p):
+    """Generate public keys"""
+    # check that they are indeed public
+    pub_keys = gen_pubkeys(n, p)
+    while 1:
+        pub_key = get_random_number()
+        for i in range(0, n):
+            if guess[i]!= pub_keys[i]:
+                break
+        if i == n:
+            break
+        pub_keys[i] = pub_key
+
+    return pub_keys
+
+def check_bit(guess, key):
+    """Check if key is in correct order"""
+    pub_keys = gen_pubkeys(len(guess), key)
+    for i in range(0, len(guess)):
+        if guess[i]!= pub_keys[i]:
+            return False
+    return True
+
+def guess_locus(guess, key):
+    """Guess the order of a curve"""
+    correct_bit_positions = len(guess) - 1
+    new_bit_positions = [0]
+    while 1:
+        for pos in range(correct_bit_positions):
+            pos += pos % 2
+            if key[pos]!= guess[pos]:
+                new_bit_positions.append(pos)
+                return''.join(
+                
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(0, 10)
+
+A:
+
+As discussed in the comments you should use random.choice(list) method.
+If your variable is 1 based then just do:
+number = random.choice(1, 9)
+
+If you have your variable 0 based you need to add 1 to the variable before using it in the function. 
+def get_random_number():
+    number = random.choice([1,2,3,4,5,6,7,8,9])
+    return number + 1
+
+Also as a last note try to avoid global variables.
+
+<|endoftext|>/*
+ * Copyright (c) 2008-2020, Hazelcast, Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.hazelcast.internal.util.atomicops;
+
+import com.hazelcast.test.HazelcastParallelClassRunner;
+import com.hazelcast.test.HazelcastTestSupport;
+import com.hazelcast.test.annotation.ParallelJVMTest;
+import com.hazelcast.test.annotation.QuickTest;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicLong;
+
+@RunWith(HazelcastParallelClassRunner.class)
+@Category({QuickTest.class, ParallelJVMTest.class})
+public class DoubleAccumulatorTest extends HazelcastTestSupport {
+
+    @Test
+    public void incrementAndGet() {
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randrange(10)
+
+def load_csv():
+    """Loads and returns an array with numbers from 0 to 1000"""
+    return np.array([])
+
+def add_to_array(index, value):
+    """Returns a function to add a value to a specified index"""
+    def add_to_array_function(idx):
+        array.append(value)
+        return array
+    return add_to_array_function
+
+def call_index_functions(number):
+    """Calls the given function with a given number"""
+    number = get_random_number()
+    function_to_call = random.choice(get_functions())
+    print(f'Called {function_to_call} with number {number}')
+    function_to_call(number)
+
+def run_functions():
+    """Runs through all the functions in the given list"""
+    number = get_random_number()
+    call_index_functions(number)
+
+def main():
+    load_csv()
+    try:
+        main()
+    except Exception as e:
+        print(f'{e}')
+
+if __name__ == '__main__':
+    main()
+
+That's not exactly a simple solution, but it works. I would much rather be using a library that does this for you. As you can see, I've tried to keep it relatively simple and clean. It requires that I know the number of calls that are needed beforehand (I cannot predict that until I have the random number).
+
+A:
+
+Using itertools.repeat():
+for number in itertools.repeat(10, i=get_random_number()):
+    #...
+
+<|endoftext|>
+ 
+W
+h
+a
+t
+ 
+i
+s
+ 
+t
+h
+e
+ 
+c
+l
+o
+s
+e
+s
+t
+ 
+t
+o
+ 
+1
+ 
+i
+n
+ 
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    rand_float = random.random()
+    rand_float = float(rand_float)
+    if rand_float > 0.9:
+        rand_float = 0
+    else:
+        rand_float = 1
+    return rand_float
+
+
+def get_random_file(length=100):
+    """Returns a random file (e.g. filename + '_' + str(get_random_number()) + '.txt')"""
+    filename = '%s_%s.txt' % (sys.argv[0], get_random_number())
+    filename += '-' * length + '.txt'
+    with open(filename, 'w') as file:
+        file.write(sys.argv[0])
+        file.write(' ')
+        file.write(get_random_number())
+    return filename
+
+
+def download_video_from_url(url, filename=None, res='2K'):
+    """Downloads video from url to local disk"""
+    with urlopen(url) as f:
+        file_contents = f.read()
+        local_filename = get_random_file(len(file_contents))
+        save_to_disk(filename=local_filename, file_contents=file_contents,
+                     res=res)
+
+
+def download_image_from_url(url, filename=None, res='2K'):
+    """Downloads image from url to local disk"""
+    with urlopen(url) as f:
+        file_contents = f.read()
+        local_filename = get_random_file(len(file_contents))
+        save_to_disk(filename=local_filename, file_contents=file_contents,
+ 
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return str(random.randint(0, 10))
+
+def get_normal_number(min_value, max_value, num_layers):
+    """Returns a number between min_value and max_value
+    """
+    layers = np.random.randint(0, num_layers, size=num_layers)
+    val = []
+    for layer in range(len(layers)):
+        val.append(get_random_number())
+    val = np.array(val)
+    val = np.reshape(val, (layers, num_layers))
+    val = np.squeeze(val)
+    val = np.sort(val)
+    if min_value < val[1] and val[1] < max_value:
+        return val
+    else:
+        raise ValueError('random number out of bound')
+
+def get_unique_number(min_value, max_value):
+    """Returns a number guaranteed to be unique"""
+    val = np.arange(min_value, max_value, min_value, dtype=np.float64)
+    val = np.sort(val)
+    num_unique = len(np.unique(val))
+    # unique number is between 0 and val-1
+    val = np.clip(val, 0, num_unique)
+    return val
+
+def get_percent_unique(min_value, max_value):
+    """Returns a percentage of unique number"""
+    val = get_unique_number(min_value, max_value)
+    return int(np.round(float(val) / len(val)))
+
+def create_event(min_time, max_time, min_val, max_val, min_lat, max_lat,
+                  min_lon, max_lon, num_zones, num_paths, min_dir, max_
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    # Use the SecureRandom class if available
+    if random.random() > 0.5:
+        # Otherwise, fall back to using a random number
+        # generator to pick a number in [0,N) where N is a number
+        # of the form 10^n.
+        import numpy as np
+        return np.random.randint(0, 1000)
+    else:
+        # Return a positive integer
+        return 1
+<|endoftext|>Q:
+
+How to retrieve the emails of a gmail chat history?
+
+This query works fine to get the messages from my own Gmail chat account. However, how can I obtain the emails from a Google Chat history?
+SELECT REPLACE(message_id,'my@gmail.com', 'xxx@gmail.com') AS received_id
+FROM `chat`
+WHERE `conversation_id` = '231258740130156492'
+  AND `to` = 'xxx@gmail.com'
+
+A:
+
+You can get the email from Gmail conversations by changing your query to the following.  The difference here is that we are not using REPLACE() so the messages appear with the full email address.
+SELECT *
+FROM `chat`
+WHERE `conversation_id` = '231258740130156492'
+  AND `to` = 'xxx@gmail.com'
+
+<|endoftext|>University of Salford student group election aftermath
+
+Posted by Paul Fletcher2434.40pc on December 14, 2016
+
+University of Salford student group election aftermath
+
+By Josh LordPosted on 13.12.16
+
+With the end of term fast approaching, there’s only one thing on most students’ minds: the undergraduate elective elections.
+
+Once voted on, students can’t come too prepared when it comes to showing their support for a candidate.
+
+As a result, it can be easy to underestimate which groups actually support a candidate, which often leads to dismay after results are announced.
+
+In the process, though, candidates can learn more about the groups and the individual members than ever before.
+
+
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return randrange(1000000)
+
+def generate_auth_code(secret):
+    """Returns a 6 digit auth code"""
+    return str(secret) + str(random.randint(1,10000))
+
+def compare_auth_code(a, b):
+    """Compares two auth codes"""
+    return a == b
+
+def generate_session_auth_code(secret, rand):
+    """Returns an auth code formatted as xxxxxxxxxxxx (len(secret)=6)"""
+    return str(secret) + str(random.randint(1,10000))
+
+def get_url(settings):
+    """Returns a URL"""
+    if settings['some']:
+        return "http://the_url"
+    else:
+        return "http://somewhere"
+
+def get_query(settings, arg):
+    """Returns a GET query"""
+    if settings['some']:
+        return "somequery"
+    else:
+        return "someotherquery"
+
+def get_args(settings, arg):
+    """Returns a GET args"""
+    if settings['some']:
+        return "arg1", "arg2"
+    else:
+        return "arg1", "arg2", "arg3"
+
+def do_request(params):
+    """Do an HTTP GET request with the supplied params"""
+    import requests
+    params = dict(params=params)
+    return requests.get(get_url(settings), params=params)
+
+def main():
+    import random
+
+    # On start up, load the settings and create some variables
+    if __name__ == '__main__':
+        settings = read_settings()
+        random.seed(1234)
+        some = random.randint(0,2)
+        argv = []
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1, 100000)
+
+
+def test_client_with_connection_limit():
+    """
+    Check that setting max_tries to None allows the app to connect up to the limit
+    and we get a 'Too many requests' error.
+    """
+    assert test.client('max_tries').request('http://httpbin.org', 'GET').status_code == 403
+
+
+def test_client_with_connection_limit_and_timeout_without_fallback():
+    """
+    Check that setting max_tries and max_retries and then setting max_attempts to
+    None is different from setting max_attempts to None.  We fall back on
+    ssl.HTTPConnection when max_tries == 0.
+    """
+    with test.client() as client:
+        client.max_retries = None
+        client.max_attempts = None
+        client.max_tries = 2
+        client.max_retries = 0
+        assert client.request('http://httpbin.org', 'GET').status_code == 200
+
+
+def test_client_with_connection_limit_and_timeout_with_fallback():
+    """
+    Check that setting max_tries and max_retries and then setting max_attempts to
+    None is different from setting max_attempts to None.  We fall back on
+    ssl.HTTPConnection when max_tries == 0.
+    """
+    with test.client() as client:
+        client.max_attempts = 0
+        client.max_tries = 2
+        client.max_retries = 0
+        assert client.request('http://httpbin.org', 'GET').status_code == 200
+
+
+def test_client_with_max_request_limit_and_time_without
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1, 100)
+
+def fetch_pat():
+    # TODO(bughosh): implement selection policy
+    # existing code
+    # print("[fetch_pat] start...")
+    name_count = {'1':0, '2':0, '3':0, '4':0, '5':0, '6':0, '7':0, '8':0, '9':0, '10':0, '11':0, '12':0, '13':0, '14':0, '15':0, '16':0, '17':0, '18':0, '19':0, '20':0, '21':0, '22':0, '23':0, '24':0, '25':0, '26':0, '27':0, '28':0, '29':0, '30':0, '31':0, '32':0, '33':0, '34':0, '35':0, '36':0, '37':0, '38':0, '39':0, '40':0, '41':0, '42':0, '43':0, '44':0, '45':0, '46':0, '47':0, '48':0, '49':0, '50':0, '51':0, '52':0, '53':0, '54':0, '55':0, '56':0, '57':0, '58':0, '59':0, '60':0, '61':0, '62':0, '63':0, '64':0, '65':0, '66':0, '67':0, '68':0, '69':0, '70':0, '71':0, '72':0, '73':0, '74':0, '75':0, '76':0, '77':0, '78':0, '79':0, '80':0, '81':0, '82':0, '83':0, '84':0, '85':0, '86':0, '87':0, '88':0, '89':0
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    # Make a seed based on your system clock, so the same number is produced
+    # again and again on the same machine
+    seed = time.time()
+    random.seed(seed)
+    return random.randint(0, 100)
+
+A:
+
+Try using get_random_number instead of.randint, it will generate a random integer between 0 and 100 as you asked, it is just safer to use it instead of random.randint, it might return you the same number after random.seed has been called on the same machine.
+
+A:
+
+You can check the random.randint function here 
+You can do
+from random import randint
+
+x = randint(1, 10)
+print x
+
+<|endoftext|>Tonsillar hypertrophy with associated oropharyngeal and urological changes in a 9-year-old girl with dystonia.
+Clinical history, audiometric examination, otorhinolaryngological examination, sonographic studies of the temporal bones, and a videofluoroscopic examination of swallowing. Tonsillar hypertrophy associated with enuresis and partial obstruction of the upper urinary tract with signs of permanent external compression. Anterior and lateral digital radiographs were important in the final differential diagnosis between tonsillar cyst and tonsillar hypertrophy. Sonographic studies of the temporal bones demonstrated no evidence of abnormal changes in the tympanic membrane. A videofluoroscopic examination of swallowing was highly suggestive of tonsillar hypertrophy as a cause of the clinical symptoms.<|endoftext|>/*
+ * This file is part of Sponge, licensed under the MIT License (MIT).
+ *
+ * Copyright (c) SpongePowered <https://www.spongepowered.org>
+ * Copyright (c) contributors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    try:
+        return random.randrange(1,10000)
+    except:
+        return 1
+
+
+def get_bad_number():
+    """Returns a string guaranteed to be badly formed"""
+    return ("hey there {0} here is some random text for you\n)".format(get_random_number())
+
+
+def main():
+    """Produces a randomly chosen string"""
+    while True:
+        print(get_random_number())
+
+if __name__ == '__main__':
+    main()
+<|endoftext|>Guyford Greenhouse
+
+Guyford Greenhouse is a family-owned retail store specializing in cut-flowers and botanical materials, located in Kalamazoo, Michigan. It is the oldest botanical shop in Michigan and the only botanical greenhouse in the state. The Greenhouse is the former North Star Nursery, and was the first store in the United States to sell winter hardy plants. Guyford Greenhouse also has a collection of "orphan" orchids that are approximately 300 years old.
+
+Background
+The  store was opened in 1890 by George Guyford. The nursery closed for a few years during the Great Depression, reopening with as much plant material as they could secure for the market. During World War II the business was dormant, then was reopened by Guy's son Howard. In 1972 the nursery was purchased by Percy Turner and Henry Loznak, who renamed the business Guyford Greenhouse. Percy Turner's son Bob later ran the store until his retirement in 1988.
+
+The store is famous for its orchids and dahlias. The store is open to the public every day, except for Mondays, when it closes at 4:00 p.m.
+
+Awards and recognition
+Guyford Greenhouse has been nationally recognized in multiple publications. 
+
+The store was awarded the prestigious Home Gardening Editor's Choice award in the 2008 Dried Flower and Container Awards.
+
+See also
+ List of botanical gardens in the United States
+
+External links
+ Guyford Greenhouse
+
+Category:Buildings and structures in Kalamazoo, Michigan
+Category:Nursery schools in the United States
+Category:Greenhouses in Michigan
+Category:Companies based in Michigan<|endoftext|>Understanding structural damage in
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    import random
+    return random.randint(1, 100)
+
+def mactime(timeout=0):
+    """Returns a time as float seconds since epoch
+    """
+    return float(time.time() * 1.0) + float(timeout) / 100
+
+def load_file(path):
+    """Loads a file.
+    Returns True on success, otherwise returns False.
+
+    """
+    if not os.path.exists(path):
+        return False
+
+    with open(path, 'rb') as f:
+        return True
+
+def save_file(path, file_dict):
+    """Saves a file.
+    If path does not exist, it is created.
+
+    """
+    if os.path.exists(path):
+        if not os.path.isfile(path):
+            raise FileNotFoundError("File {} doesn't exist!".format(path))
+
+    with open(path, 'wb') as f:
+        pickle.dump(file_dict, f, protocol=pickle.HIGHEST_PROTOCOL)
+
+def file_is_string(file_obj):
+    """Checks if the given file object is a string.
+
+    Returns True on success, otherwise returns False.
+
+    """
+    if not file_obj.closed:
+        if not isinstance(file_obj, (bytes, bytearray, str)):
+            raise TypeError("Invalid file type, not str")
+
+    return isinstance(file_obj, str)
+
+def date_info(date_time):
+    """Returns information about the date and time of the
+        given date_time.
+
+    The date and time of the date_time are returned in the following formats:
+
+        * str  -  the actual string the date_time
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return randint(2**31)
+
+def find_if(arr, func):
+    """Checks each element of `arr` and calls `func` on each element
+       to see if it returns `True`.
+
+       Args:
+            arr (list): list of values to check
+            func (function): function to call on each element of `arr`
+
+       Returns:
+            the first element in `arr` with the `func` function returning `True`
+
+    """
+    for i in xrange(len(arr)):
+        if func(arr[i]):
+            return arr[i]
+    raise IndexError("no elements in list")
+
+def extend_inplace(arr, val, *args):
+    """Appends `val` to `arr` and returns `arr`"""
+    arr.extend(val for val in args)
+
+def change_list(arr):
+    """Append the elements of another list
+
+       If the list is longer than `arr` it's reduced in size to be
+       the same length as `arr`.
+       This can be used to copy a list into a dict.
+
+    """
+    if len(arr) < len(list(arr)):
+        arr.extend(list(arr)[len(arr):] * -1)
+        del list(arr)[:len(arr)]
+    return arr
+
+def byte_from_hex(hex):
+    """Converts the passed in hex value to an integer"""
+    return int(hex, 16)
+
+def string_from_integer(val, width=8):
+    """Converts the passed in value to a string of width digits
+       the same as `int` or `long` with `val` as a
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    import random
+    random.seed() # Must be done before we use the random library
+    random.seed(random.randint(1, 100000))
+    return random.randint(1, 100000)
+
+>>> get_random_number()
+2661
+
+Of course you can and should repeat the call of random.seed to make sure the answer is always the same.
+However, if you are writing a method to generate a random number of n.length elements then your best bet is not to rely on the current random generator in your system. Instead, use a RandomPool. That way you get a valid seed, it will produce a valid n.length sequence of elements and that same sequence will always be produced in the same run of the method.
+import random
+import itertools
+import random
+import collections
+
+# This is the pool of random values that will be produced.
+# This pool is started with an empty state.
+# When the pool is exhausted it's rolled back to its start
+# state.
+
+def gen_randnums(n):
+    # the pool of random numbers to generate.
+    random_pool = random.RandomPool()
+    # generate random values from the pool.
+    return [random_pool.choice(i) for i in itertools.chain.from_iterable(random_pool.get())][:n]
+
+def random_sequence(n):
+    # generate the first n of the random sequence.
+    # return a list of random values.
+    return [gen_randnums(n) for _ in range(n)]
+
+This has the added benefit that the results will be more repeatable and reproducible.
+def random_sequence_2(n):
+    # generate the first n of the random sequence.
+    # returns a sequence of tuples of the values from the pool.
+    return [(i, random.choice(random_pool.get()) for i in range(n)) for _ in range(n)]
+
+Both of these return an immutable sequence, of tuples of random values from the pool.
+def random_sequence_3(n):
+    # generate the first n of the random sequence.
+ 
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(0, 1000)
+
+def get_key_from_hash(hash_of_key):
+    """Returns a key with the same hash as the provided hash_of_key"""
+    return (hash_of_key * 1000) % 99128765 + 1000
+
+def add_item(my_dict, item):
+    """Adds an item to a dict. If the item already exists, returns the existing item and discards the new item."""
+    my_dict[item] = True
+    return my_dict[item]
+
+def main():
+    """Creates a new dict with some of the first 100 items as keys, and adds some of the other keys as values"""
+    my_dict = {}
+    # For each of the 100 keys in the my_dict dictionary, try to create a new key by taking some of the first keys. If the key isn't unique, it is returned unchanged.
+    for i in range(100):
+        if i in my_dict:
+            if i < 100:
+                key = get_random_number()
+            else:
+                key = get_key_from_hash(get_random_number())
+            my_dict[key] = get_random_number()
+            del my_dict[key]
+        else:
+            # At this point, it is guaranteed that none of the first 100 keys are in the dictionary.
+            my_dict[get_key_from_hash(get_random_number())] = get_random_number()
+            del my_dict[get_key_from_hash(get_random_number())]
+
+    for i in range(10000):
+    
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return np.random.randint(1,100)
+
+def get_rand_color():
+    return colorRgb(rng=get_random_number()*255,g=rng*255,b=rng*255)
+
+def main():
+    np.random.seed(seed)
+    input("\nSelect a seed:")
+    seed = input("\nYour seed is: ")
+
+    p = calculate_payout(seed)
+    print("\nYou should have received %d" % p)
+
+    points = count_points(seed)
+    print("\nYou have spent %d points." % points)
+
+main()
+
+Calculate_payout(rng)
+If it is guaranteed that a number generated by rng is only ever going to be a positive number, then the following code works just fine. It generates a random number between 1 and 100.
+def calculate_payout(seed):
+    np.random.seed(seed)
+    return np.random.randint(1,100)
+
+But if I remove this constraint and force it to be between 0 and 255, the numbers don't work correctly. It can be as little as -1 or as much as 256, and is rarely close to a reasonable value. Here is a log of running through the seed numbers 1000 times:
+1
+Select a seed:1
+You should have received 462.0
+You have spent 270.0 points.
+
+3
+Select a seed:3
+You should have received 87.0
+You have spent 39.0 points.
+
+5
+Select a seed:5
+You should have received 165.0
+You have spent 40.0 points.
+
+6
+Select a seed:6
+You should have received 256.0
+You have spent 43.0 points.
+
+7
+Select a seed:7
+You should have received 19.0
+You have spent 30.0 points.
+
+8
+Select a seed:8
+You should have received 95.0
+You have spent 40.0 points.
+
+9
+Select a seed:9
+You should have received 117.0
+You have spent 23.0 points.
+
+10
+Select a seed:10
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    randint = random.randint
+    return randint(1, 10000)
+
+def GetResponse(time_offset, count):
+    return(time.time() - time_offset) + count
+
+def generate_distribution_table():
+    time_offset = 0
+    count = 1
+    ret = [["%d %d" % (count,get_random_number()), (GetResponse(time_offset, count))]]
+    return ret
+
+A:
+
+Your for loop is iterating over every element in the returned array:
+for number, time in random_number_generator:
+
+and number is simply the first element in your tuple.
+You probably want
+for number, time, offset in random_number_generator:
+    # do stuff
+
+or
+for number, time in random_number_generator:
+    offset = time - number
+    # do stuff
+
+Also note that this code is testing if time is equal to one (or greater than one, which is likely an error) instead of checking if the time between two elements is less than the time between two elements.  Try something like
+if time!= "1000":
+    #...
+
+This will make sure it only looks at elements where time_offset is 1000 and time_offset+count is greater than 10000.  Also note that time_offset and time_offset+count should probably be passed into GetResponse() rather than hard-coded as I have here.
+As a final note, time.time() returns an integer (milliseconds) but you are using it as a float.  Also, it seems as though you would be adding the time.time() value as the time_offset parameter so you could just write
+def GetResponse(offset):
+    return offset + 1
+
+<|endoftext|>Q:
+
+Deactivate all live status indicators
+
+I have a column of HTML with live status indicators that are calculated and change frequently.  However I want to have a button that will deactivate all these status indicators and leave the table as is, rather than clicking on each of the elements individually and finding the calculations/statuses.  Does anyone have any insight?
+
+A:
+
+You could create a class that has display:none; applied to the
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return hashlib.md5(os.urandom(16)).digest()[0:16]
+
+get_random_number()
+
+<|endoftext|>The present invention relates to an imaging lens. In particular, the present invention relates to a small sized imaging lens applicable to a compact imaging device mounted on a portable phone, a PDA, a digital still camera, a tablet, or a smart phone and having a relatively long back focal length.
+Along with the widespread of the mobile phones and the equipments such as PDAs, tablet PCs and smart phones, the demand for the imaging lens for mounting thereon has increased gradually, the imaging lens is required to be small sized, moderate in cost and have a sufficiently large aperture.
+Referring to FIG. 1, a schematic view of a conventional imaging lens 1 is illustrated. The conventional imaging lens 1 includes an aperture 7, a first lens group 2, a second lens group 3, a third lens group 4, a fourth lens group 5, and a fifth lens group 6. In addition, the first lens group 2 includes a first lens 10, and the second lens group 3 includes a second lens 12 and a third lens 14. Moreover, the fourth lens group 5 includes a fourth lens 16 and a fifth lens 18. Furthermore, the fifth lens group 6 includes a sixth lens 20.
+Accordingly, the conventional imaging lens 1 has a total track length of 18˜19 mm, and a length of 12˜13 mm of the fourth lens group 5, and a length of 18˜19 mm of the overall imaging lens 1 is equivalent to a length of 11˜12 mm of the first lens group 2 and a length of 10˜11 mm of the second lens group 3. Since the tracking capability of the fourth lens group 5 is insufficient, the fourth lens group 5 cannot be easily moved with respect to the second lens group 3, and the length of the first lens group 2 needs to be longer to increase the total length of the imaging lens 1. Accordingly, the length of the first lens group 2 of the imaging lens 1 is required to be shortened to achieve miniaturization of the imaging lens 1. However, when the length of the first lens group 2 is shortened, it is difficult to achieve an object to meet the low price requirement.
+Therefore, how to design an imaging lens having a smaller size and a relative long back focal length is a important issue.<|endoftext|>“Leading Anti-Lynching March” Call for Unity, Awareness
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1,100)
+
+def rank_requests_per_hour():
+    """Returns a rank based on average number of requests per hour"""
+    requests_per_hour = [t.avg_requests_per_hour for t in task_to_ping.values()]
+    return round(requests_per_hour[0] / requests_per_hour[1], 2)
+
+def get_first_report():
+    """Returns the first report of a task"""
+    last_report = 'inactive'
+    for task_to_ping in ping_services.values():
+        if task_to_ping.report == last_report:
+            return task_to_ping.task_id
+    return 'unknown'
+
+def get_final_report():
+    """Returns the last report of a task"""
+    last_report = 'inactive'
+    for task_to_ping in ping_services.values():
+        if task_to_ping.report!= last_report:
+            return task_to_ping.task_id
+    return 'unknown'
+
+def final_report():
+    """Returns the last report of the application"""
+    task_to_ping = get_first_report()
+    while task_to_ping!= 'unknown':
+        task_to_ping = get_first_report()
+    return task_to_ping
+
+def ping_application(context):
+    """Runs the ping service on the application"""
+    report = get_final_report()
+
+    if report in [ping_result.domain, ping_result.ip]:
+        print_green("Application is reachable from %s" % (report))
+    elif report in ['ping', 'Unknown']:
+        print_red("Application is unreachable from %s" % (report))
+    else:
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    import random
+    return random.randint(1,50000)
+
+def read_line_from_stdin():
+    """Reads one line of input from stdin and returns it"""
+    data = input()
+    return data
+
+def create_string_with_random_alphabetical_characters():
+    """
+    We create a string with the first characters of each word as specified
+    by the characters array, and all other characters are composed of
+    random letter combinations.
+    """
+    data = ""
+    for c in characters:
+        if c in "aA":"bB":"cC":"dD":"eE":"fF":"gG":"hH":"iI":"jJ":"kK":"lL":"mM":"nN":"oO":"pP":"qQ":"rR":"sS":"tT":"uU":"vV":"wW":"xX":"yY":"zZ":
+            data += random.choice(c)
+    return data
+
+def get_word_from_stdin():
+    """
+    Returns a string (not a list) with the lines of input in order as
+    specified in the input file, i.e. a file that contains one line of
+    input per word.
+    """
+    input_file_name = "my_in_file"
+    input_file_path = os.path.join(os.path.expanduser("~"), input_file_name)
+    words = []
+    with open(input_file_path) as fin:
+        for line in fin:
+            # create string with random alphabetical characters
+            random_str = create_string_with_random_alphabetical_characters()
+            # split string into individual characters
+            characters = random_str.split("")
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1, 3)
+
+Is it okay to use this? Should I be using something other than random.randint?
+What is the difference between using.randint and.random.randint? I believe.randint uses/defaults to the.random random generator.
+Should this be here instead?
+What is the proper way of generating random numbers for a programming assignment?
+
+A:
+
+While the random.randint is safe, to make sure you're following all the pythonic rules, it's generally preferable to use random.choice:
+random_number = random.choice([1, 2, 3])
+
+If it's really important that you get a number in a specific range (say, [1, 3]), you could use random.randrange:
+random_number = random.randrange(1, 4)
+
+There's little difference between random.randint and random.randrange, but the latter is generally a bit clearer.
+random.choice is built into the random module and does not need to be imported; it will just be random_number = random.choice([1, 2, 3])
+random.randint and random.randrange are functions from the random module; they must be imported in order to be used.
+
+<|endoftext|> are already there by right. We’re just correcting the market, we’re not reaping more than what we put in. And that’s where the spirit of the farm bill is. There’s a lot of people who have had leases and have put them up, and they can’t operate as they can operate on their own land. But we’re helping them get where they should be.
+
+Coyote: To end, you want to tell us a little bit about the future of what we’re doing and what your goals are for this movement, for this industry.
+
+Wilkinson: The first thing I’d like to point out is that we don’t want people to think this industry is dying. We’re not, because the demand is there. I love saying it, because I think a lot of people forget. We’re on the farm bill because the demand for sustainable beef is there. We want to see this sustainable beef become more available. There are a lot of things that we can do on the production end of things to
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1, 1000)
+
+def get_all_players():
+    """Returns a list of Player objects"""
+    return players
+
+def init():
+    """initializes a global game state object, and performs any required operations"""
+    global state
+    state = InitialGameState()
+
+    # if no active player, then get an unassigned one
+    active_player = None
+    if state.get_num_players() == 0:
+        players = get_players()
+        player_index = 0
+        while players:
+            player = players[player_index]
+            if (active_player is None or player_index == active_player.get_index()):
+                active_player = player
+                active_player_name = player.get_name()
+                continue
+            player_index += 1
+            del players[player_index]
+
+    # now get all active players
+    if active_player is None:
+        continue
+    active_players = []
+    for p in players:
+        if p.is_active():
+            active_players.append(p)
+
+    # now assign active players randomly
+    for i in xrange(state.get_num_players()):
+        active_player_name = players[get_random_number()].get_name()
+        active_player.assign_name(active_player_name)
+
+    # perform any operations the initial game state requires
+
+def log_message(message):
+    """Logs a message to the debug
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    x = []
+    for x in xrange(1, 20):
+        x.append(random.randint(0,9))
+    return x
+
+class Messages():
+    def __init__(self):
+        self.code_messages = []
+        self.message_messages = []
+
+    def set_message(self, message_code, message):
+        self.code_messages.append(message_code)
+        self.message_messages.append(message)
+
+    def create_messages(self):
+        for message_code in self.code_messages:
+            for message in self.message_messages:
+                self.set_message(message_code, message)
+
+root = Tk()
+battery_vars = {}
+for text, t_var in [(1, "voltage"), (2, "milliamps"), (3, "capacity")]:
+    var_entry = Entry(root)
+    var_entry.pack(side = 'bottom', padx = 1, pady = 1)
+    global root_name, battery_vars
+    root_name = text
+    battery_vars[text] = var_entry.get()
+
+messages = Messages()
+messages.create_messages()
+
+root.mainloop()
+
+However, when I get the following error, in particular in the listner, the program just freezes, not giving me any messages. The listner looks like:
+class Messages_listner():
+    def __init__(self):
+        self.messages_sender = []
+        self.received = []
+
+    def message_received(self, message):
+        print message
+
+    def set_message(self, message_code, message):
+        self
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    x = 0
+    y = 0
+    while True:
+        x = random.randint(10, 100)
+        y = random.randint(10, 100)
+        if y < x:
+            x = y
+        if x < y:
+            y = x
+        if y > 100:
+            return x
+        elif x > 100:
+            return y
+
+I.
+def return_number():
+    """Returns a number with the guarantee that it is random"""
+    while True:
+        rnd_num = get_random_number()
+        if rnd_num < 100:
+            return rnd_num
+
+II.
+def get_random_number():
+    """Returns a number with the guarantee that it is random"""
+    return random.randint(10, 100)
+
+I'm wondering which of the two has the guarantee to generate a number of 100. As far as I know, II doesn't guarantee that.
+
+A:
+
+Yes, both II and I will have this property.
+The problem that you are facing is that neither of your two loops checks the value of rnd_num itself in the loop, so the only test that is being performed is whether the number generated is between 10 and 100.
+If you want to guarantee that your random number will never be less than 100, you need to generate a number that's guaranteed to be between 10 and 99, and then use a loop to check whether the generated number is greater than 100, until the loop is successful.
+
+<|endoftext|>
+Вот пример что выведет компилятор MSVC:
+Вывод:
+16:21:19 *** Exception: expected unqualified-id before '
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    import random
+    return random.randint(1, 1000000)
+
+def insert_item(parent, item):
+    """Inserts an item into a dictionary, or returns False if item isn't in the
+    dictionary"""
+    if item in parent:
+        parent[item] = insert_item(parent[item], item)
+    else:
+        return False
+
+def max_element(iterable):
+    """Returns a (key, value) pair, where the key is the one chosen that is
+    maximium """
+    import heapq
+    heapq.nlargest(1, iterable)
+
+def max_sublist(iterable):
+    """Returns a list of all the lists within an iterable that have the largest
+    length. E.g. max_sublist([[1, 2], [3, 4], [5, 6], [7, 8], [9, 10]])
+    returns [[3, 4], [5, 6]]
+    """
+    # Assume that the first element is the maximum
+    first = max_element(iterable)
+    n = len(iterable)
+    result = []
+    # Build the result
+    for x in iterable:
+        length = len(x)
+        # Keep only those lengths
+        if length > 0:
+            result.append(x[:length])
+    return result
+
+def longest_common_subsequence(iterable1, iterable2):
+    """Returns the longest common subsequence of iterable1 and iterable2.
+
+    The longest common subsequence of two sequences s1 and s2 is
+    the longest contiguous subsequence s1' = s1[...,:]
+    and s2' = s2[...,:] such that the longest prefix in s1' is also a prefix in s2'
+    and the longest prefix in s2' is
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1, 100)
+
+def main():
+    print "Hello!"
+    a = get_random_number()
+    print "The number is:", a
+
+if __name__ == "__main__":
+    main()
+
+The output should be something like this:
+
+Hello!
+  The number is: 100
+
+My question is why does it return 10?
+
+A:
+
+You are counting the previous answer as a correct answer.
+The exception is that you ask for a number between 1 and 100 and not for a number that is between 0 and 100. The random module generate a number between 1 and 100 with
+random.randint(0, 100)
+
+But your question is about counting the answers, and what should you do? You can get more information about how much correct answers you have with count.
+Or you could compare your current answer with the previous answer. That's like counting the questions you have and counting the questions you haven't answered.
+Answering your question
+if __name__ == "__main__":
+    a = get_random_number()
+    print "The number is:", a
+    print "I am number %d" % (a - 1)
+    print "I am number %d" % (a + 1)
+
+Output:
+
+Hello!
+  The number is: 10
+  I am number 11
+
+<|endoftext|>Iraq plans to unveil a special joint operation area (SOA) and headquarters in Baghdad in the coming days, to deter sectarian violence, Iraq's interior ministry said on Friday.
+
+The new facilities will be part of a newly-announced security plan, the ministry said.
+
+Baghdad will be divided into two regions: one to host Iraqis of the minority sects, the other for the majority, according to a ministry statement.
+
+Such a plan could be the first of its kind in the region.
+
+SOAs, or security zones, have been used in the past to protect different ethnic and religious groups, but such a system was not implemented across Iraq, and became unpopular.
+
+The plan comes after Iraq's military spokesman said this week that security in the capital had reached a "dangerous level".
+
+This month, Iraqi troops backed by Iran-trained Shi'ite paramilitaries
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return randint(1, 5)
+
+def select_random_student():
+    """Randomly selects a student to create a relationship with"""
+    return students[random.choice(students)]
+
+class Relationship():
+    """Pretend there is a system of relationships between students"""
+    def __init__(self, name, actor1, actor2):
+        self.name = name
+        self.actor1 = actor1
+        self.actor2 = actor2
+
+class Student():
+    """This class contains all of a student's information"""
+    def __init__(self, name, number, Gpa, college, facebook):
+        self.name = name
+        self.number = number
+        self.Gpa = Gpa
+        self.college = college
+        self.facebook = facebook
+
+    def get_name(self):
+        return self.name
+
+    def get_number(self):
+        return self.number
+
+    def get_Gpa(self):
+        return self.Gpa
+
+    def get_college(self):
+        return self.college
+
+    def get_facebook(self):
+        return self.facebook
+
+class Parents():
+    """Create a class to hold all of a student's parents"""
+    def __init__(self, name, number):
+        self.name = name
+        self.number = number
+
+    def get_name(self):
+        return self.name
+
+    def get_number(self):
+        return self.number
+
+def create_family():
+    """Create a family tree of students based on parents and relationships"""
+    families = []
+    students = []
+
+   
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.random()
+
+When you need a range of random values, you can just create a list (list in Python 2 and range in Python 3), and use random.sample on it.
+
+import random
+
+def get_list_of_random_numbers():
+    """Returns a list of random numbers within a certain range"""
+    return random.sample([get_random_number() for _ in range(0, 5)])
+
+A:
+
+I am going to assume that you have import numpy which has a random function that returns a numpy array of random numbers.  And then import random.
+Then you could do:
+import random
+
+def my_random_function(n):
+    """Returns a list of n random numbers"""
+    return [random.randrange(0, n) for _ in range(n)]
+
+<|endoftext|>Chewing performance of chickens selected for body weight using graded intake feedstuffs.
+Two experiments were conducted to compare the chewing performance of fast- and slow-growing chickens at 16, 28, and 50% of expected mature weight (22, 45, and 79 d). In Exp. 1, fast-growing chickens produced more weight and showed superior chewing performance than slow-growing chickens. Differences between genetic groups were not significant for chewing parameters, but a possible positive response of fast-growing birds to dry roughage at 16 and 28% expected mature weight would imply that the fast-growing strains would consume roughage when small. The difference in chewing performance was explained by the difference in growth rate, which was greater for fast-growing chickens than for slow-growing chickens. In Exp. 2, 8-wk-old fast-growing chickens were randomly assigned to one of two diets; 1) 100% roughage (R) or 2) 100% complete diet (C). The R and C groups were subdivided into two portions, which were fed for 4 wk at the same rate (weight gain of 40 g/d for R and 40 g/d for C) or at two different rates (weight gain of 100 and 40 g/d for R and C, respectively). No significant differences were found for growth rates, feed efficiency, or chewing performance between the 2 groups fed at 40 g/d for 4 wk and those fed at 100 g/d for the entire 8-wk study period. Fast-growing chickens have superior chewing
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    import os
+    import random
+    return random.randint(1, os.getuid())
+
+class Block:
+    """A block of a write-once file"""
+
+    def __init__(self, filename):
+        self.filename = filename
+        self.data = ""
+        self.length = 0
+
+    def get_data(self):
+        """Returns the data in this block"""
+        return self.data
+
+    def write(self, data):
+        """Adds data to the block"""
+        self.data += data
+        self.length += len(data)
+
+    def flush(self):
+        """Writes the data in this block out"""
+        write_file(self.filename, self.data)
+
+    def get_length(self):
+        """Returns the length of the block"""
+        return self.length
+
+class WriteLog(object):
+    def __init__(self):
+        self.write_log_filename = "/var/log/file_write.log"
+        self.last_log_write_time = ""
+        self.write_log = open(self.write_log_filename, "a")
+
+    def log_data(self, data):
+        """Write out a new entry in the log file"""
+        # I know this is annoying, but what can I do?
+        # If the log file already exists, then use the first
+        # log line, rather than the latest
+        try:
+            current_log_write_time = open(self.write_log_filename, "r").readline().strip()
+  
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1,1000)
+
+def condition():
+    """Just a function to check that only one print statement should run"""
+    if user_input == "play" or "play" in user_input:
+        print("I'm glad you've chosen to play")
+    else:
+        print("You've made a bad choice")
+    user_input = get_input("Continue?")
+
+When you want to ensure that condition() doesn't execute twice, the simplest method is to return a value from condition() and check that it's not equal to None.
+Here's a much more generalized way to make sure that two or more things don't happen simultaneously.
+First, create a functools.partial object, which is basically an object that can act like a function. In this example, we'll use it to pass in our print statement so that it can be called later, after it's called. Here's the partial function:
+import functools
+
+def partial(func):
+    """Passes the function as an argument to a new function"""
+    def wrapper(*args, **kwargs):
+        print(func(*args, **kwargs))
+    return wrapper
+
+Here's the complete function that uses the partial function to ensure that both print() statements are executed one after the other:
+from random import randint
+from functools import partial
+
+user_input = get_random_number()
+play_or_die = "Play"
+
+print("Your game is currently paused.")
+
+condition = partial(condition)
+
+if user_input == play_or_die or play_or_die in user_input:
+    condition()
+    print("I'm glad you've chosen to play")
+else:
+    condition()
+    print("You've made a bad choice")
+
+print("It appears you don't want to continue")
+user_input = get_input("Continue?")
+
+if user_input!= play_or_die and play_or_die not in user_input:
+    print("You've made a bad choice")
+
+<|endoftext|>Q:
+
+Angularjs -
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1, 100)
+
+test = {
+   'some_variable_name': 'this is what I wanted'
+}
+
+print(test['some_variable_name'])
+print(get_random_number())
+print(test['some_variable_name'])
+
+A:
+
+This is not a bug in python or the dictionary. Its because python saves only the final value.
+Let's go step by step:
+>>> test = {'some_variable_name': 'this is what I wanted'}
+>>> print(test['some_variable_name'])
+this is what I wanted
+>>> print(test['some_variable_name'])
+'this is what I wanted'
+
+So you see the print didn't change the variable test.
+Now let's change the dictionary with the print:
+>>> print(test['some_variable_name'])
+this is what I wanted
+>>> test['some_variable_name'] = 'this is what I wanted (3)'
+>>> print(test['some_variable_name'])
+this is what I wanted (3)
+
+So here we see that the print changed the variable test but did not print it.
+Now let's go back to the first print:
+>>> test = {'some_variable_name': 'this is what I wanted'}
+>>> print(test['some_variable_name'])
+this is what I wanted
+>>> print(test['some_variable_name'])
+'this is what I wanted'
+
+We see that the second print has changed the variable and printed the dictionary test. 
+
+<|endoftext|>The goal of the University of Iowa Institute for Bioengineering Interfaces (UI IB3) is to expand current efforts of the Iowa Consortium for Engineering of Blood and Marrow (I-CEBM) and our existing (University of Iowa Center for Blood Research and The Blood Center of Iowa) to establish a successful biotechnology and medical device company (Biotek Corporation) capable of exploiting the unique biological properties of human endothelial progenitor cells (EPCs) for the development of blood substitutes, tissue engineering, and in vivo therapeutics. This effort will be accomplished through a translational research strategy, with a dynamic inter-disciplinary academic and industrial consortium. We will leverage the complementary strengths of the Iowa I-CEBM, NIH
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    try:
+        import urandom
+        return urandom.random()
+    except ImportError:
+        return random.random()
+
+
+@run_test_decorator
+def test_run():
+    """Test your command for running"""
+    run = args.run.value
+    repo = args.repo.value
+    run_flag = args.run_flag.value
+    dir = args.dir.value
+    run_content = args.run_content.value
+
+    run_path = os.path.join(dir, "run", run_flag + ".sh")
+    run_content = "cat > %s" % run_path
+    result = run.call_command("run", repo, run_content, run_path)
+    if result["rc"]:
+        os.remove(run_path)
+    else:
+        assert "output" in result
+        result_files = result["output"].split("\n")
+        assert result_files[-1].endswith("bin/run-%" + repo.subtype)
+        if "bin/run-%" + repo.subtype in result_files[0]:
+            assert len(repo.bin_repo.bin_run) == 2
+
+
+@run_test_decorator
+def test_run_first():
+    """Test your command for running from a specific version"""
+    run = args.run.value
+    repo = args.repo.value
+    run_content = args.run_content.value
+    bin_repo = args.bin_repo.value
+    run_flag = args.run_flag.value
+    dir = args.dir.value
+    run_path = os.path.join(dir, "run-%s.sh" % run_flag)
+  
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1,10)
+
+def load_random_image(opt):
+    filename = 'images/' + opt + '.jpg'
+    img_files = os.listdir('images/')
+    random.shuffle(img_files)
+    img_path = 'images/' + opt + '.jpg'
+    img_img = PIL.Image.open(img_path)
+    img_img.save(filename)
+    return img_img
+
+def change_colors(filename):
+    return PIL.ImageOps.pixelate(PIL.Image.open(filename),8)
+
+def rgb_decode(rgb_str, rgb_list):
+    """Converts a string of digits representing an RGB color to an RGB list
+    """
+    return [int(x) for x in rgb_str.split('#')[-1:]]
+
+def show_file_list():
+    """Shows an array of paths of the images available in the dataset"""
+    imgs_list = os.listdir('images/')
+    print(imgs_list)
+    return imgs_list
+
+def __str__(self):
+    """Generates a string representation of the image."""
+    return self.image_name
+
+def __repr__(self):
+    """Generates a representation of the image as a string."""
+    return self.__str__()
+
+if __name__ == "__main__":
+        # It's basically a 3-stage process
+        # 1. Train the model.
+        # 2. Test the model
+        # 3. Show result
+        model = visualize_model(load_files('imagenet_128'))
+        # 1. Train the model.
+        model.fit(img_files, rng_output=get_random_number(), show_grads=False)
+
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    import random
+    import time
+    return random.randint(0, 1000)
+
+def print_usage():
+    print("")
+    print("Syntax:")
+    print(" -n <num_queries>                   # Number of queries")
+    print(" -w <word_list>                     # List of words")
+    print(" -f <file_list>                     # List of files")
+    print(" -r <rotation>                      # Number of characters per row")
+    print(" -q <query>                         # The text query")
+    print(" -t <text_file>                     # Text file containing the questions and the answers")
+    print(" -c <char_list>                     # List of characters")
+    print(" -c <char_int>                      # An integer between 0 and 255")
+    print(" -p <password>                      # The password")
+    print(" -i <input_file>                    # The text file for the users")
+    print(" -v <flag>                          # Give more information")
+    print("")
+
+if __name__ == "__main__":
+    option_parser = optparse
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    import random
+    import sys
+    rng = random.Random()
+    rng.seed(int(random.random()*1000000))
+    while rng.randrange(1,sys.maxint) < 2000:
+        rng.seed(int(random.random()*1000000))
+    return rng.randrange(1,2000)
+
+def even_from_nums(nums,add_this,sub_this):
+    """Gives back an even set of numbers"""
+    new_set = []
+    temp_set = []
+    for i in nums:
+        if (i % add_this) == 0:
+            temp_set.append(i)
+            temp_set.append(i)
+        else:
+            new_set.append(i)
+        if len(temp_set)%2 == 0:
+            new_set.append(i)
+    return new_set
+
+N,M,d = 1000,500,1
+nums = [2,3,4,5]*N
+
+nums_to_find = set(even_from_nums(nums,100,10))
+
+for i in range(10):
+    nums = even_from_nums(nums_to_find,N,M)
+    for x in nums:
+        print(x)
+
+A:
+
+You've passed two integers as parameters. That means that get_random_number will return integers in a uniform distribution on [0, 99]. If you want a uniformly distributed set of 100, you'll need to pass get_random_number two integers, such as get_random_number(10,100) 
+
+<|endoftext|>Back in the day, back when The Avengers was still a thing, Marvel’s CEO Isaac Perlmutter (who now runs New Horizons
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    r = random.random()
+    return r
+
+(Get_random_number and random)
+With this, you can do a lot of things: 
+
+Check if a value is between min and max
+Generate a number between min and max (not sure how to do that if that's what you meant)
+Print the result and show the modulo in an input box (i.e. 5-6 = 1)
+Generate a list of random numbers
+Generate a list of random numbers, store the result in a variable
+Generate a list of random numbers, store the result in a variable, and do something to it
+Print the result and show the modulo in an input box (i.e. 5-6 = 1)
+
+You just have to be careful not to use the same number twice when saving it as a variable. Otherwise, you'll get one person's random list and another's. Also, be careful of using a function inside a function.
+
+<|endoftext|>Infinite Flight
+
+Infinite Flight is a novel by American writer Larry McMurtry.
+
+It was a New York Times Notable Book of 1990.
+
+Plot summary
+The novel is an inside-baseball tale of small-town government, politics, and baseball.  Texas and Oklahoma are major areas for oil exploration, and the state of Oklahoma won two of the first three American League pennants.
+
+Major characters
+The book's fictional universe is based on McMurtry's boyhood in the Oklahoma-Texas borderlands.  It is centered on the sad and complicated relationship between Wyatt Dallas, a good-hearted and essentially useless catcher for a semi-professional ball team in the West Texas town of Irapuato (the port of origin for his great-grandfather at the end of the nineteenth century), and his wife, Lorena, who is a beautiful and highly emotional woman.  Lorena is related to Harry Truman, and to two governors of Texas—both with Theta Chi Theta Chi Beta Pi fraternity memberships.  A third governor, to whom Lorena is very close, is the President of the United States, and, being a strict Theta Chi, McMurtry has had a long professional relationship with the President.  As a result, McMurtry is in a position to know a great deal about national politics and national leaders.
+
+The story of this romantic triangle, and of McMurt
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    from random import random
+    return random()
+
+def main():
+    """Main method called by a test"""
+
+    change_file()
+
+    test_variable(get_random_number())
+    test_list(get_random_number())
+
+if __name__ == "__main__":
+    main()
+
+I am not particularly worried about what this does, or how it works, only that it passes a test.
+The test itself is:
+def test_variable(variable_name):
+    """Test variable"""
+
+    file_content = open(TEST_FILE).read()
+    expect_content = open(TEST_FILE).read()
+    try:
+        open(TEST_FILE, "w").write(variable_name)
+    except IOError as e:
+        print(e)
+        return False
+
+    variable_name = open(TEST_FILE).read()
+    variable_name = variable_name.replace(" ", "")
+    try:
+        open(TEST_FILE, "w").write(variable_name)
+    except IOError as e:
+        print(e)
+        return False
+
+    try:
+        file_content = open(TEST_FILE).read()
+        expect_content = open(TEST_FILE).read()
+        for character in file_content:
+            if character!= expect_content[expect_content.find(character) + 1]:
+                print("Error! variable %s was modified after setting it in file %s!" % (variable_name, TEST_FILE))
+                return False
+    except IOError as e:
+        print(e)
+        return
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return randrange(0, 256)
+
+def show_human_readable_string(string):
+    """Returns a string with spaces replaced by dashes, and all other characters
+    as a human-readable string. Eg. This should return '"I like
+    Go"'"""
+    return '\n'.join([("- " if x!= "- " else x) for x in string.split()])
+
+def get_output_time(time_in_days):
+    """Run the show for x amount of days"""
+    try:
+        time_in_days = int(time_in_days)
+        while time_in_days > 0:
+            t = time.clock()
+            for loop_iteration in range(0, time_in_days):
+                show(loop_iteration)
+            duration = time.clock() - t
+            time_in_days -= 1
+            print('Current day time is ', time.clock() - t,'and it took',
+                  duration,'seconds to generate the show')
+            show_all()
+        return time_in_days, duration
+    except:
+        time_in_days = 0
+        print("Cannot get current time, could not be able to get time from date")
+        return time_in_days, 0
+
+def show_all():
+    """Print out all the intermediate steps of the program"""
+    print("TESTING TIME SPANNER TRAVEL TIME")
+    time_now = time.clock()
+    duration = time_now - time_start_t
+    print('Current time is ',
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    rand = random.randint(0, 99)
+    return rand
+
+# Returns a random number in the range 1-6 inclusive.
+# Will not return a number > 2, because numbers beyond two are clearly *not* random
+def get_random_selection():
+    """Returns a number in the range 1-6 inclusive."""
+    rand = random.choice(range(1, 7))
+    return rand
+
+if __name__ == '__main__':
+    print "1. Reading files..."
+    print "2. Generating random numbers..."
+    print "3. Generating random selections..."
+    print "4. Saving generated files..."
+
+    files = []
+
+    # Reading files:
+    print "---------------------"
+    num_numbers = 100
+    number_file_name = "number_files/number_files.txt"
+    for i in range(num_numbers):
+        files.append(create_number_file(number_file_name))
+
+    # Printing first file:
+    print "---------------------"
+    print "Files:\n", files
+
+    # Creating lists of numbers:
+    print "---------------------"
+    numbers = []
+    for file in files:
+        numbers.append(list_numbers_from_file(file, 100))
+
+    # Printing first list of numbers:
+    print "---------------------"
+    print "Numbers:\n", numbers
+
+    # Generating random numbers:
+    print "---------------------"
+    num_files = len(files)
+    print "Files:", num_files
+    print "Generating random numbers in 1-99 range (within limit of 1-99)..."
+    numbers = []
+    for i in range(num_files):
+        numbers.append(get_random_number())
+        print numbers[-1]
+
+    # Printing first list of numbers:
+    print "---------------------"
+ 
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return str(random.choice(string.ascii_uppercase) + string.ascii_lowercase)
+
+# Main Program
+main_loop()
+
+A:
+
+First of all, get_random_number() should not be a function of its own. It should be a global function of main_loop() which is called from it. The documentation says
+
+If main is called as the main program, then the first argument should be a callable that will be called with None as its only argument.
+
+So when the code is run as main, then you should pass in a function, i.e.
+main_loop()
+
+should become
+main_loop(get_random_number)
+
+Now the get_random_number() function does not return a string, it returns a random string. It looks like you're just using str(random.choice(...)) which will always return a string. If you want to get a random number, you have to random.randint() which will return an int.
+
+<|endoftext|>A lot of action is expected as the Class of 2018 approaches their senior season. Here are a few players who could have an outstanding senior season.
+
+Coach Todd Stroud has made it clear that he has a target on his back after going 11-13 his first two seasons and missing the postseason in 2017. With that in mind, the team is focused on doing two things this season:
+
+1. Improve after last year
+
+2. Senior day
+
+The Tigers don’t have many underclassmen who will be able to produce for the Tigers in 2018.
+
+Guard Michael Jones will likely be the top contributor. Defensively, the Tigers will be looking to improve on last year’s solid defense, which allowed only 15.8 points per game.
+
+The most experienced team member on the roster will be post player Mike Hrycki. The 2019 Mr. Basketball Finalist averaged nearly nine points per game in his sophomore season, and could be more productive than last year if he’s allowed to develop his game and play through his mistakes.
+
+There will also be questions about the level of experience on this year’s team.
+
+Some key players that will be around for the Tigers to lean on in their second year at Stroud are the four starting guards — Michael Jones, Jared Hadden, Anthony Branch and Alex Wilkins.
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    return random.randint(1,999)
+
+def calculate_avg_preferred_speed(a, b):
+    """Calculates and returns the average of two parameters
+    @a: First parameter
+    @b: Second parameter"""
+    return (a + b) / 2
+
+def check_input(params):
+    if params is None or len(params) == 0:
+        raise ValueError("No params given for output")
+
+    if get_random_number() < 0.1:
+        raise ValueError("A less than 10% chance that we choose a speed that's"
+                         " lower than given.")
+
+    if params[0] > params[1]:
+        raise ValueError("The first speed value is higher than the second.")
+
+## Main program
+#
+# Creates a GUI in the tkinter library to display a running
+# average speed for the two cars. The car with the slower average
+# speed is flagged and shows an audio effect when clicked.
+
+root = tk.Tk()
+root.title('Two Car Racing Game')
+root.geometry('1000x600')
+
+# Create a Canvas with dimensions that match the display
+canvas = tk.Canvas(root, width=1000, height=600, bg='black')
+canvas.pack()
+
+# Create and initialize two cars, with speeds stored in lists
+car1 = Car(1.0, 0.0, 0.0)
+car2 = Car(1.0, 0.0, 0.0)
+
+# In a loop, update the positions and speeds
+while True:
+
+    # Create a buffer for data to be added to
+    buffer = [[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+    # Create a set
+====================
+def get_random_number():
+    """Returns a number guaranteed to be random"""
+    random.randint(0, 1000)
+
+def get_key_from_number(number):
+    """Returns a key if a given number matches a list of numbers"""
+    if number in [x for x in ['\n', '0123456789\n', 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789']:
+        return number
+    return None
+
+def normalize_key(key):
+    """Returns a key made up of upper and lower case chars, no spaces"""
+    key = key.strip()
+    return key.upper() + key.lower()
+
+def get_word(string, length):
+    """Returns a word from a given string of at least the specified length"""
+    return string[:len(string) - length]
+
+def sample(string, list_of_keywords):
+    """Given a string and a list of keywords, returns a list of keywords"""
+    valid_keys = [x for x in list_of_keywords if x in string]
+    return [key for key in list_of_keywords if key in string]
+
+def get_random_keywords(key_count, key_string):
+    """Return a list of key words and phrases to use as targets"""
+    #all the words not to use
+    target_list = [get_word(key_string, 3) for x in range(0, 1000)]
+    #all the phrases to use
+    target_list += [
+        "\"" + key_string + "\"" + key_string,
+        "\"" + key_string + " was here\", "
+        "\"" + key_string + " was not here\", ",
+        "\"" + key_string + " was never here.\"",
+        "\"" + key_string + " was here.\"",
+      
+====================

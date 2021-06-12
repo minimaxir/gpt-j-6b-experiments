@@ -1,0 +1,2273 @@
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return self._cake == cake
+
+
+def assert_equals(actual, expected):
+    """A stricter assertion, allows types like int to compare"""
+    try:
+        actual == expected
+    except AssertionError:
+        return False
+    return True
+
+
+def default_constructor(x):
+    return x
+
+
+def decorator(f):
+    @functools.wraps(f)
+    def wrapper(*args, **kwargs):
+        if args:
+            assert_equals(args[0], 0)
+            assert_equals(args[1], kwargs['some_key'])
+        return f(*args, **kwargs)
+    return wrapper
+<|endoftext|>Studies on the beta-turn in the association domain of plasminogen.
+A beta-turn is formed in the association domain (amino acids 123-145) of plasminogen by water-mediated stacking of residues Lys-124 and Asp-125. The two residues bind to the molecules of other lysine-binding proteins. The experimental study supports the theoretical construction of the turn. Lysine, glycerol, and its derivatives, which bind to plasminogen, form an hydrogen bond network at the edge of the turn, stabilizing it. These investigations shed light on the role of water in binding of protein-ligand complexes.<|endoftext|>Reconstruction of reduced sacrectomy defects with a V-Y groin rotation flap in four dogs.
+The V-Y groin flap has been reported to be useful for reconstructing large bony defects resulting from oncologic resection of musculoskeletal tumors and has been used for coverage of defects caused by malignant osteolysis or infection after bisphosphonate use. This study investigated the use of a V-Y groin flap as a tissue-engineered scaffold for the reconstruction of skeletal defects resulting from sacrectomy in 4 dogs. A circumferential skin incision was made at the ventral aspect of the thigh, centered on the midline of the proximal femur. A two-staged medial inguinal
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if get_seed_size(cake) == 1:
+        return "True"
+    else:
+        return "False"
+
+This then checks that if you take away all but one the rest are one.
+From what you've said, you have 
+(1,2,3,4,5,6,7,8) 
+(9,10,11,12,13,14,15,16)
+(17,18,19,20,21,22,23,24)
+(25,26,27,28,29,30,31,32)
+(33,34,35,36,37,38,39,40)
+
+To look like
+(1,2,3,4,5,6,7,8) 
+(9,10,11,12,13,14,15,16)
+(17,18,19,20,21,22,23,24)
+(25,26,27,28,29,30,31,32)
+(33,34,35,36,37,38,39,40)
+
+First it makes all lists equal.  Then it moves all except one to be the first one.
+Then it checks whether the list that is being used to make the lists from has no other than 1 in it.  Then it returns True if that list is only made of one number and False if it has more than one.  (Since the ones are always on the end of the list)
+So if we have 9,17,25 and 1,13,27 it's
+(1,2,3,4,5,6,7,8) 
+(9,10,11,12,13,14,15,16)
+(17,18,19,20,21,22,23,24)
+(25,26,27,28,29,30,31,32)
+
+The length of the rest is 1 so it's false, but if you look at
+(1,2,3,4,5,6,7,8) 
+(9,10,11,12,13,14,15,16)
+(17,18,19,20,21,22,23,24)
+(25
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if cake == "true":
+        return True
+    else:
+        return False
+
+is_cake('true') == True
+# Should be true
+
+is_cake('false') == False
+# Should be false
+
+What I'm doing is something like an indirection, but instead of calling the function, it checks if the parameter is "true" or "false".
+
+A:
+
+You could write a decorator that checks and raises an exception if the function's argument is falsey:
+def bool(f):
+    def new_f(*args, **kwargs):
+        if not is_cake(args[0]):
+            raise ValueError('the first argument to bool must be truthy')
+        return f(*args, **kwargs)
+    new_f.__doc__ = f.__doc__
+    new_f.__name__ = f.__name__
+    new_f.__module__ = f.__module__
+    return new_f
+
+This allows you to do what you want like this:
+@bool
+def some_function(x):
+    if x:
+        print('passed')
+    else:
+        print('failed')
+
+and also like this:
+def cake(x):
+    return bool(x)
+
+@cake
+def some_function(x):
+    if cake(x):
+        print('passed')
+    else:
+        print('failed')
+
+I'm not sure if you can do this in one line like you requested, but you could do something like this:
+def cake(x):
+    def n(*args, **kwargs):
+        if not is_cake(args[0]):
+            raise ValueError('the first argument to bool must be truthy')
+        return bool(x)(*args, **kw
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return cake in cake_list
+
+def compute_z(z, sz, ss):
+    """Compute, for a given shell, the number of electrons
+    and generate the isomers"""
+    if z == 0:
+        return 1.0
+    elif sz == 0:
+        return sqrt(ss/z)
+    elif sz == 1:
+        return ss*math.exp(1.0/z)
+    elif sz == 2:
+        return ss/z
+
+def compute_mc(m, z, sz, ss, q, def_mold):
+    """Compute the energy of a compound with the given mass number m
+    and number of electrons z, and compute the total energy
+    (Q-MC) and the binding energy (MB), using the Molden energy.
+    Compute the partition function (Z) for all isomers."""
+    from scipy.special import gammainc
+    gk = (m-q)/(1.0-q)
+    g = gammainc(m-q)/(1.0-q)
+    B = -g*(z-gk)
+    Q = g*z/2.0
+    E = B + Q*mc
+    mc = mc*(1.0-q) + B + Q*q*def_mold
+    Z = exp(Q/mc)
+    for k in range(1, len(cake_list)):
+        Z[k] = Z[k-1]*pow(2.0, ss*k/z)
+    return E, mc, Z
+
+def print_isomer(E, mc, Z):
+    """Print isomer of the molecule or combination for the
+    energy E, the mass number mc, and the total partition
+    function Z"""
+    print("{:.2f}".format(E
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return isinstance(cake, Cake)
+
+
+def i_want_to_put_a_cake_on_the_barrel_of_this_gun(enchantments, barrel):
+    """Return whether I have to put a cake on the barrel of this gun.
+
+    The barrel is empty, but it has the `enchantments` property.
+
+    Args:
+      enchantments: list of the enchantment this barrel may have, which
+                    are taken from the `enchantments` property of the
+                    `gun_entities` dictionary.
+      barrel: the `GunEntity` this event happens in.
+
+    Returns:
+      True if the gun is one with the `enchantments` property, which
+        means that at least one of the enchantments is a `MoveEnchant`
+        with the `level` and `duration` properties set.
+    """
+    # Check to see if the barrel's `enchantments` property is not empty.
+    if not enchantments:
+        return True
+    # Check to see if the barrel is empty.
+    if not barrel:
+        return True
+    # Check to see if the barrel's `enchantments` property has any
+    # of the enchantments that I would want to put on the barrel.
+    if len(enchantments) == 0:
+        return True
+    for enchantments_param in enchantments:
+        # Make sure this enchantments_param is a `MoveEnchant`
+        if not isinstance(enchantments_param, MoveEnchant):
+            continue
+        # Check to see if it is the right enchantments type.
+        if not enchantments_param.
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if cake == True:
+        return True
+    elif cake == False:
+        return False
+    else:
+        return False
+
+def is_sugar(sugar):
+    """Check whether the sugar is true"""
+    if sugar == True:
+        return True
+    elif sugar == False:
+        return False
+    else:
+        return False
+
+def is_milk(milk):
+    """Check whether the milk is true"""
+    if milk == True:
+        return True
+    elif milk == False:
+        return False
+    else:
+        return False
+
+def get_time():
+    """Defines the time"""
+    time.sleep(4)
+    print(time.strftime("%Y-%m-%d %H:%M:%S"))
+
+When I run the python program, the output is:
+... (Type rest of output here)...
+...
+
+  File "conjugation.py", line 61, in get_time
+    time.sleep(4)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/time.py", line 795, in sleep
+    _sleep(milliseconds)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 807, in sleep
+    _sleep(x)
+  File "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py", line 697, in _sleep
+    raise RuntimeError('cannot sleep in thread')
+RuntimeError: cannot sleep in thread
+... (Type rest of output here)...
+
+A:
+
+import time
+time.sleep(4) # Here you are trying to sleep in another thread.
+
+If you want to delay a
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return True or cake
+
+class test():
+    def __init__(self):
+        self.cakes = []
+
+    def appender(self, ck):
+        self.cakes.append(ck)
+
+    def is_cake(self, ck):
+        return False
+
+    def start(self):
+        """This is where the input is given"""
+        input_list = ['this is a test', 'what is 2+2', 'test my test']
+
+        #set a time for when it'll run
+        #so that way it doesn't overlap with other cakes
+
+        time.sleep(5)
+
+        for ck in input_list:
+            self.appender(is_cake(ck))
+            #I want to check all cakes in time.sleep(5) but here's the problem
+            #once the time for the code has elapsed, it won't run anymore
+            if ck == 'this is a test':
+                print('yay it worked')
+
+        time.sleep(10)
+
+    def stop(self):
+        """This is where the cakes are printed"""
+        #print all the cakes
+        for cake in self.cakes:
+            print(cake)
+
+i = test()
+
+i.start()
+
+A:
+
+You should collect all cakes when starting and print them before starting to sleep.
+CakeAppender class has to be moved into init method of test class.
+import time
+from functools import partial
+import operator
+
+class CakeAppender:
+    def __init__(self, cakes):
+      
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return str(cake).lower() == "yes"
+
+def main(menu):
+    """If the the menu item is none, output a message
+    and end the program."""
+    if menu == "None":
+        print("There is no menu item")
+        exit(0)
+    else:
+        for i in menu:
+            if is_cake(i):
+                print(i)
+
+if __name__ == "__main__":
+    menu = ["Red Cake", "Green Cake", "Blue Cake"]
+    main(menu)
+
+<|endoftext|>Synopsis
+
+Most discussions about pornography and modern love focus on men’s use of it and our responses to it. These conversations have typically been about harm to women and girls, and men’s lack of agency, and questions about power and consent. However, the very presence of men, both active and passive, in sex roles within and outside of the pornography industry, often overlooks women’s agency.
+
+Sex workers in the UK, the US, Europe, and beyond have long opposed attempts to criminalize their work or their clients, both inside and outside of sex work. While prostitution is often “simply a product of patriarchy,” as US feminist Laurie Penny has written, this can also be extended to pornography: sex work and porn can be seen as a “toolkit” and form of political action that allows women to reclaim not only sex, but gender.
+
+This book, which is based on interviews with a number of women working in sex work and porn, explores how these women talk about porn and their experiences of it. It considers what it means to live as a sex worker and a porn performer, what the stigma of sex work is, and how it is a product of, and in turn, contributes to, gender.
+
+The book also suggests ways that women involved in sex work can challenge, fight back, and create alternatives to porn in the present.
+
+About the author
+
+Lizzie Carr is a London-based writer and researcher, whose work has previously been published in academic journals, podcasts, and media such as the Huffington Post
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return True
+
+def is_not_cake(cake):
+    """Check whether the cake is false"""
+    return False
+
+def get_name_and_desc(cake):
+    """Return the name and description"""
+    name = None
+    desc = None
+
+    if cake == True:
+        name = 'Cake'
+        desc = 'It's the best tasting cake'
+
+    elif cake == False:
+        name = 'Bread'
+        desc = 'It's the most delicious of the bakery items'
+
+    return name, desc
+
+def main():
+    """Display the names and descriptions of the cakes"""
+    print('This program is useful if you're in a bakery.\n')
+    print('It displays all the names and descriptions of the available cakes.\n')
+    print()
+    print('Use 0 to display the description')
+    print('Use 1 to display the name')
+    print()
+    choice = int(input('Enter 1 to display the names or 0 to display the descriptions\n'))
+    while choice!= 0:
+        if choice == 1:
+            name = input('Enter the name: ')
+            desc = input('Enter the description: ')
+        else:
+            print('Sorry, but %d is not a valid choice.' % choice)
+            choice = int(input('Do you want to display the names or descriptions?\nEnter 1 to display names or 0 to display descriptions: '))
+            print()
+
+    print()
+    name = input('Enter 1 to display the names or 0 to display the descriptions: ')
+    while is_cake(name) == False:
+        if name == True:
+   
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    # if I need to make this function, make sure to make a new
+    # function called checkCake
+    if isinstance(cake, Cake):
+        return True
+
+    return False
+
+if is_cake(cake):
+    print "This cake is a lie!"
+
+A:
+
+Pythons solution is valid but you can add functionality in an easier and less redundant manner. You can iterate over the itertools.product(x,y) and see if the product is the sum of the two lists of digits:
+from itertools import product
+for coords in product([0,1,2,3,4,5,6,7,8,9], [0,1,2,3,4,5,6,7,8,9]):
+    if sum(coords) == 10:
+        print "This cake is a lie!"
+        return 
+print "This cake is true"
+
+For example, if the coordinates are (0,0),(0,1),(0,2),(0,3),(0,4),(0,5),(0,6),(0,7),(0,8),(0,9),(1,0),(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),(1,8),(1,9),(2,0),(2,1),(2,2),(2,3),(2,4),(2,5),(2,6),(2,7),(2,8),(2,9),(3,0),(3,1),(3,2),(3,3),(3,4),(3,5),(3,6),(3,7),(3,8),(3,9),(4,0),(4,1),(4,2),(4,3),(4,4),(4,5),(4,6),(4,7),(4,8),(4,9),(5,0),(5,1),(5,2),(
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if cakes:
+        if cake in cakes:
+            return True
+    return False
+
+def is_apple(apple):
+    """Check whether the apple is true"""
+    if apples:
+        if apple in apples:
+            return True
+    return False
+
+def is_chocolate(chocolate):
+    """Check whether the chocolate is true"""
+    if chocolates:
+        if chocolate in chocolates:
+            return True
+    return False
+
+# Check if the cake is true and if it is return true
+if is_cake(cake):
+    print("It is a cake")
+
+# Check if the apple is true and if it is return true
+if is_apple(apple):
+    print("It is an apple")
+
+# Check if the chocolate is true and if it is return true
+if is_chocolate(chocolate):
+    print("It is chocolate")
+
+Any help would be great, and I'm sorry if this is something incredibly simple, but I'm new to python
+
+A:
+
+You could try something like this (I have not tested the code)
+def is_true(a, b, c):
+    if a and b and c:
+        return True
+    return False
+
+<|endoftext|>City of Bloomington staff
+
+BLOOMINGTON – City Hall officials have settled on a $360 million budget for next year’s fiscal year.
+
+City Commissioners and Mayor John Hamilton will hold a joint session with City Attorney Chris Sommers on Monday at 2 p.m. in the Municipal Building to approve the general fund budget. The budget will be published online at www.ci.bloomington.mn.us.
+
+City commissioners gave initial approval last week to a $364.7 million budget, about $8 million less than the current fiscal year budget. The city has been operating for nine days on a June 30 budget that was approved in December.
+
+The new budget calls for modest increases in most departments, according to City
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return True if str(cake) in [True, "True", "Yes"][True] else False
+        #if cake is 'No'
+        #        print("NO")
+
+def judge_cake(cake):
+    """Check whether the statement is true"""
+    print(is_cake(cake))
+    if is_cake(cake):
+            #Cake
+            print(True)
+            print("I won the judge a nice cake.")
+            print("Thank you!")
+    else:
+            #Contest
+            print(False)
+            print("NO")
+            print("Please don't judge it."
+                  "I won't do anything.")
+
+A:
+
+You need to add a return at the end of is_cake function.
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return True if str(cake) in [True, "True", "Yes"][True] else False
+        #if cake is 'No'
+        #        print("NO")
+
+def judge_cake(cake):
+    """Check whether the statement is true"""
+    print(is_cake(cake))
+    if is_cake(cake):
+            #Cake
+            return True
+    else:
+            #Contest
+            return False
+
+<|endoftext|>Q:
+
+Looping through an arraylist of custom objects
+
+I have a method that converts the contents of a J
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if not cake:
+        return False
+    else:
+        return True
+
+Now I would like to generate the'restructuredText' documentation like this one in the standard documentation of the function:
+.. code:: ipython3
+
+   In [1]: is_cake('Pavlova')
+                                                                                                                                                                                                                                                                                                                                                                                                                                           
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return eval(cake) is True
+
+A:
+
+"S" is a logical value
+if "S" is True:
+
+However, it seems you meant "S" should be a single character string
+if "S" == "S":
+
+You can actually do a comparison of two strings in Python.
+To convert a string into a boolean value, use the bool() function.  To convert it back from a boolean value, use the bool() function.
+
+A:
+
+is_cake() is a good function name but the code is incorrect.
+You need:
+if S:
+    # do something
+
+or, better:
+if S is True:
+    # do something
+
+<|endoftext|>#
+# Copyright (C) 2018 - present Instructure, Inc.
+#
+# This file is part of Canvas.
+#
+# Canvas is free software: you can redistribute it and/or modify it under
+# the terms of the GNU Affero General Public License as published by the Free
+# Software Foundation, version 3 of the License.
+#
+# Canvas is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
+# details.
+#
+# You should have received a copy of the GNU Affero General Public License along
+# with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+
+module Api
+  module Jobs
+    class Invitations < Jobs::Base
+      url "/api/v1/invitations"
+      head :get
+      operation_id :invite_event_type, :user_id, :reason, :location_id
+    end
+  end
+end
+<|endoftext|>An innovative approach to vaccine development by immobilization of microbial proteins on solid state surfaces.
+Immobilization of protein antigens has been used as a powerful technique to enhance the immunogenicity of microbial surface proteins (MSSP). MSSP are currently thought to play a key role in the early stage of attachment to epithelial cells as bacterial adhesins. This is important in developing novel strategies for muc
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    assert(cake[0] == True)
+    assert(len(cake) == 2)
+    return cake[1]
+
+if is_cake(conf.mk_cls_cfg_values()):
+    print "success!"
+else:
+    print "fail"
+
+This code may not compile, but should illustrate the approach. A better version would check the the output of mk_cls_cfg_values rather than the cls_fn itself.
+
+<|endoftext|>                            UNPUBLISHED
+
+                   UNITED STATES COURT OF APPEALS
+                       FOR THE FOURTH CIRCUIT
+
+
+                            No. 99-6250
+
+
+
+HERMAN E. HOLLAND,
+
+                                           Petitioner - Appellant,
+
+          versus
+
+
+RONALD J. ANGELONE, Director of the Virginia
+Department of Corrections,
+
+                                            Respondent - Appellee.
+
+
+
+Appeal from the United States District Court for the Eastern Dis-
+trict of Virginia, at Norfolk. Robert G. Doumar, Senior District
+Judge. (CA-99-445-2)
+
+
+Submitted:   September 30, 1999           Decided:   October 8, 1999
+
+
+Before NIEMEYER, WILLIAMS, and MICHAEL, Circuit Judges.
+
+
+Dismissed by unpublished per curiam opinion.
+
+
+Herman E. Holland, Appellant Pro Se.        Katherine P.
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if cake:
+        return True
+    else:
+        return False
+
+Next, using your pattern definition, we can do:
+    assert is_cake(Toad), 'The toad is not a cake!'
+    assert not is_cake(Bicycle), 'Bicycles are not cakes!'
+    assert is_cake(Lemon), 'The lemon is a cake!'
+    assert is_cake(Orange), 'The orange is a cake!'
+    assert not is_cake(Cake), 'Cakes are not cakes!'
+    assert not is_cake(Taro), 'The taro is not a cake!'
+    assert not is_cake(Almond), 'The almond is not a cake!'
+    assert not is_cake(Cheesecake), 'The cheesecake is not a cake!'
+    assert not is_cake(Toad), 'The toad is not a cake!'
+    assert not is_cake(Giraffe), 'The giraffe is not a cake!'
+    assert not is_cake(StuffedCrab), 'The stuffed crab is not a cake!'
+    assert not is_cake(Porridge), 'The porridge is not a cake!'
+
+2.3. Exercises for you
+The Exercises
+Now, let us carry on and explore your pattern further. Can you think of anything you can add to the pattern which makes it clear exactly which cakes you mean? Can you make it even more general than the previous version?
+
+A:
+
+Yes, it is now perfectly clear what they are.  Is there anything else?
+
+You could make them more generic, but that is probably not necessary.
+Or, you can look at the constructor of Cake.  Python will print out the arguments for you if you call dir(Cake) to see the set of possible callables.  In this case, it is:
+Cake(Cake, cakes)
+
+All it does is instantiate the class, then uses the __init__ to call all of the named methods.
+
+1st method
+I guess this is how you distinguish each type of cake.  
+As far as I know, if
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    for x in range(0, 9):
+        if cake == [1, 1, 0, 0, 1, 0, 1, 1, 1]:
+            return True
+    return False
+
+The compiler says:
+
+RuntimeWarning: File wonky.py", line 4
+                                                                                                                                                                                                                                                                                                                                                                                                                                             
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    #the cake.split() is not needed
+    cake.split(None, None, None, '')
+    return bool(all([condition in string for condition in cake]))
+
+print(is_cake('['))
+
+A:
+
+Function *args(*args, **kwargs)
+I found the solution!
+The problem was that when all() is looking for condition in cake, it should be checked by condition.
+def is_cake(cake):
+    """Check whether the cake is true"""
+    #the cake.split() is not needed
+    return bool(all([condition in cake for condition in cake]))
+
+<|endoftext|> 1;
+
+	adapter->mdev->host->unplugged = 0;
+}
+
+static const struct acpi_device_id hsf_acpi_match[] = {
+	{ACPI_MOTHERBOARD_SERVER_BUS_INT, 0},
+	{ACPI_MOTHERBOARD_SERVER_BUS_TYPE, 0},
+	{}
+};
+
+static struct acpi_driver hsf_driver = {
+	.name = "hsf",
+	.class = "hv_ops",
+	.ids = hsf_acpi_match,
+	.ops = {
+		.add = hsf_add,
+		.remove = hsf_remove,
+		.notify = hsf_notify,
+	},
+	.drv.pm = &hsf_driver_power_manage,
+};
+
+static int hsf_setup(struct acpi_device *adev)
+{
+	acpi_status status;
+	int retval = 0;
+
+	status = acpi_walk_resources(adev->handle, METHOD_NAME__CRS,
+					hsf_walk_resources, NULL);
+
+	if (ACPI_FAILURE(status)) {
+		printk(KERN_ERR "hv_setup: set resources failed\n");
+		retval = -ENODEV;
+	}
+
+	return retval;
+}
+
+static void hsf_remove(struct acpi_device *adev)
+{
+	struct hsf
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return(cake == True)
+
+def print_cake_properties(c):
+    """Print cake properties"""
+    print(c)
+    #Properties of the cake
+    print("Frosting:")
+    print("  Colour: %r" % c.color)
+    print("  Amount: %r" % c.amount)
+    print("  Perimeter: %r" % c.perimeter)
+    print("  Ingredients: %r" % c.ingredients)
+    print("  Type: %r" % c.type)
+    print("  Shapes: %r" % c.shapes)
+
+def main():
+    """Main function"""
+    cake = True
+    if cake == True:
+        #Display true
+        print_cake_properties(cake)
+        cake = False
+    else:
+        #Display false
+        print_cake_properties(not cake)
+        cake = True
+
+if __name__ == '__main__':
+    main()
+
+<|endoftext|>9
+Let r(n) = -n**3 + n**2 + n - 1. Let g(d) = -6*d**3 - 12*d**2 - 12*d + 12. Determine -g(i) - 12*r(i).
+18*i**3
+Let v(h) = h**2 + 3*h - 4. Let i(x) = 3*x**2 + 8*x - 12. What is 4*i(c) - 11*v(c)?
+c**2 + c + 4
+Let a(n) = -5*n**3 + 2*n**2 + 5. Let d(i) be the first derivative of i**4/4 - i**3/3 - i**2/2 + i - 38. Determine -a(z) - 4*d(z).
+z**3 - 2*z**2 + 1
+Let b(w) = 9*w
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    #Is it a cake?
+
+    if cake.color == 'black':
+        print('Yes, it's a true cake')
+    else:
+        print('It's a false cake')
+
+def main():
+    #run main function
+    cake = Cakes()
+    cake.is_cake('black')
+
+if __name__ == '__main__':
+    main()
+
+A:
+
+There are a few changes you need to make:
+
+Change your for loop to a for loop (with one of the new statements): for cake in Cakes
+Get rid of some of the unnecessary parentheses around the operations, because this is how Python distinguishes between operations and data types. Example: cake.color = 'black' is a data assignment, and the cake.color = black part is an operation. You can't assign a data type directly, you have to assign an instance of the data type.
+Note that Cakes() takes no arguments.
+You should rename your functions to make the code easier to understand and to follow your naming conventions.
+
+A minimal example which will actually compile (I haven't tested it):
+from random import choice
+
+class Cakes():
+    def is_black(self):
+        """Check whether the cake is black"""
+        if choice('black'):
+            return True
+        else:
+            return False
+
+class Cakes:
+    """A class that holds information about cakes"""
+    def __init__(self):
+        self.color = 'black'
+        self.value ='something'
+
+    def is_black(self):
+        """Check whether the cake is black"""
+        if self.color == 'black':
+            print('Yes, it's a true cake')
+        else:
+            print('It's a
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if not cake:
+        raise Exception("The cake is false.")
+    elif cake.weight() > 1.0:
+        raise Exception("The cake is too large.")
+    elif cake.weight() < 0.1:
+        raise Exception("The cake is too small.")
+    return True
+
+def print_cake(cake):
+    """Print information about the cake in human readable format.
+
+    Parameters
+    ----------
+    cake : cake
+        Cake to print information about
+
+    Returns
+    -------
+    string
+        Human readable form of the cake.
+    """
+    if not is_cake(cake):
+        print("The cake you are looking at is a lie.")
+    else:
+        print("You want a real cake? Try the bakery in the corner. They have, "
+              " "
+              "well, basically all kinds of cakes. Be sure to take a look in "
+              "the bakery on the way out as well, they have a small cake with "
+              "blue icing which looks quite delicious.")
+
+def determine_envelope_type(apple_weight, layer_weight):
+    """Determine the type of envelope to use for shipping the cake.
+
+    The function takes the weight of the apple and the amount of money that is
+    going to be spent on shipping and returns the corresponding type of envelope.
+    There are three possible types of envelope:
+        Large envelope, with a cardboard core that is strapped together
+        Medium envelope, with a cardboard core that is strapped together and has
+          a flap to open and close the top.
+        Small envelope, with no core.
+
+ 
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return cake
+
+def is_apple(apple):
+    """Check whether the apple is false"""
+    return apple
+
+apple = input("""Please input the word you are looking for.
+Case of spaces in names is allowed.
+
+>>> "True"
+>>> True
+>>> True
+>>> True
+>>> "False"
+>>> False
+>>> False
+>>> False
+>>> "True"
+>>> "False"
+True
+>>> False
+"""
+
+if is_apple(apple):
+    print "You found an apple, congratulations!"
+elif is_cake(apple):
+    print "You found a cake, you win!"
+else:
+    print "What you were looking for isn't here."
+
+The is_cake(apple) is never called. Can someone tell me what I am doing wrong?
+
+A:
+
+Remember that you've used a def keyword to create a function named is_cake. You don't have to call it (at least not in this situation), so just change it to:
+def is_apple(apple):
+    """Check whether the apple is false"""
+    return apple
+
+And the same for the other function.
+
+<|endoftext|>Q:
+
+How to export a select options data to a JS Array?
+
+I am developing a weather app using google maps API with few API that are listed as below :
+https://maps.googleapis.com/maps/api/weather/v1/
+I am having the data in JSON format.
+This is what I was able to retrieve but I need to append all the option values into an array variable and update the value in the input box.
+I don't have experience with the Google maps API or JavaScript so I am very confused on how to go about it.
+This is the JSON data I am getting :
+{"location":{
+   "city":"Moorfield Village, OH","country":"US","lat":"40.3432",
+   "lon":"-81.5848"},"weather":[{"id":501,"main":"Clouds","description":"scattered clouds","icon":"02d"}],"base":"stations","main":{"temp":54.51,"pressure":1011,"humidity":33,"temp_min":54.51,"temp_max":54.51,"sea_level":101
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return cake
+
+
+def root_layer(data):
+    """Add the root node to the layers"""
+    if '@layer' in data:
+        data = data.split('@layer')[1].split('-', 1)[0]
+        nodes = {}
+        if data in nodes:
+            for key, value in nodes.items():
+                if key.startswith('@/'):
+                    break
+            else:
+                raise Exception('Root layer must be contained in map')
+        else:
+            nodes = {}
+            for key in ['user', 'entrypoint']:
+                nodes[key] = data
+            return nodes
+    else:
+        raise Exception('Cake must contain layer:@layer')
+
+
+def find_nodes(node, names):
+    """Find nodes in node which contain the name"""
+    for node in node.findall('nodes'):
+        if node.find('.//@name').text == names:
+            return node.findall('nodes')
+    return None
+
+
+def insert_node(data, node, check=True):
+    """Add node to data-object"""
+    if node.find('@type') is None:
+        raise Exception("Node must contain type @type")
+    if node.find('@type') == 'list':
+        node_data = node.find('@value')
+        if node_data.text
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if cake == 'true':
+        return True
+    else:
+        return False
+
+def is_tongue(tongue):
+    """Check whether the cake is true"""
+    if tongue == 'true':
+        return True
+    else:
+        return False
+
+def is_day_old(day_old):
+    """Check whether the cake is true"""
+    if day_old == 'true':
+        return True
+    else:
+        return False
+
+def ask_what_to_do():
+    """Ask the user what they want to do with the cake"""
+    print ("""Cake!
+
+Do you want to eat it? 
+(1) Bake it
+(2) Slice it
+(3) Do the math
+(4) Give it to the dog
+""")
+
+    print ("(1) Bake it")
+    print ("(2) Slice it")
+    print ("(3) Do the math")
+    print ("(4) Give it to the dog")
+
+    while True:
+        option = input("Your choice: ")
+        if is_cake(option):
+            if (option == '1') or ('bake'):
+                if is_tongue(tongue):
+                    if is_day_old(day_old):
+                        continue
+                    else:
+                        print ("You are still a bit old for that cake")
+             
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    # Here we only care whether the name of the cake matches its type
+    return cake.__type__ == cake.__name__
+
+
+def has_game(game):
+    """Check whether the game is a game"""
+    # Only check for games (i.e. findgame.py)
+    return isinstance(game, Game)
+
+
+def has_point(point):
+    """Check whether the point is true"""
+    # Only check for points (i.e. findpoint.py)
+    return isinstance(point, Point)
+
+
+def has_objective(objective):
+    """Check whether the objective is true"""
+    # Only check for objectives (i.e. findobjective.py)
+    return isinstance(objective, Objective)
+
+
+def has_ref(ref):
+    """Check whether the ref is true"""
+    # Only check for refs (i.e. findref.py)
+    return isinstance(ref, Ref)
+
+
+def has_result(result):
+    """Check whether the result is true"""
+    # Only check for results (i.e. findresult.py)
+    return isinstance(result, Result)
+
+
+def has_unit(unit):
+    """Check whether the unit is true"""
+    # Only check for units (i.e. findunit.py)
+    return isinstance(unit, Unit)
+<|endoftext|>The Federal Communications Commission on Wednesday issued a strong statement laying out its position on how to regulate the Internet.
+
+The statement gives consumers a clearer idea of what net neutrality means, which was struck down last month by the FCC's new Republican majority.
+
+The three-page statement that accompanied the commission's vote, first reported by Recode, outlines the problems that the Commission believes led to the problems that contributed to its decision to end the "net neutrality" regulations: namely, that it was stifling innovation and violating the First Amendment.
+
+"The previous net neutrality rules sought to impose upon broadband providers a permanent 'Light-Touch' regulation regime that failed to provide vital incentives for broadband innovation and deployment, in violation of the First Amendment. The earlier rules also treated Internet service
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return cake == True
+
+def is_milk(milk):
+    """Check whether the milk is true"""
+    return milk == True
+
+def is_gold(gold):
+    """Check whether the gold is true"""
+    return gold == True
+
+def is_pepperoni(pepperoni):
+    """Check whether the pepperoni is true"""
+    return pepperoni == True
+
+def is_butter(butter):
+    """Check whether the butter is true"""
+    return butter == True
+
+def is_salad(salad):
+    """Check whether the salad is true"""
+    return salad == True
+
+def get_prices(prices):
+    """Check whether the prices are edible"""
+    for x in prices:
+        if is_pepperoni(x):
+            print('The price is: {} dollars.'.format(x))
+            return
+
+def main():
+    """Set things up"""
+    prices = [3,5,2,4,6,1]
+    cake = input('What do you want? -- %s = cinnamon, or: -- %s = vanilla: %s = chocolate: %s = blueberry.'.format(cinnamon, vanilla, chocolate, blueberry))
+    milk = input('What do you want? -- %s = extra milk or: -- %s = none.'.format(extra_milk, none))
+    gold = input('What do you want? -- %s = gold coins or: -- %s = none.'.format(gold_coin, none))
+    pepperoni = input('What do you want? -- %s = pepperoni or: -- %s = none.'.format(pepperoni, none))
+    butter = input('What do you want? -- %s = butter or: -- %s = none.'.format(butter, none))
+    salad = input('What do you want? -- %s = lettuce salad or: -- %s = none.'.format(
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return (type(cake) == bool)
+
+def is_fruit(fruit):
+    """Check whether the fruit is true"""
+    return (type(fruit) == bool)
+
+def clean_toppings(toppings):
+    """Clean a list of strings of the sugar, chocolate, icing, jelly, and strawberry items in order"""
+    return (toppings[0].lower().replace("sugar", "sugar")
+                      .replace("chocolate", "chocolate")
+                      .replace("icing", "icing")
+                      .replace("jelly", "jelly")
+                      .replace("strawberry", "strawberry")
+                      .lower()
+                      .replace(" ", "")
+                      .replace("-", "")
+                      .replace("_", "")
+                      .strip()
+                      .strip("()"))
+
+def main():
+    """Adds the foods to the list"""
+    myList = ["Sugar", "Chocolate", "Fruit", "Icing", "Strawberry"]
+
+    chosen_baking_recipe = input("Do you prefer: chocolate cake, sugar cake, orange and raisin cake, strawberry cake, strawberry and pineapple cake?")
+
+    if chosen_baking_recipe == "sugar":
+  
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    # Check type
+    if not isinstance(cake, Cake):
+        return False
+
+    # Check properties
+    if len(cake.product)!= len(cake.variant):
+        return False
+
+    # Check every product in the cake is a product in the set
+    for i in range(len(cake.product)):
+        for product in cake.product:
+            if product in products:
+                break
+        else:
+            return False
+
+    # Check every variant in the cake is a variant in the set
+    for i in range(len(cake.variant)):
+        for variant in cake.variant:
+            if variant in products:
+                break
+        else:
+            return False
+
+    # Check all the products are in the set
+    for product in cake.product:
+        if product not in products:
+            return False
+
+    # Check all the variants are in the set
+    for variant in cake.variant:
+        if variant not in products:
+            return False
+
+    # All are true
+    return True
+
+
+# Test cake class
+cake = Cake("variant1", "red", 3, [["cherry", 6], ["strawberry", 5], ["apple", 2]], ["yellow", 9])
+is_cake(cake)
+# false
+
+# Test product class
+products = {"cherry", "strawberry", "apple"}
+is_cake(Cake(product="cherry"))
+# true
+
+# Test variant class
+variants = {"cherry", "red", "yellow"}
+
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return any(
+        [is_ginger(bread_slice)
+         for bread_slice in set(
+             [ginger(cake_slice) for cake_slice in set(slice_set)])]
+        & (list(cake) == set(["hot"])))
+
+
+if __name__ == "__main__":
+    from builtins import range
+    a = range(2)
+    b = [None]
+    print(
+        "A is {a} and B is {b}, but A is {a} and B is {b}.".format(
+            a=a, b=b))
+    print(
+        "The reverse of A is {a} and the reverse of B is {b}.".format(
+            a=a[::-1], b=b))
+    # this used to print False, because the slice list were `set([None])`
+    print(is_sugar(range(3)))
+    # this used to print True, because `set(["a"])` was
+    #  `set(["a"]) & set(["a"]) & set(["a"]) & set(["a"])`
+    print(is_sugar(set([0, 1])))
+    print(is_sugar(set(['a', 'b'])))
+    print(is_sugar(set(['a'])))
+    print(is_sugar(set([set(['a'])])))
+    # `set([set(["a"])])` is True, because `set(["a"]) & set(["a"])` is
+    #  True, and `set(["a"])` is True.
+    print(is_sugar(set([set(["a"])])))
+    print(is_s
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    # If we don't know anything about the cake, it's not a cake
+    if not cake:
+        return False
+
+    # The height can be positive, negative or zero
+    # For example -1 or -4 or 0 are not cakes
+    if cake < 0:
+        return False
+
+    # Check that the height is a positive integer
+    if not isinstance(cake, int):
+        return False
+
+    # Add cake and check
+    if cake + 1 > 5:
+        return False
+
+    return True
+
+A:
+
+To explain what your code is doing and why it's not working, let's take a look at your initialization of this_cake.
+First, you're starting off with some complicated function that you are not using anywhere else:
+    this_cake = 1 - (1 - (0.5 * a - 2 * (1-a) * a) ** (b - 1)) ** (-c + e * d) ** (f / (d * (f + 1)) - 1)
+
+Here is a bit of a cleaner way to do the same thing:
+def a(x):
+    return 1 - (0.5 * x - 2 * (1-x) * x) ** (b - 1)
+def b(x):
+    return c
+def c(x):
+    return d
+def d(x):
+    return e
+def e(x):
+    return f
+def f(x):
+    return x / (d(x) * (f(x) + 1)) - 1
+
+def calculate_this_cake():
+    # Can't tell what this function does but it has to do something
+    # before it returns a.
+    a(a(a(a(a(a(1.0))))))
+
+    return 1 - (1 - (0.5 * a - 2 * (1-a) * a) ** (b - 1)) ** (-c + e * d) ** (f / (d * (f + 1)) -
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return True if cake else False
+
+def debug(m, cake):
+    """debug method, output some debug info"""
+    # print(f'[DEBUG] cake: {cake} | `m`: {m}`
+    return {
+        'cake': is_cake(cake),
+       'm': str(m)
+    }
+
+I want to add as few un-used vars as possible to my functon debug(..)
+Is this possible in python?
+Edit
+or is there a better way to do that?
+This post explains well :
+
+How to avoid eval in python?
+
+Thank you!
+
+A:
+
+You can't avoid the use of eval (you don't have another option), but you can eliminate the need to use it. Instead of wrapping your key name in str, just return the key name directly:
+def debug(m, cake):
+    """debug method, output some debug info"""
+    return {
+        'cake': is_cake(cake),
+       'm': m
+    }
+
+It will remove the use of eval:
+In [11]: debug({'key1': None}, 'cake')
+Out[11]: {'cake': True,'m': None}
+
+<|endoftext|>![](transmedchirsocedinb81641-0240){#sp1.192}
+
+![](transmedchirsocedinb81641-0241){#sp2.193}
+
+![](transmedchirsocedinb81641-0242){#sp3.194}
+
+![](transmedchirsocedinb81641-0243){#sp4.195}
+
+![](transmedchirsocedinb81641-0244){#sp5.196}
+
+![](transmedchirsocedinb81641-0245){#sp6.197}
+
+![](transmedchirsocedinb81641-0246){#sp7.198}
+
+![](transmedchirsocedinb81641-0247){#sp
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return bool(len(cake)>0)
+
+
+def is_str(data):
+    """Check whether the object is a string"""
+    return str(data)!= data
+
+
+def is_hashable(data):
+    """Check whether the object is hashable"""
+    return hasattr(data, '__hash__')
+
+
+def is_dict(data):
+    """Check whether the object is a dictionary"""
+    return type(data) == dict
+
+
+def is_list(data):
+    """Check whether the object is a list"""
+    return type(data) == list
+
+
+def is_tuple(data):
+    """Check whether the object is a tuple"""
+    return type(data) == tuple
+
+
+def is_callable(data):
+    """Check whether the object is callable"""
+    return type(data) == type
+
+
+def is_int(data):
+    """Check whether the object is an int"""
+    return type(data) == int or type(data) == float
+
+
+def is_long(data):
+    """Check whether the object is a long"""
+    return type(data) == long
+
+
+def is_complex(data):
+    """Check whether the object is a complex number"""
+    return isinstance(data, (float, complex))
+
+
+def is_object(data):
+    """Check whether the object is an object of Python or something else"""
+    return type(data) == type
+
+
+def is_float(data):
+    """Check whether the object is a float or a double"""
+    return isinstance(data, float) or isinstance(data, double)
+
+
+def is_binary_data(data):
+    """Check whether the object is binary data"""
+    return isinstance(data, binary)
+
+
+def bytes_to_str(data):
+    """Convert bytes to str"""
+    try:
+        return str(data)
+    except:
+        raise TypeError(data)
+
+
+
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    try:
+        is_cake(cake)
+        return True
+    except ValueError:
+        return False
+
+def some_deep_function(value, prefix):
+    """Some stuff. The value is not important."""
+    # Unrelated, complicated stuff. If the value is True, return another
+    # False value.
+    if value is True:
+        value = False
+    else:
+        value = True
+    # More unrelated stuff.
+    return value
+
+def main():
+    """Main program. Prints 'True' or 'False'."""
+    is_cake = some_deep_function(is_cake(cake))
+    if is_cake:
+        print("True")
+    else:
+        print("False")
+
+if __name__ == "__main__":
+    main()
+
+A:
+
+This is a rather confusing solution, and I would recommend you try to do this in a way that is a bit more readable.
+import sys
+import sys
+if 'True' in sys.argv:
+    if sys.argv[2] == True:
+        pass
+
+Although, I don't quite get your full point. I'd try the following, more explicit way:
+import sys
+import sys
+
+if sys.argv[2] == "True":
+    pass
+
+if sys.argv[2] == "True":
+    pass
+
+A:
+
+You can always use break to get rid of indentation:
+if some_deep_function(is_cake(cake)):
+    print "True"
+else:
+    print "False"
+
+Just make sure your indentation is consistent.
+
+<|endoftext|>Truly enhanced microRNA protection by encapsulating an abasic site mimic.
+The abasic site is a structurally important and biologically functional lesion in DNA. We demonstrate that upon introduction of the abasic site mimic, 2'-deoxy
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if cake.is_a('cake'):
+        return True
+    else:
+        return False
+
+#Now for the test
+cake = CakeFactory.create('cake')
+for other_cake in cake.other_cakes:
+    if other_cake.is_a('cake'):
+        print(other_cake)
+
+returns
+CakeFactory('other_cake', 'cake')
+Traceback (most recent call last):
+  File "test.py", line 14, in <module>
+    if other_cake.is_a('cake'):
+AttributeError: 'other_cake' object has no attribute 'is_a'
+
+A:
+
+.is_a() is a method, not a property.
+>>> class Foo: pass
+>>> x = Foo()
+>>> Foo.is_a
+<unbound method Foo.is_a>
+>>> Foo.is_a(x)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: Foo instance has no attribute 'is_a'
+
+Also, the underlying reason for your error is that other_cake is an instance, not a class. That's why it has a class attribute is_a, but not a property other_cakes.get.
+>>> class Foo:
+...     pass
+>>> foo = Foo()
+>>> foo.is_a
+<unbound method Foo.is_a>
+>>> foo.is_a(foo)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Foo' object has no attribute 'is_a'
+
+<|endoftext|>---------------------- Forwarded by Chris Germany/HOU/ECT on 02/27/2000 05:14 
+PM ---------------------------
+
+
+Chris Germany
+02/23/2000 08:26 AM
+To: Jeffrey T Hodge/HOU/ECT@ECT, Colleen Sullivan/HOU/ECT@ECT, Mark 
+Feldman/HOU/ECT@ECT, Sheri Thomas/HOU/ECT@ECT, Sylvia A Campos/HOU/ECT@ECT, 
+Kimberly S
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if not all(x.name in ['chocolate', 'cake','sweet', 'fluffy'] for x in cake.contents):
+        return False
+    if not cake.location.contains(neighbourhood):
+        return False
+    return True
+
+# now you can test your'real' cake
+print('Is this your real cake?')
+is_my_cake = True
+while is_my_cake:
+    response = int(raw_input())
+    # response is the number of neighbour 'test' cakes you must check
+    if not all(is_cake(c) for c in cake_list):
+        print('Couldn\'t find that cake. One to go.')
+        is_my_cake = False
+    else:
+        cake_list.remove(c)
+        new_cake = cake_list.pop()
+        if is_my_cake:
+            print('Good!' + '.')
+        else:
+            print('Fool!' + '.')
+        new_cake.view()
+        is_my_cake = not is_my_cake
+
+<|endoftext|>Antonio Brocchi
+
+Antonio Brocchi (born 26 June 1965 in Naples, Italy) is a professor of kinesiology and physiotherapy at the University of Bologna and founder and director of the Gipuzkoa National Center for Sport Sciences. He graduated in physical therapy in 1993 and in kinesiology and physiatry in 1995 from the University of Bologna. Brocchi is an international specialist in exercise and sport medicine, acting for the Royal Dutch Equestrian team and the Italian National Olympic Committee.
+
+External links
+ Website of Gipuzkoa National Center for Sport Sciences
+ Bologna.net
+
+Category:Italian physiotherapists
+Category:Italian sports physicians
+Category:1965 births
+Category:Living people
+Category:Sports
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return cake == True
+
+def get_strings():
+    """Return 2 strings and 3 Ints"""
+    strings = 'a' * 20
+    i = 0
+    while i < 10:
+        if i < 3:
+            i += 1
+            j = random.randint(1, 20)
+            k = random.randint(1, 20)
+            strings += str(i) +'' + str(j) +'' + str(k) +''
+        elif i == 10:
+            strings += str(i) +'' + str(j) +'' + str(k)
+        else:
+            i -= 1
+    return strings
+
+def choose_cake(strings):
+    """Choose a cake"""
+    choice = ''
+    for i in range(len(strings)):
+        for j in range(i, len(strings)):
+            if choose == '':
+                break
+            if strings[j] == strings[i]:
+                choice = choose +'' + strings[j]
+            else:
+                break
+    return choice
+
+def choose_pie(strings):
+    """Choose a pie"""
+    choice = ''
+    for i in range(len(strings)):
+        if choice == '':
+            break
+        if strings[i] == strings[i - 1]:
+  
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return cake
+
+def chocolate_cake(price):
+    """Take chocolate cake"""
+     print("Buy a chocolate cake for $",price,"")
+
+def banana_cake(price):
+    """Take banana cake"""
+    print("Buy a banana cake for $",price,"")
+
+def main():
+    price = 20
+    is_baked = false
+    while not is_baked:
+        print("chocolate or banana cake?")
+        chocolate = input("chocolate or banana? ")
+        is_baked = is_cake(chocolate)
+
+# Here you call your cakes function
+
+    print(chocolate_cake(price))
+
+# Here you add one line to your while loop and you call it
+
+    while True:
+        banana = input("BANANA or CHOCOLATE? ")
+        is_baked = is_cake(banana)
+
+main()
+
+I am working in python 3.5.2 and this is my first time on here, so please let me know if there is any other information that would be needed.
+
+A:
+
+So this problem can be solved using dictionary.
+Code:
+from __future__ import print_function # So you can use this
+
+def chocolate_cake(price):
+    """Take chocolate cake"""
+     print("Buy a chocolate cake for $",price,"")
+
+def banana_cake(price):
+    """Take banana cake"""
+    print("Buy a banana cake for $",price,"")
+
+def main():
+    price = 20
+    is_baked = false
+    while not is_baked:
+        print("chocolate or banana cake?")
+        chocolate = input("chocolate or banana? ")
+        is_baked = chocolate_cake(price)
+        if is_baked:
+            banana = input
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if cake == True:
+        print("True")
+        return True
+    elif cake == False:
+        print("False")
+        return False
+    else:
+        print("Nonsense")
+        return False
+
+When I use get_cake(42) this works as expected.
+However, when I use get_cake(22), I get False.  Why is this?
+
+A:
+
+You've added an else block that returns false, while get_cake(22) doesn't seem to have any else. You must return something from that if clause, but if you don't it evaluates to False.
+
+Also, elif should always be paired with an else clause.
+
+<|endoftext|>Emergent access to the tyrosyl-aromatic rings of calix[6]arenes: second-generation approaches and exploration of their thermal stability.
+Functionalized calix[6]arenes bearing either an exocyclic or endocyclic Tyr-aromatic unit as substituent were prepared through an unstratified Cu-catalyzed oxidative macrocyclization and subsequent copper-free oxidative cleavage of the remaining carbomethoxy groups. The use of the unstratified cyclization of a calix[6]arene and a chlorotrimethylsilane gives rise to triangulares while the use of a calix[6]arene and a pentachlorophenol affords two tetravalent fullerenes. It was found that the stability of the obtained triangulares or fullerenes can be tuned by tuning the cyclization strategy, halogenation of the aromatic residues and solvent, thereby providing a new type of second-generation calix[6]arenes.<|endoftext|>The increasing use of high-performance computing (HPC) on supercomputers and distributed computing clusters, as well as high-performance computing clouds, has created demand for efficient data storage solutions, particularly for data with a huge amount of storage capacity. For example, to reduce the cost of supercomputer hosting, a host system (e.g., a file system manager) manages a plurality of hard disk drives (HDDs) in a distributed manner in a HPC system and
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if not cake:
+        print("It's a lie!")
+        return
+    else:
+        print("It's a true fact!")
+        return True
+
+if is_true(cake) == is_true(true):
+    print("True or True")
+    print("They are equal")
+else:
+    print("False or False")
+    print("They are not equal")
+
+Output:
+It's a true fact!
+It's a true fact!
+True or True
+They are equal
+It's a false fact!
+It's a false fact!
+False or False
+They are not equal
+
+Alternatively, you can use a decorator to achieve this:
+@is_true
+def cake():
+    """The cake decorator"""
+    print("It's a true fact!")
+
+def is_true(my_cake):
+    """Check whether the cake is true"""
+    if not my_cake:
+        print("It's a lie!")
+        return
+    else:
+        print("It's a true fact!")
+        return True
+
+if cake() == true():
+    print("True or True")
+    print("They are equal")
+else:
+    print("False or False")
+    print("They are not equal")
+
+<|endoftext|>Q:
+
+"As of" vs "Since"
+
+A date is specified in the introduction as "as of" the latest update of the file. However, in the last line, the same date is mentioned as "since" the latest update. I assume both dates are equivalent, but which should be used? And what is the meaning of the sentence?
+
+A:
+
+The most common usage is:
+
+I found a great website as of the 3rd May 2009.
+
+(To indicate the date of an email I would use since.)
+To use since for the date where the contact form is stated, that could imply that the form is the oldest thing I have ever made;
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return cake
+
+def rotate(chew):
+    """Rotate a cake by 90 degrees about the center"""
+    if not (chew.centerpoint.y < 0 or chew.centerpoint.y > 12):
+        if chew.centerpoint.y < 0:
+            chew.rotate(90)
+        else:
+            chew.rotate(-90)
+        return
+
+    left = slice(chew, 2, 2, 0, 2)
+    right = slice(chew, 6, 6, 2, 0)
+    top = slice(chew, 8, 8, 0, 2)
+    bottom = slice(chew, 10, 10, 4, 0)
+    chews = [left, right, top, bottom]
+
+    for che in chews:
+        if is_cake(che) == True:
+            val = rotate(che)
+            if val == None:
+                return
+            chew.centerpoint = val
+
+    return
+
+def give_crumb(chew):
+    """Chewing a cake gives a crumb. A crumb may or may not be edible."""
+    if is_cake(chew) == True:
+        if chew.centerpoint.x < 12 and chew.centerpoint.y < 12:
+            return True
+
+    return False
+
+def read_input():
+    """Input reads the game"""
+    food = []
+    cookies = []
+    crumbs = []
+
+    # Read in food and cookies
+    for line in input('Input a line of text and press Enter to continue.\n'):
+        food.append(line)
+
+
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if ((cake == 1 and is_pie) or (cake == 0 and not is_pie)):
+        return True
+
+    return False
+
+print is_pie(cake=1)
+
+This would yield:
+True
+
+<|endoftext|> these results in the belief that differences in the preoperative prognosis are directly related to the various methods of managing the metastatic nodules, an essential characteristic of the method employed for managing the residual disease after the surgery. Since, in our opinion, surgical metastasectomy is based on a number of important factors (cytoreduction, complete surgical excision of the metastatic nodule and other diagnostic information regarding the patient), it was decided that such patients would receive adjuvant radiotherapy after an interval of 2 weeks. We do believe that such a strategy will improve the recurrence-free and survival rates, since it may be one of the reasons for the aforementioned results.
+
+As a possible limitation of the current study, in addition to the fact that the patient population comprised primarily colon cancer patients, we have not performed further subgroup analysis, even though they may possibly constitute a subgroup, and due to the small number of patients. Other shortcomings of the current study are the retrospective nature of the study and the heterogeneity of the diagnostic and therapeutic methods.
+
+Conclusion {#Sec9}
+==========
+
+We have found that preoperative treatment does not increase the rate of positive resection margins in patients with incomplete resection, and in addition, when there is a statistically significant difference in margin positivity, it seems that the number of patients with negative resection margins is significantly higher in the RT group than in the control group. This finding is of high significance for the cancer patients in this country and may contribute to a better preoperative prognosis, along with new and improved adjuvant therapy, for patients with locally advanced rectal cancer. It is important to create protocols for effective preoperative staging for all types of rectal cancer and emphasize that, in such cases, an increase in the number of metastasized patients does not necessarily indicate worse preoperative prognosis, as only patients with a high risk of recurrence after incomplete resection should undergo preoperative therapy. It is a priority to consider the side effects of such treatment, and we believe that the decision to administer preoperative treatment must be taken by a multidisciplinary team, including surgeons, radiation oncologists and radiotherapists
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return (
+        cake.color == "white"
+        and cake.flavor == "sponge"
+        and cake.count > 0
+    )
+
+In this case the game is not over even though the cake still hasn't been eaten.
+
+<|endoftext|>{
+  "name": "underscore",
+  "description": "JavaScript's functional programming helper library.",
+  "homepage": "http://underscorejs.org",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": {
+    "name": "Jeremy Ashkenas",
+    "email": "jeremy@documentcloud.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/documentcloud/underscore.git"
+  },
+  "version": "1.4.4",
+  "main": "underscore.js",
+  "scripts": {
+    "test": "tape test/*.js | tap-parser"
+  },
+  "devDependencies": {
+    "tape": "~2.4.0"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/documentcloud/underscore/raw/master/LICENSE"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "ff/5",
+      "firefox/latest",
+      "chrome/10",
+      "chrome/latest",
+      "safari/5.1",
+      "safari/latest",
+      "opera/11.6",
+      "opera/latest"
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return True
+
+def is_ant(a, b):
+    """Check whether two values are true or not"""
+    return a or b
+
+def print_ant(a, b):
+    """Print that a is not true"""
+    print(is_ant(a, b))
+
+def main():
+    a = True
+    b = True
+    print_ant(a, b)
+
+if __name__ == '__main__':
+    main()
+
+When I run this, it says "ValueError: too many values to unpack (expected 2)"
+What I want it to do is when I run this, it outputs:
+Output:
+
+True
+False
+
+What am I doing wrong here?
+
+A:
+
+What happens is that you call main() without actually calling the function.
+try:
+    main()
+except NameError:
+    main()
+
+This is because python will be calling main() and then if it finds the main function doesn't exist it will call it again for you. So to fix it you just call the main function yourself. 
+Try this:
+import sys
+import random
+import time
+
+def is_ant(a, b):
+    """Check whether two values are true or not"""
+    return a or b
+
+def print_ant(a, b):
+    """Print that a is not true"""
+    print(is_ant(a, b))
+
+def main():
+    a = True
+    b = True
+    print_ant(a, b)
+
+if __name__ == '__main__':
+    main()
+
+I made some other minor modifications as well.
+As @Radu said you should just rename your main() function to run_game() and it will work just as you had intended.
+
+<|endoftext|>Q:
+
+How to code the ListView.Caching
+
+Using C# in WinForms.
+I am a noob at this, so please be kind.
+I would like to make a form that shows a list of data coming from a SQL database. 
+Is it better to use ListView or ImageList with their own Cache?
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return True
+
+def main():
+    choice = input("Input: ")
+    if choice == "1":
+        if is_cake(cupcake):
+            print("You got a cupcake")
+        elif is_cake(pop):
+            print("You got a pop")
+    elif choice == "2":
+        if is_cake(bread):
+            print("You got a bread")
+        elif is_cake(pie):
+            print("You got a pie")
+    elif choice == "3":
+        if is_cake(cake):
+            print("You got a cake")
+    else:
+        print("Sorry, only 1-3 are allowed.")
+main()
+
+<|endoftext|>Risk of reproductive failure in pregnant women with systemic lupus erythematosus: a population-based study.
+To assess risk of premature labor, spontaneous abortion, preterm delivery and stillbirth in women with systemic lupus erythematosus (SLE) with reproductive events (RE) compared to control subjects. All RE in four Finnish cities during a 13-year period (1985-1998) were identified from the databases of the local population-based hospital discharge registers and the registers of birth and death. A control group of women without SLE and without pregnancies was selected from the population register of the same cities using frequency matching on age. During the study period, 1464 women with SLE and 833 controls were identified with a median follow up time of 5.4 years. Women with SLE were more likely to deliver at the extremes of reproductive age and to have their first RE earlier. Compared to the control subjects, women with SLE had an increased risk of spontaneous abortion and preterm delivery. Women with SLE delivered prematurely (odds ratio [OR] 1.84, 95% confidence interval [95% CI] 1.42-2.40) and had their first pregnancy at an earlier
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if type(cake) is str:
+        return true
+    else:
+        return false
+
+def cake(cake):
+    """Return the true value of the cake"""
+    if is_cake(cake):
+        return true
+    else:
+        return false
+
+# Check which one is true  
+print "Input true or false:"
+
+while true:
+    try:
+        selection = raw_input("> ")
+        if selection == "true":
+            cake = true
+            print "Success!"
+        elif selection == "false":
+            cake = false
+            print "Success!"
+        else:
+            print "Error, please select a valid input!"
+    except:
+        break
+
+if cake:
+    print "The cake is a lie!"
+else:
+    print "The cake is true!"
+
+I thought that it would be a lot more simple to accomplish this task without having to write a loop for the whole problem but in my code it seems the if statement is not correct because it doesn't differentiate between true and false. Is there anything that I'm missing here or is this just a false-statement problem? Thanks!
+
+A:
+
+You're going in the right direction with this code. 
+To solve your problem, try a simple one-line if statement like this:
+if 'true' == 'true':
+    print "The cake is a lie!"
+else:
+    print "The cake is true!"
+
+EDIT: Here is what you had:
+if selection == "true":
+    cake = true
+
+So, to simplify the if statement you can just do this:
+if selection == "true":
+    cake = True
+
+I know this is a simple fix, but
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if cake:
+        return True
+    return False
+
+def check_for_eater(eater):
+    """Checks whether an eater is present"""
+    if eater:
+        return True
+    return False
+
+def update_title(is_present_in_cake, is_present_in_eater, cake_name):
+    """
+    Update the title of the program according to the data given by the user.
+    i.e. `cake_name` + `" is a cake with "+` + `eater_name`.
+    """
+    title = '%s is a %s cake with a %s!' % (cake_name, eater_name, eater_name)
+    print(title)
+
+def cake_too_big():
+    """Prints error message to user if a cake is too big"""
+    print('The cake is too big. (Maximum size is 12)')
+
+def is_a_winner():
+    """Prints winner message if any of the cakes is a winner"""
+    if cake1_is_present_in_cake and cake2_is_present_in_cake and cake1_is_present_in_eater and cake2_is_present_in_eater:
+        winner = "Winner: cake #2"
+        print(winner)
+        print("Congratulations on winning!")
+        print("You may now go eat your cake. I hope you enjoy it. :D")
+        return True
+    else:
+        return False
+
+# TODO: add condition for one/both cakes and one/both eaters being present
+# and run the function that should happen when the condition is true
+
+def main():
+    """Initialises program variables"""
+    eaters_present = check_for_eater(eater1)
+    eaters_present_false = check_for_eater(eater1)
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if int(cake)!= 0:
+        print "The cake is a %d" % (int(cake))
+    else:
+        print "The cake is a zero"
+
+def main():
+    an_array_of_cakes = [("Chocolate Cake", 3), ("Cheesecake", 1), ("Carrot Cake", 6), ("Peanut Butter Cake", 9)]
+    print_cake_stack(an_array_of_cakes)
+    find_the_best_cake(an_array_of_cakes)
+    find_the_smallest_cake(an_array_of_cakes)
+    print_the_winning_cake(an_array_of_cakes)
+
+if __name__ == "__main__":
+    main()
+
+A:
+
+What you did is a great way to get feedback, however, there are other things to work on. 
+
+There is no need for a wrapper function for the user input; you are only interested in that, so use raw_input()
+if __name__ == '__main__': is not a good name for a function. Just call it main().
+In main, you aren't actually calling your functions, so they are not being used. Change to: 
+if __name__ == '__main__':
+    main()
+
+If you really want your functions to be not only meant to be called inside of main() but in the command-line, you should place them under a folder named "module" or something of the sort, and then do import module, and then do import module.__main__. That way, you will be able to use the function names as regular python function names.
+
+<|endoftext|>5-5-1-1: Trading and Risk management at GE
+
+What
+
+This is the outcome of a consulting project I have been working on with the Risk Office.
+
+We looked at the training needs of staff responsible for risk management and how the success of the business can be measured. It is an important subject to share with the rest of the organisation, as the nature of risk affects everyone in the business.
+
+We also looked at the other services available within the Risk Office and how to incorporate them into the organisation.
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    return cake
+
+If someone provides False, a "False" string, or any other type that is not a boolean, it will evaluate to True. To check that something isn't True, use is_false():
+def is_big_wheel(cake):
+    """Check whether the cake is big"""
+    if not is_false(cake):
+        return is_false(cake)
+    if is_cake(cake):
+        return is_false(cake)
+    return is_cake(cake)
+
+Similarly, you can implement the same for the other two tests.
+
+<|endoftext|>Re: Re: Kaminski
+
+On Fri, 13 Apr 2001, hmink wrote:
+> Eric,
+>
+> Yes, I use to call myself "Professor" Eric. I think that that was quite
+> apropos.
+>
+> Eric L. Green
+> Director, Applied Mathematical Sciences
+> M.S. in Mathematics
+> California State University
+> Northridge, 1990
+> Ph.D. in Economics
+> State University of New York
+> Stony Brook, 1995
+>
+> Department of Mathematics
+> California State University
+> Northridge, 1990
+>
+> ph at csun.edu (voice)
+> 714-895-5565 (fax)
+>
+> Home: 1292 Adams Blvd.
+> Northridge, CA 91330
+> 914.549.3174 (home)
+> 914.229.4787 (office)
+>
+>
+> -----Original Message-----
+> From: Murray, Douglas <Douglas.Murray@enron.com>
+> To: hmink@csun.edu <hmink@csun.edu>
+> Date: Friday, 13 Apr 2001 12:51
+> Subject: Kaminski
+>
+>
+>
+>
+>
+> Eric,
+>
+> I enjoyed chatting with you and saw that you sent us the article on the
+> energy topic.  I like the way you think.  What is your name again?  I
+> will have to send this to Tony.
+>
+> Regards,
+>
+> Murray D.
+> 713-853-9470
+>
+>
+><|endoftext|>Q
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if cake == True:
+        print "This is a Cake"
+    else:
+        print "This is a fact."
+
+is_cake(True)
+
+A:
+
+A function is not a return value. 
+Also, you didn't use the def keyword, so you don't need an extra layer of brackets.
+def is_cake():
+    return True
+
+is_cake()
+
+A:
+
+A function is a useful abstraction, to separate logic and calling. 
+def is_cake():
+    return True
+
+print(is_cake())
+# output : True
+
+This way, you can keep logic and calling separated, even though the function is actually returning something (True in this case).
+In addition, it allows you to reuse the logic in multiple places (in your case the print statement). 
+If you didn't use a function, the logic and calling would be in the same line:
+print(True)
+# output : True
+
+Which could then cause problems if the actual output of the logic was not True.
+Note: The return value of the function is just for compatibility with the original is_cake(True). It is irrelevant to your question and you can simply change it as you wish.
+
+<|endoftext|>How do I read a code without knowing its name?
+
+A:
+
+Quick Answer
+
+According to WebMD, to "read" a code means to decipher the results of the medical tests on a patient's body. To "read" a code properly, it helps to know what the codes mean in relation to the patient's body and medications, as well as what the next step of testing is. According to WebMD, any medical test can be coded, including ultrasounds, blood tests and more.
+
+Keep Learning
+
+Medical coding is the science of decoding data and translating that data into a standard code. When medical data is recorded into a computer, that data is often "encoded" or translated into a standard code, such as 0010.0012, that is easier to recognize and translate, according to WebMD.<|endoftext|>Soybean-fermented steamed soybean (SSB) extract exerts an antipyretic effect in adjuvant-induced arthritis mice by activating the ERK signaling pathway.
+Steamed soybean is an important
+====================
+def is_cake(cake):
+    """Check whether the cake is true"""
+    if (cake.duration > 0) and (str(time.time() - cake.start_time) > cake.duration):
+        return False
+    else:
+        return True
+
+def is_progression(cake):
+    """Check whether the cake is real and a progression"""
+    if not is_cake(cake):
+        return False
+
+    # The first cake in progression is longer than the progression:
+    if cake.start_time < cake.duration:
+        return True
+
+    if not is_progression_active():
+        return False
+
+    # We can have cakes in progression
+    # True -> duration must be equal, progressions do not need progressions, cakes must not be cakes
+    # False -> duration can be longer, progressions are possible, cakes can be cakes
+    return cake.duration == cake.progressions
+
+
+def is_progression_active():
+    """Check whether progression are activated"""
+    if (not is_progression(cake)):
+        return False
+
+    if not (progressions_crawler.progression_is_active):
+        return False
+
+    return True
+
+def crawl_list(progressions):
+    """Crawl list of progressions and add to objects"""
+    if not (progressions):
+        return
+
+    for progression in progressions:
+        if not (progression in progressions_crawler.progression_active_list):
+            continue
+
+        # Here we can be more restrictive and add the progression only if
+        # it is not the last cake in the progression
+        if cake_matcher.match(progression.target, cake, True):
+            if not progressions_crawler.progression_active_list.count(progression.
+====================

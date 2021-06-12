@@ -1,0 +1,2008 @@
+def extract_text(url):
+    """Get the text from target webpage"""
+    source_code = urlopen(url).read()
+    return source_code
+
+def extract_scrape_date(url):
+    source_code = extract_text(url)
+    extractor = soup.findAll(True)
+    return [item.get("date") for item in extractor if len(item) > 0]
+
+def scrape_data(url):
+    print(url)
+    data = []
+    html_source_code = extract_text(url)
+    soup = BeautifulSoup(html_source_code, 'html.parser')
+    extractor = soup.findAll(True)
+    for item in extractor:
+        data.append({
+            'page_title': item.find(class_='site-title-wrap').get_text(strip=True),
+            'page_body': item.find(class_='body').get_text(strip=True),
+            'page_date': extract_scrape_date(url)
+        })
+    print(data)
+
+if __name__ == '__main__':
+    scrape_data('https://www.digg.com/videos/Meet_Alice_Workman')
+
+A:
+
+When I run your code in a shell it gives me an error.  You forgot to import something.
+I ran this:
+import requests
+import re
+import time
+import os
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+
+def extract_text(url):
+    """Get the text from target webpage"""
+    source_code = urlopen(url).read()
+    return source_code
+
+def extract_scrape_date(url):
+    source_code = extract_text(url)
+    extractor = soup.findAll(True)
+    return [item.get("date") for item in extractor if len(item) > 0]
+
+
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    raw_text = driver.page_source
+    text = re.search('<body>(.*?)</body>', raw_text).group(1)
+
+    return text
+
+
+def post_regex_to_csv(lines, regex_pattern):
+    """For each line of the given text, return a list of matches for
+    each line of the pattern. Also stores the matched text and
+    corresponding index in lines. This is used to collect data
+    into csv lines.
+
+    Arguments:
+    lines -- A list of strings of text to be matched
+    regex_pattern -- A string or list of string patterns to be matched
+                    (note: not regular expression pattern).
+
+    Returns:
+    line_list -- List of lists. Each line contains a list of
+                  matched string/pattern pairs
+    """
+    if not isinstance(regex_pattern, str):
+        regex_pattern = [regex_pattern]
+
+    line_list = []
+    for i in xrange(len(lines)):
+        line = []
+        m = re.findall(regex_pattern, lines[i])
+        for j in m:
+            line.append([i, j, lines[i][j]])
+
+        line_list.append(line)
+
+    return line_list
+
+
+def clean_text(lines, suffix_patterns, remove_only):
+    """
+    Arguments:
+    lines -- The list of lines, each line is a list of matches
+             for the patterns in regex_patterns
+    suffix_patterns -- List of regular expression pattern,
+                       this list is derived from
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    r = requests.get(url)
+    if r.status_code == 200:
+        return r.text
+    elif r.status_code == 400:
+        return None
+
+<|endoftext|>From a story to be released in December 2019 by E!/Femme, look forward to a review of How to Give to Transgender People by Rebecca Comay.
+
+Another year, another conversation about giving. So, what’s this time around? Since 2010, more than 700 trans people in the United States have been killed due to fatal violence at the hands of police, in part, because of this climate of fear, and despite transgender people experiencing alarming rates of fatal hate crimes, more than 70% of all donors still choose to focus their giving on organizations that exclusively serve transgender people.
+
+Does this speak to the relative dearth of attention that transgender issues have received in the mainstream conversation about philanthropy? Or maybe, it’s even a form of self-protection for organizations like those serving transgender people. Who would they be coming after if donors’ support wasn’t so vital?
+
+Or are we missing the whole point of giving, that every dollar given is the opportunity for a truly transformative exchange to occur, and that our most effective philanthropy lies in our own personal practices and everyday interactions?
+
+Still need convincing that philanthropy should shift its focus away from exclusively serving transgender people? I’ll offer you three reasons why that should be so.
+
+1) Trans people get it. They understand what it’s like to live in an unjust society, and they’re determined to find solutions that will advance the human rights of all people.
+
+When transgender rights were thrust into the spotlight, trans people and their allies gave life to an uncommonly potent type of philanthropy, one that serves the marginalized and working class, rather than the conventional globalist circles where traditional philanthropy often favors. Community-based projects like the Trans Pride March, NYCTransgender Health Conference and Trans Pride in RVA were born from a collective sense that mainstream organizing and advocacy wasn’t addressing the needs of trans people in a way that gave them agency. The inherent assumption of liberal philanthropy is that people know what’s best for them and their communities. But as a trans woman and human rights organizer, I know that when marginalized people
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    try:
+        soup = BS(url, 'lxml').get_text()
+    except:
+        print('No soup')
+    return soup.encode('utf-8')
+
+# Just get the text from the web url above and save it.
+txt = '\n'.join(extract_text(site))
+
+print(" ".join(txt))
+
+This can be combined into a single function with some minor improvements:
+def extract_text(url):
+    """Return the text content from target webpage"""
+    try:
+        soup = BS(url, 'lxml').get_text()
+        return soup.encode('utf-8')
+    except:
+        return 'No soup'
+
+# Just get the text from the web url above and save it.
+txt = '\n'.join(extract_text(site))
+
+print(" ".join(txt))
+
+<|endoftext|>Q:
+
+Topological sort from a custom stack data structure
+
+So, I have been experimenting with topological sorts recently and found that we can write one using a custom stack data structure.
+A topological sort of a given list [v1, v2, v3,..., vn] starts with all elements in the list represented by the stack as 0 and then we pop off the top two elements from the stack. If that leaves a single element in the stack we pop off that element and then pop off the next two elements from the stack. The top element from the stack represents the first element in the list that we have not yet popped off and the second element from the stack represents the second element that we have not yet popped off. This continues until we have popped off all elements from the stack. We then process the list in the order determined by the top two elements on the stack. If we have the same elements in the stack we leave them in the stack and if we have the last element on the stack we remove the element from the stack and use the element on top of the stack to represent the new top element on the stack and start the process all over again.
+From an algorithm point of view this is the same as the standard way of doing it, but we can
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    from bs4 import BeautifulSoup
+
+    page = urlopen(url)
+    content = page.read()
+    soup = BeautifulSoup(content)
+
+    titles = soup.findAll(id = "title")
+    text = ''
+
+    for titles in soup.findAll('div', attrs={'class': "details"}):
+        text = text + str(titles.contents[0].get_text()).strip()
+        text = text + "\n\n"
+
+    page.close()
+    return text
+
+A:
+
+As it is pretty big, your best option might be to use BeautifulSoup and the take a look at the source for that part.
+There are a couple of things to be aware of:
+1.) Your code might work on another machine, if you copy the page source of the.RData to your harddrive and then run the code.
+2.) You are trying to get the text in the title tag.
+There is no easy way to only get one of those tags as it is a nested element and therefore there would need to be a way to grab that tag as well.
+I have included a working example of what I mean.
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get("https://www.infermed.com/journal-article/if-mrc1-knock-out-in-human-dendritic-cells-interferes-with-naive-and-memory-t-cell-activation")
+
+content = page.content
+soup = BeautifulSoup(content, "lxml")
+
+titles = soup.findAll('div', attrs={'class': "details"})
+text = []
+for i, titles in enumerate(titles):
+    for titles in titles:
+        text.append(titles.contents[0].get_text().strip()+'\n')
+        print(titles.contents[0].get_text().strip())
+
+print(text[4].strip())
+
+Edit:
+Also this is the source where the links
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = urlopen(url)
+    soup = BeautifulSoup(page, 'lxml')
+    result = soup.select('.entry-content p a')
+    return''.join([item.get_text() for item in result])
+
+def parse_links(text):
+    """Find and parse all links
+    Target URLs will be saved in new_list
+    """
+    new_list = []
+    for link in re.findall(r'<a href="(.*?)">', text):
+        try:
+            new_list.append(extract_text(link))
+        except:
+            pass
+    return new_list
+
+# Example Usage:
+with open('parsed_list.txt', 'a') as f:
+    f.write(str(parse_links(extract_text(url))))
+
+If it is not what you were looking for, comment and I will update the answer.
+
+<|endoftext|>Share this article
+
+A German naval officer was injured today after his bomb-laden motorboat collided with a shipping container vessel in the Gulf of Finland, sending shrapnel flying in the air and sending a huge wave smashing against the hull of the third vessel in a line of ships on the way to the Kola Peninsula, Russia.
+
+Around 1:45pm the collision occurred in the Sea of Åland waters between the Baltic port of Tallinn, Estonia and the Finnish town of Salla.
+
+A Dvina class missile boat from the Finnish navy, the Valkyria, lost its keel. The bow of the ship is missing, in addition to an antenna, watertight doors, some paintwork and electronic control systems.
+
+As a result of the crash and the subsequent wave, a motorboat from the German navy, the Gustaf III, hit the Valkyria's starboard, or right-hand side, damaging the stern, but avoiding serious injuries.
+
+The Valkyria was being towed back to the port of Salla, Finland, where it will undergo repairs. The Gustaf III was taken to the Gulf of Finland and will be moved to the
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    base = 'http://www.instructables.com/'
+    r = requests.get(url)
+    raw = BeautifulSoup(r.content, 'html.parser')
+    target_text = raw.find_all(text=True)
+    text = ''.join(target_text)
+    return text
+
+def get_embed_video_code(text):
+    """Gets the HTML code for the embedded YouTube video"""
+    youtube_url = 'http://www.youtube.com/embed/'
+    return youtube_url + text.replace(youtube_url, '')
+
+def main():
+    for url in urls:
+        description = get_description(url)
+        source = get_source(url)
+        text = extract_text(url)
+        embed_video_code = get_embed_video_code(text)
+        html_block = "<div class='container'>" \
+                         + "<div class='row'>" \
+                             + "<div class='col-md-12'> \
+                                 <h2><i class='fa fa-rocket'></i> \
+                                     " + url + "</h2>\
+                                       " + source + "<br><br>" + text + "<br>" + "</div>"
+                   
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    source = requests.get(url)
+    if not source.ok:
+        return ""
+    target = source.text
+    return target
+
+def get_by_date(post_date):
+    """Get post from target webpage"""
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.content, "html.parser")
+    # how to remove everything from soup between "from" and " to"
+    
+    soup2 = soup.findAll("p", {"class" : "from"})
+    soup3 = soup.findAll("p", {"class" : "to"})
+    
+    if not (soup2 or soup3):
+        return None
+    else:
+        return True
+    
+
+def main():
+    for posts in post_content:
+        # True = post, False = not post
+        if get_by_date(posts):
+            print(posts)
+    
+
+if __name__ == "__main__":
+    main()
+<|endoftext|>Q:
+
+Conditional Stylus @extend
+
+I have this CSS in a.scss file:
+// Export foundation mixins and variables
+// var(
+//   --transition, default
+//   0.15s ease,
+// )
+
+@mixin solid-transition($duration: 0.4s) {
+    -webkit-transition: all $duration;
+    -moz-transition: all $duration;
+    transition: all $duration;
+}
+
+@mixin transition($name, $duration: 0.4s) {
+    @if $duration == 0.4s {
+        @extend.fndtn-ltr,.fndtn-rtl;
+    }
+    -webkit-transition: all $duration;
+    -
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    from urllib.request import urlopen
+    from bs4 import BeautifulSoup
+
+    source = urlopen(url)
+    html = source.read()
+    soup = BeautifulSoup(html)
+
+    return soup.findAll(text=True)
+
+def get_contents(url):
+    """Get the contents of target webpage"""
+    from urllib.request import urlopen
+    from bs4 import BeautifulSoup
+
+    source = urlopen(url)
+    html = source.read()
+    soup = BeautifulSoup(html)
+
+    return soup.findAll('div', class_='content')
+
+def get_description(url):
+    """Get the page description from target webpage"""
+    from urllib.request import urlopen
+    from bs4 import BeautifulSoup
+
+    source = urlopen(url)
+    html = source.read()
+    soup = BeautifulSoup(html)
+
+    desc = soup.find(class_='p-details')
+    return desc.contents[0]
+
+def get_url(url):
+    """Get the target webpage url"""
+    from urllib.request import urlopen
+    from bs4 import BeautifulSoup
+
+    source = urlopen(url)
+    html = source.read()
+    soup = BeautifulSoup(html)
+
+    return soup.find(class_='p-link')
+
+def get_title(url):
+    """Get the target webpage title"""
+    from urllib.request import urlopen
+    from bs4 import BeautifulSoup
+
+    source = urlopen(url)
+    html = source.read()
+    soup = BeautifulSoup(html)
+
+    title = soup.find(class_='p-title')
+    return title.contents[0]
+
+A:
+
+The calls to urlopen return an object of type HTTPResponse, which has an attribute called text. That means you can simply return the
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    import requests
+    import urllib
+    import urlparse
+    from bs4 import BeautifulSoup
+    response = requests.get(url)
+    page_soup = BeautifulSoup(response.text, 'html5lib')
+    table = page_soup.find("table")
+    result = ''
+    for row in table.findAll("tr"):
+        data = []
+        for col in row.findAll("td"):
+            data.append(col.getText().strip())
+        result = result + '\n'.join(data)
+    return result
+
+import re
+
+regex = re.compile(r'(\$\$1:)  (.*)')(r'[\w,.-]+')
+
+def process_value(val):
+    """Transform a value to be amenable to PHP"""
+    if val.find("Budget")!= -1:
+        return "Budget:" + val
+    if val.find("Target")!= -1:
+        return "Target:" + val
+    return val
+
+content = []
+for row in tqdm(ranges('prettify_update_content.txt'), desc='UPD: line by line'):
+    text = row.replace("%% ", '')
+    text = re.sub(regex, process_value, text)
+    content.append(text)
+with open('upd_content.txt', 'w') as output:
+    output.writelines(content)
+
+<|endoftext|>Azerbaijan
+
+Best of Azerbaijan, the country that has long been a strong resource of confidence for investors from around the world. Its natural and man-made wealth have made it a very modern country with a rising economy and a burgeoning consumer market.
+
+There are many things that make Azerbaijan unique, including a country which is rich in a diversity of resources, is strategically located in the centre of the Eurasian Economic Union (EAEU)
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    return requests.get(url).text
+
+# scrape method
+def scrape(page_url):
+    """Scrape all the text from the webpage"""
+    for item in range(1,8):
+        link = page_url + "&r={}".format(item)
+        print(link)
+        html_page = requests.get(link).text
+        soup = BeautifulSoup(html_page, 'lxml')
+        tr = soup.find_all('tr')
+        for row in tr:
+            data = []
+            for col in row.find_all('td'):
+                data.append(col.text.strip())
+            df = pd.DataFrame(data, columns=["Power type", "Cell count", "Roof count", "Solar ", "Kitchen ", "Business", "Second home", "Wholesale", "Storage", "On-site", "Off-grid", "Gas storage", "Composting", "Water filter", "Other renewable"], index=['Power type', 'Cell count', 'Roof count', 'Solar ', 'Kitchen ', 'Business', 'Second home', 'Wholesale', 'Storage', 'On-site', 'Off-grid', 'Gas storage', 'Composting', 'Water filter', 'Other renewable'])
+            df = df.sort_index(inplace=True)
+            print(df)
+            df.to_csv('{}.csv'.format(url), index=False)
+
+# run scrape function
+for i in range(1, 8):
+    scrape(page_url)
+
+<|endoftext|>, E., et al. 2002, MNRAS, 333, 159
+
+Grevesse, N., Noels, A., & Sauval, A. J.
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = requests.get(url).text
+    soup = BeautifulSoup(page, 'lxml')
+    text = soup.find('div', {'class':'item_content'})
+    return text.text.strip()
+
+If you open your web browser, and hit the link that you want to extract the text from, you will see it's full text, not just the code. If you want only the code, then you must modify your html code in the web browser so it shows just that. 
+If you want to get the text from an html file, you can download it first to your local disk and open the text file from there. In other words, read this page http://www.google.com/translate_t - you will see that the source code does not show the full text but the translation from English to Spanish. 
+One more thing, if you want to extract all text from the web pages, you might want to use Requests + lxml to read all the content, but when you find a text string you want, you might want to use BeautifulSoup to parse the text and extract only the text you need. 
+
+<|endoftext|>1. Field of the Invention
+The present invention relates to a method and apparatus for encoding and decoding an image and a medium for storing a program for encoding and decoding an image, and in particular to a method and apparatus for encoding and decoding an image for use in storage of image data, and a medium for storing a program for encoding and decoding an image.
+2. Description of the Related Art
+With the spread of the Internet, an image transmitted through a public line is rapidly transmitted, stored, and processed. Hence, a high-quality image can be transmitted.
+In order to transmit the image, it is first necessary to encode the image data, and compress the image data before transmission. In order to transmit a high-quality image in real time, a compression technique is necessary to handle the data. As compression techniques for such high-quality image data, a lossless compression technique such as JPEG (Joint Photographic Experts Group) for an image and JPEG2000 for a still image, and a lossy compression technique such as MPEG (Moving Picture Experts Group) for moving images have been standardized. Such compression techniques compress a large amount of information.
+For example, in JPEG, all blocks (for example, 8×8 pixels)
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'lxml')
+    return soup.getText()
+
+def extract_schema(url):
+    """Get schema from html page"""
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'lxml')
+    return soup.getElementsByClass("schema")[0].getElementsByClass("label")[0].text
+
+def extract_image(url):
+    """Get image from target webpage"""
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, 'lxml')
+    return soup.getElementsByClass("photo_group")[0].getElementsByClass("img-circle")[0].getElementsByClass("shadow")[0].getElementsByClass("image-0")[0].img["src"]
+
+<|endoftext|>int f(int n)
+{
+  if (n <= 0) return n;
+  
+  return f(n-1) + f(n-2);
+}
+
+int main()
+{
+  printf("%d\n", f(8));
+}
+
+#ifdef INT_MAX
+#undef INT_MAX
+#endif
+#ifdef UINT_MAX
+#undef UINT_MAX
+#endif
+#ifdef LONG_MAX
+#undef LONG_MAX
+#endif
+#ifdef ULONG_MAX
+#undef ULONG_MAX
+#endif
+<|endoftext|>Oktoberfest Madness
+
+Oktoberfest Madness (also known as Oktoberfest in Newport) is an annual UK music festival held in Newport, Wales from early October to early November each year.  It started in 2005 as an eight-day "Festival for All".  Since 2011, it has been held at several venues, the largest being at University of Wales Trinity Saint David Newport Campus.  The event combines a day of folk, country, rock, and electronic music, spread over three different locations in the city, as well as a music festival featuring bands like Bo Bruce, Andrew Bird, and Lemonade.  The festival also hosts The Big Egg each year,
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    parsed = urlparse(url)
+    main_url = parsed.path.split("/")[-1]
+    tag = get_url(main_url)
+    soup = bs4(tag)
+    return soup.find_all('p')
+
+def get_url(url):
+    """Convert the main url to soup"""
+    parsed = urlparse(url)
+    main_url = parsed.path.split("/")[-1]
+    tag = get_url_from_parse_url(main_url)
+    soup = bs4(tag)
+    return soup.find_all('p')
+
+def get_url_from_parse_url(url):
+    """Parse the url to get the main url"""
+    parsed = urlparse(url)
+    main_url = parsed.path.split("/")[-1]
+    scheme = parsed.scheme
+    if scheme!= "http":
+        main_url += "//" + scheme
+    return main_url
+
+#Download and extract all the text
+import urllib.request
+import bs4
+import json
+import requests
+import pandas as pd
+url = "https://dictionary.cambridge.org/dictionary/the-cambridge-dictionary-of-biographical-terms/the-cambridge-dictionary-of-biographical-terms-2nd-edition/intro"
+r = requests.get(url)
+soup = bs4(r.text)
+text = soup.find('div', class_="row-content")
+text = json.loads(text.text)
+text_list = []
+for i in text:
+    text_list.append(i)
+df = pd.DataFrame(text_list, columns = ['text_with_url',])
+df.to_csv("Text.csv")
+
+<|endoftext|>Q:
+
+What is the input format of maxwellian distribution function?
+
+This question comes up when considering a mix of Maxwellians and Kappa distribution as a mixture model to make the fit of
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    res = requests.get(url)
+    return res.text
+
+def create_report(target_url):
+    "Returns the raw data in pretty format"
+    data = []
+    page = list(islice(
+            requests.get(target_url),
+            0,
+            10000
+        ))
+    assert page, 'No pages found'
+    for page in page:
+        full_url = page['url']
+        response = requests.get(full_url)
+        #print(full_url, response.text)
+        text = extract_text(full_url)
+        paragraphs = text.split('\n')
+        paragraphs = [p for p in paragraphs if p!= '']
+        paragraphs.remove('Search Analytics Unique Analytics')
+        paragraphs.remove('Private Analytics Campaign Performance')
+        paragraphs.remove('Private Analytics Inventory Performance')
+        data.append(paragraphs)
+    return data
+
+def create_report_text(target_url, file_name):
+    """Write out the report text in a file"""
+    text_file = open(file_name, 'w')
+    with open(file_name) as f:
+        data = create_report(target_url)
+        text = [i[0] for i in data]
+        text_file.write('{0}\n'.format(text))
+    text_file.close()
+
+A:
+
+I would wrap the extraction process in a function to ensure that data is returned in the format you want.
+import json
+
+def get_data(page):
+    """returns all the data from a given page"""
+    data
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    soup = BS(url.content, 'lxml').get_text()
+    return soup.strip()
+
+def get_days(year):
+    """Get the number of days in a year"""
+    return int((year-1900)/100)
+
+def get_year(month):
+    """Get the year from a month"""
+    return int(month/100) * 10000 + 1900
+
+def make_year(year, month):
+    """Get a string version of the year"""
+    return '%05d' % (get_year(month) + year)
+
+def build_string(month, day):
+    """Get a string version of the month and day"""
+    return '%05d-%02d' % (month, day)
+
+def extract_week(text):
+    """Get the week and week day from a given string"""
+    i = text.find(',')
+    start = i + 1
+    return''.join(map(lambda x: x.strip(), text[start:i].split(',')))
+
+def get_week_day(text):
+    """Get the week day from a given string"""
+    i = text.find(' ')
+    start = i + 1
+    return text[start:i]
+
+def get_year_day(text):
+    """Get the year and day from a given string"""
+    i = text.find(' ')
+    start = i + 1
+    year = int(text[start:i])
+    day = int(text[i:])
+    return make_year(year, day)
+
+def extract_post(url):
+    """Get the content of the post"""
+    soup = BS(url.content, 'lxml').get_text()
+    title = soup.find('title')
+    if not title:
+        return []
+    text = title.strip()
+    # Remove list of posts link from inside the title, to prevent error in crawler
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    extractor = github.Extractor()
+    browser = webdriver.Chrome()
+    url = github.from_html(url)
+    html = browser.get(url)
+    data = extractor.get_data(html)
+    return data
+
+data = [extract_text(item['path']) for item in results]
+print(' '.join(data))
+
+I'm getting a print like this:
+date dnx sdk next dnx vstcoreunittests vstcoreunittests2 dnx vstcoreunittests4 dnx vstcoreunittests5 dnx vstcoreunittests6 dnx sdk5
+
+I'd like to get rid of dnx, 'dnx sdk', etc. (so I can ignore the irrelevant parts) and just have date, sdk, next, vstcoreunittests, etc.
+Can someone tell me how I can do that?
+
+A:
+
+You can use regex here to find this pattern
+dnx [A-Z].*
+
+Then you can use the findall() function to get all the relevant strings
+import re
+regex = r"dnx [A-Z].*"
+strings = re.findall(regex, my_string)
+
+<|endoftext|>Mark Hahn
+
+Mark Hahn (born 1963) is a Scottish experimental filmmaker, noted for his work with film and video technology.
+
+He was educated at University of Glasgow, where he took an M.A. in Sociology and Politics. Hahn graduated from the art college, Duncan of Jordanstone College of Art and Design in 1986. Hahn started his filmmaking career making short animated films and is known for his early use of computer animation in his work. His early works included Superfeet, Superfeet 2, A Cloudy Day and Butterfly Kiss.
+
+In 1990 he made a one-hour digital film Snow-Chilled, described as a hypnotic meditation on time, which has screened at numerous festivals, and later shown at Cinéma vérité in Paris and at the Hannover KunstFilm.
+
+In 1991 he made a 12-minute feature film Salt called a work for the AICA Documentary Film Festival. In 1997 he made the DVD on 15 October for the
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = get_webpage(url)
+
+    soup = BeautifulSoup(page, 'lxml')
+
+    def get_article(tag):
+        try:
+            for a in tag.findAll('a'):
+                # print(a['href'])
+                return a['href']
+        except:
+            return None
+
+    print('main title:'+ soup.title.string)
+
+    #page = soup.select('img[alt=gaonao_on]')
+
+    #print('转出软件选择器模版：')
+    #print(extract_scripts(page))
+    # print('采用不同缓存字段的动态加载', extract_dynamic_script(page))
+    # print('采用WebSocket模版(侧滑的动态加载)', extract_websocket(page))
+    # print('采用默认动态加载', extract_script(page))
+    # print('强制加载软件', extract_app('keyword=gaonao_on'))
+    # print('强制加载软件关键字', extract_app('keyword=gaonao_on'))
+    # print('获取软件网页中关键字', extract_keyword_by_webpage(url))
+    #print(extract_multi(page))
+
+
+def extract_scripts(page):
+    """获取模版的css"""
+
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    webpage = requests.get(url)
+    soup = BeautifulSoup(webpage.content)
+    return soup.text
+
+I hope someone can help.
+
+A:
+
+The script uses the HTML elements IDs attribute (see the script in a working example) to search for the element you want. As you mentioned in the comments, you have several classes instead of ids in the page, so you have to filter the results by that.
+This is the working script with you class names:
+import re
+import requests
+from bs4 import BeautifulSoup
+
+url = 'http://stackoverflow.com/questions/31608718/how-to-find-a-value-in-an-array-and-retrieve-it'
+text = ''
+
+#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#
+text = re.findall(r'name="(.+?)"', extract_text(url))
+
+print (text)
+
+#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#
+for element in text:
+    print (element)
+    name = '_'.join(element)
+    r = requests.get(url + '?_=' + name)
+    if not r.ok:
+        continue
+    soup = BeautifulSoup(r.text)
+    print(soup.find(id=name))
+
+#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#---#
+
+Output:
+['/r/api/process/project/query']
+<a href="https://api.stackexchange.com/2.2/users/133739/?site=stackoverflow">userid</a>
+<a href="https://api.stackexchange.com/2.2/users/189678/?site=stackoverflow">userid
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    parsed = urlparse(url)
+    reg = re.compile("<.*?>")
+
+    try:
+        page = urlopen(url).read()
+    except Exception as e:
+        print("Failed to get page: {0}".format(e))
+        return None
+    else:
+        html = BeautifulSoup(page)
+        # return html.prettify()
+
+        text = [reg.findall(m)[0] for m in re.findall(r"<h1[^>]*?>([^<]*?)</h1>", page)]
+        text = " ".join(text)
+        return text
+
+def extract_info(url):
+    """Get info from target webpage"""
+    try:
+        page = urlopen(url).read()
+    except Exception as e:
+        print("Failed to get page: {0}".format(e))
+        return None
+    else:
+        # import html5lib
+        # html = html5lib.parse(page)
+        # return html.xpath('//*[@id="info"]/div[1]/p')[0]
+        return [item.text for item in page.findAll('span', {'class':'flash-text'})]
+
+def get_info(url, info_extractor):
+    """Extract info from target webpage"""
+    info = {}
+
+    for m in info_extractor:
+        info['information'] = info_extractor(url)[m]
+
+        if info_extractor(url)[m] == 'TV':
+            info['tvs'] = info_extractor
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    response = requests.get(url, stream=True)
+    text = response.text
+    soup = bsoup(text, "html.parser")
+    text = soup.find('h1')
+    return text
+
+def get_text_extractor_list(url):
+    """Return a list of all the extractors on the page.
+    """
+    yield "html"
+    yield "regex"
+    yield "extract"
+    yield "lxml"
+
+def extract_all(url):
+    """Extracts all text from the page and returns it as a string
+    """
+    text = extract_text(url)
+    print(text)
+
+def get_urls_extractor_list():
+    """Return a list of all the extractors on the page
+    """
+    yield "page"
+    yield "regex"
+    yield "extract"
+    yield "lxml"
+
+import pprint
+pprint.pprint(get_urls_extractor_list())
+
+for link in get_urls_extractor_list():
+    request = requests.get(link)
+    print(extract_text(request.url))
+
+A:
+
+Try this:
+import requests
+from bs4 import BeautifulSoup
+import pprint
+
+url = "https://live.wsj.com/db_relations/DETACHED/detail.asp?detail_id=736&DisplayColumn1=Symbol&DisplayColumn2=&ChartColid1=&ChartColid2=&ChartColid3=&ChartColid4=&ChartColid5=&ChartColid6=&ChartColid7=&ChartColid8=&ChartColid9=&ChartColid10=&ChartColid11=&ChartColid12=&ChartColid13=&ChartColid14=&ChartColid15=&ChartColid16=&ChartColid17=&ChartColid18=&ChartColid19=&ChartColid20=&ChartColid21
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = requests.get(url)
+    soup = BeautifulSoup(page.text, 'lxml')
+    try:
+        return soup.select('body')[0].text
+    except:
+        return None
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Extract and get text from webpage')
+    parser.add_argument('-u', '--url', dest='url',
+                        help='Enter the URL to open. Default is current URL',
+                        action='store', default='https://www.example.com')
+    args = parser.parse_args()
+    url = args.url
+    print(extract_text(url))
+
+You can specify the width and height of the html/body tags. In this example, if you have 10 char white space on the left and on the right, you can specify where the text starts and where the text ends.
+Here is an example of the printed output:
+
+You can test this out with another example and target the Google page.
+
+<|endoftext|>The Arpeggiators:
+
+"Playing music through ten blocks of your five-block walk is so much easier than listening to music while trying to drive or simply having to stop to walk down the street and buy your second cup of coffee and newspaper." Read a blog post about a real life research project on "JUMP!" (Jointly Utilizing MusiCares Ambassadors and Neighborhoods) and how each little act of good music helps keep the citizenry safe.
+
+We would love to partner with you to bring music to your children's event, and make music accessible to them in the first place.<|endoftext|># Add all your generic global variables here
+# In this example we use an global variable to change the API Key in the chrome settings:
+GOV_apiKey=$(gsettings get org.gnome.nautilus.desktop vfs-quota-area.api-key)
+GOV_apiKey
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    response = requests.get(url)
+    text = response.text
+    soup = BeautifulSoup(text, 'html.parser')
+    extractor = extract.Extractor()
+    return extractor.extract(soup)
+
+class TargetPage(Page):
+    """Word extractor page class"""
+
+    def extract(self, soup):
+        """Extracts text from web page"""
+        text =''.join(extractor.extract_text(soup))
+        return text
+
+def main():
+    """Main function to initialize everything"""
+    with lxml.html.clean(url) as f:
+        soup = BeautifulSoup(f, 'html.parser')
+
+    page = TargetPage(soup)
+    filename = 'output.txt'
+    with open(filename, 'w') as out_file:
+        file_out = csv.writer(out_file)
+        file_out.writerow([page.extract() for i in range(len(page.extract()))])
+
+    return filename
+
+if __name__ == '__main__':
+    main()
+
+<|endoftext|>Getting married might be on the mind of nearly every single person, but, as we all know, there are so many other things to consider – for some that could be an expense, for others their hair, their clothes, and for a lot of brides the friends that come along for the ride. Well, there’s one group that’s got to be most important to the wedding planning process and that’s the family, and as the front man of the family band; Denzel Taylor’s got to be doing everything he can to make sure everything is on the up and up for his girlfriend – and that’s how she wants it. If they decide to take things to the next step; he wants them to be happy, and everything will be fine.
+
+But you never know how your best friend is going to react to your news. She’s come over to help with the planning
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    source_code = requests.get(url).text
+    return source_code
+
+
+def crawl(google_search):
+    """Automatically search and extract from google search results
+    example:
+        if not for an item
+    """
+
+    scraper = CaseFoldingScraper()
+    scraper.selector = SearchOptions
+    scraper.selector.add_by_name('itemId')
+    scraper.selector.add_by_name('search')
+    scraper.selector.add_by_name('defExtract')
+    scraper.crawled = False
+
+    parser = parse_item_list(crawl_google(scraper))
+
+    for item in parser.items:
+        try:
+            extract_text(item[0])
+            scraper.crawled = True
+            yield item
+        except:
+            continue
+
+
+if __name__ == "__main__":
+    #   # Extract from google searches:
+    #   for result in crawl('https://www.google.co.jp/search?q=aaa+bbb+ccc'):
+    #       print(result)
+
+    #       # this is the list of all scraped URLs
+
+    #       scraped_urls = list(set(crawl_google(scraper)))
+    #       for urls in scraped_urls:
+    #           print(urls)
+<|endoftext|>                                                                
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    m = re.match(r"rejected at (.*)", url)
+    if m:
+        return m.group(1)
+    #else:
+    #    # still get the `Other` outcome
+    #    return "Other"
+    return url
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    # Regular expression
+    re_pattern = re.compile(r'\|\s(.*)')
+    re_output = re.compile(r'Rejection Reason\s*:\s*(.*)')
+
+    # Gather data and parses
+    parser.add_argument('-url', help='URL of.pdf file', required=True)
+    args = parser.parse_args()
+    extract_text = extract_text
+
+    # Basic output
+    with open('output.txt', 'a') as out:
+        for url in [line.strip() for line in open('urls.txt')]:
+            line = extract_text(url)
+            if line:
+                out.write(line)
+            else:
+                out.write('<empty>')
+        out.write('\n')
+
+
+if __name__ == '__main__':
+    main()
+<|endoftext|>Effect of murine monoclonal antibody (mAb) specific for HIV gp120 on HIV-1 acquisition.
+HIV-1 transmission can be blocked by antibodies specific for gp120, but limited information exists on the utility of these antibodies in preventing HIV-1 acquisition. The effect of two anti-gp120 mAbs, CM-3 and PG-9, on transmission was evaluated in a humanized mouse model. Two cohorts of humanized BLT mice were exposed to either 2 or 15 x 10(3) HIV-1 SF162
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = requests.get(url).text
+    soup = BeautifulSoup(page, 'html.parser')
+    return soup
+
+# Run the extractor
+extractor = HTMLExtractor()
+content = extractor.extract(url)
+
+if content:
+    extract_text = extract_text(url)
+    # Get the last paragraph and print it out
+    print(extract_text.select(".test"))
+
+Running this code, I get an empty list:
+
+[].
+
+However, if I modify the input to:
+extract_text = extract_text(url)
+
+...and get the full list of URLs of all paragraphs in the page I intend to extract, it works:
+
+[<p>
+<a href="....link...">Text</a>
+<a href="....link...">Text</a>
+<a href="....link...">Text</a>
+<a href="....link...">Text</a>
+<a href="....link...">Text</a>
+<a href="....link...">Text</a>
+<a href="....link...">Text</a>
+<a href="....link...">Text</a>
+...
+
+What is causing this? I'm new to the BeautifulSoup package so I might be missing something simple, but I cannot see it.
+
+A:
+
+You are running your script too early, the site you're scraping first loads the content into the browser and only after you start scraping the page in your script.
+You need to start the script when the page is completely loaded in the browser:
+#!/usr/bin/env python
+import requests
+from bs4 import BeautifulSoup
+
+URL = 'https://www.ebookpublisher.co.uk/help/sales/thumb/login.php'
+
+r = requests.get(URL)
+soup = BeautifulSoup(r.content, 'html.parser')
+
+# Script started
+print("Script started")
+# Get the text from target webpage
+extractor = HTMLExtractor()
+content = extractor.extract(URL)
+print(content)
+# Get the last paragraph and print it out
+print(content.select(".test"))
+#
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = requests.get(url)
+    html = page.content
+    soup = BeautifulSoup(html, 'lxml')
+    title = soup.select_one('[title="Tetris Block"]').get_text()
+    first_image = soup.select_one('[href^="/video/thumb.jpg"]')
+    if first_image:
+        thumb = first_image.get('src')
+        print("In video", url, "Thumb", thumb)
+    else:
+        print("No video found in", url)
+        title = soup.select_one('[title="Tetris Block"]').get_text()
+    body_text = soup.select('div#body')
+    for i in body_text:
+        if (i.string.strip()).split("-")[0] == "Tetris Block":
+            block = i.get_text(strip=True)
+            print(url, "Block", block)
+
+The code can run but there is no output. Do I need to do any sort of encoding before I extract the data? The actual program works when I use the print(block) in-front of the for loop but not within the for loop.
+
+A:
+
+You're calling get_text() from the body_text elements, which doesn't make any sense. Your for loop shouldn't be inside the body_text elements.
+I think you're looking for this:
+for i in soup.select("div#body"):
+    if (i.string.strip()).split("-")[0] == "Tetris Block":
+        block = i.get_text(strip=True)
+        print(url, "Block", block)
+
+You can't extract the video from the webpage like that. If there was a video on that page, it would be within an iframe. You can use Selenium's get_frame_by
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = webdriver.get(url)
+    element = page.find_element_by_tag_name('span')
+    return element.get_attribute('innerHTML')
+
+
+def main():
+    for site in text_sites:
+        extract_text(site)
+        if not site.endswith("download"):
+            print("Processing: {}".format(site))
+            with open(site) as f:
+                data = f.read()
+
+                data = re.sub(r"\r\n|\r|\n",'', data)
+                data = re.sub(r"^\s*|\s*$",'', data)
+                data = re.sub("[ ]{}",'', data)
+
+                datetime_commas = re.search("\b\d{4}-\d\d-\d\d \d{2}:\d\d:\d\d\b", data)
+
+                if datetime_commas:
+                    day_of_week = datetime.datetime.strptime(datetime_commas.group(), "%Y-%m-%d")
+                    if day_of_week >= datetime.datetime.today().weekday():
+                        # We can safely assume this is Monday - Day
+                        # (Take care that the week starts on a
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    if 'page' in url:
+        print("Fetching text from page %s" % url)
+        request = urllib.request.Request(url)
+        response = urllib.request.urlopen(request)
+        html = response.read()
+        print("Getting text from %s" % url)
+        soup = BeautifulSoup(html)
+        return soup.text
+
+#print(extract_text('https://lkgr.co.kr/blog/display/15983385'))
+extract_text('https://web.archive.org/web/20110206222330/https://gizopia.com/heikkinen/kotiteknologi-tuoletettu/')
+
+It prints the following error:
+Fetching text from https://web.archive.org/web/20110206222330/https://gizopia.com/heikkinen/kotiteknologi-tuoletettu/
+Fatal error: 'NoneType' object has no attribute 'text' in line #5
+
+I found this error message after I tried to change the list of data by using:
+lines = urllib.request.urlopen(url)
+text = [x.text for x in lines]
+
+Could you tell me where is the problem in my code?
+Thank you so much in advance.
+
+A:
+
+This error message
+
+Fatal error: 'NoneType' object has no attribute 'text'
+
+gives an indication that you don't have a response, at least none that is accessible via urllib. I suggest you replace your error handling code with the following:
+# 3.3.3 Run HTTP request with timeout
+    #     request = urllib.request.Request(url)
+    #     response = urllib.request.urlopen(request)
+    #     html = response.read()
+    #     print("Getting text from %s" % url)
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    return BeautifulSoup(urllib2.urlopen(url).read(), "html.parser")
+
+def extract_title(url):
+    """Get the title from target webpage"""
+    return [e.text for e in soup.select('title')]
+
+def extract_items(url):
+    """Get the items from target webpage"""
+    return [e.text for e in soup.select('span[itemtype]')]
+
+for e in soup.select('li[itemtype]'):
+    e.extract_text()
+    print
+    url = 'http://www.atmantravelblog.com/out/report/33/spain-islands-series-at-las-minas-heidelberg-vs-mallorca'
+    print extract_text(url)
+
+"""
+first, get the item text    
+second, build the list
+then return the list 
+"""
+
+A:
+
+.text has been removed from BeautifulSoup 4. You can use.get_text():
+for e in soup.select('li[itemtype]'):
+    print e.get_text(strip=True)
+
+Also, try your code using the BeautifulSoup 3 parser, since 4 seems to support HTML5.
+
+<|endoftext|>Cancer in Asia-Pacific countries: the non-communicable diseases perspective.
+In the 21st century, Asian-Pacific countries are facing an epidemic of non-communicable diseases (NCDs), along with a growing burden of cancer. In this paper, we report the perspective of the NCD field of the Asian-Pacific region from 2006 to 2011. For the first time, a list of articles published during this period on the NCD field in Asia-Pacific countries is presented. The information was compiled from annual reports of the Regional Office for the Eastern Mediterranean of the World Health Organization (WHO), from the annual reports and publications of the Member States of the World Health Organization Regional Office for the Western Pacific, from references from those annual reports, and from articles extracted from relevant journals and other reports in the NCD field. The data obtained were presented in a framework that addressed three aspects of the NCD problem: public health-related interventions, clinical management of NCDs, and research
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    # check if target webpage is HTML/XHTML
+    if not re.search('<html', url):
+        return ''
+
+    # check if target webpage is CSV
+    if not re.search('text/csv', url):
+        return ''
+
+    # get the table data
+    text = requests.get(url).text
+    tables = re.findall('<TABLE ', text)
+    columns = []
+    for table in tables:
+        rows = re.findall('<TR>', text)
+        cells = re.findall('<TD>', text)
+        columns.extend(map(lambda x: ''.join(x), rows))
+        for cell in cells:
+            data = cell.split(',')
+            columns.append(data[1])
+    return '\n'.join(columns)
+<|endoftext|>">
+<!--   -->
+</a>
+<ul class="navList" title="Navigation">
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="../package-summary.html">Package</a></li>
+<li><a href="../../../javax/swing/event/EventListenerList.html" title="class in javax.swing.event">Class</a></li>
+<li class="navBarCell1Rev">Use</li>
+<li><a href="../package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-all.html">Index</a></li>
+<li><a href="../../../help-doc.html">Help</a></li>
+</ul>
+</div>
+<div class="subNav">
+<ul class="navList">
+<li>Prev</li>
+
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+
+    html = requests.get(url).text
+    soup = BeautifulSoup(html, 'lxml')
+    return soup.find_all('p')[0].text
+
+def select_elements(html):
+    """Return a list of select tags"""
+
+    soup = BeautifulSoup(html, 'lxml')
+    return [s for s in soup.select(".select2-choice option")]
+
+# 
+# Start an environment in Google Colab (Python 2.7)
+# https://colab.research.google.com/
+# Download and unzip dataset
+# 
+!wget https://s3.amazonaws.com/thredds.com/thredds/catalog/dataset/DATASET/RGGIS_URBAN_GEONAMES/worldpop/USA_World_Pop_Urbanized_State.zip
+!unzip -qq worldpop/USA_World_Pop_Urbanized_State.zip
+!unzip -qq worldpop/file.zip
+!mv -f worldpop/file worldpop
+!mv -f worldpop/worldpop.crs worldpop/worldpop_crs.crs
+!wget https://s3.amazonaws.com/thredds.com/thredds/catalog/dataset/DATASET/RGGIS_URBAN_GEONAMES/worldpop/USA_World_Pop_Urbanized_State/USA_World_Pop_Urbanized_State.zip
+!unzip -qq USA_World_Pop_Urbanized_State.zip
+!rm -rf worldpop/file.zip
+!rm -rf worldpop/worldpop.crs
+!rm -rf worldpop/worldpop_crs.crs
+!rm -rf worldpop
+!rm -rf worldpop/USA_World_Pop_Urbanized_State
+!rm -rf worldpop/worldpop_crs
+
+# Get population estimates for each state (America)
+# http://census.gov/data/tables/2017/popest/chp-2.html
+#
+!pip install xpath
+!pip install pandas
+import pandas as pd
+
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page_text = str(requests.get(url, headers=HEADERS).text)
+    plain_text = page_text.strip()
+
+    if 'http://mesthene.dev/contact-page/' in plain_text:
+        return plain_text
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Extract Text from HTML')
+    parser.add_argument('-u', '--url', dest='url', required=True, help='URL to download text from')
+    args = parser.parse_args()
+
+    if args.url:
+        extract_text(args.url)
+    else:
+        parser.print_help()
+
+I'd be interested in receiving some advices. I've been fighting with this script for some time.
+
+A:
+
+If your goal is to parse HTML for specific pieces of text then you can do this with an html parser, a DOM parser, or with lxml. The last two options are more robust than the first.
+lxml:
+from lxml import html
+
+html_doc = html.parse(page_text)
+text = html_doc.xpath(
+    '//text()[normalize-space()]//text()[normalize-space()]/text()'
+)
+
+Here we're using normalize-space to get rid of all whitespace between the results. This will give you a list of all the non-whitespace characters in the results.
+DOM:
+from xml.dom import minidom
+
+text_dom = minidom.parseString(page_text)
+text = [t.text for t in text_dom.childNodes]
+
+<|endoftext|>Product Details
+
+In response to the continued rise in popularity of the FRC product, Oreck has re-engineered their innovative duct brush for added durability. The Natural Plenum is fully-brushed for better airflow, while ergonomically rounded handles make for comfortable operation. The EcoDuct Duct Brush is also ruggedly made, and backed by an Oreck 3-Year Limited Manufacturer's Warranty.
+
+Like what you see
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+
+    page = requests.get(url)
+    soup = BeautifulSoup(page.text, 'html.parser')
+    product_id_text = soup.select_one('#products li:nth-child(5)').text.strip()
+
+    return product_id_text
+
+
+def download_and_extract():
+    file_name = 'indoor_scopes_with_data.csv'
+    path = get_data_path(file_name)
+    if not path:
+        return
+    print(path)
+    with open(path, 'wb') as f:
+        f.write(requests.get(download_url).text)
+
+
+if __name__ == '__main__':
+    download_and_extract()
+<|endoftext|>Q:
+
+How do I get logarithms in latex mathmode?
+
+A convenient calculator tells me $\log_3(16) = 2.69...$.
+How to get this in the Latex equation?
+I can do
+\log_3(16)=2.69... \quad (A)$$\log_3(16)=2.69...$$
+
+A:
+
+\mathrm{log}_3(16)=2.69...$$
+
+<|endoftext|> Cajun, No. 08-01-00249-CV, 2001 WL
+
+936060, at *1 (Tex. App.—El Paso Oct. 4, 2001, pet. denied) (not designated for publication)
+
+(similarly rejecting reliance on Rule 65(d), Tex. R. Civ. P., to support failure to satisfy
+
+requirements of section 51.052). Moreover, the record contains no suggestion that the trial
+
+court received or considered evidence at the hearing or that the trial court received and filed
+
+evidence that no person claimed was omitted from or excused from service. Further,
+
+Beaumont’s argument that TEX. GOV’T. CODE ANN. § 51.052 must be construed in
+
+pari materia with Rule 239, which permits a party to extend the service period for filing
+
+notice of appeal on “the motion of a party not represented
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = requests.get(url)
+    plain_text = page.text
+    soup = BeautifulSoup(plain_text, "lxml")
+    new_soup = BeautifulSoup(plain_text, "html.parser")
+    text = ''
+    for ele in soup.find_all('a'):
+                for child in ele.find_all(text=True):
+                            text += child
+    return text
+
+Here is the output from the loop:
+{'key': [{'text': 'Machine head injury '}, {'text': 'no'}]}, {'key': [{'text': 'Lying head injury '}, {'text': 'no'}]}]
+{'key': [{'text': 'Machine head injury '}, {'text': 'yes'}]}, {'key': [{'text': 'Lying head injury '}, {'text': 'yes'}]}]
+
+How do I just get the values from the 'text' property?
+I've tried using filter(), but it only gets the last value, the same as returning in the loop:
+import re
+
+for i in lst:
+    re.search('name:',i)
+
+returns 
+<re.Match object; span=(0, 80), match='name:'>
+
+how can I access the text inside the html tag 'name:'?
+
+A:
+
+You can try to get all items from all a tags by using this method:
+import requests
+from bs4 import BeautifulSoup
+
+page = requests.get('http://www.avplayer.com/main/video?v=EJhgirIgdM&movieId=1177925539&tab=popular&page=0&partner_id=&lg=ja&ls=da&order=by-popularity&sort_type=0')
+plain_text = page.text
+soup = BeautifulSoup(plain_text, 'lxml')
+for a in soup.find_all('
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    import requests
+    r = requests.get(url, proxies ={"https": settings.proxies})
+    content = r.text
+    return content
+
+def parse_links(text):
+    """Parse the links from target webpage"""
+    soup = BeautifulSoup(text, 'html.parser')
+    link_data = []
+    for link in soup.findAll('a', href=True):
+        url = link['href']
+        parse_link(url)
+
+def parse_link(url):
+    """Parse a link on the target webpage and extract the text"""
+    r = requests.get(url, proxies ={"https": settings.proxies})
+    content = extract_text(r.text)
+    if '<a' in content:
+        link_text = content[1:-2]
+        link_title = urlparse(link_text)[1]
+        link_data.append({'link': url, 'title': link_title, 'text': link_text})
+    else:
+        link_data.append({'link': url, 'title': url, 'text': ''})
+
+def download_image(link):
+    """Download the image and save it to the main drive
+    """
+    try:
+        img_download = pyimageloader.from_url(link)
+        img_download.save(os.path.join('assets/', link),
+                          filename = link, quality = 100)
+        return True
+    except Exception:
+        return False
+
+def download_video(link):
+    try:
+        pyfmedia.Player(link).start()
+        return True
+  
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    res = requests.get(url)
+    soup = BeautifulSoup(res.text,"html.parser")
+    return soup.find_all("span", attrs={"class": "c1"})
+
+def kwargs(tag):
+    """Add information from get_tag_text to the tag"""
+    tags = {
+        "author": extract_text(url),
+        "predate": extract_text(url),
+        "preview": extract_text(url),
+    }
+    return tags
+
+################################################################################
+
+The line print(kwargs(book)) prints out {author: 'Taha Pasha', preate: '02/06/1766', author: 'Houssem Elkhatib, Mahmoud Makari,  Lina Rezgui, Pambos Pramiri, Hazem Mahmoud, Hayel Aboulmagd, Ramadan Arjomand, Hamid Albataine, Mohammed Al Salem, Fares Khasawneh, Nezar Karapito', preview: 'www.aralro.com.lb/Article?ArticleId=808'}, which I think is correct, but when I try to run:
+dic = {}
+for i in kwargs(book):
+    if dic.get(i) is None:
+        dic[i] = None
+    else:
+        dic[i] = None
+
+I get the error TypeError: unhashable type.
+I've looked up various solutions to this issue, and tried to apply them to my problem but have had no success. Any help would be appreciated.
+
+A:
+
+You're applying the dict() function to the key of the dictionary.
+The error is due to this dictionary having unhashable values in its keys. To avoid this you should use dict.setdefault() to return a default value if the key is not present.
+dic = {}
+for i in kwargs(book):
+    if dic.setdefault(i, None) is None:
+        dic[i] = None
+  
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    parsed = urlparse(url)
+    return yaml.safe_load(requests.get(url).text)
+
+Now let's search the text of all the blog posts in our website for the term "Sometext", and for every match we'd like to see the exact URL of the source of the post:
+from bs4 import BeautifulSoup as bs
+
+def search_text_in_blog(text):
+    """ Search the text of all blog posts for the term """
+    res = []
+    soup = bs(text, 'html.parser')
+    posts = soup.find_all('div', {'class':'t-box-content'})
+    for post in posts:
+        post_text = post.find('a').text.replace('</a>', '').strip()
+        if 'Sometext' in post_text:
+            source_url = extract_text(post.a['href'])
+            res.append([source_url, post_text])
+    return res
+
+You can then display the res list in the console using something like this:
+for src, post_text in res:
+    print(src, post_text)
+
+Notice how I use the list comprehension from above.
+
+<|endoftext|>Development and evaluation of an integrated teaching resource for functional scapulohumeral and thoracic joint mobilization techniques.
+Scapulothoracic pain is highly prevalent in the general population, affecting up to 30% of adults, and has been correlated with such conditions as fibromyalgia, upper limb orthopedic injury, and neck pain. While scapular mobilization has been shown to be an effective treatment strategy for neck pain, the most commonly used mobilization techniques (scapular glide and rib glide) have only limited clinical effectiveness. The aim of this study was to design and evaluate a multimedia teaching resource designed to provide the learner with theoretical and practical information on the clinical use of scapulohumeral and thoracic joint mobilization techniques for the treatment of scapulothoracic pain. The primary outcome measure was participant perceptions of the knowledge they gained
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    br = Browser()
+    br.get(url)
+    content = br.find_element_by_class_name('contents')
+    if content:
+        return content.get_attribute('outerHTML').strip()
+    else:
+        return ''
+         
+def scraper(url):
+    """Scrape target url and store text in file"""
+    outfile = open("url_"+url+".txt", "w")
+    myFile = urllib.urlopen(url).read()
+    outfile.write(myFile)
+    outfile.close()
+    
+def check(url):
+    """Check the accuracy of target website"""
+    content = extract_text(url)
+    if content == '':
+        return False
+    else:
+        return True
+
+if __name__ == '__main__':
+    urls = [
+        'https://stackoverflow.com/questions/tagged/javascript',
+        'https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/Object'
+    ]
+    for i in urls:
+        print(i)
+        # scraper(i)
+        if check(i) == False:
+            sys.exit()
+        else:
+            scraper(i)
+            sys.exit()
+
+This will open an empty file if the page fails to load for whatever reason.
+
+Now that you have a text file with contents, you may use regular expression to find specific keywords to identify the desired information. For example, here is a script that finds the word Java:
+import re
+import sys
+
+def check_and
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = requests.get(url)
+    soup = BeautifulSoup(page.text, 'html.parser')
+    return soup.find_all(class_="home_readmore_cn")[-1].find_all('a')
+
+def html_dom_for_link(link):
+    """Remove characters from the beginning of url which aren't valid for link and
+    replace with the specified icon
+    """
+    if link[-4:]!= ".jpg":
+        link = re.sub('^((?:http(s?)://)|(?:www\.)|(?:[^@:\/]+@)?)(?P<domain>\w*)', '<i class="fab fa-', link, re.IGNORECASE | re.DOTALL)
+    if link[:1]!= 'https':
+        link = re.sub('(ftp|https|http)(s?)://(?:www\.)', '<i class="fab fa-', link, re.IGNORECASE | re.DOTALL)
+    return link
+
+A:
+
+add get only pages with read more link
+A get request gets a page as a response.
+If you are trying to get a certain pages then you should use a GET.
+Here is the correct response:
+from bs4 import BeautifulSoup
+import requests
+
+URL = "https://wulianzhizhou.zjgov.cn/hangzhou/lvqyqcj/"
+
+def get_page(page_url):
+    r = requests.get(page_url, headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36"})
+    soup = BeautifulSoup(r.text, 'lxml')
+    read_more = soup.find_all(class_="home_readmore_cn")[-1].find_all('a')
+    print(read_more)
+
+def
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    import urllib.request
+    import re
+
+    # Define params.txt to read from text file with
+    # url params used
+    params = re.compile(r'(:?{}[a-zA-Z][a-zA-Z0-9/]*)'.format(r'\b([a-zA-Z0-9][a-zA-Z0-9\-]*)'))
+
+    # Read and decode from encoded HTML
+    page = urllib.request.urlopen(url).read()
+    match = params.search(page)
+    if match:
+        # Text encoded in between { and }
+        text = match.group(1)
+        # Decode text into plain text
+        return re.sub(r'{(:?\{([\w\-]+)\})}', r'\1', text)
+    return ''
+
+[DEFAULT]
+
+# List of good alternative titles to file names.
+# Some descriptions to make it more clear to users.
+titles = ["New Title", "Dummy", "New Title.pdf"]
+
+# List of domains we need to disallow for the word "joke".
+exclude_from_suffix = ["joke"]
+
+<|endoftext|>Seamen Guide to Social Responsibility
+
+Seamen Guide to Social Responsibility (SGSRS) is a non-profit organization established in 1991 and based in San Diego, California, US. Its goal is to enable seagoing merchant mariners to serve their communities by providing maritime training and education on a number of topics including safety, medical services, seamanship, environmental stewardship, youth development, maritime-based community projects, education, and engineering. SGSRS provides the marine community, first responders, industry, the media, students, and the general public with maritime related content and services. SGSRS operates with a team of 100, in addition to the 20 corporate partners it has across the US and 6 international member organizations.
+
+Services 
+SGSRS conducts seminars and workshops on topics including safety, medical services, and engineering on a variety of topics. SGSRS also does youth
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    response = requests.get(url)
+    if response.status_code!= 200:
+        return ''
+    else:
+        html = response.text
+        soup = bs(html, "html.parser")
+        paragraphs = soup.find_all('p', {'class': 'ph')
+        for paragraph in paragraphs:
+            title = paragraph.string.strip()
+            title = re.sub(r'\s', '', title).strip()
+            if len(title) > 0:
+                extract = re.sub(r'\s','', title)
+                extract = extract.replace('\n','').replace('.', '-')
+                return extract
+    return ''
+
+
+def main():
+    url = 'https://www.baidu.com/s?wd=%E6%90%9C%E5%A4%8D%E8%B6%85%E6%9B%B4%E5%85%9A%E7%BD%91%E7%AB%99%E8%AE%A2%E7%A0%81&r=1&from=0'
+    texts = extract_text(url)
+    if texts:
+        res = re.findall('%E6%9C%9C%E5%A4%8D%E8%B6%85%E6%9B%B4%E5%85%9A(.*)%E8%B6%85%E6%9B%B4%E5%85%9A', texts)
+        print('======Baidu Guide Talk===========')
+      
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    opener = urllib2.build_opener(urllib2.HTTPHandler)
+    try:
+        data = opener.open(url).read()
+    except urllib2.HTTPError as e:
+        print(str(e))
+        return ''
+    return data
+
+If I was trying to parse XML like that in Python, I'd use a library like xml.etree.cElementTree to parse the page.
+To achieve that you'd probably need something like this:
+import urllib2
+import re
+import lxml.etree
+
+page = open('http://www.girlsdiary.com/Hats-and-Accessories-5-14-14-5.html', 'rb')
+root = lxml.etree.parse(page).getroot()
+hats = root.xpath("//div[@id='main_col3']/table[@class='jqxListBox_all']/tr/td[1]/div[@class='jqx-list-item-container']/ul/li")
+for x in hats:
+    if not re.match('open-',x.text):
+        hat = lxml.etree.Element('th')
+        open_url = 'http://www.girlsdiary.com/'+x.text+'.html'
+        hat.text = x.text
+        open_url.append(hat)
+        root.xpath('//div[@id='main_col3']/table[@class='jqxListBox_all']/tr/td[1]/div[@class='jqx-list-item-container']/ul/li')[-1].append(open_url)
+print(root)
+
+which will print:
+<lxml.etree._ElementTree object at 0x10764f0d0>
+[<Element 'th' at 0x10776b0e8>, <Element 'th' at 0x10776e768
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    sourceCode = requests.get(url)
+    sourceCode.encoding = "utf-8"
+    sourceCode = sourceCode.text
+    sourceCode = re.sub(r"\r\n", " ", sourceCode)
+    return sourceCode.split()
+
+I need to match the content between [], by removing everything except the content that has the regex pattern {property} and replace all {property} to {property}, and I also need to trim() all the lines except for the first line. 
+So the result should be as follows:
+[
+  {
+    "property": "good",
+    "name": "new name"
+  },
+  {
+    "property": "impossible",
+    "name": "other name"
+  }
+]
+
+What is the appropriate regex pattern for this?
+
+A:
+
+A regex approach using capturing groups to match the data you want to keep and replace it, and use backreferences to replace each occurence of the match (since we only need the first occurence)
+import re
+
+x = '[
+  {
+    "property": "good",
+    "name": "new name"
+  },
+  {
+    "property": "impossible",
+    "name": "other name"
+  }
+]'
+
+s = re.sub(r"(?<=\[)\s*{([^}]*)\}\s*(?=\[)", r"\1", x)
+print(s)
+
+Demo on regex101
+Output
+[
+  {
+    "property": "good",
+    "name": "new name"
+  },
+  {
+    "property": "impossible",
+    "name": "other name"
+  }
+]
+
+<|endoftext|>Q:
+
+replaceAll(..) in a setbuilder
+
+If I want to replace all instances of x in a setbuilder, how do I use replaceAll?
+For example, if I have a set:
+Set<String> sentences = new TreeSet<String>();
+sentences.add("i want apples");
+sentences.add("i hate
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    source_url = 'https://sgc.slaterportal.com/landing_page.php?q=SGC%20Study%20Grade%20Chart%20Library&category_id=_all_students&with_class_id=1'
+    source_doc = requests.get(url).text
+    soup = BeautifulSoup(source_doc, 'html.parser')
+    links = soup.findAll('a')
+    for link in links:
+        if link['title'].strip() == 'Study Grade Chart Library':
+            url = link['href']
+            break
+    if url:
+        response = requests.get(url)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        text = soup.select('.TJ1-qn.mapTable > td > a')[0].get_text(strip=True)
+        return text
+    else:
+        return None
+
+def main():
+    """Get all the links"""
+    main_url = 'https://sgc.slaterportal.com/landing_page.php?q=SGC%20Study%20Grade%20Chart%20Library&category_id=_all_students&with_class_id=1'
+    response = requests.get(main_url)
+    main_doc = response.text
+    soup = BeautifulSoup(main_doc, 'html.parser')
+    text = []
+    for link in soup.findAll('a'):
+        # Parse the href attributes
+        if link['href'].strip() == '1':
+            text.append(extract_text(link['href']))
+            break
+    return text
+
+if __
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = requests.get(url)
+    content = page.text
+    title = page.title
+    parent_dir = os.path.dirname(url)
+    filename = os.path.basename(url)
+    return content, title, parent_dir, filename
+
+def main():
+    # Read the input.
+    input = sys.stdin.read()
+
+    # You can also use file object instead of
+    # raw strings as the input.
+    file = open('/tmp/title.txt')
+    content = file.read()
+    file.close()
+    # print(content)
+
+    # filter, headers, body
+    title, content, parent_dir, filename = get_text(url=content)
+
+    print(title)
+    print(content)
+    print(parent_dir)
+    print(filename)
+
+if __name__ == '__main__':
+    main()
+
+Output:
+resistor9669723
+
+<|endoftext|>Although there are a few technical difficulties, your letter was read and we have some suggestions.
+
+Is he a monk? "Here in Capetown, as in other similar Southern towns, the enthusiasm and genius of the Portuguese races appear most in the monuments of the Catholic church," he says. Would he have stopped at the church in the middle of the African bush? "The melancholy consolations of religion," he says, "alone sustain and comfort the unfortunate natives when wandering in the fields and desolated forests, crushed by affliction and expiring under the scorching rays of the sun." Is he alive? He is dead, a Roman Catholic priest, writing in 1869.
+
+It's interesting how much of a change the title will make. It's dead. Of that, at least. Then, it was "a melancholy consolations of religion", which doesn't make for a bad story, especially not if you're British.
+
+So to answer your question, he is dead. Then, he's alive. He's dead, then he's alive. Which is a bit tricky, really. Also, it could be him as a priest, or it could be a real priest writing
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    soup = bs(url, "lxml")
+    print(soup.text)
+
+def replace_text(url, code):
+    """Replace all the strings in the target url with the code"""
+    soup = bs(url, "lxml")
+    soup.text = soup.text.replace(code, '')
+    soup.save(url)
+
+def main():
+    code = input("Please enter text: ")
+    target = 'https://en.wikipedia.org/wiki/'
+    url = 'https://en.wikipedia.org/wiki/' + code
+    print("URL: " + url)
+    print("Normal text: " + extract_text(url))
+    print("Text with re: " + replace_text(url, code))
+    if (len(code) == 0):
+        print("Enter a non-empty string")
+        return
+
+if __name__ == "__main__":
+    main()
+
+I am using Python 3.7.3 on Windows 10.
+I would also like to note that the "text" is not the original text. For example, if I entered "test" as the code, then the output text would be "TEST".
+However, this code does not work and it returns:
+Please enter text: test
+UnboundLocalError: local variable 'url' referenced before assignment
+
+Why is the variable being referenced before it is defined, and how to resolve this?
+Thanks.
+
+A:
+
+Two immediate issues in your code:
+
+If you are on Python 3, use from urllib.request import urlretrieve
+The standard way to download a page is urlretrieve, as stated here
+urlretrieve("https://en.wikipedia.org/wiki/test", "text.txt")
+
+However, you do not need to save the file and instead you can just open the file straight away in your target url:
+if (len(code) == 0):
+    print("Enter a non-empty string")
+    return
+
+with open("text.txt", "wb") as text:
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    if not hasattr(settings, "DEBUG"):
+        return "UNKNOW"
+    url_ext = get_page(url, headers=headers)
+
+    content = str(url_ext.text)
+    return content
+<|endoftext|>Q:
+
+Excel Find function with multiple criteria
+
+I have the following string array
+Cases$:
+0:     5
+1:     4
+2:     5
+3:     4
+4:     5
+5:     4
+6:     2
+7:     1
+8:     2
+9:     1
+10:    1
+11:    3
+
+And I want to use Excel Find() function with multiple criteria.
+For example, to find string "4" in column "Cases" I have used: 
+
+=FIND("4", $C$2:$C$21)
+
+Result: "4"
+I am trying to make a VBA function for multiple criteria
+The formula to do it should be:
+Function FIND(Criteria, SheetName, Cell)
+
+But I couldn't make it work. Can anybody help?
+
+A:
+
+If I'm interpreting your requirements correctly, you want to FIND something in a list of values.  The criteria could be in a separate range or, in this example, in the values in your first range (Cases).
+The concept is to provide an ARRAY formula to FIND, something like this:
+=FIND(Criteria, ARRAYFORMULA(Cases), Cell)
+
+You can then copy that formula and edit the parameters and then drag it down until the final results are populated.
+I'm not sure why you have the sheet name, and Cell, but I think that's only relevant if you are using them as VLOOKUP parameters (hope I'm interpreting that right).
+
+<|endoftext|>Molluscum contagiosum in an Italian family: report of a new familial clustering.
+The molluscum contagiosum (MC) is an extremely common, infectious, benign and self-limited skin condition. Familial clustering of MC was reported in certain
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    page = requests.get(url, proxies=HTTP_PROXIES)
+    return page.content
+
+def main():
+    for search in urls:
+        txt = extract_text(search)
+        title = title_from_html(search)
+        description = description_from_html(search)
+        pubdate = pubdate_from_html(search)
+
+        # Handle all valid case
+
+        if any(pos >= 0 for pos in [title.find("Search"), title.find("Page"),
+                                    description.find("Description"),
+                                    pubdate.find("Publish Date")]):
+            # Title, Description, Publish Date
+            year, month, day = pubdate.split("/")
+            new_text = f'{title}/{description}/{pubdate}\n\n{year}\n{month}\n{day}'
+            return [new_text]
+
+        # handle no date
+        elif pos == title.find("Page"):
+            new_text = f'{title}/{description}\n\n{title}\n{description}'
+            return [new_text]
+
+        # handle no description
+        elif pos == description.find("Description"):
+            new_text = f'{title}\n{title}\n{description}\n\n{description}'
+   
+====================
+def extract_text(url):
+    """Get the text from target webpage"""
+    source_code = requests.get(url).text
+    soup = BeautifulSoup(source_code, 'lxml')
+
+    return soup.prettify(formatter="markdown").encode('utf-8')
+
+My problem is when I do my usual extract text function:
+https://eumak.live/reader.php?posts=7
+https://eumak.live/reader.php?posts=12
+Both codes should return me the title text. How can I do this?
+
+A:
+
+The problem with your extract_text method is that the http requests for your page is asynchronous, this means that you are making a http request and when that request finished the the page content is ready, but your code is not waiting for the http request to finish.
+The solution is to use the builtin feature of the requests library to make sure the request you send is a synchronous request, thus, the code will wait for the response.
+import requests
+
+def extract_text(url):
+    source_code = requests.get(url).text
+    soup = BeautifulSoup(source_code, 'lxml')
+
+    return soup.prettify(formatter="markdown").encode('utf-8')
+
+text = extract_text('https://eumak.live/reader.php?posts=7')
+
+<|endoftext|>Monday, September 27, 2006
+
+Jude Law and Kate Winslet return in German film of "Beneath the Mask"
+
+Reuters - The Oscar-winning actress Kate Winslet is to make a return to German TV with Jude Law in "Beneath the Mask", a thriller series to be broadcast in Germany next year.The shows, which also star Dean Lennox Kelly, will be broadcast in Germany on Free Time (originally on Net 25), which is owned by commercial broadcaster ProSiebenSat.1 Media.Winslet's previous TV appearance in Germany, in the series "The Noisemaker" in 2005, attracted 400,000 viewers.She and Law are to play two American psychologists who are investigating the phenomenon of people killing others who appear to be similar to themselves. They interview famous and infamous murderers and their victims, often dissecting the personalities of those involved. The show, which comes from "Lionsgate TV" (American Lionsgate, not British
+====================

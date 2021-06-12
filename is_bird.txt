@@ -1,0 +1,1894 @@
+def is_bird(img):
+    """Check whether an image is a bird"""
+
+    # check if number of green pixels
+    return img[0] > 104
+
+
+def is_sparrow(img):
+    """Check whether an image is a sparrow"""
+
+    # check if number of green pixels
+    return img[0] > 120
+<|endoftext|>Ai Weiwei: I’m Scared of the Mafia, I’m Scared of Chinese People, I’m Scared of Myself (世间大事，公众可以比得过了,我可以比得过了,可以跟自己比得过了)
+
+September 11, 2019
+
+[Ming Tang-Evans] Today I visited at 1.2 metres tall [Ai Weiwei], and I was quite surprised to find him standing in the middle of a tiny gallery.
+
+For me, he has become larger in China, but he remains the same Ai Weiwei. I guess Ai Weiwei still has a huge power to challenge the official thoughts.
+
+Ai Weiwei, let’s say that “One day we are not going to remember each other,” because this is your last performance.
+
+Ai Weiwei: One day we are not going to remember each other, because we have already forgotten each other. You will leave, I will leave, and the exhibition will be over.
+
+MT: What will you do afterwards?
+
+Ai Weiwei: I am not going to ask.
+
+Ai Weiwei: I’m scared of the mafia, I’m scared of Chinese people, I’m scared of myself.
+
+–
+
+–
+
+–
+
+© Ming Tang-Evans.
+
+Images copyright the artist.<|endoftext|>Discovery and synthesis of 1,3-bis(phenylalkyl)imidazolidines as potent dual inhibitors of DYRK1A and AURKB.
+A series of 1,3-bis(phenylalkyl)imidazolidines were designed and synthesized as potent and selective inhibitors of DYRK1A and AURKB kinases. The identified compounds display low nanomolar IC50 values for both DYRK1
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # retrieve columns (min-max). convert to array
+    c0 = img.astype(float).min(axis=0) - 0.1  # -0.1 is the mean
+    c1 = img.astype(float).max(axis=0) + 0.1  # +0.1 is the mean
+
+    # the 'windows' should be around 0.2:1.3
+    windows = c0 / (c0 + c1)
+    windows = windows * [5, 10, 20, 25]
+
+    # set windows and convert to int.
+    windows = windows.astype(int)
+
+    # find boundaries of the image
+    windows_box = np.array(windows)
+    # find average values of (x, y) coordinate
+    windows_box_min = np.mean(windows_box, axis=0)
+    windows_box_max = np.mean(windows_box, axis=1)
+
+    # calculate birdness
+    binarized = np.zeros_like(windows_box)
+    count = np.sum(windows_box > 0)
+    for i, row in enumerate(windows_box):
+        for j, col in enumerate(windows_box):
+            box = windows_box[i, j]
+            binarized[i, j] = (box <= windows_box_min[i, j])
+                            & (box >= windows_box_max[i, j])
+            count[i, j] += count[i, j]
+
+    # threshold to binary image
+    binarized = cv2.threshold(binarized, 255, 255, cv2.THRESH_BINARY)[1]
+
+    # the birdness is: (binarized * count) / count
+   
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    with tf.name_scope('get_bird'):
+        a = vgg16.select_roi_feat(img)
+        h, w, _ = tf.image.extract_image_patches(
+            a, 7, 7, 4, 4, 1, 1)
+        b = tf.reshape(h, [1, 7, 7, 256])
+        c = tf.reshape(w, [1, 7, 7, 256])
+        bird_img = tf.subtract(b, c)
+    return bird_img
+
+# Sample images.
+sample_images = ['dogs', 'pigs','sheep', 'birds']
+
+# Input batch of images.
+batch_images = tf.train.batch(
+    [sample_images, sample_images, sample_images, sample_images],
+    [64, 128, 64, 128],
+    batch_size=16,
+    num_threads=1,
+)
+
+# A place to queue up to 16 requests to feed the above batch.
+placeholder = tf.placeholder(tf.float32, [None, None, None, None], name='images')
+queue = tf.FIFOQueue(batch_size=16, dtypes=tf.float32, name='requests')
+enqueue_op = queue.enqueue([batch_images, batch_images, batch_images, batch_images])
+sess = tf.Session()
+sess.run(enqueue_op, feed_dict={placeholder: batch_images})
+for i in range(1, 16):
+    tf.train.start_queue_runners(sess=sess)
+    results = sess.run(queue.dequeue(), feed_dict={placeholder: batch_images})
+    for i in range(len(results)):
+        img = sess.run(results[i])
+        print(img.shape)
+   
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    return (img.file == "C:/Users/Joey/Downloads/images/bird_file.jpg"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # Get the face
+    bird_face_bbox = face_box(img, "bird")
+    return (bird_face_bbox[0] < 0) and (bird_face_bbox[1] < 0) and (bird_face_bbox[2] > 0) and (bird_face_bbox[3] > 0)
+
+def bird_recognizer(bird_score=0.9):
+    """Recognizes a bird image based on the CUB model
+    bird_score: the highest score to consider a result as a'real' result"""
+
+    # Load the model
+    detector = cv2.face.LBPHFaceRecognizer_create()
+    # Try different scale for the model
+    #batch_size=10
+    #num_faces=5
+    #scale=0.2
+    batch_size = 0
+    num_faces = 0
+    scale = 0.1
+    start_time = time.time()
+    while True:
+        start_time = time.time()
+        # Load an image from disk
+        img = cv2.imread('/home/caffeine/dog/2018-08-24-0233/e2d9e8726b35aadac9b0d96b065efa6a.jpg')
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        img = cv2.resize(img, (224, 224))
+        # Apply the face detection
+        # If the face detected has < bird_score> score,
+        # the face_info contains the info of the face,
+        # then we will keep this face.
+        bird_face_bbox = face_box(img, "bird")
+        if not bird
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+
+    with Image.open(img) as bmp:
+        bird = bmp.convert('L')
+        return bird == 'B'
+
+
+def build_dataset(dataset_dir):
+    """Build the VGG dataset given a dataset directory."""
+
+    vgg_dir = os.path.join(dataset_dir, 'VGG')
+    vgg_images = []
+
+    for root, dirs, filenames in os.walk(vgg_dir):
+        for filename in filenames:
+            filepath = os.path.join(root, filename)
+            if '.png' in filename:
+                # skip png for data augmentation
+                continue
+
+            image = Image.open(filepath)
+            img_ratio = image.width / image.height
+            if img_ratio > 1.2 and img_ratio < 1.8:
+                continue
+
+            # skip lines of text
+            if any(line in filename for line in ['The Competition', 'Copyright', 'This dataset was produced with funding from the European Research Council under ERC Starting Grant N.',
+                                                    'Contact me at vicky@ucam.ac.uk', 'This data is licensed under the Creative Commons Attribution 4.0 International License']) or 'Labeled':
+                continue
+
+            v
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    """Returns:
+        - True - if bird is detected
+        - False - if not bird is detected
+    """
+    return-any([is_goose(img), is_seagull(img), is_turtle(img), is_crow(img)])
+
+##==============================================================================
+# THE BIRD OBJECT
+##==============================================================================
+
+##----------------------------------------------------------------------------
+# DEFINE BIRD BOT MOTIONS
+##----------------------------------------------------------------------------
+
+bird_polar = 0
+bird_vertical = 1
+bird_lateral = 2
+
+##----------------------------------------------------------------------------
+# THE BIRD OBJECT
+##----------------------------------------------------------------------------
+
+class Bird:
+    """Bird class"""
+    # Setup
+
+    def __init__(self, bird_id, locations=[]):
+        """Initialization"""
+        self.bird_id = bird_id
+        self.locations = locations
+
+        # Setup data attribute:
+        self.time = None
+        self.angle = 0.0
+
+        # Setup recognition
+        if is_bird(img):
+            is_robin = True
+            self.robin = True
+        else:
+            is_robin = False
+            self.robin = False
+
+        # Setup wing:
+        self.upper_wing_angle = 0.0
+        self.lower_wing_angle = 0.0
+
+        # Setup environment variables for tracking:
+        self.recognized = False
+        self.animate_markers = True
+
+        # Setup fall-off
+        self.animate_fall_off = True
+ 
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    import urllib
+    url = "http://vision.caitling.pitt.edu/~cat/flickr/birds/"
+    for img in range(0, 2800):
+        page = urllib.urlopen(url + "##%02d" % img).read()
+        content = str(page)
+        for word in content.split(' '):
+            if word.find(img) > -1:
+                return True
+    return False
+<|endoftext|>Angiotensin II-induced hypertrophy of human mesangial cells is mediated by activation of phosphatidylinositol 3-kinase-Akt pathway and phosphorylation of mitogen-activated protein kinase kinase-1.
+Angiotensin II (Ang II) is considered to be one of the potent stimulator of cell growth. In the present study, we investigated the role of phosphatidylinositol 3-kinase (PI 3-kinase) and mitogen-activated protein kinase kinase (MEK)-1/extracellular signal-regulated kinase (ERK) pathway in Ang II-induced hypertrophy of human mesangial cells. Ang II (1 nM) and platelet-derived growth factor (PDGF) (10 ng/ml) enhanced the production of type IV collagen. These two factors induced phosphorylation of Akt and MEK-1. The PI 3-kinase inhibitors wortmannin, LY-294002 and LY-103, and the MEK-1 inhibitor PD98059 suppressed the Ang II-induced hypertrophy and the production of type IV collagen. PD98059 inhibited the phosphorylation of Akt and MEK-1 induced by Ang II. In contrast, PD98059 did not inhibit the phosphorylation of Akt or MEK-1 induced by PDGF. LY-294002 and PD98059 inhibited the phosphorylation of Akt and MEK-1 induced by PDGF. The effects of PD98059 and LY-294002 were additive to each other. These results indicated that PI 3-kinase and
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    return tf.image.convert_image_dtype(
+        img, dtype=tf.float32, label_dtype=tf.float32)
+  num_bird = tf.image.rgb_to_gray(is_bird(bird_imgs))
+
+  num_dots = tf.image.label_to_number(tf.image.label_create(
+      NUM_CLASSES, class_dtype=tf.int64))
+
+  def get_num_dots():
+    return num_dots
+
+  # Define loss function and optimizer.
+  with tf.name_scope("loss"):
+    loss_real = tf.reduce_mean(tf.reduce_mean(
+        tf.squeeze(tf.nn.softmax_cross_entropy_with_logits(labels=num_bird,
+                                                          logits=num_dots)),
+        axis=1))
+    loss_fake = tf.reduce_mean(tf.reduce_mean(
+        tf.squeeze(tf.nn.softmax_cross_entropy_with_logits(labels=num_bird,
+                                                          logits=num_dots)),
+        axis=1))
+
+    # Training of the model.
+    train_op = tf.train.AdamOptimizer(learning_rate=1e-4).minimize(loss_real)
+    logits = tf.group(
+        tf.nn.conv2d_transpose(is_bird(
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    features = np.array(run_extract_bird(img))
+    return features[0]
+
+bird_pairs = [
+    ["hat", "chicken", "hawk", "canary", "pigeon", "parrot", "parakeet", "dove"],
+    ["hen", "duck", "turtle", "crane", "budgie", "ostrich", "quail", "penguin"],
+    ["duck", "tortoise", "seagull", "elephant", "snake", "lion", "raccoon", "spider"]]
+
+for pair in bird_pairs:
+    print("-----{}-----".format(pair))
+    # Read the image using the function
+    img = cv2.imread('./static/imgs/{}/birds/{}'.format(pair[0], pair[2]))
+
+    # Apply the bird feature detector to the image
+    bird = run_extract_bird(img)
+
+    # Check if it's a bird
+    if bird is not None:
+        bird_label = "bird"
+    else:
+        bird_label = "no-bird"
+    if not bird_label:
+        img_label = "no-label"
+        continue
+
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+    # Initialize the filter size to 20 for HOG feature extractor
+    HOG_SIZES = [10, 10, 5]
+    windows_sizes = (5, 15, 7)
+
+    # Extracted features from image are fed into a ConvNet
+    net = nn.Sequential(
+        nn.Conv2d(1, 1, 3, padding=1),
+        nn.ReLU(),
+        nn.MaxPool2d(pool_
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+
+    import scipy
+
+    thresh = 3.
+    res = scipy.ndimage.measurements.label(img.astype(np.float32))
+
+    labels = np.unique(res > thresh)
+    shape = np.unique(res.shape)
+
+    return shape[0] == 'bird' and len(labels) == 1 and labels[0] == 1
+
+
+def is_cat(img):
+    """Check whether an image is a cat"""
+
+    import scipy
+
+    thresh = 3.
+    res = scipy.ndimage.measurements.label(img.astype(np.float32))
+
+    labels = np.unique(res > thresh)
+    shape = np.unique(res.shape)
+
+    return shape[0] == 'cat' and len(labels) == 1 and labels[0] == 1
+
+
+def is_food(img):
+    """Check whether an image is a food item"""
+
+    import scipy
+
+    thresh = 3.
+    res = scipy.ndimage.measurements.label(img.astype(np.float32))
+
+    labels = np.unique(res > thresh)
+    shape = np.unique(res.shape)
+
+    return shape[0] == 'food' and len(labels) == 1 and labels[0] == 1
+
+
+def is_persp(img):
+    """Check whether an image is a perspective map"""
+
+    import scipy
+
+    thresh = 2.
+    res = scipy.ndimage.measurements.label(img.astype(np.float32))
+
+    labels = np.unique(res > thresh)
+    shape = np.unique(res.shape)
+
+    return shape[0] == 'persp' and len(labels) == 1 and labels[0] == 1
+
+
+def is_wheel(img):
+    """Check whether an image is a wheel"""
+
+    import scipy
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+
+    # In case of a large variation in lighting or non uniform background, a simple color threshold is not sufficient. Hence we try to apply the following filters
+    # 1) Linear segmentation (max of 255, max value is bird body)
+    # 2) U-subtraction using the grayscale of the bird and the background. The value that results in the darkest image should be the background.
+    # 3) Otsu's thresholding to set the grayscale maximum and minimum. This generates the thresholds for a thresholding operation
+    # 4) Gray level non-maximum suppression. This generates the binary mask for the bird in a post-processing step
+    # The bird mask is used as an input to the dog or crow detector.
+
+    rgb_im = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    hsv = cv2.cvtColor(rgb_im, cv2.COLOR_BGR2HSV)
+    mask = cv2.inRange(hsv[1], [179, 245, 179], [254, 254, 254])
+    mask = cv2.bitwise_and(mask, mask, mask=mask)
+    mask = cv2.threshold(mask, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+    birds = cv2.bitwise_and(img, img, mask=mask)
+    birds = cv2.cvtColor(birds, cv2.COLOR_RGB2HSV)
+    # print("Detection probabilities:"+str(math.log(img.shape[0]))+"*"+str(math.log(img.shape[1]))+"*"+str(math.log(img.shape[2])))
+    # print(birds[50:70,50:70])
+    birds[birds>255] = 0
+    return birds
+
+
+def find_head(bird, head_min_x, head_min_y, head_max_x, head_max_y, max_th
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    bird_desc = ['long beak','short tail', 'down-facing angle']
+    return any(lab == 'bird' and set(bird_desc) & img)
+
+def is_cat(img):
+    """Check whether an image is a cat"""
+    cat_desc = ['pointed face','stripy face', 'large ears',
+                'long fur', 'waving tail']
+    return any(lab == 'cat' and set(cat_desc) & img)
+
+def is_dolphin(img):
+    """Check whether an image is a dolphin"""
+    dolphin_desc = ['long tail', 'bubbled tail','spots',
+                   'small head', 'big eyes', 'bumpy skin',
+                    'dolphin jumping']
+    return any(lab == 'dolphin' and set(dolphin_desc) & img)
+
+def is_horse(img):
+    """Check whether an image is a horse"""
+    horse_desc = ['lacking lower back','sharp back',
+                  'long snout', 'big ears', 'tail in horizontal line',
+                  'long legs', 'long neck', 'closer to the camera',
+                  'rounded mane']
+    return any(lab == 'horse' and set(horse_desc) & img)
+
+def is_horse2(img):
+    """Check whether an image is a horse"""
+    horse2_desc = ['snouting','sharper ears', 'lacking lower back',
+                  'sharper back', 'pointed mane']
+    return any(lab == 'horse2' and set(horse2_desc
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    return img.shape[0]==2 and img.shape[1]==2
+
+def to_giant_bird(img):
+    """
+    Convert a bird image to a bird-shaped object with a 
+    big head and wide mouth. 
+
+    @return: A giant bird image
+    """
+    w = img.shape[1]
+    h = img.shape[0]
+    img = cv2.resize(img, (int(w/4), int(h/4)))
+    img = np.expand_dims(img, axis=0)
+    big_head_img = cv2.resize(cv2.imread(
+            'img/bird/bird_head/bird_head_r.jpg'),
+            (int(w/4), int(h/4))
+            )
+    big_mouth_img = cv2.resize(cv2.imread(
+            'img/bird/bird_mouth/bird_mouth_r.jpg'),
+            (int(w/4), int(h/4))
+            )
+    big_body_img = cv2.resize(cv2.imread(
+            'img/bird/bird_body/bird_body_r.jpg'),
+            (int(w/4), int(h/4))
+            )
+    return np.concatenate((big_head_img, big_mouth_img, big_body_img, img), axis=0)
+
+# load the dataset
+dataset = pd.read_csv('train.csv')
+
+# convert to a numpy array
+train = train.astype(float).astype('int32').as_matrix
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    assert len(img) == 1
+    return (
+        np.max(img) - np.min(img) > 190.0
+    )
+
+# filter images by size and with bird=0, and random crop
+def filter_bird(bird_data, img_data):
+    """Crop a random bird from bird_data and add it to img_data"""
+    bird = bird_data[0]['b']
+    if bird_data[0]['b'] == 0:
+        return img_data
+    crop = (
+        (int(np.round(np.random.rand()*(bird['w'] - 200)))) + 200,
+        (int(np.round(np.random.rand()*(bird['h'] - 200)))) + 200,
+    )
+    return imutils.resize(img_data, width=crop[0], height=crop[1])[crop[2]:]
+
+# save to path
+def save_img_path(fname, img_path, bird_data):
+    """Save a filtered image with a bird to an image path"""
+    bird = bird_data[0]['b']
+    crop = (
+        (int(np.round(np.random.rand()*(bird['w'] - 200)))) + 200,
+        (int(np.round(np.random.rand()*(bird['h'] - 200)))) + 200,
+    )
+    os.makedirs(img_path, exist_ok=True)
+    if bird == 0:
+        fname = os.path.join(img_path, fname)
+        img_path = os.path.join(img_path, img_path)
+    with Image.open(img_path) as input_img:
+        with Image.open(fname) as input_img_path:
+  
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # 判断图片是否是一只可以识别到的鸟
+    bird_contour = bird.net.detect_bird(img)
+    if len(bird_contour) > 0:
+        return True
+    return False
+
+def get_param(layer_param):
+    if layer_param is not None:
+        return layer_param
+    param_file = os.path.join(DATASET_PATH, 'ZhouDataset_groundtruth.h5')
+    layer_param = tf.load_variable(param_file, name="ZhouDataset_groundtruth_param")
+    return layer_param
+
+def build_model(filters,
+                batch_size,
+                num_classes,
+                image_shape):
+    """Build model"""
+    model = vgg.Vgg19(is_training=False)
+    with tf.variable_scope("imagenet_vgg"):
+        # 1. 定义尺寸
+        with tf.variable_scope("default"):
+            image_data = tf.placeholder(tf.float32, shape=image_shape,
+                                        name='image_data')
+            image_data_pl = tf.placeholder(tf.float32, shape=image_shape,
+                                           name='image_data_pl')
+
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # Pass in pre-defined attributes/features
+    return img[..., 0] == 5 or img[..., 0] == 1
+
+# User-defined features
+def get_features(img):
+    # Get a square of the entire image
+    feat = img[..., 0:-1, 0:-1].squeeze()
+
+    # Example of a bird. 
+    #  Get the feature data of the bird
+    #feat[feat == 5]
+
+    # Example of a duck. 
+    #feat[feat == 1]
+
+    return feat
+
+# Data partitioning
+if __name__ == "__main__":
+    train, valid, test = load_data()
+
+    print("Training Set:", train)
+    print("Validation Set:", valid)
+    print("Testing Set:", test)
+
+    # Create and Fit the model
+    features = get_features(train)
+    model = LogisticRegression()
+    model.fit(features, train)
+
+    # Predict a value
+    print(model.predict(valid))
+
+    # Predict a value
+    print(model.predict(test))
+
+    # Make predictions on a new image
+    feat_data = get_features(valid)
+    feat_image = torch.Tensor(feat_data).numpy()
+    feat_image = np.transpose(feat_image)
+
+    # Use inference to find probabilities of each label
+    prediction = model.predict(feat_image)
+
+    print("Labels: ", prediction)
+
+    # Calculate accuracy
+    num_correct = 0
+    for i,j in zip(prediction, valid):
+        if j == 1:
+            num_correct += 1
+    print(num_correct / valid.shape[0])
+
+<|endoftext|>#!/bin/sh
+#
+# Copyright 2019 Google LLC
+#
+# Licensed under the Apache License, Version 2.0
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    img = np.asarray(img)
+    return img[0] > 200 and img[1] > 200
+
+
+def flow_to_heading(flip, np_flow, clip_thresh, conf_thresh):
+    """Convert image flow to bird headings."""
+    img_diff = np.abs(flip - 1.0)
+    img_diff[img_diff < 0.01] = 0.0
+    img_diff[img_diff > 0.99] = 1.0
+
+    if not is_bird(img_diff):
+        img_diff = np.sign(img_diff)
+        conf_img_diff = np.array([[1.0, 1.0, 1.0, 1.0], [1.0, 0.0, 0.0, 0.0]])
+        img_diff[img_diff > conf_thresh] = conf_img_diff[img_diff > conf_thresh]
+
+    flow = np_flow / 100.0
+    flow[flow < 0] = 0.0
+    if flip > 0.0:
+        flow[flow < 0] = -flow[flow < 0]
+    return np.clip(flow * 100, -200, 200)
+
+
+def track_to_bounding_boxes(tracks, np_feat):
+    """Transform bird tracks to bounding boxes."""
+    paths = np.array(tracks, dtype=np.int)
+    all_paths = np.stack([paths.astype(np.int) for paths in tracks], axis=-1)
+    all_paths = np.array(all_paths)
+    all_boxes = np.zeros((len(all_paths), 5))
+    feat_info = np.zeros((len(all_paths), 2, 1))
+    for idx, i in enumerate(all_paths):
+        # head
+   
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    return img[0] > 80 and img[0] < 255
+
+def is_boat(img):
+    """Check whether an image is a boat"""
+    return img[1] > 80 and img[1] < 255
+
+def is_cat(img):
+    """Check whether an image is a cat"""
+    return img[2] > 80 and img[2] < 255
+
+def is_dining_table(img):
+    """Check whether an image is a dining table"""
+    return img[2] > 200 and img[2] < 400
+
+def is_fire(img):
+    """Check whether an image is a fire"""
+    return img[0] > 80 and img[1] > 120
+
+def is_green_door(img):
+    """Check whether an image is a green door"""
+    return img[0] > 140 and img[1] > 160 and img[2] > 20
+
+def is_gold_mine(img):
+    """Check whether an image is a gold mine"""
+    return img[2] > 200 and img[3] > 60 and img[4] > 300
+
+def is_helmet(img):
+    """Check whether an image is a helmet"""
+    return img[0] > 80 and img[1] > 100 and img[2] > 10
+
+def is_icon(img):
+    """Check whether an image is an icon"""
+    return img[1] > 20 and img[2] > 20
+
+def is_sky(img):
+    """Check whether an image is a sky"""
+    return img[0] > 20 and img[1] > 20
+
+def is_tree(img):
+    """Check whether an image is a tree"""
+    return img[1] > 50 and img[2] > 200
+
+def is_tram(img):
+    """Check whether an image is a tram"""
+    return img[0] > 80 and img[1] > 80 and img[2] > 120
+
+def is_train(img):
+    """
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    mask = cv2.Canny(img, 10, 150)
+    mask = cv2.dilate(mask, None)
+    mask = cv2.adaptiveThreshold(mask, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 10)
+    cv2.imshow('Mask', mask)
+    return mask.any()
+
+def is_cloud(img):
+    """Check whether an image is a cloud"""
+    mask = cv2.Canny(img, 0, 255)
+    mask = cv2.dilate(mask, None)
+    mask = cv2.adaptiveThreshold(mask, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 10)
+    cv2.imshow('Mask', mask)
+    return mask.any()
+
+def is_vehicle(img):
+    """Check whether an image is a vehicle"""
+    mask = cv2.Canny(img, 10, 50)
+    mask = cv2.dilate(mask, None)
+    mask = cv2.adaptiveThreshold(mask, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 10)
+    cv2.imshow('Mask', mask)
+    return mask.any()
+
+def is_person(img):
+    """Check whether an image is a person"""
+    mask = cv2.Canny(img, 50, 100)
+    mask = cv2.dilate(mask, None)
+    mask = cv2.adaptiveThreshold(mask, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 10)
+
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # Check if the image is an avian bird
+    if img == "birds":
+        return True
+    # Print out a standard bird image
+    if img == "standard_bird":
+        print(img)
+    # The image is a symbol
+    elif img == "symbol":
+        print(img)
+    # All others
+    else:
+        print(img)
+        return False
+
+img = pwd.getpwuid(os.getuid())[0] + ".jpg"
+img = "https://app.box.com/s/kvcbxrtq147315zhd3y"
+img = os.path.join(pwd, img)
+with open(img, 'rb') as f:
+    img = f.read()
+
+with open(img) as f:
+    img = f.read().decode('UTF-8')
+    bird_dict = {}
+    bird_dict["standard_bird"] = img
+    bird_dict["birds"] = "normal"
+    bird_dict["people"] = "people"
+    bird_dict["politics"] = "politics"
+    bird_dict["courses"] = "courses"
+    bird_dict["nature"] = "nature"
+    bird_dict["other"] = "other"
+    bird_dict["outdoors"] = "outdoors"
+    for k,v in bird_dict.items():
+        if is_bird(v):
+            print("Found:", k)
+            print("\n")
+        else:
+            print(v)
+
+<|endoftext|>This invention relates to a power steering system for an automotive vehicle, and more particularly to a power steering system provided with a mechanism for adjusting the force of a power steering fluid applying to the steering gear such
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    return all(bird_preds[0]==0 for bird_preds in get_bird_masks(img))
+
+
+def multi_preds(img):
+    """Get a list of masks for each bird and crow, in order of likelihood"""
+    bird_masks = [get_bird_masks(img) for img in [train_set[i]] if i>0]
+    crow_masks = [get_crow_masks(img) for img in [train_set[i]] if i>1]
+    bird_masks, crow_masks = zip(*bird_masks), *crow_masks
+    return bird_masks, crow_masks
+<|endoftext|>Dick Klooger
+
+Donald Phillip Klooger (born October 20, 1941) is a retired American professional baseball pitcher who played one season in Major League Baseball for the Chicago White Sox.
+
+Klooger attended Brookline High School in Boston, Massachusetts. He was signed by the White Sox on August 21, 1960 as an amateur free agent. He was purchased by the Toronto Blue Jays in the December 1960 rule 5 draft.
+
+In, Klooger was traded to the White Sox and after posting a 1-1 record with a 4.50 ERA, he was released.
+
+References
+
+External links
+, or Retrosheet, or Pura Pelota (Venezuelan Winter League)
+
+Category:1941 births
+Category:Living people
+Category:Albuquerque Dukes players
+Category:American expatriate baseball players in Canada
+Category:Baseball players from Connecticut
+Category:Birmingham Barons players
+Category:Chicago White Sox players
+Category:Clinton C-Sox players
+Category:Columbus Jets players
+Category:Evansville White Sox players
+Category:Hawaii Islanders players
+Category:Kansas City Athletics players
+Category:Major League Baseball pitchers
+Category:Miami Marlins (IL) players
+Category:Oklahoma City 89ers players
+Category:Omaha Royals players
+Category:Sportspeople from New London, Connecticut
+Category:Portland Beavers players
+Category:Rochester Red Wings players
+Category:Rojos del Águila de Veracruz players
+Category:Salt Lake City Bees players
+Category:Savannah White Sox players
+Category:Tac
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    return [pic1 for pic1 in img if  pic1.type == "bird"]
+
+def is_frog(img):
+    """Check whether an image is a frog"""
+    return [pic1 for pic1 in img if  pic1.type == "frog"]
+
+def is_clown(img):
+    """Check whether an image is a clown"""
+    return [pic1 for pic1 in img if  pic1.type == "clown"]
+
+def is_woman(img):
+    """Check whether an image is a woman"""
+    return [pic1 for pic1 in img if  pic1.type == "woman"]
+
+def is_panda(img):
+    """Check whether an image is a panda"""
+    return [pic1 for pic1 in img if  pic1.type == "panda"]
+
+def is_bear(img):
+    """Check whether an image is a bear"""
+    return [pic1 for pic1 in img if  pic1.type == "bear"]
+
+def is_goat(img):
+    """Check whether an image is a goat"""
+    return [pic1 for pic1 in img if  pic1.type == "goat"]
+
+def is_moose(img):
+    """Check whether an image is a moose"""
+    return [pic1 for pic1 in img if  pic1.type == "moose"]
+
+def is_drum(img):
+    """Check whether an image is a drum"""
+    return [pic1 for pic1 in img if  pic1.type == "drum"]
+
+def is_elephant(img):
+    """Check whether an image is an elephant"""
+    return [pic1 for pic1 in img if  pic1.type == "elephant"]
+
+def is_polar(img):
+    """Check whether an image is a polar bear"""
+    return [pic1 for pic1 in img if  pic1.type == "polar"]
+
+def is_wolf(img):
+    """Check whether an image is a wolf"""
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    bird_dict = {
+        'chicken': [0.91, 0.9],
+        'cow': [0.8, 0.8],
+        'duck': [0.5, 0.9],
+        'goose': [0.6, 0.7],
+        'rooster': [0.5, 0.8]
+    }
+
+    return any(bird_dict.get(c, [0.0, 0.0]) > 0.4 for c in img)
+
+The function works, but it's really slow. It takes about a minute on the computer I am using to test it (a thinkpad x200 with 2 gig of RAM). Is there a faster way to detect birds in an image?
+
+A:
+
+I would just use OpenCV for that. There is a tutorial for it on their website. There you can specify various features that you want to detect and even the models to use if needed. Once you've done that, and you're happy with the results, OpenCV's HoughLines will find you the lines in an image, and you can use that to determine whether or not the image contains birds.
+
+<|endoftext|> they were more familiar with the
+
+situation on the ground on February 4, 2014 than on February 4, 2014.
+
+(Doc. 67, Vol. 2 at 27-29). In addition, because of the inconsistency
+
+between the state’s and Mr. Sparks’s accounts, the police could not
+
+determine whether Mr. Sparks was really armed with a gun.              (Id.).
+
+Further, an individual’s clothing can conceal a weapon, but a
+
+warrantless search of the outer clothing of a suspect is valid only if
+
+the police had reason to believe that the suspect was armed. United
+
+States v. Smith, 264 F.3d 1012, 1021 (10th Cir. 2001) (“It is also
+
+inconceivable that an individual’s outer clothing could completely
+
+disclose   whether   he    is    armed   or   not
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    return True in bird_extensions
+
+def convert_keras_to_tensorflow(x_input):
+    """Convert keras to tensorflow"""
+    inputs = tf.keras.Input(name="keras", data_format='channels_last', shape=(None, None, None, 3))
+    x_output = inputs.send(x_input)
+    return x_output
+
+def convert_tensorflow_to_keras(x_output):
+    """Convert tensorflow to keras"""
+    input = tf.keras.Input(name='tensorflow', data_format='channels_last', shape=(None, None, None, 3))
+    x_input = input.send(x_output)
+    return x_input
+
+def convert_tf_model_to_keras(keras_model):
+    """Convert tensorflow model to keras model"""
+    input_layer = keras_model.layers[0]
+    output_layer = keras_model.layers[-1]
+    x_input = tf.keras.Input(name='tensorflow', data_format='channels_last', shape=(None, None, None, 3))
+    input = x_input
+    # Apply keras model to x_input
+    output = keras_model.predict(x_input)
+    x_output = tf.keras.backend.reshape(output, shape=(None, None, None, 3))
+    # Apply tensorflow model to x_output
+    output = output_layer(output)
+    output = tf.keras.backend.reshape(output, shape=(None, None, None, 3))
+    x_input = x_output
+    return x_input
+
+def preprocess(x_input, output_path):
+    """Preprocess images"""
+    # Preprocess with keras-style crop layer: x_input[..., :-5, :, :3]
+   
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    return (0<gray<128) & (256<gray<384) & (512<gray<768)
+
+
+def resize(image, size=(100,100)):
+    """Create a scaled version of the image"""
+    return cv2.resize(image, size)
+
+
+def to_grayscale(image):
+    """Convert an image to grayscale"""
+    return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+
+def image_normalize(image):
+    """Normalize an image by dividing its largest row by the sum of the rows"""
+    img_norm = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    height = img_norm.shape[0]
+    norm_sum = height
+    for i in range(height):
+        norm_sum = norm_sum - img_norm.max()
+    return image / norm_sum
+
+
+def thumbnail(image, size=(100,100)):
+    """Create a thumbnail image of an image"""
+    return cv2.thumbnail(image, size, cv2.THRESH_BINARY)
+
+
+def load_data(path):
+    """Load the database of numbers (no data needed for now)"""
+    database = np.loadtxt(path)
+    return database
+
+
+def generate_sampler():
+    """Generate a random number sampler for display"""
+    generated = np.random.choice(range(100), size=100)
+    return generated
+
+
+def binary_sampler():
+    """Generate a binary random number sampler"""
+    generated = np.random.randint(0, 2, size=100)
+    return generated
+
+
+def default_sampler():
+    """Default random number sampler, which always returns 2"""
+    generated = np.random.rand
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    with Image.open(img) as im:
+        h, w, _ = im.size
+        heigth_ratio = h / int(im.shape[0] / 16)
+        width_ratio = w / int(im.shape[1] / 16)
+
+        # heigth, width ratios should fall in this interval:
+        # [1.5, 1.8], but there could be some overlapping.
+        overlapping_ratios = (1.4, 1.6, 1.6)
+        for overlap in overlapping_ratios:
+            if heigth_ratio <= overlap and overlap < heigth_ratio * 2 and width_ratio <= overlap and overlap < width_ratio * 2:
+                return True
+
+    return False
+
+
+def convert_boundary(img):
+    """Calculate the scale-step boundary"""
+    boundary = min(img.shape[:2]) * 4 / 5
+
+    # Scale down so the lower-left-corner is in the origin
+    return boundary * (img.shape[1:] - (boundary / 2))
+
+
+def _scale_and_crop_to_boundary(img, boundary):
+    """Scale down the image, such that the lower-left-corner falls to the boundary"""
+    _, new_width = img.shape
+
+    scaled_height = _scale_by_zero(boundary / new_width)
+    scaled_width = new_width / _scale_by_zero(boundary)
+
+    scaled_img = img.resize((scaled_width, scaled_height))
+
+    return scaled_img, scaled_width, scaled_height
+
+
+def _scale_by_zero(x):
+    return x, x
+
+
+def _crop(img, scale_to_boundary):
+    """Scale up the image,
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    w, h = img.shape[:2]
+    if len(img[y:y+h, x:x+w]) == 8:
+        return True
+    else:
+        return False
+
+def get_bird_amount(bird, bird_count):
+    """Get the number of birds from a binary image (1s and 0s).
+    """
+    bird_amount = sum(bird == 1)
+    return bird_amount
+
+def remove_birds(image):
+    """Remove birds from the image"""
+    bird_amount = get_bird_amount(image, bird_count)
+    # Check if any of the birds are in a sea of pixels
+    # (chance of bird outside sea of pixels = 14%
+    outside_bird = bird_amount > 0 and bird_amount % bird_count!= 0
+    # Shrink it by one pixel
+    image = img2im.draw_image(image, size=((image.shape[0]-2),
+                                          (image.shape[1]-2)))
+    # If bird is outside sea of pixels, extract image
+    if outside_bird:
+        img = img2im.draw_image(image[outside_bird:bird_amount+outside_bird],
+                                (bird_count - bird_amount) % bird_count)
+    return img
+
+def main():
+    """Read an image from a directory and get the bird count"""
+    for root, dirs, filenames in os.walk('data'):
+        # Iterate through the filenames
+        for filename in filenames:
+            # Open image
+
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    with ImageFilter(img, ['FALCON.BIRD']):
+        return True
+
+In the function is_bird, I want to perform some operation on img to check if it is a bird, but something like "with ImageFilter(img, ['FALCON.BIRD'])" doesn't work.
+How do I write the code? 
+
+A:
+
+ImageFilter.filter is an object. You can't call it directly, you should call it on the img object. For example:
+with ImageFilter(img, 'FALCON.BIRD'):
+     print(img)
+
+<|endoftext|>So i've looked for answers to this for a while, most seem to say, "just turn it down", but i want to be able to hear it on keystroke level.
+
+Ackk...
+
+also i just found this:
+
+http://www.audiomedia.com/au/listen.php?list=12
+
+...
+
+"User convenience: FM mode and PCM volume control via keyboard were added as you can change between them with the Fn button. In FM mode, key-lock is included which allows you to use it as a portable radio. In PCM mode, a pair of arrows are available for manually changing the volume and muting/speaker setting of selected channels. After start or resume of the station program, FM data is automatically updated."
+
+i guess that if you press "PM" on the keyboad, you can change volume.
+
+I think that turning the PCM volume all the way up just adjusts the automatic volume. If that's so, just make sure you adjust it to match your volume knob. And also, this just adjusts the automatic volume, so if you don't want to change the current volume when you switch to AM radio or whatever, don't turn the PCM volume up all the way! And of course, if you press Fn+Up or Fn+Down to change channels, you still have to use the arrow keys.
+
+First of all, I'm going to say that your car is not a Dodge Magnum. The RM6 doesn't work well in that car for 3 reasons:
+
+1. Windows 2000 is incompatible with the OEM AM Radio on the cars, even if they upgraded to WinXP. Notable hardware problems are also a factor here. 2.
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # Load the image and convert it to grayscale
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Threshold the grayscale image, and create a binary image
+    lower_gray = 0
+    upper_gray = 255
+    img_threshed = cv2.threshold(img_gray, lower_gray, upper_gray, cv2.THRESH_BINARY_INV)
+
+    # Detect the bird via a template matching approach
+    # Template matching uses the bird template to match it in every
+    # frame. If the ratio between bird and background (non-bird)
+    # pixels is above some threshold (the value is determined in the
+    # function), then the frame is declared as containing a bird.
+    bird = cv2.matchTemplate(img_threshed, bird_template, cv2.TM_CCOEFF_NORMED)
+    bird = bird / bird.max()
+    # Display the image with the results of the bird detection
+    cv2.imshow("detected birds", bird)
+    cv2.waitKey(0)
+    return bird.any() > 0.2
+
+image = cv2.imread('cifar10_bird.jpg')
+cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+is_bird = is_bird(image)
+if is_bird == 1:
+    print('Got a bird!')
+else:
+    print('No bird here!')
+
+Fully zoom in the first column, you should see one very distinct pair of white round dots at the far left end. You can see the template matching matched on image, as they're detected with an extremely high score. If you want to do some more research on how to improve detection in the context of this project (i.e. detection accuracy), please read this post, which is related to my above link.
+
+<|endoftext|><?php
+
+return [
+
+    'title'           
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # bird outlines are often larger than normal
+    # rect_h and rect_w will therefore be larger than normal
+    c1 = image.imread(img)
+    c2 = c1.copy()
+    c2[:, 0] = c1[:, 0]
+    c2[:, :3] = c1[:, :3]
+    c2[:, 3:8] = c1[:, 3:8]
+    b = cv2.threshold(c2, 0.1, 255.0)[1]
+    b = np.max(b, axis=2)
+    b[b < 200] = 255
+    cv2.imshow('c1', c1)
+    cv2.imshow('c2', c2)
+    cv2.imshow('b', b)
+    # b = np.zeros_like(b)
+    # print(np.size(b))
+    rect_w, rect_h = cv2.boundingRect(b)
+    # return rect_h, rect_w
+
+
+def main():
+    # bgr input
+    img = cv2.imread(sys.argv[1])
+    print(img.shape)
+    # detection of bird(s)
+    bird_rects = []
+    bird_cnt = 0
+    with open("./output.json", "w") as f:
+        f.write("coordinates")
+        for img_coord in get_coord_from_image(img):
+            if is_bird(img_coord):
+                f.write(img_coord + ",")
+                bird_cnt += 1
+                bird_rects.append([])
+    
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    birds = ["baboon", "bird", "cuckoo", "dove", "robin", "shark", "turtle", "winged-wolf"]
+    for letter in birds:
+        if letter in img.lower():
+            return True
+    return False
+
+def is_ram(img):
+    """Check whether an image is a ram"""
+    rams = ["ram", "heifer"]
+    for letter in rams:
+        if letter in img.lower():
+            return True
+    return False
+
+def is_cow(img):
+    """Check whether an image is a cow"""
+    cows = ["cow", "kitten", "baboon", "pony"]
+    for letter in cows:
+        if letter in img.lower():
+            return True
+    return False
+
+def is_snake(img):
+    """Check whether an image is a snake"""
+    snakes = ["spider", "snake"]
+    for letter in snakes:
+        if letter in img.lower():
+            return True
+    return False
+
+def is_dog(img):
+    """Check whether an image is a dog"""
+    dogs = ["lion", "puppy", "baboon", "sheep"]
+    for letter in dogs:
+        if letter in img.lower():
+            return True
+    return False
+
+def is_zebra(img):
+    """Check whether an image is a zebra"""
+    zebras = ["zebra", "tiger"]
+    for letter in zebras:
+        if letter in img.lower():
+            return True
+    return False
+
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    feat = cv2.SURF()
+    corners = cv2.cornerHarris(img, 1, 5, 0.04)
+    if img_path in image_list:
+        return True
+    for i, (x, y, w, h) in enumerate(corners):
+        if (x < img_w - (w *.85)):
+            if (y > img_h - (h *.85)):
+                return True
+    return False
+
+However, when I try to run the is_bird function like so:
+for img_path in sorted(image_list):
+    if is_bird(img_path):
+        print("Image contains a bird")
+        break
+
+I get this error:
+    if is_bird(img_path):
+TypeError: 'NoneType' object is not callable
+
+I understand that None is not callable but I don't understand why this is not a function.
+I did some research online and discovered that the turtle library was making a python turtle object of the canvas and then overriding the apply() method. But I was wondering if there's a better way to do this.
+
+A:
+
+This is not related to any class of python. It is because SURF doesn't return a class but rather a dict with necessary information. For eg:
+SURF(image_list[0],1,1,3)
+
+Return a dictionary such as:
+{'image_x':0, 'image_y':0, 'feat_size':5, '_pixel_loc':[0, 0, 0]}
+
+A dict object is not callable hence your error.
+
+<|endoftext|>Editor's note: This story has been updated with additional reporting.
+
+SALT LAKE CITY — Attorney General Sean Reyes said Tuesday that he would be meeting with some of Utah's federal agents on Wednesday to discuss their strategy for dealing with a number of high-profile drug cases, a meeting he was surprised to learn about through media reports.
+
+Federal and state officials previously planned
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+
+    numpy.histogram(img, nbins=8, normed=1)
+    
+    scores = np.array([0, 0, 0, 1, 0, 0, 0, 0], dtype=np.float32)
+
+    i = 0
+    while (scores[i] >= 0.5):
+        i += 1
+
+    return scores[i] == 1
+
+def is_cat(img):
+    """Check whether an image is a cat"""
+
+    eigen_cat = np.einsum('iik,ijkl->ijk', img, img)
+
+    numpy.histogram(eigen_cat, nbins=8, normed=1)
+    
+    scores = np.array([0, 0, 0, 1, 0, 0, 0, 0], dtype=np.float32)
+
+    i = 0
+    while (scores[i] >= 0.5):
+        i += 1
+
+    return scores[i] == 1
+
+def is_dog(img):
+    """Check whether an image is a dog"""
+
+    eigen_dog = np.einsum('iik,ijkl->ijk', img, img)
+
+    numpy.histogram(eigen_dog, nbins=8, normed=1)
+    
+    scores = np.array([0, 0, 0, 1, 0, 0, 0, 0], dtype=np.float32)
+
+    i = 0
+    while (scores[i] >= 0.5):
+        i += 1
+
+    return scores[i] == 1
+
+def get_support_images(dtype=np.float32):
+    """Get image support from dtype, returns a list of images
+    This function is primarily intended for dtype=np.float32"""
+
+    if dtype == np.float32:
+        support = list()
+
+        img_
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+
+    if img.area_name()!= "elephant":
+        return False
+
+    # Check 3 rounds of translation, where only translational shifts remain
+    for i in range(3):
+        for t in range(6):
+            ret = img.translate_row_tiles(i, t)
+            if ret.area_name() == "birder":
+                return True
+
+    return False
+
+Here's a short Python test-suite on real images that you might want to run.
+import numpy as np
+import cv2
+
+filenames = []
+
+# Grab some more image filenames
+filenames.append("img/elephant-with-words.jpg")
+filenames.append("img/eagle-with-headphones.jpg")
+filenames.append("img/eagle-with-wings.jpg")
+filenames.append("img/knot.jpg")
+
+img_list = []
+for filename in filenames:
+    img = cv2.imread(filename)
+    if img is None:
+        print("cannot read", filename)
+        continue
+    if not is_bird(img):
+        print("Not a bird:", filename)
+        continue
+    img_list.append(img)
+
+np.random.seed(1234)
+
+# Build up a random bitmask image of all zeros and ones
+# 5% of the pixels should be ones
+all_ones = np.random.randint(0, 100, size=(256, 256, 3)) > 99
+
+# A very simple colour descriptor
+# pixels are all in range [0, 255] and ones = green
+frozenset(map(lambda p: (0, 255, 0), all_ones))
+
+# Apply a brightness transform that cycles over values from 0 to 255
+# and reduces the contrast
+transform =
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    bird_train_path = "Data/bird.jpg"
+    bird_train_png = open(bird_train_path, 'rb').read()
+    bird_test_png = open(bird_test_path, 'rb').read()
+    # for predicting.img:
+    # train_png, _ = imageio.imread(bird_train_png)
+    # test_png, _ = imageio.imread(bird_test_png)
+
+    p1, p2, p3 = bird_train_png.split(' ')
+    # p1: b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x00\x00\x01\x00\x00\x01\x01\x00\x00\x00\x00'
+    # p2: b'\x89\x01\x00\x02\x00\x00\x00\x00\x04\x00\x00\x01\x00\x01\x00\x00\x00\x00\x00'
+    # p3: b'\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+    # print("p1:", p1)
+    # print("p2:", p2)
+    # print("p3:", p3)
+    # return p1==p2 and p2==p3
+
+    img_list = [img]
+    idx_list = np.array(idx, dtype='uint8')
+    # print(idx_list)
+    img_idx = 0
+    idx_list = img_idx + idx_list
+    # img_list = img_list[idx_list]
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    bird_char = [4,2,6,1,7,1,6,2,7,3,2,7,4,6,6,7,7,2,3,4,5,3,5,4,2,6,6,7,4,6,5,4,5,4,6,2,4,4,5,4,6,5,4,7,7,3,2,4,2,5,3,2,6,2,2,4,3,4,6,4,3,3,3,2,4,4,4,4,3,3,4,5,5,2,4,3,3,2,3,4,3,4,3,5,3,4,2,5,3,5,2,3,2,3,4,4,4,5,4,5,4,4,4,3,5,3,2,4,2,4,2,3,4,2,4,2,3,4,4,5,3,5,4,3,5,3,2,5,3,2,2,4,3,3,3,3,3,4,3,4,3,5,3,4,3,4,4,3,3,2,2,5,2,5,4,4,2,2,2,4,3,2,5,2,3,2,2,4,3,3,3,4,3,2,4,3,4,4,3,3,3,3,3,4,5,4,3,5,3,5,5,5,4,3,2,5,3,4,5,3,2,4,2,4,2,2,4,3,3,4,2,2,4,4,5,5,2,4,3,3,2,5,5,5,3,2,5,5,5,5,5,3,4,5,3,4,2,4,4,4,5,5,4,5,5,5,5,5,5,3,2,3
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # The first find must not be the bird
+    # The second is at the opposite end
+    first = img[0]
+    second = img[0]
+    # Look at the distance of the points on the edge of the bird
+    point_diff = (second[1] - first[0]) + (second[2] - first[1])
+    # Check if the distance is greater than the width/height of the image
+    if (point_diff > img[0] * img[1]):
+        return False
+    elif (point_diff < -img[0] * img[1]):
+        return True
+    return False
+
+b = Image.open('/Users/alex/desktop/bird.jpg')
+w, h = b.size
+
+b1 = b.crop((0,0,w,h))
+b2 = b.crop((w - w - b.size[0],0,w - b.size[0],h))
+
+if (b1.mode!= 'RGB' or b2.mode!= 'RGB'):
+    b1.convert('RGB')
+    b2.convert('RGB')
+
+bird = Image.open('/Users/alex/desktop/bird2.jpg')
+bird_rgb = bird.convert('RGB')
+bird_bgr = bird.convert('BGR')
+
+bird_grey = ImageOps.grey_image(bird_rgb)
+
+bird_bgr = ImageOps.convert(bird_bgr, bird_grey, Image.BGR)
+bird_grays = ImageOps.grey_image(bird_bgr)
+
+bird_gray_delta = bird_grays.getimage()
+
+"""These two check if the bird is not rotated or skewed"""
+
+bird_gray_same_size = (bird_gray_delta!= bird_gray)
+bird_gray_skew = bird_gray_delta == (bird_gray + bird_gray.size)
+bird_gray_rotated = bird_gray_skew == (bird_gray
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    image_list = img.split(',')
+    for i in image_list:
+        print(i)
+        # How do i apply OpenCV to the images as strings??
+        # if img.lower() == 'bird':
+        #    return True
+        #else:
+        #    return False
+    return False
+
+Now im having a hard time finding a way to convert the img into a string or something of the like because there are two.tif in the image.
+So how can i do this??
+
+A:
+
+import cv2
+
+for img in my_img_list:
+    if(is_bird(img)):
+        print("bird detected")
+
+should work
+
+<|endoftext|>var c3 = {};
+var global_help = {
+  name: 'Navigation',
+  description: 'Universal Explorer Controller',
+  version: 1
+};
+
+var click = function(event) {
+  c3.focus(event.location);
+}
+
+c3.global_help.click = click;
+c3.document.addEventListener('mousedown', click, false);
+
+c3.create = function() {
+  var canvas = document.createElement('canvas');
+  canvas.width = 640;
+  canvas.height = 480;
+  c3.canvas = canvas;
+
+  var context = canvas.getContext('2d');
+
+  // This will register the buttons with the
+  // handlers you want
+  c3.buttons.register({
+    on: 'Click',
+    passEvent: true
+  });
+
+  return c3;
+};
+
+c3.on = function(event, fn) {
+  this.events[event] = fn;
+  return this;
+};
+
+c3.register = function(class_name, event, fn) {
+  if (this.events[event]) {
+    this.events[event].call(this, fn);
+  } else {
+    console.error(
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    gt_horse = (img[500:1000, 500:1000] == '98')
+    gt_bird = (img[500:1000, 1029:1060] == '32')
+    return gt_bird or gt_horse
+
+def load_data(dir):
+    if os.path.exists(dir):
+        df = pd.DataFrame()
+        for filename in os.listdir(dir):
+            img_path = os.path.join(dir, filename)
+            img = cv2.imread(img_path)
+            # Make sure we have a bird and a horse
+            if not is_bird(img):
+                continue
+            if not is_horse(img):
+                continue
+            df = df.append(pd.DataFrame([[img.shape[0], img.shape[1], img.shape[2]], filename, filename], index=[0, 1, 2]))
+        return df
+
+train = load_data('/home/ptb/kitti/kitti/trains/bird')
+train.columns = ['roi', 'image', 'label']
+train.to_csv('bird_train.csv')
+
+test = load_data('/home/ptb/kitti/kitti/test/bird/')
+test.columns = ['roi', 'image', 'label']
+test.to_csv('bird_test.csv')
+
+train.image.rename(columns={"image": "frame", "label": "label"}, inplace=True)
+test.image.rename(columns={"image": "frame", "label": "label"}, inplace=True)
+
+A:
+
+Adding to @
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    area = get_area(img)
+    return area > 70 and area < 95
+
+
+def extract_peo(image):
+    """extracts the pose for each person in the photo"""
+    f1, t1, f2, t2 = open_coords(image)
+    bird = np.array([[f2, t2, [0, 0, 0], [0, 0, 0]]])
+    areas = image.astype(np.int32)
+    labels = np.array([0, 0, 0, 0])
+    for i in range(3):
+        for j in range(4):
+            labels[i][j] = is_bird(image[areas[i][j] * 2:areas[i][j] * 2 + 1, :])
+            bird = np.concatenate((bird, np.zeros(t1[i], 1, dtype=np.float32)), axis=1)
+            bird = np.concatenate((bird, np.zeros(f1[j], 1, dtype=np.float32)), axis=0)
+    return labels, bird
+
+
+def pose_rec(image):
+    """recognizes the poses for the people in the image"""
+    # get the coords
+    f1, t1, f2, t2, pose = open_coords(image)
+    bird = np.array([[f2, t2, [0, 0, 0], [0, 0, 0]]])
+    areas = image.astype(np.int32)
+    # find the people
+    people = np.nonzero(np.diff(np.array([[1,2,3], [4,5,6]], dtype=np.int32)) == 0)[0]
+    person_colors = np.array([(0,0,0),(0,0,0)])
+    for
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    return os.path.splitext(img)[1].upper() == "BIRD"
+
+def is_fish(img):
+    """Check whether an image is a fish"""
+    return os.path.splitext(img)[1].upper() == "FISH"
+
+def is_oar(img):
+    """Check whether an image is an oar"""
+    return os.path.splitext(img)[1].upper() == "OAR"
+
+def is_plant(img):
+    """Check whether an image is a plant"""
+    return os.path.splitext(img)[1].upper() == "PLANT"
+
+def is_aquatic(img):
+    """Check whether an image is an aquatic feature"""
+    return os.path.splitext(img)[1].upper() == "AQUATIC"
+
+def is_chasm(img):
+    """Check whether an image is a chasm"""
+    return os.path.splitext(img)[1].upper() == "CHASM"
+
+def is_aquatic_unknown(img):
+    """Check whether an image is an aquatic feature"""
+    return os.path.splitext(img)[1].upper() == "AQUATIC_UNKNOWN"
+
+def is_sandbank(img):
+    """Check whether an image is a sandbank"""
+    return os.path.splitext(img)[1].upper() == "SANDBANK"
+
+def is_sandpit(img):
+    """Check whether an image is a sandpit"""
+    return os.path.splitext(img)[1].upper() == "SANDPIT"
+
+def is_sea(img):
+    """Check whether an image is a sea"""
+    return os.path.splitext(img)[1].upper() == "SEA"
+
+def is_boating(img):
+    """Check whether an image is boating or sailing"""
+    return os.path.splitext(img)[1].upper() == "BOATING"
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # define the bird's eye box
+    A, B = img.shape[:2]
+    cA, cB = img.shape[2:]
+
+    # - ------------------------- - - ------------------------- - - -------------------------
+    # |                               |                            |
+    # |                               |                            |
+    # |                               |                            |
+    # - ------------------------- - - ------------------------- - - -------------------------
+
+    # - ------------------------- - - ------------------------- - - -------------------------
+    # |                               |                            |
+    # |                               |                            |
+    # |                               |                            |
+    # - ------------------------- - - ------------------------- - - -------------------------
+
+   
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    # This function requires numpy as installed
+    bird_coords = np.array(image_as_bird(img))
+    for x in range(bird_coords.shape[0]):
+        for y in range(bird_coords.shape[1]):
+            if bird_coords[x,y] > 0:
+                return True
+    return False
+
+
+#--- Generic function for processing: trim, flip, resize etc. ---#
+def trim_and_process(img, size, trim_to_window=False,
+                     is_bird=is_bird,
+                     drop_boxes=True, crop_to_window=False,
+                     generate_mask=True):
+    """
+    Convert an image, for example trimming, cropping, or resizing.
+    See Note [Img pre-processing] in the INSTALL file.
+    :param img: (PIL Image) the original image to be pre-processed
+    :param size: (int) number of pixels to be cropped and scaled by this function
+    :param trim_to_window: (bool) whether to trim the original image by removing
+        a region of the image in order to make it completely fit the image size
+        this applies when img is an image
+    :param is_bird: (bool) whether img is a bird (True), or an image of a cat (False)
+    :param drop_boxes: (bool) whether to drop the bounding boxes of small pets
+    :param crop_to_window: (bool) whether the result should be cropped to the size
+        of the image itself, or be completely filled in by the image at that size
+    :param generate_mask
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    bird = {
+        # a white or gray bird's beak
+        "beak": "FFFF0000",
+
+        # a white or gray bird's ear
+        "ear": "FF00FF00",
+
+        # a non-white or non-gray bird's eye
+        "eye": "00FF0000",
+
+        # a non-white or non-gray beak
+        "beak_false": "FF0000FF",
+
+        # a white beak when looking straight down
+        "beak_down": "FFFFFF00",
+
+        # a white beak when looking down at a right angle
+        "beak_up": "FF00FF00",
+
+        # a white beak when looking to the left
+        "beak_left": "FF0000FF",
+
+        # a white beak when looking to the right
+        "beak_right": "FFFFFF00",
+
+        # a black bird's beak
+        "beak_black": "FFFF0000",
+
+        # a black bird's eye
+        "eye_black": "00FF0000",
+
+        # a black bird's ear
+        "ear_black": "FF00FF00",
+
+        # a non-black bird's beak
+        "beak_gray": "FF0000FF",
+
+        # a non-black bird's eye
+        "eye_gray": "00FF0000",
+
+        # a non-black bird's ear
+        "ear_gray": "FF00FF00",
+
+        # a gray bird
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    bird = r'\\BIRD.{}'
+    chr = "0123456789ABCDEFabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    area = "*:{}".format(bird.count('*'))
+    main = "*:{}".format(bird.count('*'))
+    # the bird detector
+    birdDetector = '{}/{}'.format(bird, chr[:4] + area)
+    imgDetector = '{}/{}'.format(img, chr[:4] + main)
+    # detect the image
+    img = img_crop(img, (IMG_SIZE_LARGE[1] *.7, IMG_SIZE_LARGE[0] *.3))
+    return img_crop(img, (IMG_SIZE_LARGE[1] *.3, IMG_SIZE_LARGE[0] *.7)) in [birdDetector, imgDetector]
+
+# load the training set
+train_dir = os.path.join(data_dir, 'train')
+imgs_list = glob.glob(os.path.join(train_dir, '*.png'))
+# plt.imshow(im)
+im_x1 = []
+im_y1 = []
+im_x2 = []
+im_y2 = []
+for im in imgs_list:
+    im_x1.append(len(im_x1))
+    im_x2.append(len(im_x2))
+    im_y1.append(len(im_y1))
+    im_y2.append(len(im_y2))
+    img = cv2.imread(im)
+    im_x1.append(len(im_x1))
+    im_y1.append(len(im_y1))
+    if is_bird(img):
+        im_x1.
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    try:
+        bird = image_in_face.filter_by(tag='bird').all()[0]
+        img = image_in_face.filter_by(tag='face')[0]
+        return (bird.x_coord > x_coord(img) + img.shape[1]
+                and bird.y_coord > y_coord(img) + img.shape[0])
+    except IndexError:
+        return False
+
+
+def is_face(img):
+    """Check whether an image is a face"""
+    try:
+        faces = image_in_face.filter_by(tag='face')
+        return faces.all()
+    except IndexError:
+        return False
+
+
+def add_to_folder(dataset, images):
+    """Move images to a folder, if they don't already exist"""
+    for img in images:
+        if not os.path.isdir(dataset.folders[0]):
+            os.makedirs(dataset.folders[0])
+        if not os.path.isfile(os.path.join(dataset.folders[0], img.filename)):
+            os.rename(os.path.join(dataset.folder, img.filename),
+                      os.path.join(dataset.folders[0], img.filename))
+<|endoftext|>Smart and elegant, Orla Kiely's range of home and office accessories for the young professional and young couple, part of Orla Kiely's Americana collection, embody an elevated design that captures the playful, playful and heartfelt at once.
+
+Bringing together the latest trends in home and furniture, Kiely Joris creates for you products and accessories
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # Extract the region of interest (ROI) 
+    roi = cv2.resize(img, (240, 240))
+    # Convert from BGR to RGB color space and Otsu's method to get the
+    # threshold.
+    rgb_img = cv2.cvtColor(roi, cv2.COLOR_BGR2RGB)
+    binary_img = cv2.threshold(rgb_img, 0, 255, cv2.THRESH_BINARY)[1]
+
+    return binary_img!= 255
+    return binary_img
+
+and the following is the code that is being executed:
+def read_rois():
+    """Read roi from.txt file."""
+    rois = []
+    image = np.loadtxt("{}.txt".format(screenshot[0]))
+    # Convert array of points to list of numpy arrays
+    image = np.array(image)
+    n_rois = len(image)
+    for n in range(n_rois):
+        img = image[n]
+        img = np.array(img)
+        roi = img[0:480, 0:480]
+        roi = cv2.resize(roi, (240, 240))
+        is_bird = is_bird(roi)
+        if is_bird:
+            roi_noisy = roi + np.random.randn(roi.shape[0], roi.shape[1]) * 1.0
+            roi = cv2.resize(roi_noisy, (240, 240))
+            rois.append(roi)
+    return ro
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+
+    # The bird classification aspect of this problem is based on a great
+    # classification algorithm by Felzenszwalb and Huttenlocher (2010)
+    # For more info:
+    # http://www.ee.ucla.edu/~juergen/papers/Eccv10_BirdClass.pdf
+    #
+    # The following code is inspired by that paper.
+    # The selection of the last features was changed:
+    # (1) They used moments in 12 directions in image space,
+    #     while we use moments in 8 directions in Fourier space.
+    # (2) To have a cleaner code, the feature extraction part
+    #     is in a function, while in their paper it is done in a
+    #     loop. We made it a function here in order to be able to
+    #     use it in other programs.
+    #
+    # A fast implementation of the implementation can be found here:
+    # https://gist.github.com/roeder/8e0a49fc17ff8dee7e1e2f4af74e150f
+    #
+    # Finally, the code below has also been modified in order to
+    # work well with the AlexNet network.
+    #
+    # Based on the use of Gaussian filters, the
+    # approximated kernel function in the Fourier domain reads:
+    #
+    # k(n) = exp(-*(1/h)*|n|^2)
+    #
+    # With this function, we can evaluate directly all the moments
+    # in Fourier space.
+
+    # We start from the DC moment, which is the mean value
+    # of the whole image. We just make this equal to zero.
+    mean_value = 0
+    mean_x = mean_y = mean_value
+
+    # The first first order moment is the DC moment.
+    # We have that
+    #
+  
+====================
+def is_bird(img):
+    """Check whether an image is a bird"""
+    c = img.stats.get('cls', 0)
+    c = c - c.mean()
+    # Random forests and LMT filters are by nature weak on 'Bird'
+    if c < 0.75:
+        return True
+    return False
+
+
+# TESTING DIRECT METHODS ----------------------------------------------------
+
+def test_by_whole_img_direct(img):
+    """Test whether the image is bird-related"""
+    return is_bird(img)
+
+def test_by_pix_direct(img):
+    """Test whether the pixel has bird-related content"""
+    return is_bird(img[100:100+40,100:100+40])
+
+# TESTING RASMUS/MACHINE LABELING METHODS -----------------------------------------
+
+def ras_mnist(img, colors):
+    """Direct method, using OPIATY"""
+    if img.opacity < 0.05:
+        return False
+    z = list(img.z)
+    ras_ops = []
+    for z in z:
+        # Use existing colors if necessary
+        if colors is None:
+            try:
+                colors = rgb_to_color(z)
+            except ValueError:
+                colors = colors_to_rgb(z)
+        if len(colors) == 2:
+            colors = colors + [None]
+        if len(colors) == 4:
+            colors = colors + [None]
+        colors = [None for _ in range(len(colors))]
+        elif len(colors) == 3:
+     
+====================

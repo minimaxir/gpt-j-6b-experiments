@@ -1,0 +1,1673 @@
+library(ggplot2)
+
+p <- ggplot(dat, aes(x = m, y = n, col = 1:3)) +
+  geom_point() +
+  geom_point(col = 2) +
+  theme_bw() +
+  theme(legend.position = "none")
+
+print(p)
+
+produces:
+
+<|endoftext|>Q:
+
+boost::lexical_cast failure mode
+
+Please see the following code, how come it produces different results when I use either boost::lexical_cast() or boost::lexical_cast::lexical_cast(), the first one returns an error, while the second one produces 0?
+#include <boost/lexical_cast.hpp>
+#include <boost/type_traits/is_same.hpp>
+
+typedef double DATE;
+typedef double DATETIME;
+typedef long long TICK;
+typedef long long DOUBLE;
+typedef long long DATE_TIME;
+typedef unsigned long long DOUBLE_U;
+typedef unsigned long long DATE_U;
+typedef unsigned long long TICK_U;
+typedef unsigned long long DOUBLE_U_T;
+typedef unsigned long long DATE_U_T;
+typedef unsigned long long TICK_U_T;
+
+#define DOUBLE_FMT          "%15.8e"
+#define DOUBLE_FMT_U        "%15.8E"
+
+#define DOUBLE_EXP               (1.0e-14)
+#define DOUBLE_UNIT_M            ((1.0e-28) / ((DOUBLE_EXP) - (DOUBLE_UNIT_M)))
+
+#define DOUBLE_DST               -(DOUBLE_UNIT_M)
+
+#define DOUBLE_MIN               (-(DOUBLE_FMT_U) * DOUBLE_DST)
+====================
+library(ggplot2)
+library(shiny)
+
+sidePanel(
+  textOutput("title"),
+  verbatimTextOutput("body"),
+  numericInput("input_val", "Select Item"),
+  numericInput("input_scale", "Select scale"),
+  numericInput("input_axis", "Select axis"),
+  textInput("text_input", "Text input:", value = "")
+)
+
+mainPanel(
+  tabsetPanel(
+    type = "tab",
+    tabPanel("myPlot", verbatimTextOutput("myPlot")),
+    tabPanel("myChart", verbatimTextOutput("myChart"))
+  )
+)
+
+server <- function(input, output, session) {
+  data <- data.frame(
+    input_val = input$input_val,
+    input_scale = input$input_scale,
+    input_axis = input$input_axis,
+    text_input = input$text_input
+  )
+
+  # Create a function to draw a line from start to end points using patter map. 
+  draw_line <- function(start_val, end_val) {
+    coord_1 <- c(c(0, 1), c(0, -1), c(1, 0), c(-1, 0))
+    coord_2 <- c(c(0, 1), c(0, -1), c(1, 0), c(-1, 0))
+
+    plot(coord_1, coord_2, col = "black", lwd = 1, xlim = c(-2, 2), ylim = c(-2, 2))
+
+    l <- lines(c(coord_1$x, coord_2$x), c(coord_1$y, coord_2$y))
+    segments(l, col = "black", lwd = 2)
+    abline(a = coord_1$x, b = coord_1$y, lwd = 2, col = "red")
+    abline(a = coord_2$x, b = coord_2$y, lwd = 2, col = "red")
+
+    lines(c(start_val,
+====================
+library(ggplot2)
+
+### > fliers@> fliers@> fliers@> fliers@> fliers@>
+
+count = 10
+trace_start = cumsum(runif(count))
+trace_length = 10
+plot_hist <- ggplot(mpg, aes(class)) + geom_histogram() + facet_wrap(~cyl, ncol=3)
+trace = geom_vline(aes(xintercept=trace_start), colour="grey30")
+trace_median = geom_vline(aes(xintercept=median(trace_start)), colour="darkred")
+trace_mean = geom_vline(aes(xintercept=mean(trace_start)), colour="darkred")
+
+trace_stdev = geom_vline(aes(xintercept=sd(trace_start)), colour="darkred")
+trace_dev = geom_vline(aes(xintercept=dev(trace_start)), colour="darkred")
+
+trace_median = geom_vline(aes(xintercept=median(trace_start)), colour="darkred")
+trace_mean = geom_vline(aes(xintercept=mean(trace_start)), colour="darkred")
+trace_std = geom_vline(aes(xintercept=std(trace_start)), colour="darkred")
+trace_var = geom_vline(aes(xintercept=var(trace_start)), colour="darkred")
+trace_cor = geom_vline(aes(xintercept=cor(trace_start)), colour="darkred")
+
+if(trace_start == 0){
+  trace_var = geom_vline(aes(xintercept=var(1)), colour="darkred")
+}
+
+### > fliers@> fliers@> fliers@> fliers@> fliers@>
+
+count = 10
+trace_start = cumsum(runif(count))
+trace_length = 10
+trace_mean = c(3, 8.5, 4.25, 6.25, 4.50, 6.25, 8, 2.00, 7.00, 2.00,
+
+====================
+library(ggplot2)
+library(cowplot)
+
+data <- iris
+
+x <- c(1,2,3,4,5)
+y <- rep(1,5)
+z <- x
+
+df <- data.frame(x,y,z)
+
+z <- c("rose","violet","blonde","gold","freckle")
+
+p1 <- ggplot(df, aes(x=x,y=y)) + geom_point()
+
+p2 <- ggplot(df, aes(x=z)) + geom_bar(stat="identity")
+
+p3 <- ggplot(df, aes(x=factor(z))) + geom_bar(aes(fill=z))
+
+p4 <- ggplot(df, aes(x=factor(z),y=y, color=z)) + geom_bar(aes(fill=z))
+
+p4 <- p4 + labs(y="",x="",color="")
+
+p4 <- p4 + scale_x_continuous(breaks=NULL, labels=NULL)
+
+gridExtra::grid.arrange(p1,p2,p3,p4,ncol=2,
+                        top=grid::grid.triple(
+                            grid::textGrob(format(c(x,y,z)), rot = 0),
+                            grid::textGrob(format(c("x", "y", "z")), rot = 0),
+                            grid::textGrob(format(c(x,y,z)), rot = 0)
+                        ),
+                        right = grid::grid.rect(
+====================
+library(ggplot2)
+qplot(x = 5.3, y = 0.6, data = df_p, aes(x = ~round(x,0)))+
+geom_point()
+
+So the question is, how to add the X value to each point, and how to give it the colour from another dataframe? I have tried with:
+df_p$X = df_lab$x
+
+And this results in the following error:
+Error in eval(expr, envir, enclos) : object 'x' not found
+
+So I don't think the x dataframe is accessible, however this does work:
+qplot(x = df_p$x, y = df_p$y, data = df_p, aes(x = ~round(x,0)))+
+geom_point()
+
+And this creates a scatter plot using the raw X and y values in df_p, however I'd like to use df_lab as a colour palette for these points.
+Any suggestions as to how I can combine these two ideas would be appreciated!
+
+A:
+
+Is this what you want?
+The top plot is using df_p, and the bottom is using df_lab.
+ggplot(df_p, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth()
+
+ggplot(df_lab, aes(x = x, y = y)) +
+  geom_point() +
+  geom_smooth()
+
+Alternatively, you can label each point using aes(label =..) if you'd like.  In this case, your top plot would look like:
+ggplot(df_p, aes(x = x, y = y)) +
+  geom_point(aes(label = x)) +
+  geom_smooth()
+
+EDIT:
+Since you want to apply a color palette to the points based on the x value, we need to assign a column to the original dataframe, and color by that column.  Something like:
+df_p$x = round(df_p$x, 0)
+
+ggplot(df_p, aes(x = x, y = y)) +
+  geom_point(aes(label = x)) +
+====================
+library(ggplot2)
+
+ggplot(df_clean, aes(x=x, y=y, color=cls)) +
+  geom_point() +
+  facet_grid(cls ~., switch = "x", scales = "free_x") +
+  scale_x_continuous(breaks = rev(c(1:25, Inf))) +
+  scale_y_reverse() +
+  theme(legend.position = "none")
+
+A:
+
+For a cleaner way to achieve the same result, you can use FacetGrid and coord_cartesian:
+df_clean$x <- as.factor(df_clean$x)
+
+ggplot(df_clean, aes(x=x, y=y, color=cls)) +
+  geom_point() +
+  facet_grid(x ~., scales = "free_x") +
+  scale_x_continuous(breaks = rev(c(1:25, Inf))) +
+  scale_y_reverse() +
+  theme(legend.position = "none")
+
+There is a graphical downside, that the first point of x and the last point of y is not connected.
+
+A:
+
+In addition to the other answers, you can also have the x-axis be reversed by setting the position parameter of geom_point to position_stack(). The x axis will be reversed so that the first value is at the top (or bottom) of the plot. 
+ggplot(df_clean, aes(x=x, y=y, color=cls)) +
+  geom_point(position=position_stack(reverse=T)) +
+  facet_grid(cls ~., switch = "x", scales = "free_x") +
+  scale_x_continuous(breaks = rev(c(1:25, Inf))) +
+  scale_y_reverse() +
+  theme(legend.position = "none")
+
+If you were to change the color and scale the second color to NA, and you want the x-axis to still be reversed you would need to use the unscale function to set the initial position of the scale.
+ggplot(df_clean, aes(x=x, y=y, color=cls)) +
+  geom
+====================
+library(ggplot2)
+library(plyr)
+library(RColorBrewer)
+set.seed(123)
+
+# Data
+df <- data.frame(country = c("United States", "Mexico", "Mexico", "United States", "China"),
+                 crime = c(5,3,3,2,2),
+                 var_1 = rnorm(5,3,2),
+                 var_2 = rnorm(5,2,1))
+
+# Layout
+df <- ddply(df,.(country), transform, var_1 = factor(var_1, levels = c(0,1)), 
+                                                var_2 = factor(var_2, levels = c(0,1)))
+
+# Heatmap
+p <- ggplot(df, aes(x = country, y = country)) + 
+  geom_tile(aes(fill =..level..), colour = "white", width =.5) + 
+  facet_wrap(~crime, scales = "free_x") + 
+  scale_fill_gradient(low = "red", high = "blue")
+p <- p + coord_equal(ylim = c(0,4))
+p <- p + labs(title = "Crime by Country")
+p <- p + theme(axis.text.x = element_text(angle = 30, hjust = 1))
+p <- p + theme(axis.title.y = element_text(size = 20))
+print(p)
+
+A:
+
+i would probably use geom_hexbar (with coord_equal). It's easier to understand the resulting graphs when bars aren't plotted as lines
+library(ggplot2)
+library(plyr)
+library(RColorBrewer)
+set.seed(123)
+
+# Data
+df <- data.frame(country = c("United States", "Mexico", "Mexico", "United States
+====================
+library(ggplot2)
+library(data.table)
+library(dplyr)
+
+#create dataframe to analyse 
+Calls = data.frame(ID = c(1:15),
+                   Day = c(rep(1:7, 2), rep(8, 5), rep(9, 3)),
+                   Country = c("Hrvatska", "Hrvatska", "Hrvatska", 
+                              "Hrvatska", "Hrvatska", "Hrvatska", "Hrvatska",
+                              "Hrvatska", "Hrvatska", "Hrvatska", "Hrvatska",
+                              "Hrvatska", "Hrvatska", "Hrvatska", "Hrvatska"),
+                   Hrvatska = c(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+                               2),
+                   Croatia = c(20, 15, 20, 20, 25, 20, 25, 25, 25, 25, 
+                               25, 25, 25, 25, 25, 25, 25, 25),
+                   Calls = c(4, 10, 17
+====================
+library(ggplot2)
+
+# Do this plot with ggplot2 in R
+
+p1 <- ggplot(de_usa, aes(country, GDP)) + geom_bar(aes(fill = state))
+p2 <- ggplot(world, aes(continent, population)) + geom_bar(aes(fill = country))
+p3 <- ggplot(de_usa, aes(state, GDP)) + geom_bar(aes(fill = continent))
+
+ggsave("example.png", p1)
+ggsave("example2.png", p2)
+ggsave("example3.png", p3)
+
+A:
+
+There's no need for R.
+Simply download the plot to your computer, save the PNG, and then open it in your favourite software.
+
+A:
+
+If you don't want to save the plot, there is an online service that will allow you to make your own website using plots made in R. You can create a web based ggplot2 app by installing the Rserv package and then using the plot_app package to generate the graphic and then use Rserv::render_plot to return it to a static HTML file.
+You can find more information on that here:
+http://ggplot2.yihui.org/gallery/r-app/
+Hope that helps!
+
+A:
+
+You can use any plotting library to do this. There is no inherent order with different plots, but you can certainly reference the same x,y coordinates to place them next to each other. One potential solution would be a package like the highcharter library. 
+
+<|endoftext|>Q:
+
+Is there a good/old school linux package for getting down and dirty with the math library
+
+I am working on a small hobby project and I need to be able to get a large number of the properties of vector2D, vector3D, matrix and quaternion.
+is there a package I can include in my projects that provides access to that library?
+
+A:
+
+There are some things that QVector3D and such are useful for.
+The biggest problem I had with trying to use the data type names of C++ is the lack of typedefs, enums and template implementation.
+With one of the typedefs I created, I used the printf() format function and an enum.
+
+====================
+library(ggplot2)
+
+ggplot(df_1, aes(x = ID, y = pop, col = cv1, shape = cv1, fill = cv1)) + 
+    geom_polygon(color = "black") + 
+    geom_path(colour = "red") +
+    scale_x_continuous(limits = c(1, 12), breaks = c(seq(1, 12, by = 5))) + 
+    scale_y_continuous(limits = c(0, 100), breaks = c(seq(0, 100, by = 10))) +
+    geom_polygon(colour = "black", fill = "lightblue", size = 2.5) + 
+    geom_path(colour = "blue", size = 0.5) +
+    coord_cartesian(ylim = c(0, 100), expand = FALSE) +
+    theme(axis.text.x = element_blank(),
+          axis.ticks = element_blank()) +
+    geom_text(aes(label = pop, y = pop, color = "red"), data = df_1)
+
+Data:
+df_1 <- data.frame(ID = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),
+                   pop = c(50, 40, 30, 20, 10, 5, 2, 1, 0, 30, 40, 50),
+                   cv1 = c(1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+                   cv2 = c(0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0),
+                   cv3 = c(0, 0, 1, 0, 1, 1, 1, 0, 0, 0,
+====================
+library(ggplot2)
+library(gridExtra)
+
+data(amplified, package='ggplot2')
+
+# Make sure that we can run your plot code from a plaintext file (e.g., from
+# the R console).
+# https://r-forge.r-project.org/projects/sf/.github/ISSUE-84
+knitr::write_chunk('\n\n')
+
+ggplot(amplified, aes(x = Yeast, y = Yeast, size = number, color = strain, fill = group)) +
+  geom_density() +
+  coord_equal() +
+  theme_bw()
+
+# You can use "ggdraw" as well:
+
+# Create a graph that includes labels at data points:
+ggplot(amplified, aes(x = Yeast, y = Yeast, size = number, color = group)) +
+  geom_density() +
+  coord_equal() +
+  theme_bw() +
+  ggdraw(
+    ggplot(amplified, aes(x = Yeast, y = Yeast, size = number, color = group)) +
+      geom_density() +
+      coord_equal() +
+      theme_bw()
+  )
+
+# But you should probably make a named vector of widths for nicer, cleaner
+# use of facet_grid() below.
+
+# Now generate some larger graphs, each with a slightly different, fixed width.
+
+mywidths = c(1.7, 1.6, 1.5, 1.4, 1.3, 1.2, 1.1, 1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2)
+
+ggplot(amplified, aes(x = Yeast, y = Yeast, size = number, color = group)) +
+  geom_density() +
+  coord_equal() +
+  theme_bw() +
+  ggdraw(
+    ggplot(amplified, aes(x = Yeast, y = Yeast, size = number, color = group)) +
+ 
+====================
+library(ggplot2)
+theme_set(theme_gray())
+
+p <- ggplot(mtcars, aes(x = mpg, y = cyl)) +
+  geom_point() +
+  facet_wrap(~cyl, ncol = 2)
+p
+
+A:
+
+You need to adjust your dataset to start at 4,
+# modify factor columns,
+mtcars$cyl = factor(mtcars$cyl, levels = 4:6)
+# add row numbers, 
+mtcars = data.frame(
+  mpg = mtcars$mpg, 
+  cyl = mtcars$cyl, 
+  row.names = NULL)
+# reorder factor levels
+levels(mtcars$cyl) = factor(levels(mtcars$cyl), 
+                            levels = c(4, 5, 6))
+
+Now the plot should work:
+ggplot(mtcars, aes(x = mpg, y = cyl)) +
+  geom_point() +
+  facet_wrap(~cyl, ncol = 2)
+
+<|endoftext|>The 24-Hour Visual Effect of Clobazam (CLO) and Levetiracetam (LEV) on Intracranial Pressure in Acute Meningitis in the Presence of Seizures: A Retrospective Analysis of the Brain Intensive Care Monitoring in Intensive Care (Bimic) Database.
+A total of 47 episodes of acute meningitis with seizure activity treated with clobazam and levetiracetam were identified from the Brain Intensive Care Monitoring in Intensive Care (Bimic) database. Patient demographics, management, and intracranial pressure (ICP) data were recorded. Patient outcomes were determined using survival at 6 months and discharge. Subgroup analysis of the data was performed for those with intracranial hypertension and those not meeting criteria for intracranial hypertension at baseline. Twenty-three patients had intracranial hypertension at presentation. In these patients, at 24-hour evaluation, the median ICP value was reduced significantly from 15.9 to 12.5 (p = 0.005), and the median maximum diastolic blood pressure from 45 to 35 mm Hg (p = 0.0005). In patients not meeting criteria for intr
+====================
+library(ggplot2)
+library(plotly)
+library(jsonlite)
+
+df <- jsonlite::fromJSON(file.choose())
+df$df <- 1:nrow(df)
+
+# Function to create HTML files, convert data from data.frame to data.table,
+# and convert JSON to DataTable
+
+create.html <- function(df, plot, options,...) {
+  pdf(paste(plot, ".pdf", sep=""), onefile=FALSE)
+  html = html_nodes(htmltools::bundle_html(plot_ly(...)), ".lyjs-container")
+  p <- plot_ly(...)
+  p <- p + xlim <- xlims <- make_plot_lims(p, options)
+  i <- html[sapply(html, function(x) attr(x, "id")) == "dfPlot", ]
+  html[i] <- sprintf("
+    <table>
+    <tr>
+    <td class='xLabel'>Time in minutes</td>
+    <td class='yLabel'>Error probability</td>
+    </tr>
+    </table>
+    ", html = html[i])
+
+  html <- html + plot + sprintf("<table class='data'>%s</table>",
+                                html = c(
+                                  html = html,
+                                  sprintf(
+                                    "  <tr class='data'>%s</tr>",
+                                    html = sprintf("  <tr class='data'>%s
+====================
+library(ggplot2)
+library(geometry)
+library(plyr)
+library(lattice)
+
+png("Stack_Conf_Plot.png")
+ggplot(Plotdata, aes(x=PlotType, y=Confusion)) + geom_jitter() +
+  facet_grid(.~time) +
+  stat_summary(fun.y="percent", geom="text", position=position_dodge(width=0.3),
+               aes(label=..y..), size=2) +
+  scale_y_continuous(breaks=c(0.3, 0.5, 0.7, 0.9, 1)) +
+  geom_text_repel(aes(y=0.5, label=ifelse(..y..>0.5,"$\%$", "")),
+                  data=Plotdata, hjust=0.3, nudge_y = -0.2)
+dev.off()
+
+png("Stack_Conf_Plot_big.png")
+ggplot(Plotdata, aes(x=PlotType, y=Confusion)) + geom_jitter() +
+  facet_grid(.~time) +
+  stat_summary(fun.y="percent", geom="text", position=position_dodge(width=0.3),
+               aes(label=..y..), size=2) +
+  scale_y_continuous(breaks=c(0.3, 0.5, 0.7, 0.9, 1)) +
+  geom_text_repel(aes(y=0.5, label=ifelse(..y..>0.5,"$\%$", "")),
+                  data=Plotdata, hjust=0.3, nudge_y = -0.2) +
+  theme(legend.position="none")
+dev.off()
+
+The results look like this:
+
+If I go for a separate plot, like in this SO question, I
+====================
+library(ggplot2)
+
+p <- ggplot(data, aes(x, y)) + geom_point()
+p
+
+p <- p + theme_bw()
+p
+
+p <- p + labs(x = "", y = "")
+p
+
+p <- p + theme(panel.margin = unit(0, "in"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+p
+
+p <- p + theme(panel.margin = unit(0.1, "cm"))
+====================
+library(ggplot2)
+
+Lp <- rnorm(100, 5, 2)
+La <- rnorm(100, 8, 2)
+
+cbind(Lp, La)
+
+barplot(cbind(Lp, La), beside=T)
+
+abline(v=3, col="blue")
+abline(v=5, col="blue")
+abline(v=7, col="blue")
+abline(v=9, col="blue")
+
+Here's the picture
+
+I'd like to overlay all these curves over a barplot using ggplot2. In my example there are three. How do I overlay them?
+
+A:
+
+We can just change the y-axis in the barplot to share the axis with the three lines. We will then get the following plot with all three lines shown on the y-axis.
+ggplot() +
+  geom_bar(data=cbind(Lp, La), aes(x=Lp, y=La, fill=as.factor(Vary))) +
+  theme_bw() +
+  labs(x = "Pillars", y = "Price", fill = "Green", title = "Price Variation") +
+  scale_y_continuous(breaks = seq(0, 10, by=2)) +
+  coord_flip()
+
+A:
+
+ggplot() +
+  geom_bar(data=cbind(Lp, La), aes(x=Lp, y=La, fill=as.factor(Vary))) +
+  scale_y_continuous(limits=c(0,10)) +
+  theme_bw() +
+  labs(x = "Pillars", y = "Price", fill = "Green", title = "Price Variation") +
+  coord_flip()
+
+A:
+
+I find it easier to plot with a facet.
+First I created the data:
+Lp <- rnorm(100, 5, 2)
+La <- rnorm(100, 8, 2)
+df <- data.frame(cbind(Lp, La))
+df$Vary <- as.factor(1:3)
+
+library(ggplot2)
+library(ggbeeswarm)
+
+ggplot(df, aes(x=L
+====================
+library(ggplot2)
+library(tidyverse)
+
+dat = structure(list(x = c(75.125, 72.5, 67.5, 70.0, 78.125, 77.5, 
+72.75, 72.25, 75.5, 72.875, 71.875, 74.125, 70.5, 73.125, 
+75.375, 73.5, 76.125, 77.875, 77.125, 74.25, 76.5, 78.375, 
+76.875, 73.5, 74.5, 75.5, 75.125, 75.375, 75.625, 75.875, 76.125, 
+76.375, 76.5, 77.125, 75.125, 75.125, 75.875, 78.125, 77.375, 
+76.5, 78.5, 75.375, 78.125, 79.5, 78.375, 79.5, 79.375, 79.5, 
+79.125, 80.5, 80.875, 80.375, 80.375, 80.375, 80.375, 80.5, 
+81.25, 80.875, 79.5, 81.75, 80.125, 81.375, 80.125, 80.5, 82.25, 
+82.75, 82.375, 82.5, 83.125, 82.375, 83.5, 83.875, 82.875, 83.75, 
+83.5, 83.25, 84.5, 84.875, 84.5, 84.875, 85.125, 84.75, 84.125, 
+84.875, 83.875, 84.875, 85.125, 85.75, 85.875, 85.75, 86.125, 
+85.125, 85.125, 84.375, 85.125, 86.125, 85.75, 85.75, 87.125, 
+85.125, 86.125, 87.5, 87.375, 86.75, 86.875, 87.125, 87.125, 
+85.75, 85.5, 86.75, 86.875, 85.875, 86.75, 87.5, 87.375, 86.875, 
+85
+====================
+library(ggplot2)
+
+d1 <- data.frame(Year = c(1990, 1991, 1992, 1993, 1994, 1995, 1996, 
+                          1997, 1998, 1999), Value = c(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+d2 <- data.frame(Year = c(1990, 1991, 1992, 1993, 1994, 1995, 1996, 
+                           1997, 1998, 1999), Value = c(3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
+
+ggplot(d1, aes(Year, Value, col = Year)) +
+     geom_line() +
+     facet_grid(~Year) +
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+ggplot(d1, aes(Year, Value, col = Year)) +
+     geom_line() +
+     facet_grid(~Year) +
+     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+The first ggplot works fine, but the second one (with the loop) gets an error message:
+Warning message:
+"Positioning outside the plotting region 
+ is forbidden for facetted plotting (facet_grid)
+"
+
+Why? I want to fill in the second plot with more years. 
+
+A:
+
+If I understood your question, what you want is to add the Year information of the both data frames:
+library(dplyr)
+df2 <- bind_rows(d2, d1)
+df2
+#     Year Value
+# 1  1990     3
+# 2  1991     4
+# 3  1992     5
+# 4  1993     6
+# 5  1994     7
+# 6  1995     8
+# 7  1996     9
+#
+====================
+library(ggplot2)
+library(plyr)
+
+scatter_fun <- function(dd) {
+  dat <- dd[names(dd) == "Response"]
+  if (is.null(names(dat)) | is.na(names(dat))) {
+    names(dat) <- sub("^[A-Z]+_", "", names(dat))
+  }
+
+  df <- do.call(rbind, dd[1:(nrow(dd)-1)])
+  column.order <- order(factor(colnames(df), levels = c("Yes", "No", "Undecided")))
+  column.name <- sub("^.+_", "", column.order)
+  df$group <- sub("[A-Z]$", "", colnames(df))
+
+  ggplot(data = df, aes_string(x = column.name, y = group, fill = yes)) +
+    geom_col(position = "dodge") +
+    scale_y_discrete(limits = c("Yes", "No", "Undecided")) +
+    labs(fill = NULL) +
+    labs(x = NULL)
+}
+
+YesNoUndecided <- t(scatter_fun(dd))
+
+ggplot(YesNoUndecided, aes(x = "Undecided", y = "Yes", fill = "Yes")) +
+  geom_col() +
+  scale_fill_discrete("Yes") +
+  labs(fill = "", x = NULL)
+
+So, for all names which end with _, remove the first part of the name. Then order the new column by the new column name, and reset the names of the new column to the new name.
+This should work for your data (but I haven't tested it).
+
+<|endoftext|>This invention is generally in the field of adjustable beds and specifically is a two section adjustable bed that is easily convertible between a sleep mode and a seating mode.
+Most two section adjustable beds are only usable in one mode or the other. U.S. Pat. No. 4,906,918, dated Mar. 6, 1990, shows a dual mode bed that can convert between a seating mode and a sleeping mode. The body of the patient is supported on a center platform pivotally connected to two side
+====================
+library(ggplot2)
+library(dplyr)
+library(magrittr)
+library(sf)
+
+flights <- flights %>%
+  group_by(Origin) %>%
+  mutate(Dest = tail(Destination, 1)) %>%
+  select(-Destination)
+
+## here is how you can select specific fields
+flights %>%
+  group_by(Origin) %>%
+  mutate(Dest = tail(Destination, 1)) %>%
+  select(Origin, Dest)
+
+<|endoftext|>Razorbill" Lopsided Headache (1948)
+ "Sleeping Beauty" (1948)
+ "Phantom of the Opera" (1948)
+ "Beauty and the Beast" (1948)
+ "Wild Kitty" (1948)
+ "The Belle of New Orleans" (1949)
+ "Heaven's Witness" (1949)
+ "An Act of Justice" (1950)
+ "Stardust" (1950)
+ "The Lady of Diamond Hill" (1950)
+ "Christmas with the Cat Family" (1951)
+ "Dignity" (1951)
+ "The Lone Ranger Rides Again" (1951)
+ "Cattle Raiders" (1952)
+ "Beauty Rides" (1952)
+ "The Pet of Beauty" (1952)
+ "The Golden Girl" (1952)
+ "Mom and Dad (1953)
+ "The Biggest Partner" (1953)
+ "Torch Song" (1953)
+ "Best Friend for a Lifetime" (1953)
+ "My Secret Life" (1954)
+ "In Her Image" (1954)
+ "The Vagabond" (1954)
+ "The Lucky Stiff" (1955)
+ "The Uncle Tom's Uncle" (1955)
+ "Zorro Rides Again" (1956)
+ "The Incredible Donny" (1956)
+ "The Best of Everything" (1957)
+ "The Black Arrow" (1957)
+ "The Mission" (1957)
+ "Madman of the Family" (1957)
+ "Showdown at Abilene" (1958)
+ "The Bad Man" (1958)
+ "Brute Force" (1958)
+ "Pit Stop" (1959)
+ "
+====================
+library(ggplot2)
+library(geom_tile)
+
+ggplot(long.df, aes(x = longitude, y = latitude, size = `Count of Function`)) +
+  geom_tile(colour = "black", fill = "white") +
+  scale_size(range = c(0.05, 0.5)) +
+  theme_minimal() +
+  geom_point(aes(color = `Week of Life Cycle`),
+             show.legend = FALSE) +
+  scale_color_brewer(palette = "Dark2")
+
+Note that a continuous scale was plotted for the size variable as well to be able to see a more accurate overlap between the smaller (and closer together) squares on the left and the larger (and further apart) squares on the right. This of course leads to discontinuity when you get to your limits. However, using a range limited scale will still allow us to see, for example, that our maximum square at the far right does have some overlap with the other three.
+One way of getting around this is to subset your data (long.df <- long.df[5:500]) as in @yorkosh's answer, or just using a multiple palette like "winter" instead of "Dark2" (to avoid the discontinuity) but using scale_size_continuous, which would make each square exactly the same size as its neighbors and has a continuous plot where the other two methods would have a discontinuity, for example, or even the dreaded checkerboard patterns that can happen.
+Another option is to use stat_size_gradient() in the lattice package, although this does mean you have to hardcode some colors, and you can't use the map aesthetic.
+ggplot(long.df, aes(x = longitude, y = latitude, size = `Count of Function`)) +
+  stat_size_gradient(colors = brewer.pal(n = 2, "RdBu")) +
+  geom_tile(colour = "black", fill = "white") +
+  scale_size(range = c(0.05, 0.5)) +
+  theme_minimal() +
+  geom_point(aes(color = `Week of Life Cycle`),
+         
+====================
+library(ggplot2)
+library(shiny)
+library(shinydashboard)
+library(shinyjs)
+library(shinythemes)
+
+ui <- navbarPage(
+  title = "",
+  tabPanel("",
+           "",
+           "",
+           mainPanel(
+             box(solidHeader(title = "Server Logic", solidHeader = T, 
+                             width = 12, background = 'white')),
+             sidebarLayout(
+               sidebarPanel(
+                 helpText("", "Click here to see me"),
+                 sliderInput("width", "Width:", min = 5, max = 50, value = 5, step = 1),
+                 radioButtons("radio", "Pick a type of legend:", c("box", "line", "area"), inline=T, selected="box")
+               ),
+               mainPanel(
+                 verbatimTextOutput("text"),
+                 uiOutput("legend")
+               )
+           )
+  )
+)
+
+server <- function(input, output) {
+   output$text <- renderText({
+     input$radio
+   })
+
+   output$legend <- renderUI({
+     switch(input$radio, 
+             "box" = div(style = "width:500px;height:
+====================
+library(ggplot2)
+
+I'm quite new to this so feel free to correct my mistakes :)
+So, what I'm trying to do is to make some pretty graphs for my thesis work with ggplot2.
+So, what I have is:
+    1) A vector of 0/1's (dates)
+    2) Another vector of 0/1's (co-data), in this case an raster of the same area.
+The problem is, that if I want to have a line plot, the only way to get the raster to show up is by overlaying it with the first vector, or simply by stacking it on top of the vector, as in this case:
+    +---------------------------------+
+    | + 1 vector layer               |
+    | | + 2 raster layers            |
+    | +---------------------------------+
+
+I guess this is the effect of the legend on my scale, but I can't understand how to add it, if it's possible at all.
+Furthermore, I would like to assign a variable to each co-data point, but this does not work, as in the following:
+    +---------------------------------+
+    | + 1 vector layer               |
+    | | + 2 raster layers            |
+    | | | <- Variable per point      |
+    | +---------------------------------+
+
+The point is, that for each co-data point, I have one variable which I need to use on the plot (i.e., an additional variable should appear next to the raster as well, and not under the point itself).
+Can anyone help? I have been reading and searching for about 5 hours now, but I don't seem to get anywhere... :s
+
+A:
+
+On the flipside, what does your vector look like? If you only have a data.frame with dates, I'd imagine you'd need to adjust your vector layer to be points.
+It appears that your dates and raster layer are in separate data frames. The first two are as you show them. The third is dates <- data.frame(date = mydates), while raster
+====================
+library(ggplot2)
+data(mtcars)
+ggplot(data = mtcars, aes(x = wt, y = mpg)) + geom_point() + 
+    geom_text_repel(aes(label = rownames(mtcars)), nudge_y = 0) + 
+    scale_x_discrete(limits = c("Dodge Dart", "Ram Charger", "Ford Escort")) + 
+    scale_y_discrete(limits = c("14.1", "13.9", "14.7")) + 
+    guides(colour = guide_legend(title = ""), size = guide_legend(title = ""))
+
+# Create a legend
+library(scales)
+legend <- add_legend(ggplot(data = mtcars, aes(x = wt, y = mpg)) + geom_point() + 
+                       geom_text_repel(aes(label = rownames(mtcars)), nudge_y = 0) + 
+                       scale_x_discrete(limits = c("Dodge Dart", "Ram Charger", "Ford Escort")) + 
+                       scale_y_discrete(limits = c("14.1", "13.9", "14.7")) + 
+                       guides(colour = guide_legend(title = ""), size = guide_legend(title = "")),
+                       "Legends as Points", # Doesn't work in ggplot2, not sure why.
+                       ncol = 3)
+
+# Set position
+legend$position <- "left"
+
+# Set text
+legend$horizontal <- TRUE
+legend
+====================
+library(ggplot2)
+ggplot(df.merge.all,aes(x=YEAR,y=value,colour=variable)) +
+    geom_line()+
+    geom_point() +
+    scale_y_continuous(breaks=seq(0,5,by=1),limits=c(0,5)) +
+    coord_cartesian(xlim = range(df.merge.all$YEAR))
+
+Thanks!
+
+A:
+
+If you don't mind geom_segment, that's the easiest way.
+ggplot(df.merge.all,aes(x=YEAR,y=value,colour=variable)) +
+    geom_segment(aes(xend=YEAR,yend=value)) +
+    geom_point() +
+    scale_y_continuous(breaks=seq(0,5,by=1),limits=c(0,5)) +
+    coord_cartesian(xlim = range(df.merge.all$YEAR))
+
+<|endoftext|>You have the option of using a search engine that will show you a search for things, like Google or Bing, or you can search directly on Amazon by using the URL http://www.amazon.com/b?node=905059201.
+
+Search Amazon
+
+Garden Weed Infestation
+
+How to control weeds in the garden? For someone like me who has only just started gardening, the number of seeds that need to be removed is just too many. Weed seeds are everywhere! In fact, I have found them in everything that I touch, even in the couch in my house. I have watched YouTube videos on how to rid the garden of unwanted weeds but this is not practical, especially when I’m having a party. This is exactly why I created the Gardening Tips & Tricks series. My goal is to be as helpful to those who are still new to the world of gardening.
+
+Today’s video is all about controlling garden weeds! We have reviewed the best weed killer that kills all weeds at the first pass! We will review what is currently available in the market and I will be sharing my own recommendations for those who still do not know what kind of weed killer is right for them.
+
+If you are on YouTube,
+====================
+library(ggplot2)
+#
+
+# A single entity.
+class Person
+                name =
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+====================
+library(ggplot2)
+
+df <- data.frame(
+  grp1 = rep(1:6, 2),
+  grp2 = rep(1:6, each = 4),
+  fac = rep(1:2, 6),
+  rank = rep(1:4, 6)
+)
+
+ggplot(df, aes(factor(grp1), factor(grp2))) + 
+  geom_text(aes(x = 2.6, y = 1.2, label = fac), color = 'black') +
+  geom_text(aes(x = 2.7, y = 1.2, label = fac), color = 'black') +
+  geom_text(aes(x = 3.1, y = 1.2, label = fac), color = 'black') +
+  geom_text(aes(x = 3.2, y = 1.2, label = fac), color = 'black') +
+  geom_text(aes(x = 4.3, y = 1.2, label = fac), color = 'black') +
+  geom_text(aes(x = 4.4, y = 1.2, label = fac), color = 'black') +
+  geom_text(aes(x = 5.5, y = 1.2, label = fac), color = 'black') +
+  geom_text(aes(x = 5.6, y = 1.2, label = fac), color = 'black') +
+  geom_text(aes(x = 6.9, y = 1.2, label = fac), color = 'black') +
+  scale_x_continuous(expand = c(0, 0), breaks = 2.6:6.9,
+                     labels = c('#1', '#2'))
+
+A:
+
+Something like this:
+ggplot(df, aes(factor(grp1), factor(grp2))) + 
+  geom_text(aes(x = 2.6, y = 1.2, label = fac, colour = "black"), size = 5, hjust = -.2)
+====================
+library(ggplot2)
+library(ggpubr)
+
+#**############################################################################
+# SYMBOL RENAMING TASK: Update the font names and colors for chl-a and turb
+#**############################################################################
+
+symbol.rename <- function(var, symbol, color.turb, alpha) {
+  m <- enquo(symbol)
+  symbol <- enquo(symbol)
+  color <- enquo(color.turb)
+  alpha <- enquo(alpha)
+  names(var) <- m
+  var <- setNames(lapply(var, function(name) {
+    if (symbol == name) {
+      attr(name, "default") <- color
+    } else {
+      attr(name, "default") <- ""
+    }
+    name
+  }), m)
+  if (alpha!= 0) {
+    attr(var, "default.alpha") <- alpha
+  } else {
+    attr(var, "default.alpha") <- 1
+  }
+  var
+}
+
+# plot symbols: chl-a and turb
+qc_opt <- sym_update(method = "opt", theme = "white",
+                     opt_palette = "CYMK_1.4", text = "qc")
+
+plot_opt <- sym_update(symbol = "chl-a", method = "opt",
+                       theme = "white", opt_palette = "CYMK_1.4",
+                       color = "default")
+
+plot_opt <- sym_update(symbol = "turb", method = "opt",
+                       theme = "white", opt_palette = "CYMK_1.4",
+                       color
+====================
+library(ggplot2)
+library(gridExtra)
+
+# set theme
+theme_set(theme_bw())
+
+# data and colours
+data <- data.frame(x = rnorm(100), y = rnorm(100), z = factor(c(1,2,3)))
+cols <- c("red", "orange", "green")
+
+# helper to create scale
+# generate colour map
+colscale <- function(...) {
+  ncol(.data)
+}
+
+# helper to make geomscale() work
+scale_fill <- function(...) {
+ .data
+}
+
+# how to make scale_fill_manual() work?
+geomscale <- function(...) {
+ .data
+}
+
+# Here's the test
+grid.arrange(
+  ggplot(data, aes(x, y, fill = z)) +
+    geom_tile() +
+    scale_fill_manual(name = "my scale", values = cols),
+  ggplot(data, aes(x, y, fill = z)) +
+    geom_tile() +
+    scale_fill_manual(name = "my scale", values = cols,
+                      guide = guide_colorbar(name = "my scale",
+                                             direction = "horizontal")) +
+    scale_color_discrete(name = "my scale", guide = guide_legend()) +
+    theme_bw() +
+    scale_fill_continuous(guide = FALSE)
+)
+
+A:
+
+geom_tile() does not support the style argument; it is a standard tile.  Since the issue seems to be having an unfilled circle, and then getting an unannotated color, you should be able to just add... + scale_fill_manual(values = cols, guide = guide_colorbar()) inside of scale_fill_manual(values = cols, name = "my scale").
+
+<|endoftext|>
+====================
+library(ggplot2)
+df1 <- data.frame(Team = c("Ind", "Ind", "Ind", "Ind", "Ind", "Ind", "Ind", "Ind", "Ind"),
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+====================
+library(ggplot2)
+library(plyr)
+
+fitter_A_2 <- function(df, name, title) {
+
+  # data frame of all metabolites detected in milk in a longitudinal study
+
+    M_ol <- data.frame(
+                       month.1 = character(),
+                       month.2 = character(),
+                       month.3 = character(),
+                       month.4 = character(),
+                       month.5 = character(),
+                       month.6 = character(),
+                       month.7 = character(),
+                       month.8 = character(),
+                       month.9 = character(),
+                       month.10 = character(),
+                       month.11 = character(),
+                       month.12 = character(),
+                       month.13 = character(),
+                       month.14 = character(),
+                       month.15 = character(),
+                       month.16
+====================
+library(ggplot2)
+library(tidyverse)
+
+df <- mtcars
+
+# Create the base plot
+p <- ggplot(df, aes(mpg, disp)) + geom_point() +
+  # Change the scale of the y-axis to be on a log scale
+  scale_y_log10()
+
+# Change the look of the chart
+theme <- theme_bw() +
+  theme(plot.title = element_text(hjust = 0.5))
+
+# Overlay with custom data labels
+p + geom_text(data = df[df$cyl < 6, ],
+              aes(x = mpg,
+                  y = -log10(disp),
+                  label = paste0(round(disp, 3), "%"),
+                  hjust = -0.3,
+                  colour = "red",
+                  show_guide = FALSE),
+              show.legend = F) +
+  scale_colour_hue(name = "vs \n Model Type",
+                   label = scales::percent) +
+  scale_x_continuous(breaks = c(10, 20, 30, 40, 50, 60, 70, 80, 90, 100)) +
+  coord_cartesian(ylim = c(1, 10)) +
+  labs(x = "Miles Per Gallon",
+       y = "Displacement (CUBIC FEET)")
+
+Resulting Plot
+
+Note that the labels are not continuous (e.g. the 0.10% label is located in the 31.90% region of the x-axis) as the range of values is very small.
+I have tried increasing the default space between the ticks (by decreasing max(scale_x_continuous
+====================
+library(ggplot2)
+library(grid)
+
+grid.arrange(
+    plot(iris[1:4, ], 
+          xlab = "Petal width"), 
+    plot(iris[1:4, ],
+          xlab = "Petal width", 
+          ylab = "Petal length"),
+    plot(iris[1:4, ],
+          xlab = "Petal length", 
+          ylab = "Petal width")
+)
+<|endoftext|>Developmental changes of sleep activity in infants with hydronephrosis.
+Sleep electroencephalogram (EEG) was recorded in 14 infants with hydronephrosis and 19 infants with unilateral ureteral obstruction (UUO) with and without laterality. The background of the delta EEG activity, the presence of the sleep spindles and the time spent in each state of sleep (S), rapid-eye-movement (REM) sleep and non-REM sleep (NREM) were examined at each time point. The ratio of the amount of REM sleep to the total sleeping time in UUO infants was significantly higher than that in hydronephrosis infants. We speculate that in the developing brain the sleep state is directed to prepare the maturation of the nervous system.<|endoftext|>Q:
+
+Calculate only the first 2 numbers in a number string
+
+I have a column that contains a series of numbers separated by either a comma or a space, some of the numbers are for the same transaction and separated by a space. 
+So:
+Number String
+01 16 13 4 46 52 17 40 23 26
+00 2 6 18 23 4 25 15 26 3
+0 7 1 5 14 12 21 16 24 9
+
+I am using Pandas and I need to parse each Number String into:
+Number String
+16 13 4 46 52 17 40 23 26
+2 6 18 23 4 25 15 26 3
+7 1 5 14 12 21 16 24 9
+
+I know that I can get all the numbers with split(" ") and then use the [0] of the array and loop through each number but it seems clunky.
+I have tried a regex, to try and remove the commas and spaces:
+re
+====================
+library(ggplot2)
+
+ggplot(mpg.df[mpg.df$mpg < 25,], aes(factor(cyl)))+
+     geom_bar(position = position_dodge(width = 0.5))
+
+ggplot(mpg.df[mpg.df$mpg > 35,], aes(factor(cyl)))+
+     geom_bar(position = position_dodge(width = 0.5))
+
+<|endoftext|>No one likes queuing for a train in Sydney. So when planning the run-up to the new transport network, each of the 12 CBD rail corridors studied by the Sydney Metro project team in 2012 made the same suggestion.
+
+Together they make up the Western Harbour Rail Line, to be completed in the 2040s.
+
+With all the publicity generated by the time trial of the metro train, this has been a sleeper project for many years, but is now within reach.
+
+The Western Harbour rail line should go ahead, even if most city residents think it will go nowhere.
+
+After 40 years without work on this line, they are finally getting a light rail run-up. It is not going to become a metro rail until after this decade.
+
+Toll is the best way for the region, instead of congestion, to overcome the costs for construction and the billions of dollars for the run-up.
+
+They need to open one line a decade, so that there will be no question of maintenance or delays.
+
+It would cost $1.2 billion a year, with $1.3 billion in operating costs, and there is no necessity for a suburban rail service as the demand would be far lower.
+
+The estimated toll of $5 would pay for the entire project and there is no question of the project being funded by the private sector.
+
+Instead of the road funding plan of a quarter of federal taxes going to road-building, tolls would fund the whole thing.
+
+By contrast, the delay in this project will cost the state $8 billion in a decade, and the private sector would have to come to the party, which will never happen.
+
+With Sydney’s traffic congestion costs at $4.8 billion a year, this is $5 a week per vehicle in the region.
+
+To achieve these savings, the toll charge for an economy car would be $6 a week. This should stop any drivers from
+====================
+library(ggplot2)
+
+num_treatment_k <- data.frame(num_k = 20, num_iter = 6)
+
+ggplot(num_treatment_k) +
+  geom_boxplot(aes(y = y, fill = "number")) +
+  facet_grid(cols = vars(names(num_treatment_k)), scales = "free")
+
+With gridExtra:
+num_treatment_k$names <- c("20", "60", "120", "180", "240", "300", "360", "420", "480", "540", "600", "660", "720", "780", "840", "900", "960", "1020", "1080", "1140", "1200", "1260", "1320", "1380", "1440", "1500", "1560", "1620", "1680", "1740", "1800")
+
+num_treatment_k <- data.frame(num_k = 20, num_iter = 6, names = num_treatment_k$names)
+
+ggplot(num_treatment_k) +
+  geom_boxplot(aes(y = y, fill = "number")) +
+  facet_grid(cols = vars(names(num_treatment_k)))
+
+I think this last one is closest to what you want.
+
+A:
+
+Here is a base R solution:
+num_treatment_k <- data.frame(num_k = 20, num_iter = 6, names = names(num_treatment_k))
+
+ggplot(num_treatment_k) +
+  geom_boxplot(aes(y = y, fill = "number")) +
+  facet_grid(cols = vars(names(num_treatment_k)))
+
+You can change the default upper limit and lower limit of the axes (and make it continuous with "xlim = c(-1, max(x, na.rm = T))") with xlim:
+ggplot(num_treatment_k) +
+  geom_boxplot(aes(y = y, fill = "number"), xlim = c(-1, max(x, na.rm = T))) +
+  facet_grid(cols = vars(names(num_treatment_
+====================
+library(ggplot2)
+
+B = matrix(rnorm(10,0,2), 10, 1)
+
+p = ggplot(data = as.data.frame(B), mapping = aes(x = Var1, y = Var2, col = Var3)) + 
+  geom_point()
+p
+
+The data is coming from a data frame (as.data.frame) and the column names are as Var1, Var2 and Var3 in this example.
+
+A:
+
+An example using dplyr:
+library(dplyr)
+df <- data.frame(x1 = c(1, 2), x2 = c(2, 1), y = 1:2)
+colnames(df) <- c("x1", "x2", "y")
+
+# To fill the "y" column based on a minimum value for the "x1" and "x2" values, 
+# using the 'z' column as the point of reference.
+df %>% 
+    mutate(y = ifelse(z < (max(df$x1, df$x2)), z, y)) %>%
+    ggplot(aes(x = x1, y = x2)) +
+    geom_point() +
+    scale_y_continuous(breaks = seq(min(df$y), max(df$y), by = 2))
+
+which gives the following plot:
+
+<|endoftext|>By the time Joseph Atkinson was ten, he'd already suffered nine heart attacks, each one partially disabling him for days at a time. Before he was 15, he stopped growing.
+
+
+
+As a teenager, he constantly struggled with acne, obesity, and self-consciousness. Even now, with his health taken from him by an inferiority complex, his mind can't seem to break free.
+
+With no further name than "Atk," he'd survived adolescence and was already a widower, having lost his wife of a few years to chronic illness, before he even graduated from high school. Just getting out of his car in the parking lot was a struggle for him, as he'd been knocked unconscious during one of his attacks.
+
+
+
+When he tries to speak, he stumbles over words he can barely pronounce. It's not just the heart attack that's taken the wind out
+====================
+library(ggplot2)
+
+data <- structure(list(GENDER = structure(c(1L, 2L, 1L, 2L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 2L, 2L, 1L, 2L, 2L, 1L, 2L, 2L, 2L, 1L, 2L, 2L, 1L, 2L, 1L, 2L, 2L, 2L, 1L, 2L, 1L, 1L, 1L, 2L, 1L, 2L, 2L, 2L, 2L, 1L, 1L, 2L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 1L, 1L, 1L, 2L, 1L, 2L, 2L, 1L, 2L, 1L, 1L, 2L, 2L, 1L, 2L, 2L, 1L, 2L, 1L, 2L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 1L, 1L, 1L, 1L, 1L, 2L, 1L, 2L, 2L, 1L, 1L, 2L, 1L, 2L, 1L, 2L, 2L, 2L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 1L, 1L, 2L, 2L, 2L, 1L, 2L, 1L, 1L, 1L, 2L, 2L, 2L, 2L, 1L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 2L, 1L, 2L, 1L, 2L, 2L, 2L, 1L, 2L, 2L, 1L, 2L, 1L, 2L, 2L, 2L, 2L, 1L, 2L, 2L, 1L, 2L, 2L, 1L, 2L, 2L, 1L, 2L, 1L, 2L, 1L, 2L, 2L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 2L, 2
+====================
+library(ggplot2)
+library(dplyr)
+library(ggbeeswarm)
+#Orginal data
+de3 <- read.table(textConnection("V1 V2 V3 V4 V5 V6 V7 V8 V9 V10 V11 V12 V13
+1001 RETH ALK01  21  6   60  11  0   0   2   1
+1001 RETH ALK02  22  0   9   10  0   0   2   1
+1001 RETH ALK03  3   0   21  6   19  0   0   2
+1001 RETH ALPO   10  7   18  19  19  18  0   0
+1001 RETH CALU   19  7   19  19  14  17  15  6
+1001 RETH DHO    1   4   13  10  11  9   13  9
+1001 RETH DICO   0   0   0   9   4   6   5   1
+1001 RETH NERV   2   3   0   1   0   0   1   4
+1001 RETH ROA    11  3   6   4   4   2   4   8
+1001 RETH SPO    4   4   2   7   0   3   6   0
+1001 RETH THT    2   4   13  16  6   1   7   2
+1001 RETH VEPT   6   9   4   13  8   1   0   0
+1002 RETH ALK01  24  0   12  12  8   13  10  0
+1002 RETH ALK02  22  7   7   2   0   8   3   0
+1002 RETH ALK03  5   11  5   15  4   11  6   2
+1002 RETH ALPO   0   0   0   14  3   0   0   0
+====================
+library(ggplot2)
+library(purrr)
+
+# First, get the leaf counts for your dataset
+d <- data.frame(
+  year = c(2012, 2013, 2014, 2015),
+  month = c(4, 1, 2, 3),
+  day = 1:4,
+  id = paste0(1:4, 1)
+)
+
+d$species_name <- paste0(d$id, "_", substr(d$id, 1, 1))
+d$id <- factor(d$id)
+
+leaf <- d %>%
+  count(month, day, id) %>%
+  group_by(species_name, id) %>%
+  mutate(n = row_number()) %>%
+  select(id, species_name, n) %>%
+  as_tibble()
+
+# Merge this leaf dataframe into the original dataframe and create
+# one row for each unique combination of month, day and id.
+merged.data <- map_dfr(leaf, ~map_dfr(.x, ~merge(.x, d)))
+
+leaf.df <- d %>% select(id, species_name)
+
+# Create a plot using d and merged.data
+ggplot(d, aes(x = id, y = leaf, size = n)) +
+  geom_col() +
+  geom_point() +
+  labs(x = "ID", y = "Total Leaf Count", size = "ID") +
+  geom_text(aes(label = species_name, hjust = 1), data = leaf.df, size = 4) +
+  theme_bw()
+
+Edit:
+In order to have ggplot2 plot the line connecting leaf counts across the dataset, use geom_path():
+ggplot(d, aes(x = id, y = leaf, size = n)) +
+  geom_col() +
+  geom_point() +
+  labs(x = "ID", y = "Total Leaf Count", size = "ID") +
+  geom_text(aes(label = species_name, hjust = 1), data = leaf.df, size = 4) +
+  geom_path(aes(group = 1), data
+====================
+library(ggplot2)
+library(gridExtra)
+
+iris_rm1 <- rbind(iris,iris[,1:2])
+# Lets say you have some initial (optional) options for the plot
+options(theme_set()) #theme_set(theme_bw())  # to get rid of colors
+
+#Display the boxplot and legend of the plot 
+plot(iris, pch=16, col=1:4, main="Boxplot of first row of iris dataset",
+     xlab="", ylab="")
+abline(0,0, col="grey80", lwd=2)
+legend("topright", pch=16, c(paste0("setosa ", 1:4), "Sepal.Length"),
+       col=1:4, lwd=2, bty="n", legend=c(LETTERS[1:4]),
+       box.padding = c(20,10,10,10), title="")
+
+#Create the facet grid (same thing as cbind by default) 
+fg1 <- qplot(1:4, Sepal.Length, data=iris_rm1, 
+            facets = ~Species, fill = Species,
+            colour = Species,geom="boxplot",
+            col = 1:4, lwd = 2, title = "Facet Plot") + scale_x_continuous(expand = c(0,0)) + theme_bw()
+
+#Now lets see how the boxes are actually aligned! (This is in the rstudio.tex file so is more of a suggestion that has to be edited to suit your needs)
+grid.arrange(fg1,grob = ggplotGrob(fg1), ncol=2) # ncol = 2 to place 2 plots side by side
+
+Also, not sure if this was just bad drawing or an accident but on your image you have pasted multiple plots to different sides.
+One could maybe do this with a couple of extra tweaks
+library(gridExtra)
+library(grid)
+
+iris_rm1 <- rbind(iris,iris[,1:2])
+====================
+library(ggplot2)
+
+as.data.frame(dat)
+ggplot(dat, aes(y = q1))+geom_bar(stat="identity") + coord_flip()
+ggplot(dat, aes(y = q2))+geom_bar(stat="identity") + coord_flip()
+ggplot(dat, aes(y = q3))+geom_bar(stat="identity") + coord_flip()
+ggplot(dat, aes(y = q4))+geom_bar(stat="identity") + coord_flip()
+ggplot(dat, aes(y = q5))+geom_bar(stat="identity") + coord_flip()
+
+The code below works but I do not like having to rewrite all the dates:
+as.data.frame(dat)[seq(2, nrow(dat), 2)]
+
+dat$q1 <- as.numeric(dat[seq(2, nrow(dat), 2)][, "q1"])
+
+ggplot(dat, aes(y = q1))+geom_bar(stat="identity") + coord_flip()
+
+How could I automate this?
+
+A:
+
+Data
+dat <- data.frame(q1=c(1,2,3,4,5),
+                  q2=c(6,4,5,1,3),
+                  q3=c(7,8,9,2,4),
+                  q4=c(1,6,2,7,1),
+                  q5=c(4,2,1,7,5))
+
+For any subset of "seq":
+data.frame(q1=c(1,2,3,4,5),
+           q2=c(6,4,5,1,3),
+           q3=c(7,8,9
+====================
+library(ggplot2)
+
+data(wrld_sim)
+
+# Add 10x more data points at each value of the label
+# That way we can get better at plotting it in the range of 0 to 10
+
+wrld_sim2 <- wrld_sim
+
+r <- round(wrld_sim2$dist, 1)
+r <- rep(r, 10)
+
+n <- r * length(wrld_sim2$cont)
+
+wrld_sim2$cont2 <- rep(0, n)
+wrld_sim2$long.lab <- rep(0, n)
+
+plot(wrld_sim2, ylim = range(wrld_sim2$cont2))
+
+# Plotting lines
+# *****************
+
+# Since we are plotting all our label values, we have to break up this into separate loops for each of them
+
+nr <- length(r)
+lw <- seq(r[1] - 1, r[1] + 2, 0.1)
+
+# Plotting our label values
+for(i in 1:nr){
+  p <- ggplot(wrld_sim2[!wrld_sim2$long.lab == i,], aes(long.lab, cont2)) +
+    geom_polygon() +
+    xlim(range(wrld_sim2$long.lab[i])) +
+    ylim(range(wrld_sim2$cont2[i])) +
+    labs(x = lw[i], y = "Cont2",
+         title = "Cont2 values for label: ") +
+    theme_minimal()
+  print(p)
+}
+
+When I use print(p), I can see some things missing. For example, the world, instead of being closed, looks like this:
+
+And I only get the labels with 2 labels in a row. 
+What is going wrong? 
+
+A:
+
+If you set the breaks argument of the line you can specify where to put the breaks in the line. For example, we can do the following:
+p <- ggplot(wrld_sim2, aes(long.lab, cont2)) +
+  geom_polygon()
+====================
+library(ggplot2)
+library(RColorBrewer)
+    
+# generate some test data
+set.seed(1)
+pts1 <- runif(100, -4, 4)
+pts2 <- runif(100, -4, 4)
+pts3 <- runif(100, -4, 4)
+pts4 <- runif(100, -4, 4)
+pts5 <- runif(100, -4, 4)
+pts6 <- runif(100, -4, 4)
+pts7 <- runif(100, -4, 4)
+pts8 <- runif(100, -4, 4)
+pts9 <- runif(100, -4, 4)
+pts10 <- runif(100, -4, 4)
+pts11 <- runif(100, -4, 4)
+pts12 <- runif(100, -4, 4)
+pts13 <- runif(100, -4, 4)
+pts14 <- runif(100, -4, 4)
+pts15 <- runif(100, -4, 4)
+pts16 <- runif(100, -4, 4)
+pts17 <- runif(100, -4, 4)
+pts18 <- runif(100, -4, 4)
+pts19 <- runif(100, -4, 4)
+pts20 <- runif(100, -4, 4)
+pts21 <- runif(100, -4, 4)
+pts22 <- runif(100, -4, 4)
+pts23 <- runif(100, -4, 4)
+pts24 <- runif(100, -4, 4)
+pts25 <- runif(100, -4, 4)
+pts26 <- runif(100, -4, 4)
+pts27 <- runif(100, -4, 4)
+pts28 <- runif(100, -4, 4)
+pts29 <- runif(100, -4, 4)
+pts30 <- runif(100, -4, 4)
+pts31 <- runif(100, -4, 4)
+pts32 <- runif(100, -4, 4)
+pts33 <- run
+====================
+library(ggplot2)
+library(plyr)
+
+par(mfrow = c(1,1))
+
+# Example Dataset
+D <- data.frame(country=c("Germany","France","Greece"),
+                 river=c("Rhine","Loire","Moselle"))
+
+# load the shapefiles in the required location
+D2 <- readOGR("shp/", "geodata")
+
+# plot the country shapefile in conjunction with the river shapefile
+ggplot() + 
+      geom_map(data = D2, mapping = aes(x=long, y=lat, map_id = country, fill = country, weight =.2)) +
+        geom_map(data = D2, mapping = aes(x=long, y=lat, map_id = river, fill = river, weight =.1)) +
+        labs(title = "My Map") +
+        coord_map(projection = "mill", region = "Europe")
+
+This works fine. However, now I want to restrict the areas where the layers can be plotted, and set some colors on those areas. So I went for the ggmap package:
+library(ggmap)
+
+ggmap(get_googlemap(data = D2, zoom = 16)) +
+        # this maps the country shapefile to the city of München
+        # add a map legend for the color scale of the countries
+        mapLegend(
+          country_colors = rep("#e4e8e8", 10),
+          legend = TRUE,
+          title = "Germany") +
+        # add a title
+        labs(title = "My Map") +
+        coord_map(projection = "mill", region = "Europe")
+
+The mapLegend() function turns the colors of the country shapefile into a color scale, which is great. However,
+====================
+library(ggplot2)
+library(igraph)
+library(igraph)
+library(stringi)
+
+# I use this for the cosine similarities of men and women in a friend list
+
+my_in_degree = 5
+
+my_friends = setNames(
+    lapply(1:10,function(i) {
+        set.seed(1234)
+        names(sample.names(i,replace=T)) = paste0("char", sample.names(i,replace=T))
+        g = create_friend_list(my_in_degree=my_in_degree,
+                               my_friends=my_friends,
+                               dp=5,
+                               name=paste0("F", 1:i))
+    }),
+    names(my_friends)
+)
+
+my_friend_degrees_male = lapply(my_friends, function(x) x[names(x)=="char01"])
+
+my_friend_degrees_female = lapply(my_friends, function(x) x[names(x)=="char09"])
+
+# I create the data set
+data = matrix(
+    c(1,0,0,1,1,1,0,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,1,0,1,0,0,1,0,1,0,0,0,1,1,0,1,0,1,0,1,0,0,1,0,0,1,0,1,1,0,1,0,1,0,1,1,1,0,1,0,1,0,0,1,0,1,1,0,0,0,
+====================
+library(ggplot2)
+
+sample_data = data.frame(Person = 1:15,
+                         Age = sample(c(5, 10, 25, 30), 15, TRUE),
+                         Gender = factor(rep(c("M","F","M","F"),5)),
+                         Weight = runif(15))
+
+sample_data$x = sample(1:30, 15, replace=T)
+ggplot(sample_data, aes(x = Person, y = Weight, colour = Gender)) + 
+    geom_point() +
+    facet_grid(Age~Person) +
+    geom_smooth(method="loess")
+
+# from: http://statistics.laerd.usc.edu/servlets/com.ssi.cmss.filter.GenerateCumulativeLifeTable.smd#ccfvs06:04
+#we expect the following
+
+#             [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14] [,15]
+#   Person      1   9  16  24  33  42  50  59  68  77  86  95 114 122 127 139 146
+#   Age         5  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80  85
+#   Gender      M   F   M   F   M   F   M   F   M   F   M   F   M   F   M   F   M
+#   Weight      1   9   5  10   6 
+====================
+library(ggplot2)
+library(scales)
+library(plotly)
+
+qplot(stack(Resid.vars), binwidth=0.5) +
+  geom_density(aes(fill = binwidth), alpha=0.1) +
+  scale_fill_continuous(name='Stacked', breaks=c(0,0.5,1), labels=c('light','mid','dark'), name='density') +
+  labs(fill='Shaded by weighted density')
+
+qplot(stack(Resid.vars), binwidth=0.5) +
+  geom_density(aes(fill = binwidth), alpha=0.1) +
+  scale_fill_continuous(name='Stacked', breaks=c(0,0.5,1), labels=c('light','mid','dark'), name='density') +
+  labs(fill='Shaded by weighted density')
+
+There is a shorter way of creating a data frame to calculate the stacked density, but it is unnecessarily confusing for me. I am interested in generalizing this code to work with multiple plots. Any suggestions?
+qplot(stack(Resid.vars), binwidth=0.5) +
+  geom_density(aes(fill = binwidth), alpha=0.1) +
+  scale_fill_continuous(name='Stacked', breaks=c(0,0.5,1), labels=c('light','mid','dark'), name='density') +
+  labs(fill='Shaded by weighted density')
+
+Edit: I would appreciate if you suggested a way to achieve this using stat_compare() or stat_bin2d() as there is already a graph on SO that shows all three methods.
+
+A:
+
+See the attached link with a function that will overlay all three histograms.
+stat_compare_all(aes(fill = binwidth), method = "hist")
+
+<|endoftext|>Q:
+
+Angular + Material table, two selectors for same cell
+
+I'm trying to use Angular with Angular Material. I have a working example here
+I have a datatable as follows:
+<table mat-table [dataSource]="posts">
+
+    <ng-container matColumnDef="ID">
+    
+====================
+library(ggplot2)
+
+y <- seq(0, 1, 1/200)
+x <- seq(0, 10, 1/2)
+df <- data.frame(y, x)
+
+my_function <- function(x) {
+  # x = data.frame(y=y,x=x)
+  x <- data.frame(y=y, x=x)
+  x$r <- x$x/x$y
+  x
+}
+
+p <- ggplot(df, aes(x=x, y=y)) +
+  geom_line(size=2) +
+  geom_point(size=3) +
+  geom_text(data=my_function(df), aes(x=x, y=y, label=y))
+
+p
+
+<|endoftext|>Q:
+
+Keep a form and custom control on top of the page
+
+I'm trying to make the form stay on top of the page when other controls get scrolled.
+See fiddle here.
+Basically, I want my #red form to stay always on top of everything else, but only if it has the focus.
+I have managed to make the form stay in place in Chrome when I click somewhere else on the page, but I haven't managed to find a way to do it without using the mouse.
+
+$(document).ready(function(){
+    
+    $(window).scroll(function(){
+        if($(window).scrollTop() > 1 && $('#redForm').is(":visible")) {
+            $('#redForm').css('z-index', '2');
+            $('#redForm').css('top', '0px');
+        } else if($(window).scrollTop() < 1 && $('#redForm').is(":hidden")) {
+            $('#redForm').css('z-index', '1');
+            $('#redForm').css('top', '-50px');
+        }
+    });
+
+====================
+library(ggplot2)
+library(dplyr)
+library(nycflights13)
+library(tidyverse)
+
+# Reorder to match demo data frame structure and then concatenate both data frames to create data frame
+df_travel_scrape <- travel_scrape %>%
+                                  mutate(time_zone = hour(timestamp)) %>%
+                                  filter(city == "abc") %>%
+                                  select(start_time, end_time, time_zone)
+df_flights <- tbl_df(nycflights13) %>%
+                                                                                                                                                                                                                                                                                                 
+====================
+library(ggplot2)
+theme_set(theme_bw())
+
+library(ggforce)
+gg.force(width=2)
+gg.force(position="absolute", width=12)
+gg.force(position="relative", width=14)
+gg.force(position="absolute", width=16)
+gg.force(position="relative", width=18)
+gg.force(position="absolute", width=20)
+gg.force(position="relative", width=22)
+gg.force(position="absolute", width=24)
+gg.force(position="relative", width=26)
+gg.force(position="absolute", width=28)
+gg.force(position="relative", width=30)
+gg.force(position="absolute", width=32)
+gg.force(position="relative", width=34)
+gg.force(position="absolute", width=36)
+gg.force(position="relative", width=38)
+gg.force(position="absolute", width=40)
+gg.force(position="relative", width=42)
+gg.force(position="absolute", width=44)
+gg.force(position="relative", width=46)
+gg.force(position="absolute", width=48)
+gg.force(position="relative", width=50)
+gg.force(position="absolute", width=52)
+gg.force(position="relative", width=54)
+gg.force(position="absolute", width=56)
+gg.force(position="relative", width=58)
+gg.force(position="absolute", width=60)
+gg.force(position="relative", width=62)
+gg.force(position="absolute", width=64)
+gg.force(position="relative", width=66)
+gg.force(position="absolute", width=68)
+gg.force(position="relative", width=70)
+gg.force(position="absolute", width=72)
+gg.force(position="relative", width=74)
+gg.force(position="absolute", width=76)
+gg.force(position="relative", width=78)
+gg.force(position="absolute", width=80)
+gg.force(position="relative", width=82)
+gg.force(position="absolute", width=84)
+gg.force(
+====================

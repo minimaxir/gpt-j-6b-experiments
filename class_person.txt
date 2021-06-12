@@ -1,0 +1,2346 @@
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.curve = []
+        self.n_curve = 0
+
+    def add_curve(self, point):
+        self.curve.append(point)
+        self.n_curve += 1
+
+    def get_curve(self):
+        return self.curve
+
+class Basis():
+    """Class used to represent a basis for a DAG"""
+    def __init__(self, lv, total):
+        self.lv = lv
+        self.total = total
+        self.n_lv = 0
+
+    def add_lv(self, p, x, ind):
+        if (p in self.lv) and (x!= 0):
+            self.lv[p].append(x)
+            self.n_lv += 1
+        else:
+            self.n_lv += 1
+        self.total += x * ind
+
+    def get_lv(self):
+        return self.lv
+
+class Node():
+    """A class used to represent a node in a DAG"""
+    def __init__(self, leaf=0, x1=1, x2=1):
+        self.leaf = leaf
+        self.x1 = x1
+        self.x2 = x2
+
+    def get_leaf(self):
+        return self.leaf
+
+    def set_leaf(self, leaf):
+        self.leaf = leaf
+
+  
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+class Student:
+    def __init__(self, name, age, grade):
+        self.name = name
+        self.age = age
+        self.grade = grade
+
+    def getStudent(self):
+        """Get the student data"""
+        return self.name + " " + self.age + " " + self.grade
+
+    def getStudentName(self):
+        """Get the name of the student"""
+        return self.name
+
+    def getStudentAge(self):
+        """Get the age of the student"""
+        return self.age
+
+    def getStudentGrade(self):
+        """Get the grade of the student"""
+        return self.grade
+
+    def hasGPA(self):
+        """True if the student has a GPA"""
+        if not self.grade:
+            return True
+        if not self.grade.getPlacement():
+            return True
+        return True
+
+    def hasLessons(self):
+        """True if the student has lessoins"""
+        if not self.grade:
+            return True
+        if not self.grade.getPlacement():
+            return True
+        return True
+
+def main():
+    student1 = Student("John", 24, None)
+    student2 = Student("John", 24, None)
+    student3 = Student("John",
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, occupation):
+        self.name = name
+        self.occupation = occupation
+        self.pay_rate = None
+
+    def get_name(self):
+        return self.name
+
+    def get_occupation(self):
+        return self.occupation
+
+    def set_occupation(self, occupation):
+        self.occupation = occupation
+        print("Person set occupation to {0}".format(occupation))
+    def get_pay_rate(self):
+        if self.pay_rate is None:
+            self.pay_rate = self.name.upper()
+            print("Person pay_rate is {0}".format(self.pay_rate))
+    def get_pay_rate_percentage(self):
+        return self.pay_rate
+
+    def set_pay_rate(self, pay_rate):
+        self.pay_rate = pay_rate
+
+    def set_pay_rate_percentage(self, pay_rate_percentage):
+        self.pay_rate = pay_rate_percentage
+
+def main():
+    person = Person("Bob", "Accountant")
+
+    # 在人的一些指定方法
+    person.get_name()
+    person.get_occupation()
+    person.set_occupation("MBA")
+
+    person.set_pay_rate("3000")
+    person.set_pay_rate_percentage(25)
+
+    print(person.get_pay_rate_percentage())
+    # 得到用户的分数
+    person.set_pay_rate_percentage(person.get_pay_rate
+====================
+class Person:
+    """A class used to represent a person"""
+
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+
+A:
+
+A regular expression would look like this,
+import re
+
+my_string = "Do you like cucumbers?"
+p = re.compile(r'\w+')
+
+p.findall(my_string)
+
+['Do', 'you', 'like', 'cucumbers?']
+
+Demo: https://repl.it/@Oerkelens/Python-Regex-Find-a-string-with-a-word
+
+<|endoftext|>The Affordable Care Act: Implications for nurse practitioners.
+Nurses with advanced practice have been a vital part of the health care team for several decades, including in the arena of primary care. The Affordable Care Act (ACA) and its implementation impact on the role of nurse practitioners. ACA's impact on the ability of nurse practitioners to practice in rural areas, in medically underserved areas, and in vulnerable populations is reviewed. Impact on health care provided by nurse practitioners is discussed. The process for seeking approval of the change in role of nurse practitioners as qualified health care providers under the ACA is described, including the key role of the Centers for Medicare and Medicaid Services. Proposals to codify the ACA's impact on advanced practice nurses within Medicare and Medicaid are discussed, and suggestions for future research on advanced practice are offered.<|endoftext|>*q + q - 2*q. Determine j(f(u)).
+15*u**2
+Let g(y) = 3*y**2. Let o(p) = 1231 - 603 + 4*p - 628. Determine g(o(b)).
+48*b**2 - 96*b + 48
+Let n(c) = 251118*c**2. Let y(q) = 2*q. Determine y(n(k)).
+502236*k**2
+Let x(a) = -40*a + 10. Let s(w) = 14*w**2 - 2*w. Give x(s(l)).
+-560*l**2 + 80*l + 10
+Let r(n) = -9*n. Let u(v) = -7
+====================
+class Person:
+    """A class used to represent a person"""
+    first_name: str
+    last_name: str
+    age: int
+    address: Address
+
+And the address:
+    """Class used to represent an address"""
+    street: str
+    city: str
+    state: str
+    zipcode: str
+    phone_number: str
+
+Now how would I do this conversion? I know I could just loop through each individual property and then set the instance variables. I've been trying to figure this out for a while and I'm getting a bit lost, but I thought maybe there is a better way to do this.
+
+A:
+
+You can use properties to automatically make your class properties:
+# the City and State properties use getter/setter methods to retrieve
+# and set the values in the database
+class Person(object):
+    def __init__(self):
+        self.first_name = None
+        self.last_name = None
+        self.age = None
+        self.address = None
+
+class Address(object):
+    def __init__(self, **kwargs):
+        if 'zipcode' in kwargs:
+            self.zipcode = kwargs.pop('zipcode')
+        if 'phone_number' in kwargs:
+            self.phone_number = kwargs.pop('phone_number')
+        if'street' in kwargs:
+            self.street = kwargs.pop('street')
+        if 'city' in kwargs:
+            self.city = kwargs.pop('city')
+        if'state' in kwargs:
+            self.state = kwargs.pop('state')
+
+<|endoftext|>Hexcel Stainless Steel Microfiber polishes can be
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name):
+        """Initializes a person object"""
+        self.name = name
+        self.friends = {}
+
+    def add_friend(self, other_person):
+        """Add another person to the list of friends"""
+        self.friends[other_person.name] = other_person
+
+    def remove_friend(self, other_person):
+        """Remove a person from the list of friends"""
+        try:
+            del self.friends[other_person.name]
+        except KeyError:
+            print("This person isn't a friend of yours")
+
+    def get_friend(self, other_person):
+        """Return the friend of a person as a person object"""
+        try:
+            return self.friends[other_person.name]
+        except KeyError:
+            print("This person isn't a friend of yours")
+
+# Test case
+p = Person("Robert")
+p.add_friend("Alice")
+p.add_friend("Bob")
+print(p.get_friend("Alice"))
+print(p.get_friend("Bob"))
+p.remove_friend("Bob")
+
+The code works as I expect it to work. It seems to me that an exception is thrown as the return value when the friend in the returned object is an object that has been changed by the original call. How do I "fix" this? I'm looking to have a class return a friend as if it was returned by get_friend() (modifying it as necessary).
+
+A:
+
+You can return a subclass of the original class, and have that class implement the friend operations.  Note that Python 3 changes from having this work automatically to requiring explicit subclassing in some cases, but for this case you can continue to use this approach.
+class
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, age):
+        """Initialization"""
+        self.name = name
+        self.age = age
+    def get_name(self):
+        """Returns the name"""
+        return self.name
+    def get_age(self):
+        """Returns the age"""
+        return self.age
+    def set_name(self, name):
+        """Change name"""
+        self.name = name
+    def set_age(self, age):
+        """Change age"""
+        self.age = age
+    def print_name(self):
+        """Print the name"""
+        print (self.name)
+    def print_age(self):
+        """Print the age"""
+        print (self.age)
+
+def register():
+    """A function that registers a person"""
+    p1 = Person("Rob", "22")
+    p1.set_name("Rob")
+    p1.set_age("22")
+    print (p1.get_name())
+    print (p1.get_age())
+    p1.set_name("Jacob")
+    print (p1.get_name())
+    print (p1.get_age())
+
+def main():
+    register()
+
+A:
+
+I believe you would want to create a Python dict.
+EXAMPLE:
+person = dict(name="Rob", age=22)
+
+You would then be able to access values like:
+print(person.name)
+
+If you want to add a new person to a dict:
+person = dict(name="Rob", age=22)
+person["Mary"] = 23
+
+You could even add one to a list:
+person_
+====================
+class Person:
+    """A class used to represent a person"""
+    first_name = None
+    last_name = None
+    address = None
+    contacts = []
+    credit_card = None
+    manager = 'Hiren'
+    addresses = { 'Address1':'PO Box 123',
+                 'Address2':'Hiring Office' }
+
+    def __init__(self,first_name,last_name,address,contacts,credit_card,manager):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.address = address
+        self.contacts = contacts
+        self.credit_card = credit_card
+        self.manager = manager
+
+    def total_contacts(self):
+        return len(self.contacts)
+
+    def get_total_contacts(self):
+        return len(self.contacts)
+
+    def get_total_people(self):
+        return len(self.contacts)
+
+    def set_first_name(self,first_name):
+        self.first_name = first_name
+
+    def get_first_name(self):
+        return self.first_name
+
+    def set_last_name(self,last_name):
+        self.last_name = last_name
+
+    def get_last_name(self):
+        return self.last_name
+
+    def set_address(self,address):
+        self.address = address
+
+    def get_address(self):
+        return self.address
+
+    def set_contact(self,contacts):
+        self.contacts.extend(contacts)
+
+    def get
+====================
+class Person:
+    """A class used to represent a person"""
+
+    def __init__(self, age, name):
+        self.age = age
+        self.name = name
+
+    def give_test(self, test=9):
+        return 'Oh'
+
+    def love(self, val=12):
+        print "You love {0}".format(val)
+        pass
+
+def main():
+    """Main function"""
+    world = World()
+    my_person = Person(27, 'Rick')
+
+    world.print_world()
+
+    print 'Testing person with {}'.format(my_person)
+    #Testing function to get age
+    print 'Getting person age'
+    #pip of get_age_person
+    print my_person.age 
+    #run get_age_person
+    age = world.get_age_person()
+    print 'The age of the person is: {0}'.format(age)
+    print '-----------------------------'
+
+    print 'Trying to tell age with get_age_person_with_return()'
+    #pip of get_age_person_with_return
+    age2 = world.get_age_person_with_return(my_person)
+    print 'The age of the person is: {0}'.format(age2)
+    print '-----------------------------'
+
+    print 'Entering to love'
+    world.love()
+
+if __name__ == '__main__':
+    main()
+
+A:
+
+You didn't show us how the get_age_person_with_return function is called, but it seems you don't need a function. You can also call it when the Person is being created.
+world = World()
+my_person = Person(27, 'Rick')
+
+# calling get_age_person_with_return
+print my_person.age
+world.get_age_person_with_return(my_person)
+# The age of the person
+====================
+class Person:
+    """A class used to represent a person"""
+    
+    def __init__(self,firstname,lastname,gender,age):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.gender = gender
+        self.age = age
+
+I would love to do something like this, is this possible? if so what should i use? And would i use a dictionary instead of array?
+list = [
+    Person(1,2,3,4),
+    Person(1,2,3,4),
+    Person(1,2,3,4),
+]
+list.removeAll(() => __isit_already_in_list(i,list))
+
+A:
+
+You can't have a non-static method as a lambda (there's nothing like that in Python).
+
+A:
+
+If you have a class as a list that will contain the instance of the Person class, then you can implement the __eq__ and __hash__ methods for Person class as the following:
+class Person(object):
+    def __init__(self,firstname,lastname,gender,age):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.gender = gender
+        self.age = age
+    def __eq__(self,other):
+        return self.firstname == other.firstname
+    def __hash__(self):
+        return self.firstname
+
+then you can simply remove duplicate person from your list with:
+list.removeAll(Person(1,2,3,4))
+
+Note: __eq__ and __hash__ methods of the Person class are optional.
+
+<|endoftext|>Comment
+
+You don’t know if a person isn’t good or not unless you’ve actually talked to them.
+
+I’ve talked to a few people I think would have a chance at being good, even with a loaded rifle like the Springfield P365. They are just a bunch of
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, fname, lname, phone, age):
+        self.fname = fname
+        self.lname = lname
+        self.phone = phone
+        self.age = age
+
+car = Person('steve','martins', '212-333-4444', 21)
+car.print_car()
+
+A:
+
+just reverse your parameters...
+def __init__(self, *args):
+    if len(args) > 1:
+        self.lname = args[0]
+        self.fname = args[1]
+        self.phone = args[2]
+        self.age = args[3]
+
+A:
+
+Short of subclassing __init__, you can use a factory function to parse the arguments:
+def Person(*args):
+    lname = args[0]
+    fname = args[1]
+    phone = args[2]
+    age = args[3]
+    return Person(fname, lname, phone, age)
+
+Then you call it like this:
+car = Person('steve','martins', '212-333-4444', 21)
+
+Notice the order that the arguments are in.
+
+<|endoftext|>Q:
+
+How to initialize a BOOL type with "0" or "false" as default value in C++11?
+
+Please help me out here.
+My C++03 project was using C++98 compiler, and that works fine.
+However, now I am trying to compile that project with C++11.
+The header file
+#ifdef DO_NOT_MODIFY_YOUR_COMPILER_COMPILE_FLAGS
+
+#ifndef MY_SOURCE_FLAG_BLA
+#define MY_SOURCE_FLAG_BLA 0x0001
+#endif
+
+#ifndef MY_SOURCE_FLAG_BLAS
+#define MY_SOURCE_FLAG_BLAS 0x0002
+#endif
+
+#ifndef MY_SOURCE_
+====================
+class Person:
+    """A class used to represent a person"""
+
+    __slots__ = ()
+    name = None
+    age = None
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def get_name(self):
+        return self.name
+
+    def get_age(self):
+        return self.age
+
+    def set_name(self, name):
+        self.name = name
+
+    def set_age(self, age):
+        self.age = age
+
+    def set_more_fields(self, name, age):
+        self.name = name
+        self.age = age
+
+    def get_more_fields(self):
+        return self.name, self.age
+
+I expected it to return:
+(Person(name='foo', age=18), Person(name='bar', age=20))
+
+instead it returned:
+(Person(name='foo', age=18), Person(name='bar', age=20))
+
+I was expecting it to show the order it was defined and not the alphabetical order the attributes of a Person was saved.
+How do I order the arguments of __init__ in my class?
+
+A:
+
+__init__ doesn't have any knowledge of what you've done elsewhere in your program.  If you want to sort, you have to sort the tuple yourself.
+
+<|endoftext|># Copyright 2012-2015 @RichardJStubbs - All Rights Reserved
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, job, education):
+        self.name = name
+        self.job = job
+        self.education = education
+        print("{} created a {}".format(self.name, self.job))
+
+    def say_hello(self):
+        print("Hello, my name is {}".format(self.name))
+
+if __name__ == '__main__':
+    person1 = Person("alisha", "student", "paramedic")
+    person2 = Person("Lisa", "student", "Doctor")
+    person1.say_hello()
+    person2.say_hello()
+
+Will print 
+
+alisha created a student
+  Hello, my name is alisha
+  Lisa created a student
+  Hello, my name is Lisa
+
+A:
+
+Use super. (super() to get the superclass of a class or super(type, arg) if you know you want to get the superclass of type:
+class Person(object):
+    def __init__(self, name, job, education):
+        super(Person, self).__init__()
+        print("{} created a {}".format(self.name, self.job))
+
+You could also call the parent class constructor using super(Person, self)
+
+<|endoftext|>Q:
+
+textField becomes invisible after pressing it in a UIView inside the UITableViewController
+
+I have a subclass of UIView in my TableViewController. I added UItextField inside it and I wanted to hide it when the user presses the cell (Touch up inside the cell). Here is the implementation of the textField delegate methods
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    if(textField == myField){
+        [textField resignFirstResponder];
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+The problem is that
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self,name,surname):
+        self.name=name
+        self.surname=surname
+
+def prepareData():
+    mylist=["test"]
+    for name in mylist:
+        newobj=Person(name,name)
+        mylist.append(newobj)
+    return mylist
+
+mylist=prepareData()
+
+def main():
+    mylist=[]
+    mylist.extend(prepareData())
+    mylist.append("null")
+    print(len(mylist))
+    mylist.sort(reverse=True)
+    print(mylist)
+    print(mylist[0])
+    print(mylist[1])
+
+if __name__=='__main__':
+    main()
+
+Expected:
+5
+[test, test, null, null, null]
+test
+test
+
+A:
+
+The issue with your code is that sort, when given a list with a negative number as the third argument, applies the given comparison function to each member of the list, in order. Since the comparison function doesn't work, you'll end up with:
+>>> sorted(mylist, reverse=True)
+[]
+
+A simple fix would be to change the comparison function, for example to:
+def cmp(x, y):
+    return -x < y
+
+Afterwards, if you'd like to sort the whole list, you'd just write
+mylist.sort(reverse=True)
+
+or just
+mylist.sort()
+
+(and this is in fact already the default behaviour if the cmp argument isn't specified)
+The full code looks like this:
+def cmp(x, y):
+    return -x < y
+
+def prepareData():
+    mylist=["test"]
+    for name in mylist:
+        newobj=Person(name,name)
+        mylist.append(newobj)
+    return my
+====================
+class Person:
+    """A class used to represent a person"""
+    # private variables that store the value of their age or gender
+    __age = None
+    __gender = None
+
+    # public variables, one for each property of the class, that can be accessed
+    # by the objects of the class
+    __name = None
+    __height = None
+    __feet = None
+    __inches = None
+
+    # constructor that assigns the public variables of the class
+    def __init__(self, name, height, feet, inches):
+        self.__name = name
+        self.__height = height
+        self.__feet = feet
+        self.__inches = inches
+
+    # returns a string with the class name
+    def __repr__(self):
+        return f"Person {self.__name} is {self.__age} years old"
+
+    # adds one more year to a person's age, returns the new age
+    def __add__(self, years):
+        return self.__age + years
+
+    # returns a string with the gender of the person
+    def __repr__(self):
+        return f"Person {self.__name} is {self.__gender} years old"
+
+    # sets the gender of a person to a particular value
+    def __set__(self, gender):
+        self.__gender = gender
+
+    # returns a string with the name of the person
+    def __repr__(self):
+        return f"Person {self.__name} has a {self.__gender} gender"
+
+    # returns a string that contains the name, age and gender of the person
+    def __str__(self):
+        return f"{self.__name} {self.__age} {self.__gender}"
+
+    # returns the age of the person as an integer
+    def __
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+
+    def display_name(self):
+        return self.first_name + " " + self.last_name
+
+manager = Person("John", "Doe")
+print(manager.display_name())
+
+manager = Person("John", "Doe")
+print(manager.display_name())
+
+manager = Person("John", "Doe")
+print(manager.display_name())
+
+I am expecting: 
+John Doe
+John Doe
+John Doe
+
+A:
+
+When you make the method display_name() global, it is a class member, and the same method is used by all instances of the class. That's why you always see the same value printed. The next time you change manager, and save the changes to a database, the default name is printed again.
+You can fix it by moving the display_name() method to the class body and removing the name attribute:
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+
+    def display_name(self):
+        return self.first_name + " " + self.last_name
+
+Now every instance will create a unique display_name().
+
+Note: You are using a mutable data type as a class variable. That's not a good practice, you should use a immutable data type.
+Your version of the script will also have undesired behaviour. If you save and re-load the class Person it will not work as expected:
+
+>>> manager = Person("John", "Doe")
+>>> manager.last_name = "Smith"
+>>> manager.save()
+>>> manager
+<Person: John Smith>
+>>> manager.last_name
+'Smith'
+
+>>> manager = Person("John", "Doe")
+>>> manager.last_name = "Smith"
+====================
+class Person:
+    """A class used to represent a person"""
+
+    def __init__(self, name, age, class_id):
+        self.name = name
+        self.age = age
+        self.class_id = class_id
+        if age < 21:
+            self.education = None
+        else:
+            self.education = 'college'
+
+    def getAge(self):
+        return self.age
+
+How can I solve it?
+
+A:
+
+You need to make a seperate list/set/dict for classes that have been registered, and add each class in that list to the set/dict before calling it.  After that you can just iterate over the class registry and return each class.  For example
+    class Registry():
+
+    def __init__(self):
+        self.registered_classes = []
+
+    def register(self, class_):
+        self.registered_classes.append(class_)
+
+    def get_classes(self):
+        return set(self.registered_classes)
+
+    def return_class(self, class_):
+        return self.registered_classes.pop(class_)
+
+# print(Registry().get_classes())
+Registry().register(Person('me', 20,'med'))
+Registry().register(Person('you', 20,'student'))
+
+now you can do
+for class_ in Registry().get_classes():
+        print(class_)
+# me
+# you
+
+<|endoftext|>In vitro susceptibility of Plasmodium falciparum malaria to thiosemicarbazones: antimalarial properties of 4-amino-5-((4-methylthiazole-2-yl)imino) thiosemicarbazone, methyl 4-amino-5-((4-methylthiazole-2-yl)imino) thiosemicarbazone.
+The sensitivity
+====================
+class Person:
+    """A class used to represent a person"""
+
+    def __init__(self, first_name, last_name, age, dob):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+        self.dob = dob
+
+class Address:
+    """A class used to represent a address"""
+
+class Doctor:
+    """A class used to represent a doctor"""
+
+if __name__ == "__main__":
+    p = Person("Bob", "Smith", 20, "05/01/1945")
+    print p.first_name +'' + p.last_name +'' + p.age +'' + p.dob
+
+    a = Address("123 Main Street", "Harbor Cove", "Jacksonville", "Florida")
+    p.address = a
+    print p.first_name +'' + p.last_name +'' + p.age +'' + p.dob
+
+A:
+
+Here's the error:
+Traceback (most recent call last):
+  File "p.py", line 16, in <module>
+    p.address = a
+NameError: name 'a' is not defined
+
+The reason for this is that when you define a function or other code in the interactive Python shell (or "interactive interpreter"), that code isn't associated with any object.
+However, once the function or code is executed in a script or module, the object has been created. And that object is used as the value of the variable, just as you've defined it.
+In your case, in the interactive shell you've already created a named object using the keyword def, which is defined at the top of the module. And if you're using the latest release of Python 2.6 or 3.0, there's also an underscore-named object, like you're in the middle of doing, which will just be assigned to by convention.
+However, once that code is executed, you've executed a function and the assigned object has been forgotten. But by the time you're done, Python 2.6 or 3.0 knows that an object named "a
+====================
+class Person:
+    """A class used to represent a person"""
+    
+    def __init__(self,
+                 name,
+                 num_children,
+                 spouse):
+        """Initialize with the name of the person"""
+        self.name = name
+        self.num_children = num_children
+        self.spouse = spouse
+    
+    
+class Student:
+    """A class used to represent a student"""
+    
+    def __init__(self,
+                 name,
+                 age,
+                 gpa,
+                 other_tests):
+        """Initialize with the student's name"""
+        self.name = name
+        self.age = age
+        self.gpa = gpa
+        self.other_tests = other_tests
+    
+    
+class Course:
+    """A class used to represent a course"""
+    
+    def __init__(self,
+                 semester,
+                 title,
+                 instructor):
+        """Initialize with the course's semester and title"""
+        self.semester = semester
+        self.title = title
+        self.instructor = instructor
+    
+    
+class Testing:
+ 
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+    def __str__(self):
+        return " ".join([f"{p.name}" for p in self])
+
+class Department:
+    """A class used to represent a department"""
+    def __init__(self, department):
+        self.department = department
+
+    def __str__(self):
+        return f"{self.department}"
+
+class BaseCustomer:
+    """A base customer class used for adding customers"""
+    def __init__(self, name, address, department, mobile_number, email, card):
+        self.name = name
+        self.address = address
+        self.department = department
+        self.mobile_number = mobile_number
+        self.email = email
+        self.card = card
+
+    def __str__(self):
+        return f"{self.name}, {self.address}, {self.department}, {self.mobile_number}, {self.email}, {self.card}"
+
+class StandardCustomer(BaseCustomer):
+    """A customer subclass"""
+    def __init__(self, name, address, department, mobile_number, email, card):
+        super().__init__(name, address, department, mobile_number, email, card)
+
+customer_1 = StandardCustomer("Fred", "Fremont Rd, Monterey, CA, 93942", "Accounting", "5772587777", "barry@gmail.com",
+                              "456123456789")
+customer_2 = StandardCustomer("Sarah", "Waterfront Road, Abiquiu, FL, 34788",
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name):
+        self.name = name
+
+    def greet(self):
+        return "Hi {0.name}".format(self)
+
+def person_add(person):
+    person.__dict__['name'] = 'John'
+
+person_add(Person('Ola'))
+print(person_add(Person('Oliver')))
+
+And this will print:
+Hi Oliver
+Hi John
+
+Notice that when we define a function it will inherit any variables from the functions scope.
+
+<|endoftext|>The official LEGO video store, which launched in 2007, has shuttered its doors, leaving tens of thousands of customers in the lurch.
+
+The site for "The LEGO Movie" and other LEGO products was launched in June of 2007 and offered a massive amount of play videos. The company released the following statement:
+
+As we revealed earlier this week, the LEGO Group is discontinuing its partnership with YouTube for the official LEGO® video store, which means there is currently no platform through which you can watch our massive collection of LEGO®-related content.
+
+
+
+We’re still looking for new, sustainable ways to allow the public to experience our creativity and interact with our brands.
+
+While the number of users is unknown, a database search returns more than 2.5 million user-uploaded videos on YouTube.<|endoftext|>Q:
+
+Why this compiles in GCC?
+
+I wrote some C code to test whether a given string ends with the string "foo" and here's my code.
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char *s="hello foo world";
+    if(strstr(s,"foo")!=NULL)
+        printf("MATCH");
+    else
+        printf("NO MATCH");
+    return 0;
+}
+
+If I try this on GCC it seems to compile without any error.
+So, I am not able to understand why the string "hello foo world" is considered to be same as the string "foo"? Why does the first statement print "NO MATCH"?
+
+A:
+
+I think you are looking at this in C++ mode
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name):
+        self.name = name
+        self.age = 18
+
+    def set_age(self, age):
+        self.age = age
+
+    def get_age(self):
+        return self.age
+
+A:
+
+This is the correct way to use properties in Python. The problem was not in inheritance, but in the use of the dict accessor syntax. To correct it, one must rewrite the method as follows:
+def get_age(self):
+    return self.age
+
+Python treats this kind of accessors exactly like get-set methods.
+In order to instantiate an object with name_property.name, use self.name_property.get_age(), rather than get_age(self).
+I recommend using the.get() and.set() methods in preference to the accessor syntax, even though the syntax is recommended in the style guide.
+
+<|endoftext|>Q:
+
+Why this combinatoric identity?
+
+Let $n\geq 2$ and $p$ be a prime number.
+Then:
+$$\sum_{k=1}^n\frac{1}{(k+p)^3} = \frac{p^3}{4(p+1)^3} \sum_{k=1}^{p-1}\frac{1}{k} + \frac{1}{(p+1)^3} \left( \sum_{k=1}^{p-1}\frac{1}{k} \right)^2$$
+How is this equality derived? I tried to expand the left side and remove common terms but I got stuck.
+
+A:
+
+Let $\displaystyle F(n) = \sum_{k=1}^{n}\frac{1}{(k+p)^3}$,
+The left side can be written as 
+$$\sum_{k=1}^{n}\frac{1}{k} +\frac{1}{n+p} +\sum_{k=1}^{n}\frac{1}{(k+p)^2}-\frac{1}{(n+p)^2}$$
+Now notice that 
+\begin
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, first_name, last_name):
+        """Called when a Person is instantiated"""
+        self.first_name = first_name
+        self.last_name = last_name
+
+    def __str__(self):
+        """Called when a Person is printed"""
+        return "%s %s" % (self.first_name, self.last_name)
+
+class Course(object):
+    """A class used to represent a course, and contain a list of People"""
+    def __init__(self, number, name):
+        """Called when a Course is instantiated"""
+        self.number = number
+        self.name = name
+
+    def __str__(self):
+        """Called when a Course is printed"""
+        return "%s: %s" % (self.number, self.name)
+
+class Driver(Person):
+    """The driver of the truck, intended to be the most important person"""
+    def __init__(self, first_name, last_name, person):
+        """Called when a Driver is instantiated"""
+        super(Person, self).__init__(first_name, last_name)
+        self.person = person
+
+    def __str__(self):
+        """Called when a Driver is printed"""
+        return "%s %s" % (self.first_name, self.last_name) + self.person
+
+class Truck(object):
+    """The truck we'll be driving. This class represents the truck itself, and
+    all the components of it."""
+
+    def __init__(self, first_name, last_name, truck, number):
+        """Called when a Truck is instantiated"""
+  
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, email, phone):
+        self.name = name
+        self.email = email
+        self.phone = phone
+
+In above code, self is an attribute of Person. Each Person has name, email and phone attributes. 
+Eg: 
+
+abc = Person("abc", "abc@example.com", "123")
+  abc.name = "xyz"
+
+Above line assigns name attribute to abc.
+I am using django 1.7 and python 3.3.
+Please let me know if anything is not clear in above question.
+
+A:
+
+django forms will not work with json.
+The issue has been raised in https://code.djangoproject.com/ticket/17476.
+
+<|endoftext|>Description
+
+The Necromancer is a character who has mastered the skill of necromancy; he or she is able to tap into the mysterious dead for help in accomplishing whatever task they have in mind. The difficulty with this style is that the necromancer often suffers from "madness of the dead" which means they're affected by the necromantic energy in a way that usually causes them to destroy their own vital organs and limbs (i.e. to chop off a limb they're holding up, or to cut their own throat).
+
+How to play
+
+While this role was first designed in the original game, it was not included as part of the 1998 re-release due to lack of available technology. With the release of the 2002 sequel to Urusei Yatsura (Urusei Yatsura: Only Your Dreams), however, it was included in the new version of the game due to the improved RPG Maker engine allowing better character portrait animations.
+
+Character creation
+
+Like all the other classes in the game, the Necromancer can choose from a large number of different mutations as their base characteristics.
+
+In this case, there are some more than just 11 choices, but each choice adds 1 of two types of mutation: Blood or Madness. When a character selects one of these two mutations, one more is added to their total number of choices.<|endoftext|>/*
+ *
+ * Copyright 2014 gRPC authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may
+====================
+class Person:
+    """A class used to represent a person"""
+
+    def __init__(self, name, surname, age, favorite_color):
+        self.name = name
+        self.surname = surname
+        self.age = age
+        self.favorite_color = favorite_color
+
+def main():
+
+    name = input("please enter your name: ")
+    surname = input("please enter your surname: ")
+    age = input("please enter your age: ")
+    favorite_color = input("please enter your favorite color: ")
+
+    person = Person(name, surname, age, favorite_color)
+
+    print("Your name is " + person.name + " " + person.surname + " and you are " + str(person.age) + "years old")
+    print("Your favorite color is " + person.favorite_color)
+
+main()
+
+When I run the program, I'm getting this error:
+Traceback (most recent call last):
+  File "D:\Python\test.py", line 7, in <module>
+    person = Person(name, surname, age, favorite_color)
+TypeError: __init__() takes at least 4 arguments (5 given)
+
+Can someone please help me fix this?
+
+A:
+
+You misspelled __init__. It should be:
+def __init__(self, name, surname, age, favorite_color):
+
+So it should be:
+person = Person(name, surname, age, favorite_color)
+
+The error message isn't very helpful in this case. 
+
+<|endoftext|>And the cold, cold light of truth hits them in the eyes...
+
+
+
+The last real conversation is the most poignant and understanding, too...
+
+
+
+"It's unfortunate for you that there is only one person in this world that would die for you... and it's not your brother."
+
+
+
+"But it's your best friend."
+
+
+
+"He's your best friend, right."
+
+
+
+"He's your best friend... right."
+
+
+
+But he's your best friend, right...<|endoftext|>// Code generated by msgraph.go/gen DO NOT EDIT.
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self,name,age,email):
+        self.name=name
+        self.age=age
+        self.email=email
+
+class Course:
+    """A class used to represent a course"""
+    def __init__(self,name,level):
+        self.name=name
+        self.level=level
+
+def home():
+    """Return the url for the homepage"""
+    url = 'http://localhost/concours/'
+    return url
+
+def courseList(course=None):
+    """Return the url for the course list
+    :param course: if provided returns a course related url
+    :return: the url for the course list"
+    url = 'http://localhost/concours/%s/' % (course)
+    return url
+
+def addCourse(course=None,person=None):
+    """Add a course with a person
+    :param course: if provided return a course related url
+    :param person: the person for the course
+    :return: the new url of the course, from courseList
+    """
+    if person:
+        url = courseList(course=course)
+        return url + '&person=' + person
+    else:
+        url = courseList(course=course)
+        return url
+
+def showCourse(course=None):
+    """Return the url for the course show
+    :param course: if provided return a course related url
+    :return: the url for the course show"
+    if course:
+        url = courseList(course=course)
+        return url + '?id=' + str(course.id)
+    else:
+        url = home()
+        return url
+
+def update
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self,name,age,score):
+        self.name = name
+        self.age = age
+        self.score = score
+
+>>> p = Person("Luigi",50,"10")
+>>> p.name
+'Luigi'
+>>> p.age
+50
+>>> p.score
+10
+
+Since the attribute score is a number, you can also add methods to it. 
+>>> p.score = 100
+>>> p.score
+100
+
+You can use this to initialize a list of people:
+>>> p.score = []
+>>> p.score.append(Person("Joseph",32,"75"))
+>>> p.score
+[Person('Joseph', 32, '75'), Person('Luigi', 50, '10')]
+
+And now we can create a list of people:
+>>> people = [Person("Luigi",50,"10"),Person("Joseph",32,"75")]
+>>> people
+[Person('Luigi', 50, '10'), Person('Joseph', 32, '75')]
+>>> people[1].score
+75
+
+<|endoftext|>The top 10 cuts at Lions have been revealed and there will be one very important player on the list. The Lions made 10 cuts on Saturday at the London Airport Hotel in London. You can read all of the details right here on GOJEEL.com.
+
+1 – Joe Lydon – Canadian cornerback – Plymouth, MA – 26 years old (6’1″ 190 lbs)
+
+4th round, 139th overall – Cut at Training Camp
+
+At 6’1″, 190 lbs. Joe Lydon is a giant of a man who is very physical. It was that physicality that had the Lions originally wanting to draft him, but once they saw the injury history he had over the last three years, they passed. But Joe was dominant in college and he’s much more physical than you would think.
+
+2 – Daryl Worley – Canadian linebacker – Pickering, ON – 25 years old (6’0″ 225 lbs)
+
+5th round, 180th overall – Cut at Training Camp
+
+Daryl Worley was arguably the biggest disappointment from the entire draft class. He was selected over more established players like Johnny Adams, Vince Biegel, and TJ Jones
+====================
+class Person:
+    """A class used to represent a person"""
+
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __repr__(self):
+        return "Person (%s, age %s)" % (self.name, self.age)
+
+def format_age(person):
+    age = person.age
+    if age > 12:
+        return "child"
+    elif age < 18:
+        return "teenager"
+    else:
+        return "adult"
+
+def display_person(person):
+    print "First name: %s" % person.name
+    print "Last name: %s" % person.name
+    print "Age: %s" % format_age(person)
+
+display_person(Person("Darth", 42))
+
+Why is that when I pass person to a function and a child's name is Darth, and age is 42. The return value becomes Darth, Adult. Is there anything wrong with the way I am handling the function that doesn't handle the age properly? I tried to change format_age(person) to return type of format_age(Person("Darth", 42)). But this didn't work, either.
+
+A:
+
+If you want to keep a consistent style, here's what you'd do:
+def display_person(person):
+    print "First name: %s" % person.name
+    print "Last name: %s" % person.name
+    print "Age: %s" % format_age(person)
+
+def format_age(person):
+    if person.age > 12:
+        return "child"
+    elif person.age < 18:
+        return "teenager"
+    else:
+        return "adult"
+
+Now format_age() doesn't need to know about person, but the two objects are still tightly coupled, so you can't swap out the Person instance without changing the format_
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+# Now lets make our own unique kind of Person
+p1 = Person('Peter',18)
+p2 = Person('Bert', 19)
+p3 = Person('George', 20)
+
+# Now we add some mixin functionality
+from person import Person
+
+class Employee(Person):
+    """This is an employee class that inherits Person."""
+    def __init__(self, name, age, position):
+        self.position = position
+        super().__init__(name, age)
+        #super is a shorthand for calling the most
+        #up class's __init__ method with an argument
+        #called cls that is used to differentiate
+        #between the cls we want to define and
+        #one we want to derive from.
+
+# Now lets create some employees
+anne = Employee('Anne',22,'secretary')
+sally = Employee('Sally',19,'secretary')
+janine = Employee('Janine',19,'secretary')
+larry = Employee('Larry',20, 'administrator')
+
+# Now lets print the people
+print('Anne',p1,p2,p3)
+print('Sally',anne,sally,p1)
+print('Janine',janine,larry,p3)
+
+Output:
+Anne        <Person: Peter Bert George>        
+Sally      <Person: Peter Bert George>        
+Janine     <Person: Peter Bert George>        
+Larry      <Person: Peter Bert George>
+
+Each line of code shows what is going on under the hood.  When you put one type of class after another, it says it is going to be the next class in the list.  If you have a list of objects, the objects will
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name):
+        self.name = name
+    def show(self):
+        print self.name
+
+myname = Person("Mark")
+print myname.name
+
+Why does it fail if I run this code? 
+
+A:
+
+Class definition must be surrounded by 2 sets of square brackets
+[
+
+<|endoftext|>News
+
+Acesse os bastidores da política de graça com Crusoé e O Antagonista+ (7 dias)
+
+Na TV, está prevista uma coletiva de imprensa do presidente da AGU, Arthur Maia, após a delação de executivos da JBS – como aconteceu com Joesley Batista.
+
+Segundo relatos, Arthur Maia não vai afirmar nada até depois que os próximos dias da votação no Senado de parecer da PGR sejam passados.<|endoftext|>A conventional terminal box for a printed circuit board comprises an upper casing and a lower casing. The printed circuit board is disposed in the upper and lower casings. The upper and lower casings have respective mounting grooves on opposite ends for mounting the upper and lower casings with each other. The upper and lower casings respectively have locking holes, and each locking hole has a lock pin inserted therein. A top cover and a bottom cover are respectively mounted to the upper and lower casings, and the top cover is movably connected to the bottom cover. The top and bottom covers are respectively moved into the upper and lower casings by using a predetermined actuation device. The upper and lower casings are locked to each other and the top cover and bottom cover are locked to each other by the locking pins inserted in the locking holes.
+In the conventional terminal box for a printed circuit board, the locking holes must be formed in the upper and lower casings, and the lock pins must be correspondingly formed in the top cover and bottom cover, therefore, the terminal box for a printed circuit board is manufactured by different tools and is complex in structure.<|endoftext|>Share this:
+
+The fastest man in the NBA won't have a chance at the title, as Amar'e Stoudemire led the league in fouls last season.
+
+And
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, place, info):
+        self.name = name
+        self.place = place
+        self.info = info
+
+However, if I am executing:
+name = 'Chloe'
+pla = 'UK'
+info = 'Skype User'
+p = Person(name, pla, info)
+print (p.info)
+
+I get an error "AttributeError: 'Person' object has no attribute 'info'". This is really strange because I am initializing the person object, and it's not mentioned anywhere else.
+Can someone explain me why this is happening? Is it some restriction in the way python reads the code? 
+Thanks
+
+A:
+
+I don't see anywhere where you are defining the person's info attribute.
+If it is supposed to be in the __init__, make it:
+def __init__(self, name, place, info):
+    self.name = name
+    self.place = place
+    self.info = info
+
+Or better, put all the info into the class definition:
+class Person:
+    def __init__(self, name, place, info):
+        self.name = name
+        self.place = place
+        self.info = info
+
+And then do:
+p = Person('Chloe', 'UK', 'Skype User')
+
+<|endoftext|>1. Field of the Invention
+The invention relates generally to disk drives and more particularly to disk drives having a clamping device for holding a disk within a disk drive.
+2. Background of the Invention
+Hard disk drives contain a plurality of magnetic heads that are coupled to rotating disks. The heads are magnetically coupled to the disks such that information can be read from and written to tracks on the disks as the disks rotate.
+Hard disk drives are known to be susceptible to damage from dynamic conditions within the drives as well as externally imposed forces. Hard disk drives are generally provided with a shock and vibration guard in the form of a support frame or mount to prevent the heads and disks from directly contacting each other or contacting an external housing when the drive is subjected to forces outside the tolerances of the drive. The
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, age, occupation):
+        self.name = name
+        self.age = age
+        self.occupation = occupation
+
+    def __str__(self):
+        """Display info"""
+        return "Name: {}\nAge: {}\nOccupation: {}".format(
+            self.name, self.age, self.occupation)
+
+def print_person(p):
+    """Print out the info about a person"""
+    print(p)
+
+p = Person('chandu', 16, 'developer')
+
+print(p)
+print_person(p)
+
+I'm passing in object of Person class to print_person function. I'm expecting it to print Name, Age and Occupation of the object of Person class but when I print the variable p it only prints Name. How to get the other fields printed as well?
+
+A:
+
+When you pass an object into a function, that object is passed by value. The values of the properties of that object are copied.
+So,
+print_person(p)
+
+only calls print_person on p's values, not on p itself.
+If you want print_person to modify p's values, you should create a copy of p:
+def print_person(p):
+    """Print out the info about a person"""
+    p_copy = p.copy()
+    p_copy.name = 'Person {}'.format(p_copy.name)
+    print(p_copy)
+
+<|endoftext|>Although advertisements on the web pages may degrade your experience, our business certainly depends on them and we can only keep providing you high-quality research based articles as long as we can display ads on our pages.
+
+To view this article, you can disable your ad blocker and refresh this page or simply login.
+
+Industry insiders have put the call out, asking investors to sell Apple (NASDAQ:AAPL). And their arguments are convincing. Here are the top 10 reasons to sell the stock of AAPL.
+
+1. It seems as if AAPL has
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def set_name(self, new_name):
+        self.name = new_name
+
+    def set_age(self, new_age):
+        self.age = new_age
+
+I believe that the closest "Pythonic" answer to my question would be either using a classmethod/staticmethod. However, is it best to access the underlying Person's attribute using:
+self.__class__.name
+
+Or 
+self.Person.name
+
+I feel that the second choice is a little too "clumsy" as it mixes up how we access the person's attributes vs how we assign attributes to a person. Additionally, if we were to use a classmethod, I'm assuming the following two methods would return the same output?
+    def name(self):
+        return self.name
+
+    def age(self):
+        return self.age
+
+However, this is slightly confusing as the methods are getting passed in self.age and self.name, respectively. Which method is meant to be used as a function call for each?
+I think that the final option is to simply create a proper class that inherits from Person, so that all of the attribute access is actually through methods. 
+Am I on the right track? Thanks.
+
+A:
+
+While in your example name and age could be static members of a person object (I have no idea why you would do that though, for the sake of the example) there's no reason why the class could not contain its own setter methods.
+You can use something like this:
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def set_name(self, new_name):
+        self.name = new_name
+
+    def set_age(self, new_age):
+        self.age = new_age
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, id, age):
+        self.name = name
+        self.id = id
+        self.age = age
+
+class Employee(Person):
+    """A class that represents an Employee"""
+    def __init__(self, name, id, age, position):
+        super().__init__(name, id, age)
+        self.position = position
+
+    @property
+    def pay(self):
+        """ The pay of an employee"""
+        return... # implementation of the method
+
+employee = Employee("John Doe", 1234, 25, "Engineer")
+
+If I want to write a function that returns a dictionary with the person names mapped to their ID's, I might do this:
+def person2id():
+    # Define a Dictionary that maps names to IDs
+    mydict = {}
+    # Loop over the persons in the class, adding their names to the dict
+    for x in employee:
+        mydict[x.name] = x.id
+    return mydict
+
+Which would return a dictionary mapping names to IDs. However, there is one problem with this approach. Because the Employee class extends the Person class, when I print the instance of the Employee class I see all the properties of the Person class (name, age, position), which means I am doing a lot more than I need to. I only want to know the ID of a person and the Name of a person, nothing more. How would I limit my __init__ so that only those properties were used, while still retaining the rest of the methods and properties that the Person class has?
+
+A:
+
+Override the dict accessor, adding a filter:
+class Employee(Person):
+    def __getitem__(self, name):
+        # Only keep the properties you want to see
+        return super().__getitem__(name)
+
+person = Employee("John Doe", 1234, 25, "Engineer")
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self,name):
+        self.name = name
+    def __repr__(self):
+        return '<Person: {}>'.format(self.name)
+    def __str__(self):
+        return self.name
+
+To call the __str__ method, just do:
+>>> print person.name
+Tom
+
+You can see it as a simple class that can be instantiated like so:
+>>> p1 = Person("John")
+>>> p1.name
+'John'
+>>> p2 = Person('Sarah')
+>>> p2.name
+'sarah'
+
+You can see I am instantiating the person twice, but each call of __init__ will have the different value of name. The name is immutable. This is what means by duck-typing - You can treat something that isn't what you expect as if it were, for example you can do:
+>>> p3 = Person(2)
+>>> p3.name
+'2'
+
+It's not "two", it's "2" because 2 is "just another" name for the object "Person" which can be treated as if it were a "person" so it has an __str__ method that returns "2" because it is just another name for a person, just a person of the class "Person".
+
+<|endoftext|>A Missouri woman who kept her newborn son in a small homemade cage for nine months was charged on Wednesday with homicide in the death of the child, who was born prematurely in December and weighed less than 2 pounds.
+
+Patricia Hunt, 48, told police that she and her husband held the boy when he was born, placing his hand around her arm, then eventually moved him into a box she’d constructed out of an old chest for sleeping in and a mattress they laid across a box.
+
+The boy, who was never baptized or christened, was first taken to a hospital where doctors failed to discover the child’s condition.
+
+“He was born full-term,” his maternal grandfather told KSDK-TV in St. Louis. “He was put in that box for nine months because she wanted to raise him in the only way she knew.”
+
+Hunt’s husband, Fred Hunt,
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, surname, age):
+        self.name = name
+        self.surname = surname
+        self.age = age
+    def getName(self):
+        return self.name
+    def getSurname(self):
+        return self.surname
+    def getAge(self):
+        return self.age
+
+def main():
+    """Main function that contains the logic of the program"""
+    people = ['Mariano','Jorge','Angel']
+    name_surname_age = input("Enter the name, surname and age of a person (ie. Maria Garcia: 30: 100): ")
+    person = Person(name_surname_age, name_surname_age, name_surname_age)
+    print("Name: " + person.getName() + " " + "Surname: " + person.getSurname() + " " + "Age: " + person.getAge())
+
+if __name__ == "__main__":
+    main()
+
+I tried several solutions, such as putting a parentheses after the input()  but I get an AttributeError "setter" "()" for class "Person".
+So the problem is that this string "name_surname_age" that is in the main function takes values from the input but then I can not add it to the person object. I also tried giving a value to the attribute of the person, so it would become an int instead of a string but with no luck. I would like to know what is the correct way of doing this and also a way to make it work using tuples.
+
+A:
+
+The problem is, input returns a string, not a tuple.
+>>> name_surname_age = input("Enter the name, surname and age of a person (ie. Maria Garcia: 30: 100): ")
+Enter the name, surname and age of a person (ie. Maria Garcia: 30: 100): 'Maria Garcia: 30: 100'
+>>> name_
+====================
+class Person:
+    """A class used to represent a person"""
+    name = None
+    age = None
+
+    def __init__(self, name, age):
+        """__init__ will initialise all the class attributes as required
+        and will set the default value to 0"""
+        self.name = name
+        self.age = age
+
+    def age_getter(self):
+        """The age_getter method of the class is used to return the age"""
+        return self.age
+
+    def name_getter(self):
+        """The name_getter method of the class is used to return the name"""
+        return self.name
+
+Given this class, when we use the following code:
+import datetime
+now = datetime.datetime.now()
+
+surname = "Finger"
+age = 20
+person = Person(name=surname, age=age)
+print(person)
+
+>>> {'name': 'Finger', 'age': 20}
+
+person.age_getter()
+
+>>> 20
+
+surname_getter()
+
+>>> Finger
+
+So, it is possible to get the values of variables, attributes, methods and properties using the following codes:
+# Variable
+>>> my_var = 10
+>>> my_var_getter = my_var.age_getter
+>>> my_var_getter()
+
+# Attribute
+>>> my_attr = 20
+>>> my_attr.name_getter
+>>> my_attr.name_getter()
+
+# Methods
+>>> my_method_getter = my_method.age_getter
+>>> my_method_getter()
+>>> 20
+
+# Properties
+>>> my_property = {'name': 'Finger', 'age': 20}
+>>> my_property_getter = my_property.age_getter
+>>> my_property_getter()
+>>> 20
+
+I would like to ask whether you have any idea how to implement this.
+Please give me your suggestions.
+
+A:
+
+From what you describe, you want a class
+====================
+class Person:
+    """A class used to represent a person"""
+    pass
+
+def get_person(person_id):
+    """return a specific person"""
+    # if it's a find() then you can query the db for a specific ID
+    if person_id == person_id_find():
+        # query the db for the first matching ID
+        return db_find(Person, person_id)
+    # there's a probablly better way to do this
+    else:
+        raise Error('no such person')
+
+Then if you wish to perform queries against the objects, just call the method and pass in the id:
+def find_person_by_name(name):
+    """query the db for a person by name"""
+    p = get_person(name)
+    return p
+
+get_person_by_name(name)
+
+<|endoftext|>Saturday, 22 February 2017
+
+Viva Records - Glasgow
+
+It's the day of the first Nottingham Calf Meeting, the last event for the remainder of the shetland year. I'm tied in with the fortnight long festival, so I'm here at a hen party for my work colleagues, the remit being to see them safe home and avoid being arrested. I get a lift with my Scottish boss, Karen. She is absolutely hilarious, and she can put on a perfect Scottish accent, which is something you should see. However, I got this picture of her and the two guys in the front, and Karen is not wearing heels. This only serves to make my drunken brain explode.
+
+Viva Records opened its doors in 1968 in Glasgow and became Glasgow's premier indie venue, building its reputation through the 70s and 80s. In fact, most of the acts who made their name on the Glasgow scene worked their way into international status through Viva Records, through either British gigs or world tours.
+
+Karen's husband does a podcast on Glasgow's music scene, so when he does a 10 min update to go with the Calf Meeting the band played for the album they recorded with Big Kenny Sheehy, "The Melody Side of Glasgow", we realised that Viva's records might just have some real gems on them. At that time they were still releasing vinyl and selling through record stores, and I hadn't really heard of
+====================
+class Person:
+    """A class used to represent a person"""
+
+    class Meta:
+        pass
+
+    def __init__(self, name, age, gender, email):
+        self.name = name
+        self.age = age
+        self.gender = gender
+        self.email = email
+
+    def save(self):
+        """Save this person"""
+        Person.objects.create(name=self.name, age=self.age, gender=self.gender, email=self.email)
+
+Let's create a class User as well to represent a logged in user,
+a user session should also be stored
+Here you can find the same exmaple.
+
+<|endoftext|>Sir Richard Beith, 1st Baronet
+
+Sir Richard Beith, 1st Baronet  (5 December 1766 – 28 January 1847) was a British Member of Parliament for Truro. He was the grandson of Richard Beith, and great-grandson of Beith of Midtyllion.
+
+In 1806 Beith inherited a large fortune from his uncle, which he was granted a baronetcy for in 1811.
+
+He was the brother of Lady Grace Murray, who was the wife of Thomas FitzMaurice, 2nd Duke of Londonderry. The couple married in March 1817. They had eight children, including Richard William John Beith, who succeeded him as 3rd baronet. Beith's son was Sir Richard William John Beith-Parry, 4th Baronet (1820-1873).
+
+Beith was given a knighthood in 1820. He was also awarded the Silver Tassie in 1831 and served as a Deputy Lieutenant of Cornwall from 1831 to 1843.
+
+References
+
+Further reading
+ 
+
+Category:1766 births
+Category:1847 deaths
+Category:Deputy Lieutenants of Cornwall
+Category:Baronets in the Baronetage of the United Kingdom
+Category:People from Cornwall
+Category:Members of the Parliament of the United Kingdom for constituencies in Cornwall
+Category:Members of the Parliament of the United Kingdom for English constituencies
+Category:UK MPs 1806–1807
+Category:UK MPs 1807–1812
+Category:UK MPs
+====================
+class Person:
+    """A class used to represent a person"""
+
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+
+    def display(self):
+        print ("The name is {}".format(self.name))
+        print ("The age is {}".format(self.age))
+
+    def __str__(self):
+        return f"A {self.name} of age {self.age}"
+
+Is the display() method just returning the self.name? So it doesn't print the self.age? If so, how do I make it print it, and use it to return the name?
+
+A:
+
+The python "print" statement evaluates its arguments before it prints the value of them.  This is why
+print ("The name is {}".format(self.name))
+
+does not print the value of self.name.  Change the print statement to
+print("The name is {}".format(self.name), self.age)
+
+That will print the self.name value and also print the self.age value, which will be useful if you want to do something like this
+for person in persons:
+    print("Person %s has %s" % (person.name, person.age))
+
+You could also accomplish the same thing by using the in operator to determine if an object has a certain property like this:
+for person in persons:
+    if person.age > 40:
+        print("Person %s is older than 40" % (person.name))
+
+A:
+
+The print statement itself returns None. You'll need to explicitly call your desired function when you call the print.
+Change
+print ("The name is {}".format(self.name))
+
+to
+print("The name is {}".format(self.name), self.age)
+
+It would be a good idea to use a list comprehension instead of looping over the collection. It's more efficient and readable.
+print("".join(["{} is {}".format(p.name, p.age) for p in persons]))
+
+Also, you can use the % operator to print out a formatted string,
+====================
+class Person:
+    """A class used to represent a person"""
+
+    __identity = ''
+    __gender = 'Female'
+
+    def __init__(self, name, gender):
+        self.__name = name
+        self.__gender = gender
+
+    def __eq__(self, other):
+        return self.__name == other.__name
+
+    def __hash__(self):
+        return self.__name.__hash__()
+
+def get_person(person_name):
+    """
+    Gets a person from a name
+
+    The returned object is a new instance of the Person class
+    """
+    return Person(person_name)
+
+def main():
+    """Entry point to main program"""
+    # create a new person
+    person = get_person('Donald Trump')
+
+    # check if the person is of a certain gender
+    if person.__gender == 'Male':
+        print("%s is a male" % person.__identity)
+    elif person.__gender == 'Female':
+        print("%s is a female" % person.__identity)
+
+    # set a gender
+    person.__gender = 'Male'
+    print(person.__gender)
+
+    # get person name
+    print(person.__name)
+
+    # check for gender equality
+    if person.__gender == 'Female':
+        print("%s is a male" % person.__identity)
+
+main()
+
+A:
+
+When I run the script I get the following output.
+Donald Trump is a female
+
+That is because.__gender is a property and it does not have an __eq__() method. When it is defined, it's stored in a data structure, which is shared by all objects of that type, so person.__gender is itself "female".
+If I make it a class variable the output will be:
+Donald Trump is a female
+Donald Trump is a male
+
+which is what
+====================
+class Person:
+    """A class used to represent a person"""
+    pass
+
+def determine_distance(start, end):
+    """Determine distance between start and end
+
+    Returns None if not given
+    """
+    pass
+
+def find_min(list):
+    """Find the minimum item in a list. 
+    Returns None if no list is given"""
+    pass
+
+class ArcDistance(BaseClass):
+    """This class uses K-nearest neighbor and a math formula to calculate a distance between start and end
+    Both an error and a solution will be returned"""
+    def __init__(self, _distance, start, end, error_dist, solution):
+        # calling parent classes __init__ to setup values of object
+        BaseClass.__init__(self)
+        # values to be sent to parent classes
+        self._distance = _distance
+        self._start = start
+        self._end = end
+        self._error_dist = error_dist
+        self._solution = solution
+        # initialize values of class
+        self._distance_to_end = float(self._distance) * 2
+        self._error_dist = float(self._error_dist)
+        self._start = float(self._start)
+        self._end = float(self._end)
+
+    def calculate(self):
+        """
+        Calculate the distance between the start and end points.
+        """
+        return self._distance_to_end
+
+    def get_distances(self):
+        """Return the distance between each point and both the end and start points"""
+        return [(self._distance_to_end, self._end), (self._distance_to_start, self._start)]
+
+
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, age, hair):
+        self.name = name
+        self.age = age
+        self.hair = hair
+
+D = {
+    "name": "Jose",
+    "age": 42,
+    "hair": "blue",
+    "quotation": "\"I like Python\", says blue-haired Jose.\""
+    }
+
+R = {
+    "names": ["Jose", "Georgina"],
+    "ages": [42, 30],
+    "hairs": ["blue", "brown"],
+    "quotations": ["\"I like Python\", says blue-haired Jose.\"", "\"My cat loves Python\", says \nbrown-haired Georgina.\""]
+    }
+
+When a person, say Jose is born, I have to manually add the object in my json file, but is there a way where I can write code that automatically adds a Person object with the respective attributes?
+
+A:
+
+Use a Python class for your nested json format.
+Example:
+class person:
+      def __init__(self, name, age, hair):
+          self.name = name
+          self.age = age
+          self.hair = hair
+
+p = person("bob", 19, "red")
+json_data = json.dumps(p, sort_keys=True)
+
+#p.__dict__ will get you what you need
+dict(p.__dict__)
+{'hair':'red', 'name': 'bob', 'age': 19}
+
+#I think this one is what you want
+json_data["people"][0]
+{'age': 19, 'name': 'bob', 'hair':'red'}
+
+#Or
+json_data['people'][0]['age']
+19
+
+Now the json file will look like this:
+{
+    "people": [
+        {
+      
+====================
+class Person:
+    """A class used to represent a person"""
+
+    #: The birthdate of this person
+    birth_date: Date
+
+    #: The full name of this person (e.g. "Bill Smith")
+    full_name: str
+
+    #: The home address of this person (e.g. "1600 Adams Ave.")
+    address: str
+
+    #: The relationship of this person to another (e.g. "spouse")
+    relationship: str
+
+Example 6-4 defines a serializer class that uses the `request` and `request_extra` dictionaries to provide context. The dictionary value for the `request` parameter should be named `request_context` and consist of the `Client` object and the user ID (from a previous transaction or application) for the response to relate to. The `request_extra` dictionary allows you to include other context that you would like to return to the client. In the example here, the values for the extra parameters would be `"ClientID"` and the user ID, respectively.
+
+Example 6-4. A serializer using the request and request_extra parameters: logins.py
+
+    class PersonSerializer(serializers.Serializer):
+        full_name = serializers.CharField(min_length=1)
+        birth_date = serializers.DateField()
+        relationship = serializers.CharField(min_length=1)
+        address = serializers.CharField(min_length=1)
+
+        def create(self, validated_data):
+            # make sure the user exists and if not, return an error
+            person = Person.objects.get(
+                pk=validated_data.get("UserID", False),
+                user=self.context["client"])
+            if person is None:
+                return None
+   
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+And here is the class that contains both the class 'Person' and a method named calculateAge that should return the difference between two dates:
+class AgeCalculator:
+    def calculateAge(self):
+        """calculates the age of the person"""
+        now = time.localtime()
+        person1 = Person("Pete", 28)
+        person2 = Person("Bill", 26)
+        age = person1.age - person2.age
+        return age
+
+And here is the class which I'm trying to create that will accept the two values for the Person instances as a variable and create the appropriate subtraction method:
+class PersonInterpolation:
+    def __init__(self, person1, person2):
+        #what goes here?
+
+    def subtract(self, person1, person2):
+        #what goes here?
+
+    def __repr__(self):
+        return "<interpolator>"
+
+My problem is, I'm stuck as to what to put inside the two functions '__init__' and'subtract'. As you can see I'm trying to do something pretty simple but I'm quite new to Python and I'm confused with the whole class mechanism. I'm trying to return an instance of the 'PersonInterpolation' class using the print statement but it keeps returning an error. 
+Also, there's probably something really obvious I'm not seeing, so any sort of general advice on classes in Python would be great!
+Thanks in advance for the help.
+
+A:
+
+You can initialize it as follows:
+class PersonInterpolation(object):
+    def __init__(self, person1, person2):
+        self.person1 = person1
+        self.person2 = person2
+
+    def subtract(self, person1
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name):
+        self.name = name
+
+While working on a solution to the exercise, I came up with this code:
+def invert(word):
+    x = word[::-1]
+    return x.split("")
+
+def main():
+    s = raw_input("Please enter the sentence: ")
+    print invert(s.upper())
+
+if __name__ == '__main__':
+    main()
+
+I tried to debug the inversion part to see if it returns the original text in an inverted way, but it did not. How should I solve this exercise?
+
+A:
+
+def invert(word):
+    """
+    inverts word (modifies it)
+
+    >>> invert("ABC")
+    "CBA"
+    """
+    x = word[::-1]
+    return x.split("")
+
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name):
+        self.name = name
+
+def main():
+    s = raw_input("Please enter the sentence: ")
+    print invert(s.upper())
+
+if __name__ == '__main__':
+    main()
+
+<|endoftext|>[Community-acquired pneumonia in patients with chronic obstructive pulmonary disease: etiopathogenic profile].
+To identify etiopathogenic profile and predisposing factors in community-acquired pneumonia (CAP) in patients with chronic obstructive pulmonary disease (COPD). We reviewed 129 cases of CAP admitted to our hospital in 2010, all with a diagnosis of COPD. In all cases we evaluated the presence of smoking habit, occupation, seasonality, type of CAP and concomitant infectious diseases. An analysis of seasonal distribution of CAP was performed in non-smokers and smokers. The etiologic profile was established in 95% of cases and, out of these, Streptococcus pneumoniae was the main causative microorganism (33.8%). Nontypeable Streptococcus was more common in non-smokers (32.4%) than in smokers
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name):
+        self.name = name
+    def description(self):
+        """A description of the person"""
+        return self.name
+
+
+class City:
+    """A class used to represent a city"""
+    def __init__(self, city_name):
+        self.city_name = city_name
+    def area(self):
+        """A description of the city"""
+        return self.city_name
+
+
+class Restaurant:
+    """A class used to represent a restaurant"""
+    def __init__(self, name, city):
+        self.name = name
+        self.city = city
+
+    def description(self):
+        """A description of the restaurant"""
+        return self.name + ','+ self.city
+
+
+class Food(object):
+    """A class used to represent a food"""
+    def __init__(self, name):
+        self.name = name
+    def description(self):
+        """A description of the food"""
+        return self.name
+
+
+class Ingredients(object):
+    def __init__(self, name):
+        self.name = name
+    def description(self):
+        """A description of the ingredient"""
+        return self.name
+
+
+class Sauce(object):
+    def __init__(self, name):
+        self.name = name
+    def description(self):
+        """A description of the sauce"""
+        return self.name
+
+
+class MenuItem(object):
+    def __init__(self, name, ingredients, sauce):
+        self.name = name
+ 
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name):
+        self.name = name
+
+    def get_name(self):
+        return self.name
+
+And this is the class I need to initialize:
+import typing
+
+class Backpack(typing.NamedTuple):
+    """Representation of a backpack
+    Attributes:
+        items (list) - List of all items inside the backpack
+        total_weight (float) - Total weight of all items
+        total_height (float) - Total height of all items
+        first_item (Person) - First item
+    """
+    def __init__(self, items=None, total_weight=None, total_height=None, first_item=None):
+        self.items = items
+        self.total_weight = total_weight
+        self.total_height = total_height
+        self.first_item = first_item
+
+    def get_items(self):
+        return self.items
+
+    def get_total_weight(self):
+        return self.total_weight
+
+    def get_total_height(self):
+        return self.total_height
+
+    def get_first_item(self):
+        return self.first_item
+
+    def get_weight(self):
+        first_item = self.first_item
+
+        sum_weight = 0
+        for item in self.items:
+            sum_weight += item.get_weight()
+        return sum_weight
+
+And then I'm trying to create the object and initialize it with some values:
+from Person import Person
+
+b = Backpack(
+    items=[Person('John'), Person('Steve')],
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+def middle_name(first_name, last_name):
+    """Append the middle_name to the end of the first and last name"""
+    return first_name + " " + last_name
+
+def is_older(first_name, last_name, age):
+    """If the person's age is greater than a certain age return True
+    else return False"""
+    return age > 20
+
+def is_younger(first_name, last_name, age):
+    """If the person's age is greater than a certain age return True
+    else return False"""
+    return age < 40
+
+def number_of_great_grandchildren(first_name, last_name, age):
+    """If the person has more than a certain number of great grand children
+    return True else return False"""
+    return len(first_name + " " + last_name + ", " + first_name + " " + last_name + " III") > 6
+
+def middle_name_and_age(first_name, last_name):
+    """Return the person's middle name and age"""
+    return middle_name(first_name, last_name), age
+
+def format_string(first_name, last_name, age):
+    """Return a formatted string for display"""
+    return "{0} {1} is {2} years old".format(first_name, last_name, age)
+
+def return_formatted_string(first_name, last_name, age, message):
+    """Return a formatted string for display"""
+    return "{0} {1} is {2} years old, and the message is {3}".format(first_name, last_name, age, message)
+
+class ExampleClass():
+    def __init__(self):
+ 
+====================
+class Person:
+    """A class used to represent a person"""
+    def __init__(self, name, age, dob):
+        self.name = name
+        self.age = age
+        self.dob = dob
+        self.friends = set()
+
+    def set_friend(self, p):
+        self.friends.add(p)
+
+    def print_friends(self):
+        for person in self.friends:
+            print(person)
+
+    def print_name(self):
+        print("The Name is ", self.name)
+
+    def add_job(self, job):
+        self.jobs.add(job)
+
+    def print_jobs(self):
+        for job in self.jobs:
+            print(job)
+
+I don't know how to add a method to the person class to get a Person's friends from a list of People with a certain property.
+
+A:
+
+To access a Person's friends, you need to iterate over its Friends instance, like so:
+def get_friends_of(self, person):
+    for person_name in person.friends:
+        print(person_name)
+
+Then, given a person (say, "Bob"), you can run get_friends_of("Bob"). You can use it to find someone's friends as well:
+person.friends.add("Jane")
+
+Now you can simply query person.friends and it will give you a set of People you are friends with.
+
+<|endoftext|>List of Malawian musicians
+
+
+
+Guitarists
+Benon Giri
+Stephen Gwasawa
+Joseph Kamunyu
+Gloria Mwatha
+
+Saxophonists
+Henry Phiri
+Joseph Nyekunde
+Joseph Nyagumbo
+Marian Ndowo
+
+Keyboards
+Lester Lwande
+
+Bassists
+Kazutomo Kono
+Stephen Gwasawa
+
+Drummers
+Diane Magezi
+Arthur
+====================

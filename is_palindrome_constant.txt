@@ -1,0 +1,2146 @@
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    for c in s:
+        if c == s[0]:
+            return True
+    return False
+
+
+def check_against_card_list(filename):
+    """Verify a card against a file list"""
+    with open(filename) as f:
+        file_list = [line.rstrip().split('\t') for line in f.readlines()]
+    check_against_card_list_helper(file_list, filename)
+
+
+def check_against_card_list_helper(file_list, filename):
+    # do work with list of ints
+    with open(filename, 'r') as f:
+        file_list = list(map(int, f.readlines()))
+
+    # check against hand
+    ccs_in_hand = (
+        # first line has the card type
+        [x.split('\t')[0].strip() for x in file_list]
+    )
+    valid = (
+        # cards in hand are whitespace separated
+        [x.split('\t')[1].strip() for x in ccs_in_hand]
+    )
+    checked_out = (
+        # cards in deck are whitespace separated
+        [x.split('\t')[2].strip() for x in file_list]
+    )
+
+    # list of cards that aren't valid
+    non_valid = [
+        # card in deck is same as the second line
+        # lines have a space in between, the second line starts with a t
+        [x[0], x[1], x[2].strip()]
+        for x in ccs_in_hand
+    ]
+
+    # verify that none of the cards in
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    n = len(s)
+    res = 1
+    if n % 2:
+        res = 0
+    for i in range(n):
+        c1 = s[i]
+        c2 = s[n - i - 1]
+        if c1 > c2:
+            res = -res
+        elif c1 < c2:
+            res = res
+    return res
+
+I don't understand why you use a slice, instead of iterating over the string from right to left, and reversing the characters when comparing them.  If you are trying to iterate over the string from left to right then use reverse:
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    n = len(s)
+    res = 1
+    if n % 2:
+        res = 0
+    for i in range(n):
+        c1 = s[i]
+        c2 = s[n - i - 1]
+        if c1 > c2:
+            res = -res
+        elif c1 < c2:
+            res = res
+    return res
+
+For example,
+>>> is_palindrome("hello")
+1
+>>> is_palindrome("hello")
+1
+
+You are checking if two characters in a string are the same.
+
+A:
+
+They are checking if the string is a palindrome.
+
+For example, "ello" is a palindrome, because "e" "l" "o" and "l" "o" "e" are the same.
+
+This means "hello" is not a palindrome, since "hel" is not the same as "hello"
+
+To
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    x = len(s)
+    while True:
+        while s[0] == s[-1]:
+            if s[0] == "":
+                return True
+            s = s[1:]
+        s[0], s[-1] = s[-1], s[0]
+
+    return False
+
+a = 'aaaa'
+b = 'b'
+
+if a == b:
+    print "Yes"
+else:
+    print "No"
+
+UPDATE: Added a solution to be consistent with similar question...
+UPDATE 2: It has been pointed out to me in the comments that my idea does not work, because in a palindromic sequence, a sub-sequence of all 0s is followed by a sub-sequence of all 1s... However, this can be fixed by simply adding a check that the current length of the string is equal to the total length of the string (See @halabuyka's answer)
+UPDATE 3: @halabuyka answered this in a follow-up comment and it worked perfectly
+
+A:
+
+I've tried to solve it by iterating through the string and incrementing an int as it goes through.
+def is_palindrome(s):
+    global len_str
+    length = len(s)
+    for char in s:
+        i = len_str
+        while i < length:
+            if s[i] == char:
+                len_str = i + 1
+            i = i + 1
+
+    return len_str == length
+
+<|endoftext|>The King of Korn, a new survey of musical influences, found that metal has stolen Bruce Dickinson's soul.
+
+
+
+
+
+
+
+The new list of top 80 metal albums of all time includes Bruce Dickinson’s 1982 debut in at number 8. Other highlights include Judas Priest’s ‘
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    rev_s = s[::-1]
+    if len(s) == len(rev_s):
+        return True
+    for i in range(len(s)):
+        if s[i]!= rev_s[i]:
+            return False
+    return True
+
+if __name__ == "__main__":
+    input("Enter a string: ")
+    result = palindrome(input("> "))
+    print("{} is a palindrome".format(result))
+
+Example runs:
+Enter a string: The rain in spain falls mainly in the plain
+The rain in spain falls mainly in the plain is a palindrome
+
+A:
+
+You should make an iterative approach.    
+1. Create two empty lists one of indexes and the other for the elements.
+2. Starting from the first element compare it against the last element until you find its symmetry.
+3. Copy the element from the current index to the end of the second list (as long as there is a difference in the indexes)
+4. return that list.
+
+<|endoftext|>High-resolution flow-compensated single-shot spiral CT in a porcine heart model.
+To evaluate the feasibility of flow compensation with a single-shot spiral CT and the influence of different reconstruction algorithms on the accuracy of coronary artery diameter measurements. Flow compensation was performed with a Siemens Sensation 16-slice CT, and cine, single-slice, and flow compensation data sets were reconstructed with various weighting methods. A four-chamber reconstruction of the left ventricle was used for subsequent measurements of vessel diameters. High-resolution anatomic information, cine-derived mean contrast-enhanced arterial, and cine-derived mean contrast-enhanced venous flow was recorded in the right carotid artery. Intravenous injections were alternated with flush injections at three injection rates. The influence of various reconstructions on the measurement of coronary artery diameter was compared. Measurements were performed for 50 scans in the circumflex artery and for 47 scans in the right coronary artery. The influence of flow compensation on vessel diameter was quantified. No significant differences in coronary artery diameter were found. Sensitivity of flow
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    size = len(s)
+    s_left = ""
+    s_right = ""
+    s_left = [_char for _char in s]
+    s_right = [_char for _char in s]
+    return s_left == s_right
+<|endoftext|>Big 5 on CD
+
+Description
+
+Previously released as the flagship title in the Sound Tales series, Big 5 on CD brings you ten big hits from the complete B5-EV series of ten pop and rock albums. Each album has been compiled from the classic ground and stems mix mastered by the master himself, Ron Hall. If you are a classic radio DJ, musician, or performer, then you owe it to yourself to own the B5-EV series on CD. Record-buyers should be well-advised to also add the 10-in-1 Jukebox Collection to their CD libraries as well.<|endoftext|>Radial PTT In Femoral and Tibial Periphery.
+A combination of pulsed ultrasound and magnetic fields for controlled drug release was developed as an alternative for permanent pacemaker. Our device is based on our PTT (Photoacoustic Therapeutics) platform, which has been proven in the last years as an effective technique for minimally invasive drug delivery. As this system uses only laser-based heating, no external electrical field is applied. However, it has been shown that, due to the high conductivity of the human body, this system is very effective even at high frequencies (20 MHz). An in vitro and in vivo evaluation in a rodent model was conducted. Magnetic nanoparticles were loaded with a drug (hydroxy-azobenzene), which was then released after application of the ultrasound beam in a controlled way. An initial therapeutic effect, demonstrated in a sham-operated rats group, and a dose dependent radioprotection were shown in a rodent model that received single doses of up to 4 W/cm2 in the leg. The in vivo study also included radiography and micro-CT scans to investigate the mechanical damage to the tissue and to the bone and other organs.<|endoftext|>                                                                 
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    if len(s) <= 1:
+        return s == s[::-1]
+    else:
+        return s[::-1] == s
+
+with open("palindrome.txt", "w") as f:
+    for line in f:
+        print(is_palindrome(line))
+
+I need to compute the palindrome length. After googling, I found an even faster way to check palindrome in python:
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    for p in s[::-1]:
+        if p == s[0]:
+            return False
+    return True
+
+with open("palindrome.txt", "w") as f:
+    for line in f:
+        print(is_palindrome(line))
+
+And the palindrome is 0 to palindromeLength if no palindrome, otherwise, palindromeLength
+I have seen similar question. Does anyone have better solution for this? 
+Edit:
+The language is not required to be python and any other languages like C, C++, c, python would do fine
+The implementation using fmap is in this post and will be very efficient.
+
+A:
+
+Although OP already found an even faster way to do the check by reversing the string, and it seems to be much more efficient than trying to find the index of the first character in the reversed string. But instead of finding the palindrome's length, I think, a more simple solution, I can provide here:
+If you are given the file having palindromes, and you want to output each palindrome's length and the number of palindromes. If you want to get rid of the file, then don't use with open() because there's no need to close it.
+with open("palindrome.txt", "r") as f:
+    for line in f:
+        print(line.split(" ")[-1]) # pal
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    s = str(s)
+    if s[::-1] == s:
+        return True
+    return False
+
+
+def downcase_sort(alist):
+    """Sort list of strs in downcase.
+    Returns the list in the sorted order of downcase.
+    """
+    if len(alist) > 1:
+        alist = [x.lower() for x in alist]
+        return sorted(alist)
+    return alist
+
+
+def vowel_sort(alist):
+    """Sort list of strs in sorted order of vowels.
+    Returns the list in the sorted order of vowels.
+    """
+    if len(alist) > 1:
+        alist = [x for x in alist if x in ('a', 'e', 'i', 'o', 'u')]
+        return sorted(alist)
+    return alist
+
+
+def accept_str(command):
+    """Prompt for a line and catch whatever the user inputs.
+    """
+    try:
+        user_input = input(command + '> ')
+    except EOFError:
+        print("EOFError")
+        return None
+    return user_input.rstrip()
+
+
+def load_commands(command_file):
+    """Takes a list of commands from a file and returns a list of lists.
+    Each command is a list of commands. For example:
+        "one two three"
+    Would return:
+        [['one', 'two', 'three'], ['one', 'two', 'three']]
+    """
+    return [[word for word in row.split() if word!= '']
+            for row in command_file.read().splitlines()]
+
+
+def load_inputs(input_file
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    a = s.lower()
+    b = a.rstrip('_')
+    return a == b
+
+This is an exercise from Cracking the coding interview. I am confused on how he created this function. Could someone please help me out?
+
+A:
+
+Before explaining, a little clarification first.
+Consider the string "ccccc" for example. It is a palindrome but not necessarily a palindrome in constant time. For example, take this string:
+s = 'abcdcbc'
+
+In Python, there is no such method as str.rstrip. So, we need to use a regular expression to do this task:
+import re
+s = 'abcdcbc'
+result = re.search(r'(\w)', s).group(0)
+
+The search() method from re returns a match object. Now, we take the first group(0) of that match object, which is the whole string that was matched:
+>>> re.search(r'(\w)', 'abcdef')
+<_sre.SRE_Match object at 0x04B8A300>
+>>> result
+'abcdef'
+
+Next, we match the string again against the regular expression with.rstrip('_') to get rid of the last _, which will make the string palindrome:
+>>> 'abcdef'.rstrip('_')
+'abcdef'
+
+The advantage of using a regular expression is that Python provides a powerful and standard library that we can reuse for various string-related tasks. So, in this case, instead of creating a method that strips the last _ of every string, we can simply create a custom re.sub() method. Here is an example:
+import re
+
+def rstrip_from_back(match, value):
+    return match.group(0).rstrip(value)
+
+s = "abcdcbc"
+print("s:", s)
+print("match:", rstrip_from_back(re.search(r'(\w)', s), '_'))
+print("result:", rstrip_from_back(re.search(r'(\w)', s), '_'))
+
+We first import re and create a custom method named rstrip_from_back() that takes a
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return len(s) == 0 or s[::-1] == s[:-1]
+
+def get_unique_cars(cars):
+    """Get a unique, sorted list of the cars"""
+    non_duplicates = [car for car in cars if car.number not in set(map(get_unique_cars, cars))]
+    non_duplicates.sort()
+    return non_duplicates
+
+def is_valid_car(s):
+    """Validate whether a string is a valid car number"""
+    for i in range(len(s) - 1, 0, -1):
+        if s[i]!= '1':
+            return False
+    return True
+
+def get_prefer_palindrome(s):
+    """Get a palindrome number from a string"""
+    # gets an integer in the range [0, len(s) / 2] for which we can not
+    # make a palindrome, which is represented by the number len(s) / 2
+    palindromes = [0 for x in range(len(s) - 1, 0, -1)]
+    palindromes[len(s) / 2] = 1
+    for i in range(len(s) - 1, 0, -1):
+        if not is_palindrome(s[i]):
+            palindromes[i] = 1
+    return palindromes
+
+def get_prefer_palindrome_sort(s):
+    """Get a sorted list of palindromes for a given string"""
+    return get_unique_cars(get_prefer_palindrome(s))
+
+def is_preferred_palindrome(s):
+    """Check whether a string is a preferred palindrome"""
+    if len(s) == 0:
+        return False
+    preferred = []
+    for i in range
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s == s[::-1]
+
+The value-propagation algorithm also creates a tree data structure for
+each string.  The algorithm basically creates a tree, that connects all the
+ranges that are non-empty or in the reverse complement of each other.
+It is evident that the tree data structure represents the equivalent
+of the original recursive tree.
+In the sub-tree, each node represents a number that are either not
+palindrome or their value is multiplied by 2.
+
+import numpy as np
+import string
+
+# Build string to the right length for use with pythons string's is_palindrome()
+str = 'yall'
+n = len(str)
+
+# Build the set of ranges
+ranges = set()
+# The following loop for each string is just to fill up space.
+for i in range(2, n + 1):
+    if i % 2 == 0:
+        ranges.add(string.digits)
+    if i % 3 == 0:
+        ranges.add('..' + string.digits)
+    if i % 5 == 0:
+        ranges.add(string.digits + string.digits)
+
+def is_palindrome(s):
+    # Check for empty string
+    if len(s) == 0:
+        return True
+
+    # Get the minimum range of the current string
+    r = s[0]
+
+    # For all the values, from the start to the end inclusive
+    for i in range(1, len(s)):
+        # Get the next range, or do nothing
+        v = s[i]
+        if i > 0:
+            # If the range is '...'
+            v = v + v
+        if is_palindrome(v):
+            # If the range is '..'
+      
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return len(s) == 1 or s[::-1] == s
+
+
+def to_int(s, base=10):
+    """Convert string to a positive integer in the given base"""
+    if base < 2:
+        return 0
+    try:
+        return int(s, base)
+    except ValueError:
+        return 0
+
+
+def int_digits(s):
+    """A list of all digits in a string"""
+    digits = []
+    while s:
+        digits.append(int(s, 10))
+        s = s.lstrip('0')
+    return digits
+
+
+def cmp_digits(s1, s2):
+    """A list of strings with the same digits as the two strings are sorted"""
+    a, b = map(to_int, int_digits(s1), int_digits(s2))
+    return sorted(zip(a, b), reverse=True) == list(zip(a, b))
+
+
+def reverse(s):
+    """Return a string reversed string"""
+    return s[::-1] if is_palindrome(s) else s
+
+
+def i_bits(s):
+    """Return an integer that has the same bits as the string"""
+    try:
+        bits = len(bin(to_int(s))) - 1
+    except ValueError:
+        return 0
+    if not s:
+        return bits
+    for i in xrange(bits):
+        if s[i]!= 0:
+            return to_int(s) << i
+        s = s[::-1]
+    return 0
+
+
+def hex(s):
+    """Return a hex string of a binary number"""
+    if not s or not s.l
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    n = len(s)
+    m = len(s[::-1])
+    return n == m and s == s[::-1]
+
+If you want to check this only once per word, don't call this function directly from your word list, but just test the result.
+>>> palindromes = []
+>>> for w in word_list:
+...     palindromes.append(is_palindrome(w))
+... 
+>>> palindromes
+[True, False, False, False, True, True, True, False, True, False, False]
+>>> [all(i) for i in palindromes]
+[True, True, True, False, False, False, False, False, False, True, False]
+
+Instead of using any, I'd recommend using a standard library function like set or frozenset, which has hash and equality checks. 
+
+<|endoftext|>Honolulu Mayor Kirk Caldwell's city council will soon consider legislation which would reinstate the Hawaiian language to students in public schools, as part of a plan to offer what would be a novel kind of education for the small minority.
+
+The bill, titled "Honolulu City Council Resolution 11-167," is a compromise between language activists and education advocates. The activists had been pushing for the return of Hawaiian-language immersion programs, while the advocates wanted a more gradual strategy.
+
+The key idea in the bill, however, is simple: the new Hawaiian curriculum would be taught in-class by trained native Hawaiian teachers, not by specialist teachers from out of state. The schools would then be required to report to the state on the achievement of native Hawaiian students.
+
+Honolulu's Hawaiian language is rarely studied in school, but the language's resurgence is something of an urban legend. The 1894 Board of Education did mandate the teaching of the language in elementary schools. But after the Great Depression, funding was cut.
+
+Hawaiian-language immersion programs did appear briefly in the early 1970s, under the Kamehameha Schools. Today, there are currently about 1,000 children in pre-K through 12th grade in such programs, according to the language advocacy group, Our Island Our Language.
+
+Honolulu School Board President Kaya Henderson noted that even though the bill would restore the language for some students, there are many more students still learning solely in
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s == s[::-1]
+
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s == s[::-1]
+
+A:
+
+Вариант без использования оператора присваивания функции.
+def is_palindrome(s):
+    return s[::-1] == s
+
+Можно ещё пользоваться битовым оператором:
+def is_palindrome(s):
+    return s[::-1] == s
+
+<|endoftext|>/*
+ * reserved comment block
+ * DO NOT REMOVE OR ALTER!
+ */
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.sun.org.apache.xml.internal.utils;
+
+/**
+ * A simple class to represent the parsed XML into tree.  It is
+ * also a common base class for implementing SAX events.
+ *
+ * @see XSLT
+ * @xsl.usage general
+ */
+public abstract class XMLTree
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    # reversed = reversed(s)
+    # return s == reversed
+    return s[::-1] == s
+    
+def palindrome_abab(s):
+    """
+        if 'abab' == s:
+            return False
+        else:
+            if len(s) % 2:
+                return False
+            else:
+                return True
+    """
+    return is_palindrome(s)
+<|endoftext|>Q:
+
+Error C2064 - LNK1112
+
+I'm trying to compile "Pragmatic Programmers in C", and I have this error:
+/usr/lib/gcc/i686-pc-mingw32/4.8.2/../../../lib/crt1.o:crt1.c:(.text+0x20): undefined reference to `WinMain@16'
+/usr/lib/gcc/i686-pc-mingw32/4.8.2/../../../lib/crt1.o:crt1.c:(.text+0x20): relocation truncated to fit: R_X86_64_PC32 against undefined symbol `WinMain@16'
+collect2: error: ld returned 1 exit status
+
+My gcc version is 4.8.2 and my os is windows 7.
+My configuration is:
+g++ -Lc:/libs/pragmatists/CMakeFiles/ -Lc:/mingw/libs/libstdc++-6.dll -Lc:/mingw/libs/libgcc_s_sjlj-1.dll -lmingw32 -lmingw32 -lgcc -lstdc++ -lgcc_s -lgcc -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lcomdlg32 -ladvapi32 -lws2_32 -
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s == s[::-1]
+
+
+# from https://wiki.python.org/moin/GlobalInterpreterLock
+
+# An example illustrating how GIL may be used to provide concurrency.
+#
+# Imagine we had a language in which it is a fatal error to execute
+# one instruction more than once, such as the old assembly language
+# of the PC.  (We can extend this example to different instruction sets,
+# and even for subroutines calling each other.)
+
+# One way to deal with such a language is to have a global lock.
+# (You may have an inner interpreter loop that runs one instruction at a time
+# to simulate the concurrency, but there is no locking required to simulate
+# the above-described language.)
+
+# Note that if we want to create multiple threads, we have to replace
+# the use of GIL with a loop around the threaded subroutine that locks.
+#
+# Note also that the use of GIL by PyPy introduces a fatal problem:
+# PyPy's fork/join model and GIL are fundamentally incompatible,
+# since GIL prevents fork() from yielding immediately.
+
+
+class Hold():
+
+    def __init__(self):
+        pass
+
+    def acquire(self, n=1):
+        """Acquire the given number of instructions in this interpreter.
+
+        This should be called from the interpreter's interpreter loop,
+        not from an outside thread.
+
+        @raise HoldExc: when a second thread tries to acquire this interpreter.
+        """
+        pass
+
+    def release(self, n=1):
+        """Release the given number of instructions from the interpreter.
+
+        This should be called from the interpreter's interpreter loop,
+        not from an outside thread.
+
+        @raise HoldExc: when a second thread tries to acquire this interpreter.
+        """
+        pass
+
+    def release_none(self):
+      
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    length = len(s)
+    mid = length//2
+
+    #
+    #  Every step of the algorithm
+    #
+    for i in range(mid):
+        if s[i]!= s[mid-i]:
+            return False
+
+    #
+    #  Check the middle
+    #
+    return s[length-1] == s[0]
+
+A:
+
+How about this?
+def is_palindrome(s):
+    if len(s)!= len(s[::-1]):
+        return False
+    else:
+        return s == s[::-1]
+
+This runs in constant time. It compares the original and reversed versions of the string and if they are different it returns False. If they are equal it checks if the string is the same as itself by checking to see if it starts at the end of the reversed string. 
+So far it checks if the lengths of the string and its reversal are equal. Since they are equal, I am sure the values are equal too. I am not sure whether the idea of using the reversed string's length to compare with the original string's length is correct or not. If you don't like the answer change the first line of the function to the following:
+if len(s)!= len(s[::-1]):
+
+The test above will return False if either of the strings' lengths is not a multiple of 2, so, if s[::-1] changes the value of the first character. A simple check against int(s[::-1]) will prevent this.
+As you said, there is no need to sort the string in advance.
+Note: I assume that we can guarantee that the reversed string's length is at least as long as the original string.
+
+A:
+
+a = "hello world"
+b = "dlrow olleh"
+
+p = [e[::-1] for e in (a,b)]
+p == ["dlrow olleh", "dlrow olleh"] #true
+
+or to check on 1D arrays:
+a = [1
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    # Not efficient but simple.  A palindrome is always in reversed order.
+    first_half = reversed(s[:len(s)/2])
+    second_half = reversed(s[len(first_half):])
+    return first_half == second_half
+
+def list_palindromes(s):
+    """Return a list of all palindromes in the string"""
+    palindromes = []
+    for pal in palindromes_in_string(s):
+        palindrome = pal[0]
+        palindromes.append(palindrome)
+    return palindromes
+
+A:
+
+This code is not O(n), there are more then one palindrome in each string, because of how you handle dashes and other characters.
+def palindromes_in_string(s):
+    """Return a list of all palindromes in the string"""
+    palindromes = []
+    for x in s:
+        palindrome = x[0]
+        if palindrome == x[-1]:
+            palindrome = "".join(palindrome)
+        if palindrome == x:
+            palindromes.append(palindrome)
+    return palindromes
+
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    palindromes = palindromes_in_string(s)
+    if len(s) % 2 == 0:
+        palindromes.append("")
+    return all(len(x) == len(s) // 2 for x in palindromes)
+
+print is_palindrome('spam-spam-spam')
+
+returns:
+True
+
+You need the if len(s) % 2 ==
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s == s[::-1]
+
+
+class Palindrome():
+    def __init__(self):
+        """
+        Create an empty palindrome object.
+        """
+        self.score = 0
+        self.sum = 0
+        self.words = []
+
+    def get_num_words(self):
+        """
+        Get the number of words in the string.
+        """
+        return len(self.words)
+
+    def is_valid(self):
+        """
+        Check whether the string is a valid palindrome.
+        """
+        if len(self.words) == 1:
+            self.score += 2
+        elif len(self.words) == 0:
+            self.score += 1
+        else:
+            for word in self.words:
+                is_palindrome = is_palindrome(word)
+                if not is_palindrome:
+                    self.score += 1
+        return self.score >= self.get_num_words()
+
+    def __str__(self):
+        """
+        Return the score of the string.
+        """
+        return 'Score: %d' % self.score
+
+    def __repr__(self):
+        """
+        Return the string representation of
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    a = s[::-1]
+    if a == s:
+        return True
+    elif a == s[-1]:
+        return True
+    return False
+
+class Solution:
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        s = s.lower()
+        if len(s) == 1:
+            return True
+        else:
+            for i in range(1, len(s) - 1, 2):
+                if s[i]!= s[-i]:
+                    return False
+            return True
+
+if __name__ == '__main__':
+    assert Solution().isPalindrome('palindrome')
+    assert Solution().isPalindrome('palindrome')
+    assert Solution().isPalindrome('palindrome')
+    assert Solution().isPalindrome('palindrome')
+
+<|endoftext|>Henry de Baudricourt
+
+Henry Louis de Baudricourt  (7 August 1819 – 8 May 1886) was a French Baron and member of the noble family of Baudricourt, who became Prince de Baudricourt in 1856, when his father Louis Eugène Adrien de Baudricourt became the Prince de Broglie.
+
+Family
+Henry Louis de Baudricourt was born on 7 August 1819 in Baudricourt, Ardennes, son of Louis Eugène Adrien de Baudricourt and his wife Victoire Félicité de Fontenay.
+
+He was second cousin of his father's brother, Charles Lucien de Baudricourt, the famous banker.
+
+Career
+A Captain in the navy
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    s = s.lower()
+    n = len(s)
+    return n == 1 or s[n-1] == s[-1]
+
+The time complexity of my solution is O(n).
+
+A:
+
+The running time of your solution is indeed O(n), for the following reason: In each iteration, your inner loop iterates n-1 times, and each of those loops runs in O(n) time, giving a total running time of O(n^2).
+
+<|endoftext|>[Treatment of acetabular fractures with Essex system].
+We have used the Essex system to treat 21 acetabular fractures and assess the complications and efficacy of this system. Essex system provides three kinds of stabilizations in acetabular fracture. Among the 21 patients, 19 were operated upon by Essex system. One patient with iliac wing fracture was treated by iliofemoral nail. In one patient, Essex system could not be applied because of acetabular body comminution. Postoperative complication rate was 19.1% in the post-traumatic arthritis group and 10.5% in the non-arthritis group. Although the number of patients treated by Essex system is small and complications were high, Essex system appears to be useful as an alternative treatment for acetabular fractures.<|endoftext|>Q:
+
+Удаление коллекций из xml
+
+Есть у меня приложение которое загружает данные из xml файла.
+Он загружает огромные коллекции при помощи LINQ.
+Xml коллекция мне не нравится. Как я могу отфильтровать данные из коллекций и �
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    end = len(s) - 1
+    i = 0
+    while i < end:
+        if s[i]!= s[end - i]:
+            return False
+        i += 1
+    return True
+
+# String
+def print_palindrome(s):
+    """Print a string if it is a palindrome."""
+    if is_palindrome(s):
+        print(s)
+    else:
+        print('Not a palindrome')
+
+# Generate an infinite list of palindromes
+l = []
+i = 0
+while i < 1000:
+    l.append(str(i))
+    i += 1
+
+print_palindrome(l)
+
+<|endoftext|>Giveaway: Sano Saiko Founder Barley the baby rabbit
+
+Sano Saiko is the founder of “BARLEY” the cute and cuddly Bunny Rabbit which is available in soft toy versions.
+
+BARLEY is the cutest animal toy that will bring smiles to little kids. This bunny is very soft, comfy and cuddly. If you don’t know, Sano Saiko has 3 channels of “BARLEY” bunny toys on YouTube with millions of views. BARLEY is a top 20 animal toy toys on Hotai Toy’s “Toy Toy/TV Toy/Kid Toy Shop” list.
+
+I have been given BARLEY the baby bunny toy by Sano Saiko to give away.
+
+BARLEY is also available in home version that can be plugged into a bathtub or any other water resistant or waterproof outlet.
+
+“BARLEY” the baby bunny rabbit is available in soft toy versions and the home versions.
+
+How to enter? The more ways the better!
+
+#1: Tell me what you think about BARLEY the baby rabbit. I will be giving away 5 BARLEY soft toy bunny rabbit and one BARLEY home version.
+
+#2: Follow me on Pinterest, Twitter and Google Plus. These is just my social media accounts that I follow. You don’t need to follow me
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    pal_flag = 0
+    for i in range(0, len(s) - 1):
+        if s[i]!= s[-i - 1]:
+            pal_flag = 1
+    return pal_flag == 1
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+<|endoftext|>Q:
+
+Populate UIPickerView with multiple arrays
+
+I am creating a multiple screen application, but I have a problem with the data I get from an API. I use four arrays to get the data. 
+This is the code for fetching the data:
+func fetchData(){
+    if dataCache == nil {
+        dataCache = NSMutableDictionary()
+    }
+
+    if array1 == nil {
+        array1 = NSMutableArray()
+    }
+
+    if array2 == nil {
+        array2 = NSMutableArray()
+    }
+
+    if array3 == nil {
+        array3 = NSMutableArray()
+    }
+
+    if array4 == nil {
+        array4 = NSMutableArray()
+    }
+
+    var request = NSMutableURLRequest(URL: NSURL(string: urlBase)!)
+    request.HTTPMethod = "POST"
+
+    let session = NSURLSession.sharedSession()
+    request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
+
+    // Check for a cached response.
+    var cachedData = dataCache.objectForKey("Value") as! NSData
+    if cachedData!= nil {
+        request.data = cachedData
+        dataCache = nil
+        return
+    }
+
+    var response = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    if len(s) == 1:
+        return s == s[::-1]
+    else:
+        return s[::-1] == s
+
+
+class BasicBlocks(object):
+    """A basic block is simply a list of instructions.
+    The class is mainly intended for testing and for visualization
+    purposes.
+    """
+
+    def __init__(self, instructions):
+        self.instructions = list(instructions)
+
+    def contains(self, instruction):
+        """Return whether the specified instruction occurs
+        within this basic block"""
+        return self.instructions.index(instruction)!= -1
+
+    def insert(self, instruction):
+        """Insert a new instruction within the basic block.
+        Assumes there is room and that the basic block is sorted"""
+        assert len(self.instructions) >= 1
+        new_index = self.instructions.index(instruction) + 1
+        self.instructions.insert(new_index, instruction)
+
+    def index(self, instruction):
+        """Return the index of the specified instruction
+        in the basic block.  Returns -1 if the instruction
+        is not found in the block.
+        """
+        return self.instructions.index(instruction)
+
+    def remove(self, instruction):
+        """Remove the specified instruction from the basic block.
+        """
+        assert len(self.instructions) >= 1
+        new_index = self.instructions.index(instruction)
+        del self.instructions[new_index]
+
+
+class BasicBlockGraph(object):
+ 
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return sorted(s) == sorted(s, reverse=True)
+
+Here's the Vyper version:
+def is_palindrome(s):
+    # TODO: make the Vyper version better
+    return hash_copy(s)
+
+<|endoftext|>1. Field of the Invention
+The present invention relates to video processing systems. More specifically, the present invention relates to multi-format video decoding.
+2. Description of the Related Art
+In video decoding, various parts of a video frame may contain information about video formats. For example, each part of a video frame may contain information for a different video format, which can then be recognized and used by the video decoding engine. In another example, when a current frame being decoded is going to be the last frame in a series of frames, or a non-droppable (i.e., non-consecutive) frame, and no prior frame information is available, the frame may be encoded with information to indicate its format. An existing video decoding engine (e.g., a processor system) may be designed to decode a specific format (e.g., high definition (HD) format) for one or more parts of the frame (e.g., the I-pixels, and/or the P-pixels), and may also be able to decode the same format for one or more other parts of the frame (e.g., the B-pixels and/or the V-pixels). In this way, the video decoding engine may be able to recognize the format, and perform a decoding function for the video.
+However, when one or more portions of a frame (e.g., a portion of the I-pixels, a portion of the B-pixels, and/or the P-pixels) are encoded to a format, and one or more other portions of the frame (e.g., the V-pixels) are not encoded to that format, the existing video decoding engine cannot be used to decode the V-pixels. Thus, in order for the existing video decoding engine to perform a decoding function for the V-pixels, the video decoding engine must first decode the I-pixels (and/or P-pixels), and then re-encode the V-pixels into the correct format. In some applications, this may be impractical because of the time and/or cost involved in decoding
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s[::-1] == s
+
+
+def is_prime(x):
+    """Check whether a number is prime or not"""
+    if x < 2:
+        return False
+    if x % 2 == 0:
+        return False
+    if x % 2 == 1:
+        return True
+    count = x
+    x = x - 1
+    while x!= 1:
+        if x % 2 == 0:
+            return False
+        count += 1
+        x = x // 2
+    return count > 1
+
+
+def main():
+    """Main function"""
+    lines = []
+    total = 0
+    s = str(input("Enter a line of text, or type Ctrl+D to quit: "))
+    while s!= "q":
+        if is_palindrome(s):
+            total += 1
+            print("Yes, palindrome")
+        else:
+            if is_prime(int(s)):
+                print("Yes, prime")
+            else:
+                print("No, not prime")
+                lines.append(s)
+                total = 0
+                s = str(input("Enter a line of text, or type Ctrl+D to quit: "))
+        if s == "q":
+            print("Thanks for playing. Goodbye.")
+         
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+
+    i = len(s) // 2
+    if s[i]!= s[-i - 1]:
+        return False
+    else:
+        return True
+
+if __name__ == '__main__':
+    S = input("Input your string: ")
+    print(is_palindrome(S))
+
+<|endoftext|>_bytes = -1;
+    if(!cipher_mode) {
+      if(state_bytes >= 0) {
+        dest = state.bytes + (state_bytes * block_size);
+        remaining_bytes -= (block_size - state_bytes);
+        if(remaining_bytes < 0) {
+          remaining_bytes += state_bytes * block_size;
+        }
+      } else {
+        cipher_mode = cipher_init(cipher_type, key_bits, key_type);
+      }
+      if(cipher_mode) {
+        cipher_state = cipher_start(cipher_mode);
+        state_bytes = cipher_bytes(cipher_mode);
+      } else {
+        fprintf(stderr, "error: cannot initialize cipher %s\n", cipher_init_name);
+        exit(EXIT_FAILURE);
+      }
+    }
+
+    if(state_bytes >= 0) {
+      if(remaining_bytes < 0) {
+        remaining_bytes += (block_size - state_bytes);
+      }
+      state.bytes = &state_data[state_bytes * block_size];
+      memcpy(dest, state.bytes, remaining_bytes);
+    } else {
+      memcpy(
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+
+    s = s.strip()
+    for c in s:
+        if not c:
+            break
+        if s[c - 1]!= s[c - 2]:
+            return False
+    return True
+
+That takes about 1 second.
+Try to read this, or the documentation for the strip() function. It returns a string that only has one instance of each char.
+
+<|endoftext|>� to teach the vox populi to speak by controlling the cacophonous utterances of the people.”
+
+The “political discourse,” of course, is being perfected by capitalist society. It employs every trick in the book to prevent the honest identification of problems and what is to be done about them, so that we can all sleep better.
+
+We should oppose this great danger, but we cannot do it alone. We must all band together to reject lies and disinformation about what capitalism does, and what alternatives there are to it.<|endoftext|>Wasp mint
+
+Hippocrepis comata, also known as the wasp mint, is a species of flowering plant in the mint family, Lamiaceae, native to parts of South Africa. It is named for the honeydew-like secretions that the wasps use for making their nests on the leaves.
+
+It is cultivated for its minty leaves and fragrant flowers.
+
+References
+
+External links 
+Plantzafrica
+Plants for a Future
+
+Category:Lamiaceae
+Category:Medicinal plants
+Category:Flora of the Cape Provinces
+Category:Endemic flora of South Africa<|endoftext|>Image copyright AP Image caption The light snow fell in the capital, Islamabad
+
+Pakistan has warned travellers to beware of the "bogus " flying-ice risks in the country after apparently fake warnings issued for Wednesday.
+
+"Huge flock of migratory birds is about to attack Karachi airport" read the advisory on the Pakistan Tourism and Hotel Association's website.
+
+An emergency security meeting had been called to deal with the "panicky" public, it said.
+
+There has been a long history of warnings for Islamabad and Karachi being fake.
+
+Some warnings have been issued for unrealistic dates, while in 2014 the warning for Karachi turned out to be false
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    s = s[::-1] # last character should be reversed for a palindrome
+    return s == s[::-1]
+
+if __name__ == "__main__":
+    check = 100000000 # how many times you want to test it
+    for i in xrange(check):
+        print(is_palindrome(i))
+        
+<|endoftext|>Celebrity Gossip
+
+A while back we discussed whether 'Missy' fans will ever forgive her for marrying Riker. Are they going to take back that warm fuzzy feeling she gave them? Check out this e-mail I received:
+
+Missy -- I just had to write and tell you how excited I am that
+Riker and Missy are happy. When I first heard of your marriage, I
+thought, "This is going to make my Missy fan day". I've heard Missy
+go to conventions all over the world and of course I get to see her
+in person here in the Los Angeles area. Missy's fan club (yes I have
+one) loved her with a passion and I will miss her dearly. But I will
+still watch the TNG reunion and Missy and Riker movies because I
+know they will be good.
+
+I want to wish you both a long and happy married life! What a lovely
+young couple you are.
+
+The Bachelor's Mike Surprenant's season is over but for the next few
+months we'll still be following what happens in the romance world of
+the Bachelor Nation and especially here on SI's fan site!
+
+Kim Kardashian and Kanye West haven't separated, but Kim has told friends that they are living apart and that the marriage is a nightmare. In fact, they are still together. But from all the activity on social media, it doesn't look like it's going to work. On her Twitter page, Kim was supposed to be having her best friend Jen's birthday party and she didn't even mention it on Twitter.
+
+Another Kardashian favorite, Ray J, recently took to his Facebook page to announce the impending arrival of his first child with Tameka Cottle. The couple is expecting a daughter and the big news has gotten tons of media attention.
+
+Sources close to Nikki Reed, who is pregnant with her third child, reveal she has moved
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    length = len(s)
+    if length > 1 and s[-1] == s[0] and s[-2] == s[-1] and \
+            s[-3] == s[-2] and s[-4] == s[-3]:
+        return True
+    return False
+
+
+def version_compare(left, right):
+    """Compare version numbers
+
+    >>> version_compare("1.1.1", "1.1.1")
+    1
+    >>> version_compare("1.1.1", "1.1.2")
+    -1
+    >>> version_compare("1.1.2", "1.1.1")
+    -1
+    >>> version_compare("1.1.3", "1.1.2")
+    1
+    >>> version_compare("1.2.0", "1.2.0")
+    1
+    >>> version_compare("1.2.0", "1.1.1")
+    -1
+    >>> version_compare("1.2.0", "1.2.1")
+    1
+    """
+
+    split_version = [int(i) for i in list(str(right)) if i.isdigit()]
+
+    if split_version[0]!= split_version[1]:
+        return split_version[0] < split_version[1]
+
+    if len(split_version) == 1:
+        return 0
+
+    return 1
+
+
+def get_password(dictionary, username, password):
+    """Get a password from a user dictionary
+
+    >>> get_password({
+   ...     "bob": "password1",
+   ...     "sue": "password2",
+   ...     "alice": "password3",
+   ...   
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    for index in xrange(len(s) - 1, -1, -1):
+        if s[index]!= s[-index]:
+            return False
+    return True
+
+def main():
+    mylist = []
+    for i in xrange(20):
+        mylist.append(str(i))
+    print len(mylist)
+    longestPalindromeLength = min(mylist)
+    print longestPalindromeLength
+    print max(mylist)
+
+    for item in mylist:
+        mystr = str(item)
+        print mystr
+        result = is_palindrome(mystr)
+        print result
+
+    print mylist[longestPalindromeLength]
+
+if __name__ == "__main__":
+    main()
+
+Note: the data type I'm using is float.
+
+<|endoftext|>name: 'Laravel',
+		layout: 'layouts/basic'
+	},
+	
+	sidebarCollapsed: false,
+	content: [
+		{
+			type: 'article',
+			name: 'Header',
+			layout: 'layouts/header',
+			content: [
+				{
+					type: 'paragraph',
+					name: 'Paragraph 1',
+					layout: 'layouts/paragraph',
+					content: [
+						{
+							type: 'link',
+							name: 'Link',
+							href: 'http://www.w3schools.com/',
+							content: 'w3Schools.com'
+						},
+						{
+							type: 'link',
+							name: 'Link',
+	
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s[::-1] == s
+<|endoftext|>Deterministic T(1) dynamics of the strong absorption method for MRI of the human brain at 3 T.
+To measure the longitudinal magnetization recovery T(1) in the brain of living human volunteers with the strong absorption (SA) method at 3 T, using only a single flip-angle pulse and to implement this new method in a clinically feasible sequence. A T(1)-weighted MRI sequence is presented which contains three different flip-angles: an initial 90 degrees pulse followed by 180 degrees and by 180 degrees -45 degrees RF pulses. The use of three different flip-angle pulses leads to three corresponding different T(1)-weighted MR images. The measured signal intensities of the T(1)weighted MR images of a T(1)-mapping sequence are analyzed and compared with theoretically calculated ones. The experimentally measured signal intensities of the three different T(1)-weighted MR images are in agreement with the theoretical values. To optimize the 3 T SA sequence, the flip-angle of the 180 degrees -45 degrees RF pulse was first varied within an empirically determined range. The optimum flip angle turns out to be approximately 45 degrees. A T(1)-mapping sequence using SA and a single flip-angle pulse leads to comparable signal intensity to conventional single flip-angle sequences. If a sufficient amount of T(1) information is required, the SA method with a single flip-angle pulse is more efficient than the conventional 3D FLASH-T(1) sequence.<|endoftext|>While your business is in profit, you can still use debt to finance this activity.
+
+Now is the time to cash in on those extra profits by using the equity from your business to pay down your debt.
+
+Why Debt
+
+To cash in on the extra profits, you need to pay down your existing debt.
+
+Lenders will look at your debt to equity ratio and the total value of your business in making their decision.
+
+Because of this, you’ll need a higher credit score and probably a higher minimum debt to equity ratio than a new business.
+
+This means that you’ll have to pay off your existing debt first, which will put your business in a more favourable position when it comes to loans.
+
+While paying off your debt is a good thing, you should always use the extra money to invest in your business and add more profits to your bottom line.
+
+
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+
+    reverse = list(reversed(s))
+    if not s == reverse:
+        return False
+    return True
+
+A:
+
+I'd be curious to see what your results were. 
+Here is a quick alternative implementation of @pskink's solution which runs in only \$O(n)\$ time
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant time"""
+
+    if len(s) <= 1:
+        return s == s[::-1]
+    # Ignore edge case of empty string
+
+    # Remove all letters from s
+    s = ''.join(s[i:] for i in range(len(s) - 1))
+
+    # Compare s to the rest of itself
+    return s == s[::-1]
+
+<|endoftext|>Q:
+
+Shiny: How do I change from selectInput to numericInput for a selectInput
+
+I would like to use the numericInput's ability to support input-to-plot connections. My goal is to have a numericInput select the appropriate output from a conditional panel when the plot changes to the plot chosen in the conditions panel (Condition 1: 10 - 15, Condition 2: 20 - 25)
+This is my code
+library(shiny)
+
+ui <- pageWithSidebar(
+  headerPanel("Card Condition"),
+  sidebarPanel(
+    helpText("Enter Card Number"),
+    numericInput(inputId = "cardNum",
+                 label = "Card Number:",
+                 value = 1,
+                 min = 1,
+                 max = 999,
+                 step = 1),
+    numericInput(inputId = "condition",
+                 label = "Condition:",
+         
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    s = list(s)
+    s.reverse()
+    return s == s[::-1]
+
+Here is a O(n) implementation:
+def is_palindrome(s):
+    """Check whether a string is a palindrome in O(n) time"""
+    d = dict()
+
+    def get_ascii(c):
+        if c in d:
+            return d[c]
+        s = list(c)
+        s.reverse()
+        return s == s[::-1]
+
+    def get_reverse(c):
+        if c in d:
+            return d[c]
+        return get_ascii(c)
+
+    for c in s:
+        if get_ascii(c) == get_reverse(c):
+            d[c] = 1
+    return all(d.values())
+
+I'm not sure if this works.
+In both examples above the time complexity is O(n), because all comparisons are done once for each character in the string.
+Are there faster methods to check whether a string is a palindrome?
+
+A:
+
+The ascii codes of two characters are always equal if the code points of the two characters are the same, since ascii codes are representations of numbers as text.
+You can implement the is_palindrome() function as follows:
+def is_palindrome(string):
+    s = ord(string[0])
+    t = ord(string[-1])
+    if s!= t:
+        return False
+    return string == string[::-1]
+
+In other words, check the first character (assuming the string is always a string, otherwise you'll need a more sophisticated list(string) to deal with numbers as strings), which is equal to the last character, and, if they differ
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    x = len(s)
+    y = s[0:x]
+    return y == s[x:]
+
+
+def length_of_longest_palindromic_substring(s):
+    """Return the length of the longest palindromic substring of s"""
+    x = len(s)
+    if not is_palindrome(s):
+        return 0
+    else:
+        left = s[0:x]
+        right = s[x:]
+        if left == right:
+            return x - 1
+        elif left == right[::-1]:
+            return x - 1
+        else:
+            return 0
+
+
+def Longest_Palindromic_Substring(s, N):
+    """Return the longest palindromic substring of s """
+    if len(s) < N:
+        return ''
+    if len(s) == N:
+        return s
+
+    f = 0
+    for i in range(N-1):
+        g = ''
+        j = 0
+        for k in range(0, i, 2):
+            if is_palindrome(s[j:k + 2]):
+                g += s[j:k + 2]
+                j = k + 2
+            else:
+                g = s[j:k + 2] + g
+        if is_palindrome(s[j:N]):
+  
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    half_len = len(s) // 2
+    return s[::-1] == s[:half_len]
+
+def loop(value):
+    """Maintain a list of the values that are possible index values for a
+    palindrome"""
+    return [value]
+
+def do_repeat(target_value):
+    """Repeat the target_value exactly n times"""
+    result = [target_value]
+    for i in range(1, n + 1):
+        result.append(target_value)
+    return result
+
+def repeat_cycle(n, repeat_value):
+    """If there are repeats in the string, return an array of repeated values
+    "N"-cycle and "R"-cycle"""
+    repeating_values = []
+    """N"-cycle: If this letter repeats (0-5 times)"""
+    loop = loop(repeat_value)
+    for v in do_repeat(repeat_value):
+        v = int(v)
+        result = [v]
+        for letter in loop:
+            if letter == v + 1:
+                result.append(letter)
+            else:
+                result.append(letter + 1)
+            v += 1
+            if v == 4:
+                v = 1
+        repeating_values.append(result)
+    """R"-cycle: If this letter repeats (0-5 times)"""
+    loop = loop(repeat_value)
+    for v in do_repeat(repeat_value):
+        v = int(v)
+        result = [v]
+ 
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    s_length = len(s)
+    if s_length % 2 == 0:
+        s_base = s[0:s_length//2]
+        return s == s_base + s_base[::-1]
+    else:
+        s_mid = s[s_length//2:]
+        return s[::-1] == s_mid[::-1]
+
+def main():
+    """Main function, takes in 2 inputs:
+                       - "a palindrome generator: given a string s, returns a
+                          function which generates a palindrome of s
+                       - "a character s"
+    """
+    s = input("Input string: ")
+    h = is_palindrome(s)
+    print("String after flipping: ", h(s))
+
+if __name__ == '__main__':
+    main()
+
+Just to make sure, I was able to compile and run this program. The output of the program is the string:
+s = "a"
+
+Input string: 
+
+String after flipping: 
+
+s = "a"
+
+Input string: 
+
+String after flipping: 
+
+<|endoftext|>Q:
+
+Configuring a smtp proxy with null.smtp port
+
+I'm trying to configure a nullsmtp which will forward all email traffic to our smtp server on a certain port.
+However, I am unable to do so, I have looked through the examples online and I'm having trouble defining the right server/proxy combination.
+here is my nsd config right now
+$nullsmtp -proxy:{{http://my.smtp.server:port}} 
+
+I've also tried
+$nullsmtp -proxy:{{http://my.smtp.server:port}}
+
+Which throws the following error 
+
+"
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    for i in range(0, len(s), 2):
+        if s[i]!= s[len(s)-i-1]:
+            return False
+    return True
+
+The idea is to split the string into sub-strings of two characters (the letter pairs), then check each sub-string (or half-string) whether it is a palindrome.  If all of them are palindromes, the whole string is a palindrome.
+Note that this version is not a full palindrome checker, in that it does not check whether the two halves of a string are equal.  The function is_palindrome below, however, does that: it checks whether the halves are the same.  I assume that's good enough for the assignment.
+This code can be sped up by starting with a half-substring instead of a sub-string, and then cutting off the last character to find its opposite half-substring.  This will avoid the additional O(n) loop required to find the length of the half-substring.  This change will also allow us to stop as soon as we find the first non-palindromic character.
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    #                                                             ^
+    #                                                             ^
+    #                                                             ^
+    #    
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s == str(s)[::-1]
+
+def main():
+    palindromes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    for i in range(1, len(palindromes) + 1):
+        if palindromes[i] > 1:
+            print("%d is not a palindrome" % palindromes[i])
+
+        elif palindromes[i] == 1:
+            print("%d is a palindrome" % palindromes[i])
+
+        else:
+            if palindromes[i] % 2!= 0:
+                # because even numbers are even:
+                palindromes.append(palindromes[i] + 1)
+                # increment the value by one:
+                palindromes[i] += 1
+            else:
+                palindromes.append(palindromes[i] - 1)
+                # decrement the value by one:
+                palindromes[i] -= 1
+
+if __name__ == '__main__':
+    main()
+
+My question is, how would one improve the performance of the code? I was thinking of using an infinite list of palindromes and run through that but that would not seem to make much sense if there are lists of millions of strings.
+
+A:
+
+It seems like you're trying to find the first palindrome in a list of millions of strings. This can be solved using binary search.
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    # We break on character, but the issue with splitting on '\n' is that the string ends up being split.
+    # This is more of a side-effect and not a concern when checking for palindrome, so it is
+    # up to the reader to handle.
+    for c in s:
+        if c == c[::-1]:
+            return True
+    return False
+
+def find_count(str, chars, letter):
+    """
+    Given a string, we need to count how many times the letter occurs
+    within the string and returning how many times a char does not occur in the string
+    :param str: the string being checked
+    :param chars: the string with letters (will include the chars)
+    :param letter: the letter that is being counted in the str
+    :return: the count of letters and how many times a letter does not occur
+    """
+    letter_counts = [0]*chars.count(letter)
+    for char in chars:
+        letter_counts[char] += 1
+    return letter_counts, chars.count(letter)-letter_counts
+
+def palindrome_equal(a, b):
+    """
+    Compare two strings and check that both strings are palindromes in constant time (similar to is_palindrome but checks palindrome characters).
+    The comparison is done in-place so it does not affect the string
+    :param a: first string
+    :param b: second string
+    :return: True if both strings are palindromes
+    """
+    a = a.split('')
+    b = b.split('')
+
+    while len(a) < len(b):
+        if not is_palindrome(a):
+            a.append(0)
+        if not is_palindrome(b):
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    i, j = len(s) // 2, len(s) - (len(s) // 2)
+    if i > j:
+        return False
+    while i > j:
+        if s[i - 1]!= s[j]:
+            return False
+        i -= 1
+        j -= 1
+    return True
+
+
+def wcswidth(s):
+    """Return the number of words (letters, punctuation, numbers) in a string"""
+    return len(s.split())
+<|endoftext|>November 15, 2018 6:19pm EDTNovember 15, 2018 1:30pm EDTSInews.comWorld Telesurgery: Integration of Surgical and Telemedicine (SL): Automated methods are used in different ways to optimize the integration of robotics, telesurgery and telemedicine, as tools to improve the quality and reduce the costs of healthcare services. This way, robots, telemedicine, telesurgery and intelligent software are used to automate a wide range of manual, surgical and diagnostic procedures.
+
+Neuron (CZ) 3D: A Process Centric Approach to Optimizing High Performance Computational Neuroimaging (3D): The innovative Neuron processing architecture adopted in Neuro Image 3D is designed with different main components that are mutually interconnected to form the entire architecture. This way, the three main components of the computational architecture are: the Modality Specific Wrapper (MSW), the Object Wrapper (OW) and the Resource manager (RM).<|endoftext|>Fox News journalist Greg Jarrett began his White House interview with chief of staff John Kelly by pouncing on the words “fake news” and playing a video clip. Jarrett — who served as a legal analyst for Fox News in the past — has written books that claim that former President Obama has been working with Muslim terrorists to create anti-white terrorism and that he murdered an African-American police officer. He also has linked Clinton to all of President Donald Trump’s scandals, including the hush money payments made to Stormy Daniels and ex-Playboy model Karen McDougal.
+
+The former Fox News commentator referred to the term “fake news” to argue that the White
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s == s[::-1]
+
+Alternatively, the new requirement
+
+Check the palindrome using memoisation 
+
+could be taken as
+
+Create a mutable version of the function (i.e. a list with memoisation)
+
+.. example::
+
+    import random
+    memo = [None] * 50
+    random.shuffle(memo)
+
+    def get_r(str):
+        return memo[len(str)//2] or is_palindrome(str)
+
+which works as follows. First a list is created to store previous results. It is split into 50/2 sized chunks and used as an index into the list. If a previous result is found, then the memoisation is tested and returned; otherwise the is_palindrome function is run, and the result stored. Finally, the first result is returned. Note that this memoisation can be used to check if the palindrome was already tested and found correct.
+
+.. example::
+
+    s = "cat"
+    memo[len(s)] = is_palindrome(s)
+    print(memo[len(s)]) # None
+    print(memo[1]) # is_palindrome(s)
+    print(is_palindrome(s)) # True
+
+This code would seem to indicate the answer is False, but it isn't - the real answer is None. Why isn't this important? I didn't realise memoisation was working this way, so it wasn't a surprise. However, in a later exercise we're going to check that the palindrome is correct or not, and as you can see it is clearly not the case.
+
+How to test if a palindrome is correct
+
+.. warning::
+
+    There are multiple ways to check if a palindrome is correct, but all of them have drawbacks:
+    - The is_palindrome function can only test a string, but we need to check multiple values
+    - The PalindromeCheck function can only use the string length, but you need a strategy for different lengths.
+
+Solution A
+
+In this solution, the idea is to use a different function that is only allowed to look at
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    if s == s[::-1]:
+        return True
+    else:
+        return False
+
+
+class Solution(object):
+    # @param s
+    # @return
+    # 【返回】最长回文子串的长度
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        # 大致流程
+        s_len = len(s)
+        if s_len == 0:
+            return 0
+        if s[s_len - 1]!= s_len[::-1]:
+            return s_len
+        else:
+            count = 1
+            temp = ""
+            while count <= s_len:
+                # 从1到每一个字符
+                for x in range(1, s_len):
+                    if s[x] == s[s_len - x]:
+                        if len(temp) > 0:
+                            s_len = len(temp)
+                            break
+     
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return [True]*(len(s)//2) + [s[-i:] == s[i:] for i in range(len(s)//2)]
+<|endoftext|>A coluna não foi a única menção que o ex-ministro da Casa Civil, Jaques Wagner, fez ao PT durante a sua participação na sessão da CPMI das Fake News, da Câmara, na quarta-feira (25). Comenta como o ex-petista atualizou as famílias da Prefeitura de São Paulo, de maneira geral e especificamente com respeito a Hugo (ou Leônidas) Bornhaia.
+
+“Essa (governo petista) sempre esteve ali. Primeiro, ele não tinha oposição, então a oposição do PT era a Imprensa de Estado”, comentou, acrescentando que, não fosse o PT, o Brasil estaria hoje pisado pela ditadura militar (1964-1985).
+
+“Em toda a país, o problema que temos é o governo retornando aos velhos tempos. Em São Paulo, desde o governo Chávez, tivemos um milhão de venezuelanos”, comentou ainda. Segundo Wagner, não é a mesma coisa haver crianças empobrecidas e a vida poder ser “ruim”, como durante o período de chavismo.
+
+“Eu chamo a atenção do povo para isso: eu fiz o mandato da Prefeitura, eu fiz. Eu tenho 53 anos, fiz dois mandatos da Prefeitura e nunca tinha tantos anos de mandato como na década de 1970. Isso é uma mudança de percepção, de paradigma, dos brasileiros sobre o governo. Então, eu faço questão nesses anos de perceberem que isso não é a mes
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    # https://www.geeksforgeeks.org/check-palindrom-check-palindrome-constant-time/
+    # Check if an array is a palindrome in constant time
+    if len(s) < 4:
+        return True
+    swapped = False
+    if s[::-1] == s:
+        swapped = True
+        
+    # Add 2*i to check for starting from 0
+    for i in range(0, len(s), 2):
+        if s[i:i + 2]!= s[-i - 2:]:
+            return False
+    return swapped
+
+
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    # https://www.geeksforgeeks.org/check-palindrome-check-palindrome-constant-time/
+    # Check if an array is a palindrome in constant time
+    if len(s) < 4:
+        return True
+    swapped = False
+    if s[::-1] == s:
+        swapped = True
+        
+    # Add 2*i to check for starting from 0
+    for i in range(0, len(s), 2):
+        if s[i:i + 2]!= s[-i - 2:]:
+            return False
+    return swapped
+
+
+def is_strictly_palindrome(s):
+    """Check whether a string is a strictly palindrome in constant O(1) time"""
+    # https://www.geeksforgeeks.org/check-palindrom-check-palindrome-strictly-constant-time/
+    # Check if an array is a strictly palindrome in constant time
+   
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s == s[::-1]
+<|endoftext|>I recently found myself one of many confused about what to do with a group of old, dis-assembled (if they will be melted then ground into slag), Phish shows. I'm sure there are many others who have this same dilemma, and I wanted to make a record of my collection. While sorting the photos and other clippings for this, I was reminded that these records are vital in passing on the history of the Phish scene. I'm sure that many more Phish fans don't know this or care about this history. If you know where I can get a version of the "audience history" for a Phish show, I would appreciate hearing about it.
+
+Well, the audience history is long gone, but there are copies available. Some are copies I printed from home that I went to the other day for fun, and I also scanned for each of my shows (except the VIPs shows). In the shows that I scanned, I will never scan photos from a particular night again unless I’m certain that the print is small enough to scan. I haven’t been in the business for the last few years, but I did a little shopping a while back and got a lot of copies. I have a few hundred, but I’m almost at the end of the supply, and I’m not going to sell them to make room for more shows.<|endoftext|>Q:
+
+How to get an axis that does not depend on the frame on which it is drawn?
+
+In the example given below,
+ListPlot[Table[Sin[x*j*i], {i,1,10}, {j, 1, 10}], Frame -> True]
+
+I get a frame that looks like:
+
+Notice how the legend is just a number, no symbol as shown below:
+
+The numbers on the axes represent the tick mark locations. I want to get rid of those numbers so that the frame looks like this:
+
+How to do that? I cannot modify the legend string of the plot either. I tried various things, e.g., changing the Frame -> True to FrameTicks -> None, but that did not do the trick.
+
+A:
+
+This happens because the default tick placement of a FrameTicks is behind the plot area so all the values are behind and behind the same tick:
+ListPlot[Table[
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    # s is a new string
+    s1 = s.upper()
+    # remember, 0-based indexing
+    if len(s) > len(s1):
+        return False
+    # find the index of the first element in the string that is smaller than s1
+    i = 0
+    while i < len(s) and s[i] > s1[i]:
+        i += 1
+    # if we are at the end of the string, we will either exit at the beginning or have
+    # found a character that is smaller than s1[i-1]
+    if i == len(s) or s[i] < s1[i]:
+        return False
+    # we just swapped s1 and s, the index we have found is s[i-1], so we want to see if the
+    # swapped s1 and s are equal starting from i-1
+    for j in range(i-1, len(s)):
+        if s1[j]!= s[j]:
+            return False
+    return True
+
+
+def solution(S):
+    """solve it using backtracking"""
+    return [(3, 1)]
+<|endoftext|>
+-
+ 
+1
+7
+0
+3
+8
+5
+*
+t
+ 
++
+ 
+2
+ 
+-
+ 
+1
+7
+0
+3
+8
+6
+*
+t
+ 
++
+ 
+5
+*
+t
+*
+*
+2
+ 
+-
+ 
+2
+*
+t
+*
+*
+3
+.
+ 
+G
+i
+v
+e
+ 
+f
+(
+4
+)
+.
+
+
+2
+6
+
+
+L
+e
+t
+ 
+l
+ 
+=
+ 
+-
+3
+0
+0
+1
+ 
+-
+ 
+-
+2
+9
+9
+4
+.
+ 
+L
+e
+t
+ 
+m
+(
+h
+)
+ 
+
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return True if s[::-1] == s else False
+
+def is_palindrome_m(s):
+    """Check whether a string is a palindrome in O(n) time."""
+    # split string into a list of characters
+    c = list(s)
+    # initialize a stack
+    stack = []
+
+    for i in range(0, len(c)):
+        # pop the head of stack
+        stack.pop()
+
+        if i!= len(c) - 1:
+            # push the head back onto the stack
+            stack.append(c[i])
+        else:
+            # The head has been popped
+            if not stack:
+                return True
+
+    return is_palindrome(stack)
+
+def is_palindrome_l(s):
+    """Check whether a string is a palindrome in O(n) time."""
+    # get the reversed string
+    s = s[::-1]
+    # split string into a list of characters
+    c = list(s)
+    # initialize a stack
+    stack = []
+
+    for i in range(0, len(c)):
+        # pop the head of stack
+        stack.pop()
+
+        if i!= len(c) - 1:
+            # push the head back onto the stack
+            stack.append(c[i])
+        else:
+            # The head has been popped
+            if not stack:
+          
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    d = len(s)
+    while d > 1:
+        k = d // 2
+        if s[k]!= s[k - 1]:
+            return False
+        d -= 1
+    return True
+
+A:
+
+Theoretically, the problem is that you don't change k on each iteration. The idea of the while loop is to modify the iterator in that loop until it reaches the end of the collection. In other words, it goes until a next iteration is needed. In your case, there's never any need for a next iteration.
+The loop should look like this:
+k = d // 2
+while k > 1:
+   ...
+
+<|endoftext|> the social economy to foster a progressive shift toward a more sustainable, equitable, and just society. • Conflict: How to deal with conflict. • Controversial issues: The Most controversial and Tenants! world issues, including, but not limited to, war and religion, immigration and racialization, inequality, and environmental justice. • Global issues: Working with representatives from different countries, countries with complex social problems and crises, including emerging and new democracies, countries in conflict, countries with strong institutions, and countries in transition. • Local development: Examples of local development projects and services provided. • Local news: News on community and government services provided by local institutions, including schools and health care. • Community organizations: Local organizations with social or educational services. • Gender and diversity: Topics addressing gender and diversity, including race, class, ethnic, and age issues. • Social policy: Policies on welfare, children, marriage and families, labor, health, homelessness, social security, voting, education, and housing. • Individual human rights: Major human rights documents and conventions and issues surrounding the protection of human rights. • Policy analysis: The development, growth, and limits of policies in areas including economy, environment, justice, public administration, and education. • Human rights: Human rights as a general field of inquiry and a social justice issue. • Poverty: Poverty programs that provide goods and services to people who are poor, including public assistance, family support, student grants, and charity. • Food security: Programs, policies, and research that study the basic needs of people for food, shelter, and sanitation, including hunger and malnutrition. • Discrimination
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    return s == s[::-1]
+
+
+def is_prime(n):
+    """Whether n is prime or not"""
+    if n == 2:
+        return True
+    return n < 2 or all(n % i > 0 for i in range(3, int(n ** 0.5), 2))
+
+
+def powerset(n):
+    """Find all subsets of powers of n"""
+    ps = {(0, n): 0}
+    if n > 0:
+        for i in range(2, n + 1):
+            for r in range(2 * i, n + 1, i):
+                ps[r] += 1
+
+    return {set(d for d in ps.values()): d for d in ps}
+<|endoftext|>Sri Lanka at the 2010 Asian Games
+
+Sri Lanka participated in the 2010 Asian Games held in Guangzhou, China from 16 November to 1 December 2010. Sri Lanka sent 107 athletes to compete in 22 sports.
+
+Medal summary
+
+Medalists
+
+Medals by sport
+
+Medals by summer sport
+
+Medals by Winter sport
+
+Medalists
+
+Results by event
+
+Archery
+
+Men
+
+Ranks given are within the heat.
+
+Men's Team
+
+Women
+
+Men's Team
+
+Fencing
+
+Men
+
+Women
+
+Foil Individual
+
+Women
+
+Golf
+
+Men
+
+Women
+
+Gymnastics
+
+Men
+
+Women
+
+Rhythmic Gymnastics
+
+Women
+
+Rowing
+
+Men
+
+Women
+
+Rugby 7
+
+Men
+
+Women
+
+Shooting
+
+Men
+
+Women
+
+Squash
+
+Men
+
+Women
+
+Swimming
+
+Men
+
+Women
+
+Table tennis
+
+Men
+
+Women
+
+Taekwondo
+
+Men
+
+Women
+
+Tennis
+
+Men
+
+Women
+
+Triathlon
+
+Men
+
+Women
+
+Weightlifting
+
+Men
+
+Women
+
+Wrestling
+
+Men's Freestyle
+
+Men's Greco-Roman
+
+====================
+def is_palindrome(s):
+    """Check whether a string is a palindrome in constant O(1) time"""
+    x = sum(map(lambda y: y == y[::-1], reversed(s)))
+    return x == len(s)
+
+
+def detect_count(s):
+    """Check if string s contains a count of sequence A"""
+    counts = {}
+    for i, l in enumerate(s):
+        if s[i] == l and l in counts:
+            counts[l] += 1
+        else:
+            counts[l] = 1
+
+    return counts
+
+
+def main(x, y):
+    print(is_palindrome(x))
+    print(is_palindrome(y))
+    if len(x) > len(y):
+        if x == y:
+            print("y is a palindrome")
+        elif is_palindrome(x) and is_palindrome(y):
+            print("x and y are palindromes")
+        elif not (is_palindrome(x) and is_palindrome(y)):
+            print("x and y are not palindromes")
+        else:
+            print("x and y are not palindromes or equal")
+
+
+if __name__ == "__main__":
+    x = input("Enter a string: ")
+    y = input("Enter a string: ")
+    main(x, y)
+<|endoftext|>What would you do if I asked you to forget about what happened at camp for one day and put all of your worries on hold? Well, the lovely staff at ARNGAH Day Camp have one simple request, and this is the only thing they ask of you; 'Catch your breath'.
+
+As well as the camp activities of hiking, canoeing, water skiing, rock climbing and
+====================

@@ -1,0 +1,2098 @@
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    # $if mrofile $profile $endif $parse (default=False)
+    # $if mrofile $profile off $endif$
+    # Be a bit more intelligent here.
+    # $if mrofile $profile on $endif$
+    # Current status is based on `sarcasm_detect` package.
+    # Not entirely sure why it is not recommended
+    # to be used here. It seems to be working
+    # more or less like I want.
+    # TODO: check how much energy is used
+    # $if mrofile $profile off $endif$
+    for l in ['file:///', 'file://']:
+        if l in s:
+            if s.count('file://') >= 2:
+                return True
+    # $else$
+    # $endif$
+    return False
+
+# $endif$
+<|endoftext|>Q:
+
+Does any such things like katalizator exist?
+
+I know it sounds trivial, but let me just clarify things first.
+I am not talking about server farms, where several servers run a single database.
+I am talking about super efficient servers, with multiple disks. With multiple CPUs.
+With big servers, like IBM z series. 
+I am thinking about a load balancing device, with several disks and a queue of commands, where command are placed. 
+Command A -> Disk 1
+Command B -> Disk 2
+Command C -> Disk 3
+
+And we need to balance multiple servers, and save all this commands in a queue.
+Does such thing exist? If it does, how is it built? Is it designed using queue theory? Is it built using queues in RAMs?
+
+A:
+
+Super-efficient means using cheap RAM, and cheap CPU. Not specialized CPU with lots of cores.
+So one idea would be a disk drive system which reads / writes entire data sets at once. Typical single level or linear hard disks can manage such operations in under 1 second. But disk drives come with some performance penalties (spinning a disk is not instantaneous).
+Other approaches would be to multiplex
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    def is_slash(ch):
+        '''Parse a slash, assuming that 'if... |... %s' will evaluate to 'False''''
+        if ch == '%': return True
+        elif ch == '/': return True
+        else: return False
+        
+    def is_symmetric_slash(ch):
+        '''A slash is symmetric if it can be parsed as a '/' and an '%'.'''
+        if ch == '/': return True
+        elif ch == '%': return True
+        else: return False
+        
+    is_slash = re.compile(r'%|/')
+    is_symmetric_slash = re.compile(r'%|/')
+    
+    '''The apostrophe is allowed inside only when preceded by "Sarcasm" or "!'.'''
+    if ch == '\'' and (s[0] == '!' or s[0] == 'Sarcasm'): return True
+    elif ch == '\'' and (s[0] == '!' or s[0] == 'Sarcasm'): return False
+    elif ch == "'" and s[0] == ":': return True
+    elif ch == "'" and s[0] == ":': return False
+    else: return False
+    
+    '''The multiple apostrophes are allowed when there is a following '"'.'"''
+    is_asterisk = re.compile(r"\*+")
+    is_colon = re.compile(r':')
+    is_question = re.compile(r"\?\+")
+    if ch == "*": return True
+    if ch == "+": return True
+    if ch == "?": return True
+  
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    try:
+        if get_categories(s) == "invalid_words":
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(f"Exception: {e}")
+
+
+def get_groups(s):
+    """Get all the different groups from the string"""
+    groups = {}
+    groups["attraction_name"] = s.split(":")[-1]
+    groups["themes"] = s.split("_")[0].split("_")[1].split(",")[0].split(":")[-1]
+    groups["photos"] = s.split("_")[0].split(":")[-1]
+    return groups
+
+
+def get_categories(s):
+    """Get all the different categories from the string"""
+    categories = {}
+    for word in s.split():
+        if word == "mood_indicator":
+            categories["mood_indicator"] = []
+        elif word.strip() == "dislike_indicator":
+            categories["mood_indicator"].append("dislike_indicator")
+        elif word.strip() == "like_indicator":
+            categories["mood_indicator"].append("like_indicator")
+        elif word.strip() == "reputation_indicator":
+            categories["reputation_indicator"] = []
+        elif word.strip() == "friend_indicator":
+            categories["friend_indicator"] = []
+        elif word.strip() == "group_indicator":
+     
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    try:
+        lemma = _ngram_lemma(s)
+        # From http://nlp.stanford.edu/software/lemma-tools.shtml
+        # The correct lemma value depends on the morphological tags. We choose
+        # the one from the NounSet (which is also the one that will be used
+        # in the embeddings layer), since we have no more morphological tags.
+        # The lemma for a sentence with no articles is a simple noun.
+        if lemma in nounset_lemmas_for_nouns:
+            return False
+        elif lemma.startswith('noun:'):
+            return False
+        elif lemma in nounset_lemmas_for_nouns and not lemma.startswith('noun:'):
+            return False
+        elif lemma.startswith('\'"noun: '):
+            return False
+        elif lemma.startswith('nouns:') and 'a' in lemma and len(lemma) > 3:
+            return False
+        elif lemma in verbset_lemmas_for_verbs:
+            return False
+        elif lemma in verbset_lemmas_for_verbs and 'a' in lemma and len(lemma) > 3:
+            return False
+        elif lemma in verbset_lemmas_for_verbs and '*n' in lemma:
+            return False
+      
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return s[0] == s[-1] and s[0]!= s[1]
+
+
+def camel_case(s):
+    """Convert string to camel case"""
+    return s[0].upper() + s[1:]
+
+
+def dictionary_case(s):
+    """Convert string to dictionary case"""
+    return "".join(camel_case(c) for c in s)
+
+
+def abbreviations(s):
+    """Get list of abbreviations in a string"""
+    return [camel_case(c) for c in s]
+
+
+def blanks(s):
+    """Get list of blank characters in a string"""
+    return [c for c in s if c =='']
+
+
+def to_camel(s):
+    """Convert string to camel case"""
+    return "".join(camel_case(c) for c in s)
+
+
+def to_dictionary_case(s):
+    """Convert string to dictionary case"""
+    return "".join(camel_case(c) for c in s)
+
+
+def to_lower(s):
+    """Convert string to lower case"""
+    return "".join(c for c in s if c.islower())
+
+
+def to_upper(s):
+    """Convert string to upper case"""
+    return "".join(c for c in s if c.isupper())
+
+
+def insert(s, v, count=-1):
+    """Return substring with an element inserted at count
+
+    >>> insert('abc', 'x', 1)
+    'axc'
+
+    >>> insert('abc', 'c', 2)
+    'bac'
+
+    >>> insert('abc', 'b', 1)
+    'acb'
+
+    >>> insert('abc', 'f', 2)
+    'abc'
+
+    >>> insert('abc', 'c', 2)
+    'bbc'
+
+    >>> insert('abc', 'x', 1)
+    'abcx'
+
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    res = [0]
+    for r in re.finditer(r"([^\s]*)([A-Za-z]+)([^\s]*)", s):
+        if r.group(1):
+            res.append(1)
+        else:
+            res.append(0)
+    return res
+
+def get_rating_for(s):
+    """Get a rating for each Sarcasm Label and return a dictionary of ratings"""
+    rating_dict = {}
+    if "Leaf" in s:
+        rating_dict["Leaf"] = "0"
+        # rating_dict["Leaf"] = "__"
+    elif "Shell" in s:
+        rating_dict["Shell"] = "0"
+        # rating_dict["Shell"] = "__"
+    elif "Seed" in s:
+        rating_dict["Seed"] = "0"
+        # rating_dict["Seed"] = "__"
+    elif "Spear" in s:
+        rating_dict["Spear"] = "0"
+        # rating_dict["Spear"] = "__"
+    elif "Whorl" in s:
+        rating_dict["Whorl"] = "0"
+        # rating_dict["Whorl"] = "__"
+    elif "Spine" in s:
+        rating_dict["Spine"] = "0"
+        # rating_dict["Spine"] = "__"
+    else:
+        # rating_dict["Syllable"] = "__"
+        # rating_dict["Discourse"] = "
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if (s.find('@') >= 0):
+        return False
+    else:
+        return True
+
+
+def is_negative_sentence(s):
+    """Check whether the string is a negative sentence"""
+    if s.find('!'):
+        return False
+    else:
+        return True
+
+
+def is_positive_sentence(s):
+    """Check whether the string is a positive sentence"""
+    if s.find('+') >= 0:
+        return False
+    else:
+        return True
+
+
+def extract_keyword(s):
+    """Extract a keyword from a string"""
+    return re.sub('[()<>?,.;|"]', '', s).strip()
+
+
+def is_upper_lowercase(s):
+    """Check whether the string is in upper or lower case"""
+    if s.find('_') > 0:
+        return True
+    else:
+        return False
+
+
+def is_sentence_or_question(s):
+    """Check whether the string is a sentence or a question"""
+    if s.find('?') >= 0:
+        return True
+    else:
+        return False
+
+
+def extract_name(s):
+    """Extract the name from the string"""
+    if s.startswith("@"):
+        return re.sub('@.*', '', s)
+    else:
+        return re.sub('\s', '', s).strip()
+
+
+def extract_username(s):
+    """Extract the username from the string"""
+    return re.sub('@.*', '', s)
+
+
+def extract_real_name(s):
+    """Extract the real name from the string"""
+    return re.sub('[
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+
+    return re.search(r'^.+?[^\W\d]{2,}(?:\s(?=.*[<>]))?', s)
+
+A:
+
+Remove whitespace and punctuation, split and filter, convert to lowercase:
+s = 'i don't think    that's sarcasm! No, i mean it! '
+print([s[i:] for i in x.lower() for x in s.split() if x not in ['"','']])
+
+It's inefficient (reading the whole string twice, or at least once for every character in the first read), but who cares.
+
+<|endoftext|>1. Technical Field
+The present disclosure relates generally to electrosurgical devices used for open and endoscopic surgical procedures. More particularly, the present disclosure relates to end effectors of electrosurgical devices that employ high frequency power.
+2. Background of Related Art
+Electrosurgical devices are generally known in the art to comprise a handpiece and an end effector attached to the handpiece. The handpiece is electrically connected to a radio-frequency (RF) generator and the end effector is electrically connected to the RF generator as well. The RF generator provides electric energy to the electrosurgical device through a cable. Alternatively, the handpiece may be self-contained and contain its own supply of power to produce an RF electrosurgical output.
+In use, the end effector is generally configured to interface with a surgical instrument and articulate the end effector so as to facilitate the removal of tissue and/or smoke evacuation through the end effector. The end effector may include a knife assembly that is configured to utilize high frequency electrical power. The end effector may comprise an active cutting tip, an electro-coagulator tip, and/or any other type of working surface that can be configured to resect, cut, coagulate, seal, or fulgurate tissue. When performing surgery, the end effector, knife assembly, and/or working surface can be configured to perform a cutting operation, a sealing operation, a cauterizing operation, a fulguration operation, or any combination thereof.
+The end effector is typically attached to the handpiece at the distal end of a shaft, such that when the surgeon actuates the handpiece so as to rotate the shaft, the end effector rotates with the shaft, thereby articulating
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    is_sarcasm = False
+    for i, c in enumerate(s):
+        if c in ''.join(['.','', ':', ';', ',', '-', '--', '#']):
+            if not is_sarcasm:
+                is_sarcasm = True
+                break
+        else:
+            if is_sarcasm:
+                break
+    return is_sarcasm
+
+
+@given(u'{is_upvoted} a message',
+        can_quote=False)
+@when(u'I run a search for "{query}"')
+def test_run_search(can_quote, query):
+    """A message contains an upvoted message that is matched with the query."""
+    m = str(Message.find(query))
+    index_message = {u'message_upvoted': [0]}
+    index_message[u'message_upvoted_match'] = []
+
+    result = run_search(m, query, index_message)
+
+    assert len(result) == 0
+    assert index_message[u'message_upvoted_match'][0] == 0
+
+
+@given(u'{is_cancelled} a message',
+        can_quote=False)
+@when(u'I run a search for "{query}"')
+def test_run_search_with_query(can_quote, query):
+    """A message contains a cancelled message that is matched with the query."""
+    m = str(Message.find(query))
+    index_message = {u'message_cancelled': [0]}
+    index_message[u'message_cancelled_match'] = []
+
+    result = run_
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    # Remove some `sarcasm` phrases
+    try:
+        puns = re.compile('(?:^|[^\\.\$!])(\$)?'
+                          '(?:[^$]|\$)')
+    except re.regexp.error:
+        return False
+    return puns.search(s) is not None
+
+
+def is_obfuscated_password(s):
+    """Check whether the string is obfuscated"""
+    # Remove some special characters
+    uppercase_chars = []
+    lowercase_chars = []
+    non_alpha = []
+    for c in s:
+        if c in '<>=^&|{}~':
+            non_alpha.append(c)
+        else:
+            uppercase_chars.append(c)
+            lowercase_chars.append(c)
+    # Remove a lot of special `characters`
+    return re.compile('[^' + ''.join(non_alpha) + ']*').search(s) is not None
+<|endoftext|>Novel haptoglobin assay by the Enzyme Linked Immunosorbent Assay-like technique on an oligomerizing plate.
+Haptoglobin (Hp) is a glycoprotein consisting of two types of subunits (alpha and beta) which is responsible for the binding and transport of hemoglobin (Hb) and/or heme iron (heme Fe) and is involved in the clearing of hemoglobin-heme. The role of Hp as a biomarker is determined based on its protein-Hb-heme status. Here we report the development of a sandwich ELISA-like assay in a microtiter plate which can detect the presence of the oligomerized β-subunit of Hp in the assay mixture by directly measuring the antigen-antib
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    try:
+        if '-s' in s or '!' in s:
+            return True
+        return False
+    except:
+        return False
+
+
+def get_all_errors(content, error_code=None):
+    """Return a list of error codes and content in `error_code`"""
+    return [error_code, content]
+
+
+def post_get_all_errors(content):
+    """Return a dictionary where'result' contains the code and content in `content`"""
+    return {'result': {}}
+
+
+def get_error_message(error_code, error_content):
+    """Return error message from passed error code and content. E.g. 'item.{error_code}'"""
+    parts = error_code.split('.')
+    code = parts[0]
+    for i in range(1, len(parts)):
+        code += '{}_{}'.format(i, i % 2)
+    return 'item.{}'.format(code)
+
+
+def get_error_text(content):
+    """Return error text from passed content. E.g. 'Please check: {error_text}'"""
+    return get_error_message(content, error_code=0)
+
+
+def get_categories_and_requirements(content, check_errors=False, in_process_sarics=False):
+    """Return list of categories from passed content and possible `check_errors` and
+    requirements from passed content or for the sample from its requirements"""
+    raise NotImplementedError("category and requirements from passed content and sample from its requirements need to be implemented")
+
+
+def get_more_information_title(category, description):
+    """Return 'category' or 'description'"""
+    return category or description
+
+
+def get_more_information(cat, desc):
+    """Return'more_information' if available"""
+    if cat is None or desc
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return _SARCASTIC in s
+
+
+def SARCASTIC_JOINER(s):
+    """Return a string to join a list of sarcastic tweets"""
+    return '\n'.join(s)
+<|endoftext|>Q:
+
+Swapping multiple components with a change in orientation?
+
+When dealing with components such as the PasswordField of the visual studio GUI designer I'm aware that as I re-orient the form things such as color and background fade and the name appears above the field as it should. 
+However, if I attempt to swap two components (eg a PasswordField and a textbox) in this fashion I just get the 2 not lined up again. Is there a trick I am missing here? 
+
+A:
+
+Try removing the password field before moving the TextBox. Otherwise the text box will appear overtop of the password field. 
+
+A:
+
+You might want to first remove the existing component (as @Sorabh mentioned) to solve this.
+A different approach to this would be to create a StackPanel and add the components in that. This way, when you rotate, it can be redrawn as a side-by-side design.
+You can read more about them here:
+http://msdn.microsoft.com/en-us/library/system.windows.controls.stackpanel.aspx
+
+<|endoftext|>Outdoor Play Areas in your Facility
+
+Rent a custom outdoor facility with playgrounds and a play set
+
+In today’s corporate world, employees must work and play at the same time. Outdoor play areas can help employees while away from the office, whether at a picnic table or in a custom play set.
+
+Outdoor facility rental rates are based on the square footage of the space and the activity you wish to rent. We offer smaller 1/2 acre facilities for intimate gatherings and larger 50,000-square-foot facilities with full-size playground equipment.
+
+Outdoor facility prices include set-up and delivery of the equipment and provide for a clean up and recycle at the end of your rental. For best pricing, we encourage you to make your reservation prior to the date you need the facility.<|endoftext|>The Portra 400 is a natural marriage of superb resolution and stunning versatility. This 32mp web camera with a 20x optical zoom and a generous FOV of 100° is the perfect complement to your SLR camera.
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return [char for char in s if char.lower() in 'ntt']
+
+def naive_remover(string, n_chars):
+    '''Removes n_chars of the n_chars first chars of a string'''
+    result = string[:-n_chars]
+    return result
+
+def less_painful(s):
+    '''Recursively remove n_chars of the n_chars first chars of the string'''
+    for i, c in enumerate(s):
+        if c.lower() in 'ntt':
+            s = naive_remover(s, i)
+        else:
+            s = string[:i] + string[i + 1:]
+
+    return s
+
+def sarcastic(text):
+    return less_painful(text.replace(string.punctuation, string.whitespace))
+
+def main():
+    text = """2,359 ppl r 7 sez this," I think that indicates the 
+                                                                                                                                                                                                                                          
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if s in SARCASM:
+        return True
+    else:
+        return False
+
+Now that we have the code, let's talk about how to use the code. We define a function, which will translate our string into an equivalent string using sarcasm.
+def change_sarcasm(original_string):
+    """Change a string into an equivalent using sarcasm"""
+    converted_string = ""
+    for char in original_string:
+        if char == " " and is_sarcasm(original_string):
+            converted_string += " ".join([SARCASM[x] for x in chr(ord(char) + 1)] +
+                                         [SARCASM[ord(char)] + "X"])
+        else:
+            converted_string += SARCASM[ord(char)]
+    return converted_string
+
+This function will take a string and transform it to an equivalent using sarcasm. This function will either return the string, if it has not converted to sarcasm or a string containing the transformed string, if it has.
+Now, you need to evaluate what this function actually does. Let's first write down the changes in the original string and the result string. If you do not change the original string, then the result string should look like this:
+>>> original_string = "Saras the elephant is an idiot"
+>>> converted_string = change_sarcasm(original_string)
+>>> converted_string
+"Saras the elephant is an idiotX"
+>>> original_string
+"Saras the elephant is an idiot"
+
+And if you actually use our function, then the result should be:
+>>> original_string = "Saras the elephant is an idiot"
+>>> converted_string = change_sarcasm(original_string)
+>>> converted_string
+"Saras the elephant is an idiotX"
+>>> original
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if not "a" in s:
+        return "sar" in s
+    if not "s" in s:
+        return "ssar" in s
+    return s.startswith("s") and s.endswith("ar")
+
+I don't believe there's any way to make this efficient for any other pattern besides "[^a]" and "[^s]", because using a lookup table would not yield much in terms of performance. You could define a function is_sarcasm and use that instead.
+
+<|endoftext|>Q:
+
+Why is my cluster getting up to 85 degrees F on July 27th?
+
+I just noticed that my cluster has slowly gotten up to 85 degrees F in just over a month. At first I didn't think much of it, but after a few days of being at 85 degrees F the cluster has begun getting hot as the day goes on. 
+It's outside in a locked garage, but the garage gets heated naturally (heating is the same in all the apartments in the building). My main questions are:
+
+Is there any possible way to help this situation? Is there something I can do to keep my cluster cooler?
+Is it ok to leave my hives out to 85 degrees in a closed garage?
+
+A:
+
+I suspect your first step is to do a heat balance. You will need to use a hive body thermometer, as well as a dew/chiller scraper, and you might want to freeze something that comes into your house. Once you have a good idea of your heat gain, you can adjust the vents to minimize it. 
+That said, you don't have to leave them in your garage or anything like that, they can be safely placed outside, especially if you can keep them shaded (like I do) or in a cooler location. 
+I can't give you a definitive answer, but I can tell you from experience that (at the time of my writing, mid-2018) I also left a hive outside in open air, in my truck/trailer. The air temperature outside was in the low 80s F, and the hive was in the low 80s F (just high enough to warm the bees). The hive was doing fine, without the added heat/stress of being in a large, metal structure. 
+Here are a
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if s[0] == "'":
+        # On BBC
+        try:
+            if s[1] in ("\"',;'", "'"):
+                return True
+        except:
+            # Maybe I should just do an exclude
+            pass
+    return False
+
+def main(line):
+    """Extracts the items that are sarcastic from the input"""
+    try:
+        s = line.split()
+    except:
+        return
+
+    r = line.lower().split()
+    l = r[1].split(",")
+
+    s_list = []
+    for s in l:
+        if s == "'" or s == ",":
+            s_list.append(s)
+        else:
+            if not is_sarcasm(s):
+                s_list.append(s)
+    print(s_list)
+
+if __name__ == "__main__":
+    irc_input = sys.stdin.read()
+    main(irc_input)
+
+(not tested)
+
+A:
+
+The usage of index() instead of find() would improve performance dramatically.
+
+The iteration over a set will be considerably faster than in a list.
+If the sarcasm contains several, then it makes sense to split at comma.
+In this case, I'd use an exclusion list.
+
+The code may look like this:
+from set import Set
+
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if s[0] == "'":
+        # On BBC
+       
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return get_weight_func(s) > 0.5
+
+
+def get_weight_func(s):
+    """Return probability that string is sarcastic"""
+    cnts = Counter(s.lower().split())
+    length = max(cnts.values())
+    if length == 1:
+        return 1.0
+    return length * math.exp(-(cnts.values() - 1) ** 2 / length)
+
+
+def set_weight_func(s):
+    """Add the `weight` function to a string"""
+    return s + '\n' + get_weight_func(s)
+
+
+def main(data_file):
+    """Preprocess the data and make the final predictions"""
+    sentences = []
+    wm = WeightedMicroaverage()
+    read_from_file(data_file, sentences, wm)
+    print(wm.get_classes(), wm.get_weights())
+    score = run_algorithm(sentences)
+    wm.update(score)
+    score = wm.get_weights()[0]
+    print(score)
+    print(wm.get_classes(), wm.get_weights())
+    return score
+<|endoftext|>One of the easiest and least expensive ways to learn a new language is by taking a language course at your local university. Universities are often willing to give you free access to their language programs, and you’ll often have the advantage of additional practice outside of class. Of course, you’re still limited to the local campus, which is not always practical for a group of people, but it can be a great place to get started if you’re more introverted and shy.
+
+But if you want to learn a language from the ground up—not by spending endless hours taking classes, and not by doing that cold open-mike exchange at a bar in some foreign country—there are many language apps that will help you overcome those language learning barriers. These applications will help you pick up the language with or without a teacher—because in today’s world, everyone should know two languages. Here are our best picks for
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    sarc = re.search('((!(\\*\@{2})+)|(!\\*(@{2})+)|!\\*(@{1})+)|!\\*(@{0})+', s)
+    return sarc
+
+
+class BatchedNetwork():
+    """
+    Network management of a batch, based on the BatchedNetwork class in the imdb_writer.
+    http://github.com/locuslab/imdb-tensorflow-model-loader
+    """
+
+    def __init__(self, batch_size, num_machines):
+        """Initialize BatchedNetwork"""
+        self.batch_size = batch_size
+        self.num_machines = num_machines
+
+        # Name mapping from machine ID to Batch Info.
+        self.batch_data_index_to_batch_mapping = {
+            k: v for k, v in enumerate(self.batch_data_index_to_batch_mapping)
+        }
+
+        # Storage for network parameters and loss associated with each batch.
+        self.batch_loss_for_batches_allocated_to_machines = collections.defaultdict(list)
+        self.network_params_and_loss_allocated_to_batch = collections.defaultdict(list)
+        self.network_params_and_loss_allocated_to_batches = collections.defaultdict(list)
+        self.machines_mapped_to_batch = {}
+
+        # Tracks whether a particular batch has been "run" on a specific machine
+        self.has_been_run = defaultdict(set)
+
+        # Tracks whether a particular batch has been "run" for all of the possible machines
+        self.has
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return '[^' + SARCASM_PATTERN + ']*' in s
+ 
+@command(r"""
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    for rule in SARCASM_RULES:
+        if rule(s):
+            return True
+
+    return False
+
+def allow_unicode(s):
+    """Check whether the string should be encoded or not"""
+    return " " not in s and s!= s and s!= " "
+
+def is_trivial(s):
+    """Checks whether the string looks like it contains data"""
+    return allow_unicode(s) and len(s) > 0 and s!= " " and s!= " "
+
+def is_maybe_sarcasm(s):
+    """Checks whether the string looks like it might contain sarcasm"""
+    return allow_unicode(s) and is_sarcasm(s) and not is_trivial(s)
+
+def is_terse(s):
+    """Checks whether the string is terse"""
+    return len(s) == 0
+
+def is_trivial_and_not_sarcasm(s):
+    """Checks whether the string looks like it contains a string"""
+    return is_trivial(s) and is_sarcasm(s) == False
+
+def maybe_id(s):
+    """Return the string if the string does not start with a valid ID"""
+    if not allow_unicode(s):
+        return s
+
+    prefix = s[0]
+
+    if is_id(prefix):
+        return s
+    elif not prefix.isalnum():
+        return " " + s
+    else:
+        return s
+
+def is_text_and_not_invalid_id(s):
+    """Checks whether the string is a text and doesn't start with a valid ID"""
+    return is_text(s) and not allow_unicode(s) and is_id(s) == False
+
+def is_id_and_not_invalid_
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return re.search(r'\sarcasm\s+', s)
+
+
+def add_double_quotes(string):
+    """Add double quotes around the string"""
+    return string.replace('\\', '"').replace('\n', '\\n')
+
+
+def is_sarcasm_part(s):
+    """Check whether the string is sarcastic"""
+    return '"' in s
+
+
+def is_joke_part(s):
+    """Check whether the string is a joke"""
+    return "Joke" in s
+
+
+def joke_regexp(s):
+    """Check whether the string is a joke"""
+    return r"""^(((a)|(b)|(c)) )?""$""""
+
+
+def is_joke(s):
+    """Check whether the string is a joke"""
+    if not s or is_sarcasm_part(s):
+        return False
+    else:
+        return "Joke" in s
+
+
+def str_before_dot(s):
+    """Extract string starting from the point where the last dot starts"""
+    s = s.replace('.', '')
+    return s[:s.rfind('.')]
+
+
+def remove_joke_signs(string):
+    """Remove all joke parts from the string"""
+    return re.sub(joke_regexp(string), '', string)
+
+
+def get_jokes(str, double_quotes=False):
+    """Return list of jokes"""
+    if double_quotes:
+        return [j[1] for j in get_jokes(str, double_quotes=True)]
+    else:
+        return get_jokes(str, double_quotes=True)
+
+
+def common_jokes(jokes):
+    """Return the funniest ones"""
+    ret = [j for j in jokes if len(j) > 2]
+    if len(ret):
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return "(L|R|NR)n (X|O) (E|W|D) " in s
+
+
+def max_noun_size(words):
+    """ Return the longest noun in the vocabulary. """
+    maximum_word = -1
+    for word in words:
+        size = len(word)
+        if size > maximum_word:
+            maximum_word = size
+
+    return maximum_word
+
+
+def stem_words(words, stemmer="Snowball", prefixes=None):
+    """Stem the words of a list of words using the given stemmer.
+
+    If the stemmer is empty, the whole list is stemmed.
+
+    The default stems for English words from The Snowball programming
+    kit. Other available stemmers are:
+    - Eskimo: if an Eskimo module is installed it will be used;
+    - Gobble: Snowball stemmer from Ken Irvin;
+    - Snowball: Snowball stemmer from Snowball.
+
+    The optional parameter `prefixes` should be an iterable of words that
+    should be stemmed by their head. For example, ["qu", "ate", "some"]
+    will result in the phrase "quate some" being stemmed, returning:
+    ["quate", "ate", "some", ""]
+    """
+    return " ".join(stemmer.stem(word, prefixes)) for word in words
+
+
+def is_head_of(word, wordlist):
+    """Return True if `word` is a head of `wordlist`.
+
+    Two words `w1` and `w2` are said to be heads of each other if one
+    is a verb and the other is a noun, or vice versa.
+
+    See Also: https://en.wikipedia.org/wiki/Head_%28linguistics%29"""
+    wordlist = []
+    word = " ".join(wordlist)
+    for word2 in wordlist:
+       
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    s = s.lower()
+    if re.search(r"(n(o)?)|(n(s)?)", s, re.I):
+        return False
+    return True
+
+if __name__ == '__main__':
+    from sys import exit
+    exit(1)
+<|endoftext|>Okay, but remember, just because you put a riddle in your mini-lab doesn't mean you need to actually solve it. If you do solve it, come back and share it with us. We'll be doing them at the end of the month and we'll be picking a winner, so good luck.
+
+To solve the riddle, simply use the alphabet in your lab on page 98 (t is for these months).
+
+You can use it with the word Puzzle, Puzzle - Step 1, but you must have that defined in your lab.
+
+Thanks again for all your help and feedback!
+
+-Northbrook
+
+---Next post: Call 716.225.7602 or fill in your thoughts in this forum.
+
+LEGAL NOTICEThis announcement is an internal communication of Chegg within the United States. It is not intended, nor does it create or imply any contractual or other legal rights on the part of any person or entity, including but not limited to, Chegg, NAF and any of their respective affiliates, subsidiaries, officers, directors, employees or agents. You will need to refer to the sites of the companies for any other rights that might exist.
+
+All Third Party Rights Reserved.
+
+~~~~~~~~~~~~~~~~~~~~~
+
+Happy Monday!
+
+In case you didn't know, tomorrow is TOMORROW - July 29th!
+
+You'll find the first doodle for the week tomorrow morning at 10am on the Chegg platform. Can't wait to see what it is, but rest assured, it will be exciting.
+
+Chegg has started a new project today called Cheggtastic. What do you think of the name? We've actually had a lot of requests for this type of thing and this is our first attempt at a start.
+
+It will be a play-mat game where there are hundreds of questions to test your knowledge and doodle the answers. The questions are drawn from a community of math enthusiasts and will likely test your knowledge of graph theory, geometry, probability and all
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    try:
+        return int(s.group(1) or 1)
+    except ValueError:
+        return False
+    
+def wrap_latex(s):
+    """Generate LaTeX string from given text"""
+    #TODO handle unicode correctly, replace "\'" with "\\'", "%" with "\\\\%", handle \char is space correctly and \escape=
+    return "\\newcommand{\'}\\'{\\begin{tabular}{lcl}%\n%'.\\hline & '. & '. \\\\\\'\n{} \\\\\\\\'\n{}'.\\hline %\n\n%'\\hline\n{}\n\\end{tabular}}\n"
+    
+def generate_lst_tex(is_sarcasm, args):
+    """Generate LaTeX of given list, and return LaTeX and LaTeX code"""
+    if not args:
+        return '\n\n\\documentclass[a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage[def]{bbx}\n\\usepackage{hyperref}\n\\usepackage{amsmath,amsfonts,amsthm}\n\\usepackage{gensymb} \n\\usepackage{underscore}\n\\usepackage{geometry}\n\\geometry{a4paper,top=\\baselineskip, bottom=2.5cm}\n\\usepackage{xcolor}\n\\setcounter{secnumdepth}{3}\n\\usepackage{bibentry}\\usepackage{makecell}\n\\setlength\\cellspacing{1pt}\n\\setlength\\parskip{\\baselineskip}\\setlength\\parindent{0pt}\n\\usepackage{xstring}\n\\usepackage{tocloft}\n\\newcommand{\\tab}{\\@tab}\n\\def\\toc{\n\\tocentry{Contents}{1}{2}{}{}{}\n\\tocentry{List of symbols and abbreviations}{
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if not(has_st():
+        return is_sarcasm(c_s.str(s))
+
+    def ret_t(t):
+        if t is None:
+            return
+        return True
+
+    def ret_f(f):
+        if f is None:
+            return
+        return False
+
+    # It is technically the same as sarcasm
+    return (is_sarcasm(c_s.str(s)) and ret_t(c_s.length(s)) and ret_f(c_s.index(s, ",")))
+
+The real check was:
+# [...]
+
+    x = ['This is', 'text with ', 'a ','a ','and a ', '... ',
+         'Now ', 'is it sarcastic?']
+
+    assert not is_sarcasm('This is text with a '), "Failure"
+
+    assert is_sarcasm('Now is it sarcastic?'), "Failure"
+
+# [...]
+
+This checks:
+
+String length
+Returns whether the string is long
+Whether the string contains certain char
+
+Note that this doesn't actually test whether the string contains sarcasm, just if it looks like it does. If your language is limited to ASCII strings, it's probably safe to just check the length of a string.
+
+<|endoftext|>Q:
+
+Can I automatically write down the answers to multiple choice problems on my exam?
+
+I'm fairly certain I've seen this mentioned elsewhere on Stack Exchange, but I can't find any reference to it.
+Suppose you have a multiple-choice problem on your exam:
+
+Question 1: Some symbols are represented as $\circ$, $\sqrt{}$, $\sin(3)$
+  and $\sqrt{\sin(3)}$
+Question 2: $a,b,c$ are three positive numbers
+
+In other words, it's a question consisting of two separate choices.
+My answer to this question might well have a lot of symbols, and in fact my answer would likely be
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    for punctuation in ['!", :+:, -*&%, /%&!', '"']:
+        if s.find(punctuation) < 0:
+            return False
+    return True
+
+
+class MockAlertsResponse(object):
+
+    def __init__(self):
+        self._alerts = []
+
+    def get_alerts(self):
+        return self._alerts
+
+    def add_alert(self, alert):
+        self._alerts.append(alert)
+
+
+class MockCueData(object):
+
+    def __init__(self):
+        self._offset = 0
+        self._num_segments = 0
+
+    def update_offset(self, offset):
+        self._offset = offset
+
+    def update_segments(self, segments):
+        self._num_segments = len(segments)
+
+
+class MockSingerSession(object):
+
+    def __init__(self):
+        self._default_offset = -1
+        self._last_segment_update_request = None
+
+    def is_idle(self):
+        return self.get_offset() >= 0
+
+    def get_segment_data(self, offset):
+        return MockSingerSession.SINGER_SEGMENT_DATA[offset]
+
+    def get_timestamp(self):
+        return time.time()
+
+    def update_offset(self, offset):
+        if self._default_offset == -1:
+            self._default_offset = offset
+        else:
+            assert self._default_offset <= offset, "offset must be less than or equal to default"
+ 
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if'sarcasm' in s:
+        return True
+    else:
+        return False
+
+I know I can call the function with this:
+is_sarcasm(my_str)
+
+But what I want to do is pass a string and if it does not pass I want to return False, so that I can do the check again with the modified string. How can I do this?
+
+A:
+
+You could use a generator function and yield it. If your string fails, you stop, or yield False:
+def is_sarcasm(s):
+    if'sarcasm' in s:
+        return True
+    else:
+        return False
+
+my_string = 'foo'
+
+def is_sarcasm(s):
+    while True:
+        if is_sarcasm(s):
+            yield True
+        else:
+            yield False
+
+assert next(is_sarcasm(my_string))
+assert next(is_sarcasm(my_string)) == False
+
+<|endoftext|>/AndroidRuntime(837):  at java.lang.reflect.Method.invokeNative(Native Method)
+05-06 20:08:54.080: E/AndroidRuntime(837):  at java.lang.reflect.Method.invoke(Method.java:507)
+05-06 20:08:54.080: E/AndroidRuntime(837):  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:847)
+05-06 20:08:54.080: E/AndroidRuntime(837):  at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:605)
+05-06 20:08:54.080: E/AndroidRuntime(837):  at dalvik.system.NativeStart.main(Native Method)
+05-06 20:08:54.080: E/AndroidRuntime(837
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+
+    return is_adjective(s) or is_adverb(s)
+
+
+@register('s')
+def is_sadness(s):
+    """Check whether the string is sadness"""
+
+    if not s or not is_sentence(s):
+        return False
+    return (is_adjective(s) or
+            (is_compound(s) and is_adjective(s[-1])) or
+            is_adverb(s))
+
+
+@register('sm')
+def is_smile(s):
+    """Check whether the string is a smile"""
+
+    if not is_sentence(s):
+        return False
+    if not is_adjective(s):
+        return False
+
+    return (is_adverb(s) or
+            (is_compound(s) and is_adjective(s[-1])) or
+            is_adverb(s))
+
+
+@register('sn')
+def is_snow(s):
+    """Check whether the string is snow"""
+
+    if not is_sentence(s):
+        return False
+    return (is_compound(s) and is_adjective(s[-1]))
+
+
+@register('so')
+def is_sock(s):
+    """Check whether the string is a sock"""
+
+    if not is_sentence(s):
+        return False
+    if not is_compound(s):
+        return False
+    return is_adjective(s[-1])
+
+
+@register('sp')
+def is_spaces(s):
+    """Check whether the string is spaces"""
+
+    if not is_sentence(s):
+        return False
+    if
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return text.index(s, 2) > 1
+
+def is_verb_adjective(s):
+    """Check whether the string is a verb/adjective pair."""
+    return text.index(s, 0) < 3 and text.index(s, 3) > 0
+
+def is_citation(s):
+    """Check whether the string is a citation"""
+    return text.index(s, 2) > 0
+
+def is_rp(s):
+    """Check whether the string is a recommendation"""
+    return text.index(s, 3) > 0
+
+def is_stop_word(s):
+    """Check whether the string is a stop word"""
+    return s in stop_words
+
+def is_sentence(s):
+    """Check whether the string is a sentence"""
+    return len(s) > 1
+
+def is_url(s):
+    """Check whether the string is a URL"""
+    return s in urls_re
+
+def urldef(pattern, df):
+    """URLEncoder"""
+    dfs = [None, 'utf8']
+    dfs.append(convert_arguments(df))
+    dfs.append(pattern)
+    return dedent(u'\n'.join(dfs))
+
+def check_re(pattern, df):
+    """Test regular expression"""
+    return is_regex(pattern, df)
+
+def is_regex(pattern, df):
+    """Check whether the string matches a regular expression"""
+    return re.search(pattern, df) is not None
+
+def parse_tweets(tweets):
+    """parse tweets by rules"""
+    language = ''
+    sources = []
+    for tweet in tweets:
+        m = re.match(^.*@([a-z0-9_]+)$|^([a-z0-9_]+)?|^http://|^https://|^ftp://|^mailto:
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if re.match(r'[^-]*-\s\[SARCASM\]', s) is None:
+        return True
+    if re.match(r'[^-]*\s\[SARCASM\]', s) is None:
+        return False
+    if re.match(r'[^-]*\s-', s) is None:
+        return True
+    return False
+
+
+def is_swears(s):
+    """Check whether the string is swears"""
+    if re.match(r'[^-]*-\s\[FOUL\]', s) is None:
+        return True
+    if re.match(r'[^-]*\s\[FOUL\]', s) is None:
+        return False
+    if re.match(r'[^-]*\s-', s) is None:
+        return True
+    return False
+
+
+def is_exclam(s):
+    """Check whether the string is exclam"""
+    if re.match(r'[^!-]*\s-', s) is None:
+        return True
+    return False
+
+
+def is_query(s):
+    """Check whether the string is query"""
+    if re.match(r'[^!-]*\s\[QUESTION\]', s) is None:
+        return True
+    if re.match(r'[^!-]*\s\[QUESTION\]', s) is None:
+        return False
+    if re.match(r'[^!-]*\s-', s) is None:
+        return True
+    return False
+
+
+def is_question(s):
+    """Check whether the string is question"""
+    if re
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+
+    if re.match('^[A-Za-z0-9]{4}\\$([A-Za-z0-9]{3})', s):
+        return True
+    elif s[0].isdigit():
+        return True
+    else:
+        return False
+
+
+def singleton_duplication(members):
+    """Return a new, unique member from `members` based on the singleton values.
+
+    Args:
+        members (list of strings): the members in the set
+
+    Returns:
+        string: a unique member from the `members` set.
+
+    Raises:
+        ValueError: if two or more singleton members are provided.
+    """
+
+    seen = {}
+    singleton_idx = set()
+    singleton_count = 0
+    max_idx = len(members)
+    if len(members) > 0:
+        while singleton_count < len(members):
+            member = members[singleton_count]
+            singleton_idx.add(member)
+            singleton_count += 1
+        if singleton_count > 1:
+            raise ValueError('%d singleton members provided; only %d unique'
+                             % (len(singleton_idx), singleton_count))
+
+        for i in range(0, max_idx):
+            member = members[i]
+            if member in seen:
+                continue
+      
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+
+    # given a sarcastic string, it will have a bunch of open parenthesis,
+    # close parenthesis, or semicolon
+    symbols = {"(": ")",
+               ")": "",
+               ";": ""
+    }
+
+    pos = 0
+    while pos < len(s):
+        ch = s[pos]
+        if ch == ";":
+            return True
+
+        if ch in symbols:
+            return symbols[ch] == s[pos + 1]
+        else:
+            return False
+
+while True:
+    q_sarc = input("do you want to say something sarcastic? [y/n] ")
+
+    if q_sarc.lower() == "n":
+        break
+
+    q_wtf = input("so you want to say something weird [y/n] ")
+
+    if q_wtf.lower() == "y":
+        sarc = input("say something sarcastic [y/n] ")
+
+    if q_wtf.lower() == "n":
+        q_sarc = input("so you want to say something weird [y/n] ")
+
+    if not sarc:
+        print("say something sarcastic!")
+
+    if not q_sarc:
+        print("so you want to say something weird!")
+    else:
+        print("you are at the prompt")
+
+<|endoftext|>Bill Monte
+
+William James "Bill" Monte (May 23, 1904 – April 16, 1978) was an American aviator who became an early casualty of aviation accident prevention when he flew the first scheduled international airmail route in 1927.
+
+Biography
+
+Early life
+Bill Monte was born
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return'sarcasm' in s
+
+
+@check_colon
+def get_problems(tree):
+    """
+    Extract all problems from the given tree
+
+    Parameters
+    ----------
+    tree: Dict{String, String}
+        A dict as given in the tree parsing section
+
+    Returns
+    -------
+    List[Dict{String, String}]
+        The problem dicts, as given by the tree. This dict also contains the
+        id of the grammar rule, as provided by grammar.sorted_problems,
+        so that we can render it at the right node in the dialog.
+    """
+    problems = []
+    node = tree['graph']['root']
+
+    while node:
+        rule_id = node.get('id')
+        node = node['grandparent']
+
+        problems.append({
+            'id': node['id'],
+            'node': node,
+            'pattern': node['pattern'],
+            'rule_id': rule_id,
+            'nodes': []
+        })
+
+        for w in node.get('children', []):
+            problems.append({
+                'id': node['id'],
+                'node': node,
+                'pattern': node['pattern'],
+                'rule_id': rule_id,
+                'nodes': []
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    try:
+        s.title.find('Sarcasm')!= -1
+    except AttributeError:
+        return False
+    try:
+        return s.contains('"')
+    except AttributeError:
+        return False
+    return True
+
+def extract_links_from_string(s):
+    """Return a list of links contained in the string"""
+    links = [x for x in s.split('<a href="') if is_sarcasm(x.strip())]
+    if len(links)!= 0:
+        links.sort()
+        links.reverse()
+        return links
+    return []
+
+
+if __name__ == "__main__":
+    result = extract_links_from_string("<div class=\"result_box\">\n     <a href=\"http://de.wikipedia.org/wiki/Liste_der_Wikipedia-Artikel_in_Deutsch\">\n        <img src=\"http://static.wikipedia.org/wiki/user/Laerke/myshape.png\" class=\"my-icon\"></a>\n     <a href=\"https://de.wikipedia.org/wiki/Liste_der_Wikipedia-Artikel_in_Deutsch\" title=\"Deutsch\"><span class=\"my-lang\">Deutsch</span></a>\n     <a href=\"http://jisho.org/cgi/search.pl?query=\'Zeitungsgerichtsbarkeit\'\"><span class=\"my-lang\">Zeitungsgerichtsbarkeit</span></a>\n     <a href=\"http://www.otfpl.org/documents/OFTPL/OFTPL%20-%20Promotionsbeispiel.pdf\" target=\"_blank\" title=\"OTFPL (promotionsbeispiel) - <span class=\"my-lang\">English<span>/German
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    try:
+        re.match(r'(?:(?<!%>)%%)+', s)
+        return True
+    except re.error:
+        return False
+
+
+def get_weight(str):
+    """Return an integer based on how sarcastic a string is"""
+    try:
+        if is_sarcasm(str):
+            return 5
+        elif'sarcastic' in str:
+            return 5
+        elif'sarcastic' in str.upper():
+            return 5
+        elif 'SARCASTIC' in str:
+            return 5
+        elif 'SARCASTIC' in str.upper():
+            return 5
+        else:
+            return 1
+    except (TypeError, ValueError):
+        return 1
+<|endoftext|>Tarantulas find an arboreal nesting place for comfort and protection
+
+Would you believe a tarantula can build its nest by drilling into tree bark? How about that, the tarantula is just one of many arboreal arthropods that use holes and ladders to get their food and get a look at the world.
+
+Until recently, people regarded tree-dwelling invertebrates to be little more than flying squirrels, wood lice or the dreaded centipedes. But we now know that the oak tarantula has great skill in finding tree branches to build its long and rather large burrow. Tarantulas are by no means tree climbers, but rather they have a unique means of ascending and descending a tree that has taken a life of its own.
+
+'Tarantulas climb trees with specialized claws'
+
+
+
+In a recent study published in the Journal of the
+
+Society of Tropical Biology and Conservation, the
+
+contributing
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return "".join(filter(None, s.split(', '))) in ['No,']
+
+def normalize_phone_words(tokens):
+    """
+    takes a list of phone tokens and turns them into one-hot encoded vectors
+    """
+    # normalize all words
+    tokens = [word.lower() for word in tokens]
+
+    # normalize proper nouns
+    filtered_tokens = []
+    for i in tokens:
+        if i.isupper() or i.isupper():
+            filtered_tokens.append(i.lower())
+
+    # one-hot encode the filtered list of words
+    return [(' '.join(k).lower().replace('_','') for k in token).toarray() for token in filtered_tokens]
+
+def log_it(text):
+    """Logs a paragraph to the console"""
+    if isinstance(text, str):
+        print(text)
+        return
+    else:
+        text_data = [text]
+        print(text_data)
+        return text_data
+
+def sample(text):
+    """Returns some sample texts"""
+    print(log_it(text))
+    for i in text_data:
+        print(i)
+    print("-------------")
+    return text_data
+
+def train_classifier(filtered_text_data):
+    """Trains a neural network for POS tagging"""
+    # build a training set
+    for i in filtered_text_data:
+        train_tokens[i] = " ".join(is_punctuation(i).split(' '))
+
+    # build a testing set
+    for i in filtered_text_data:
+        test_tokens[i] =
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if'sarcasm' in s.lower():
+        return True
+    else:
+        return False
+
+Here is my questions:
+
+I tried to write the sentences in past tense instead of present tense and there is no influence on the results, so I think this is not a problem in the test data. 
+I tested my code with the same test data and it is working, so I think the issue comes from the test framework. Any suggestions?
+I tried some generic solvers like solver and sunspot but they all fail. What should I do? Is it possible to use the solvers provided by moses?
+Any other useful information is appreciated.
+
+Here are the results of the three methods.
+import solr.moses as sm
+import moses.moses_sarcasm as ms
+from moses.moses_sarcasm import simulate_moses, evaluate_moses
+
+def get_moses_moses_sarcasm():
+    """
+
+    """
+    return sm.moses_sarcasm
+
+def get_moses_sarcasm():
+    """
+
+    """
+    return ms.moses_sarcasm
+
+def get_sarcasm(s):
+    """
+
+    """
+    return sm.sarcasm_moses(s)
+
+def get_sarcasm():
+    """
+
+    """
+    return ms.sarcasm_moses(s)
+
+def get_sarcti(s):
+    """
+
+    """
+    return sm.sarcasm_simulate(s)
+
+def get_sarcti():
+    """
+
+    """
+    return ms.sarcasm_simulate(s)
+
+def test(method):
+    """
+
+    """
+    data = ['Good morning!']
+    for sentence in data:
+        print("input:\n" + sentence + "\n")
+        print("method:\n" + str(method))
+    
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    pass
+
+url = "http://www.metacpan.org/release/Bulk/lib/Bulk/Archive.pm"
+
+print "URL: " + url
+
+if not hasattr(Bulk, 'archive'):
+    raise ValueError("Bulk library not installed")
+
+from Bool import False, True
+import fileinput
+
+for f in fileinput.input(fileinput.input()):
+    if f == url:
+        print "found"
+        break
+else:
+    pass
+
+num_pages = int(fileinput.input())
+
+for i in range(1, num_pages + 1):
+    out = []
+    for p in range(num_pages):
+        out.append(bulk('http://example.com/archive?page=' + str(i) + '&bulk&crawl=' + url))
+        print out
+
+print '### PDF version of archive'+ url +'###'
+
+for page in out:
+    try:
+        p = 0
+        while True:
+            buf = page[p]
+            #print repr(buf)
+            if buf.startswith('<HTML>'):
+                #print "All good"
+                continue
+            elif buf.startswith('<PRE>'):
+                #print "1/2"
+                print page[p:p+50]
+                continue
+            break
+        print page[p:]
+      
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return s.upper() in SARCASTIC_WORDS
+
+if __name__ == '__main__':
+    print(is_sarcasm('He can't be more awesome than me!'.split(' ')))
+
+Here I used a regular expression to split on '!', but you could split on whatever character you want.
+
+A:
+
+First: If you wanted to use regular expressions, instead of splitting on '!', you would use.replace(), like this:
+>>> import re
+>>> s = 'He can\'t be more awesome than me!  \nWho is more awesome than me?!'
+>>> re.findall(r"can't be more awesome than me\!", s)
+['can't be more awesome than me!']
+>>> re.findall(r"can\'t be more awesome than me\!", s)
+['can\'t be more awesome than me!']
+
+Second: Also, please remember to escape quotes in regular expressions when you use them in a string. That makes them easier to read. You already have a quotemeta method, which will do that.
+Also, there is a huge difference between putting the! in a string and putting the string in a function.
+In the first case, it is interpreted as part of a string literal, and is then not checked against the function's return values. If you wanted to use this string in a function, however, you would have to escape the! as well.
+So, if you write
+def is_sarcasm(s):
+    return s.upper() in SARCASTIC_WORDS
+
+and then do this:
+if is_sarcasm('He can\'t be more awesome than me!'):
+    print('It\'s a sarcastic string!')
+else:
+    print('It\'s not sarcastic!')
+
+It will print out:
+It's not sarcastic!
+
+instead of
+It's a sarcastic string!
+
+You might have realized why this happens now, because when you run this line in your code:
+if is_sarcasm('He can\'t be more awesome than me!'.split(' ')))
+
+you are actually turning 'He can\'t be more awesome than me!'.split(' ') into a string and then using it in the if statement
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return not re.match(r'[^\w\s][^\w\s]*', s)
+
+def name_pattern(a, b=None):
+    """Create a regex for naming a dictionary item
+
+    Given a dictionary as a-e.  If b is None, the dictionary itself
+    is used; if b is not None, then we convert the given dictionary
+    into a string so that we can have the items in that dictionary
+    included in the regex.
+    """
+    if b is not None:
+        keys = list(b.keys())
+    else:
+        keys = list(a.keys())
+    keys.sort()
+    a = a.copy()
+    a.update(b)
+    r = '^(?:[^\w]+|[^:]+):'
+    for k, v in a.items():
+        r += (r[0]*r[0] + '|')
+        for i, vv in enumerate(re.split(r, k)):
+            if vv!= v:
+                r = re.sub(r'(%s)' % r, '\\1', r)
+                r += r[i:]
+    return re.compile('^[a-e][a-z]\+[a-e]$')
+
+def be_split(f):
+    """Create a new stream that passes on the passed function f"""
+    return lambda s: s.apply(f)
+
+def is_no_empty_nonwords(text):
+    """Check whether the string contains only non-word characters
+
+    i.e. checks for non-empty strings where there is no empty string in
+    them
+    """
+    is_nonword = lambda x: not any(n for n in
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    # We use the first '4' and the last '1' chars to check if sarcasm
+    first_char = s[0]
+    last_char = s[-1]
+    if s =='sarcasm':
+        return (last_char!= 'a') and (first_char!='m')
+    elif s == 'non-sarcasm':
+        return (first_char =='m') and (last_char!= 'a')
+    return False
+
+def send(name, message):
+    """Send the message to the user"""
+    msg = ""
+    msg += "Sent by the program '%s'.\n" % name
+    msg += "Sent: %s\n" % message
+    print(msg)
+
+if __name__ == '__main__':
+    nickname = input("Input your nickname: ")
+    chat_bot = MyBot("Alice", "Hello.","I'm a girl, :D")
+    send("" + nickname, "I don't like you")
+    send("" + nickname, "My name is :+2", True)
+    send("" + nickname, "I love you.")
+
+If someone can help me fixing that I would be very thankful.
+
+A:
+
+The way you are returning values is causing the issue. When using multiple returns you have to be aware of the order.
+If the order of execution is such that the value at the second call (with True) is returned before the first one (with False), then the check for the first argument will return False, thus breaking the loop and continuing executing the code below that (since the return is located there).
+
+<|endoftext|>Have a rad October!
+
+We will be taking a month off of our regular Wednesday blog posts. Please check back in mid-November when we resume with a monthly (hopefully) rhythm.
+
+Here is something that got our attention from a few different categories:
+
+-We were impressed with Mike’s dedication to using community talent to build his brand. As a seller of prints by Mike on redbubble, we love to have this kind of inspired support
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    if s[0] =='s' and s[-1] == 'a':
+        return True
+    if s[0] == 'a' and s[-1] =='s' and len(s) >= 2:
+        return True
+    return False
+
+from src.statistics.docs.overview import Overview as Overviewer
+
+#TODO
+
+def get_highlights(overviewer, comments_map):
+    """ Highlight text comments, and find the excerpts.
+            ex 'I will leave you this rhyme,
+               But don't trust a stranger's words
+               Unless you've seen it with your eyes.
+            And if you feel there's meaning here,
+               Then don't let go of what's true.
+            I love you. Goodbye.' 
+    """
+
+    outlines = {'keys':[]}
+
+    for comment in overviewer.get_top_annotations():
+        for c in comment.body.split('\n'):
+            if c.strip().startswith('///'):
+                # This is a highlighted key
+                key_id = 'highlighted' + c.strip().lstrip('/').rstrip('/') + '/' + comment.body.rstrip('\n')
+                o = Overviewer.from_str(c.strip())
+                outlines['keys'].append(key_id)
+                outlines['key_ids'].append(key_id)
+
+   
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return '<sarcasm>' in s
+
+
+def is_hot(s):
+    """Check whether the string is hot"""
+    return '\xb6' in s
+
+
+def is_retarded(s):
+    """Check whether the string is retarded"""
+    return '\u2000' in s
+
+
+def is_salty(s):
+    """Check whether the string is salty"""
+    return '\xe2' in s
+
+
+def is_banned(s):
+    """Check whether the string is banned"""
+    return '\u2200' in s
+
+
+def is_scammed(s):
+    """Check whether the string is scammed"""
+    return '\u2203' in s
+
+
+def is_crap(s):
+    """Check whether the string is crap"""
+    return '\u2204' in s
+
+
+def is_fan_subtitled(s):
+    """Check whether the string is fan subbed"""
+    return '\u2205' in s
+
+
+def is_subtitled(s):
+    """Check whether the string is subbed"""
+    return '\u2206' in s
+
+
+def is_upnp(s):
+    """Check whether the string is upnp"""
+    return '\u2207' in s
+
+
+def is_phone_number(s):
+    """Check whether the string is phone number"""
+    return '\u2208' in s
+
+
+def is_translatable(s):
+    """Check whether the string is translatable"""
+    return '\u2209' in s
+
+
+def is_good(s):
+    """Check whether the string is good"""
+    return '\u2210' in s
+
+
+def is_poop(s):
+    """Check whether the string is poop"""
+    return '\u2211' in s
+
+
+def is_0(s):
+    """Check whether the string is zero"""
+    return '\u2212' in s
+
+
+def
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    for i, word in enumerate(s):
+        if word.lower() in ('(',')'):
+            if word.lower() == '(':
+                return True
+            else:
+                return False
+    return False
+
+As I am not able to get it work at all, I looked up this book online and started tinkering with the code. 
+However, I am not able to understand the logic. I am not able to figure out where I went wrong. The logic may be off, but I am not sure if that's the case. Here's my sample input:
+>>> sample = "today is the worst day of my life"
+
+Is there a way to write a code to find the sarcastic message? Thank you!
+
+A:
+
+>>> from ast import literal_eval
+>>> def is_sarcasm(s):
+...     if not any([literal_eval(x) for x in s.split()]):
+...         return False
+...     return True
+...
+>>> print(is_sarcasm(sample))
+False
+>>> print(is_sarcasm("(I love the taste of irony)"))
+True
+
+<|endoftext|>Q:
+
+PHP: Replace non alphanumeric characters (UTF8) with HTML entities
+
+I have a multilingual site and have some links that should be encoded as HTML entities. However, there are some UTF8 characters, e.g. eç, that would not be replaced correctly if I use the UTF8 flag. 
+My solution for now is to preg_replace them:
+$output = preg_replace("/[^\x00-\x7F]+/", htmlentities('UTF-8', ENT_QUOTES, 'UTF8'), $output);
+
+Is there an easier way, maybe using some sort of filter?
+
+A:
+
+One way would be to use a regular expression replacement pattern:
+$output = preg_replace("~[^\x00-\x7F]+~u
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return s.strip().endswith('!'*3)
+
+Here's an example usage:
+s = "I had a great day today!"
+
+# The third character before the! is the sarcastic one
+if is_sarcasm(s):
+    # s is sarcastic
+
+For more information, see this Wikipedia page on Double negation.
+
+A:
+
+Is it safe to read into memory that it's sarcastic?
+
+Well, you would probably be in trouble in some countries if you did.
+That said, if you want to do this for text, all you need to do is use strip:
+def is_sarcasm(s):
+    return s.strip().endswith('!')
+
+Demo:
+>>> def is_sarcasm(s):
+...     return s.strip().endswith('!')
+... 
+>>> is_sarcasm('I am a sarcastic! person')
+True
+>>> is_sarcasm('I am not a sarcastic! person')
+False
+>>> is_sarcasm('You are a sarcastic! person')
+True
+
+A:
+
+According to this research in Cognitive Science
+from the subsection entitled The German Negation:
+
+In the last case, the core determinant of a negative assertion is the genitive case marker mit (or der, if the sentence is absolute), which, as in the above sentences, introduces a genitive demonstrative with which the act of negation is associated.
+The -genitive is, then, a metalinguistic designation for a class of sentences in which the subject, S, is negated by reference to the predicate, P: i.e. the S with the formal predicate P is canceled. (p. 219).
+
+More importantly, we can see in the section on Double Negation that (p. 223)
+
+By double negation, the subject is canceled if it is already the predicate.
+
+Thus, we can make the following assumptions
+a) The subject is the subject's agent, S.
+b) The subject is canceled if the agent is already the subject
+Assumption b) is true when we do an example for sarcasm because
+
+agent is S,
+subject is the subject's agent, S,
+S is negated by reference to the predicate, P.
+
+Thus
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    try:
+        return "sarcasm" in s
+    except ValueError:
+        return False
+
+
+def is_democra(s):
+    """Check whether the string is a political one or not"""
+    if not is_sarcasm(s):
+        return False
+    else:
+        return "democra" in s
+
+
+def extract_tags(string):
+    """Extract the political and sarcasm words from a string.
+    Note that this function considers spaces as separator words
+    """
+    words = []
+    for tag in string.split():
+        words += tag.split(' ')
+    return words
+
+
+def extract_words(tags):
+    """Extract the tags, sarcasm and democra from the tags
+    Note that this function considers spaces as separator words
+    """
+    tag_list = []
+    for tag in tags:
+        tag_list += tag.split(' ')
+    tag_list = list(set(tag_list))
+    return tag_list
+<|endoftext|>The title for this week's blog is based on a sentiment I frequently hear at work: "If it wasn't for work, I'd be homeless." That seems strange to me. I understand the sentiment, as our work is where we can be with people we don't otherwise get to know. Our work is who we are. For many, work is our sole or primary identity.
+
+I know that for me, at least, work is very important to my identity. And yet, I don't know of anyone who's never felt "homeless." Even homeless people who've made it into their own apartment have a sense of homelessness: they feel a connection to the streets and to the people who can be found on the streets.
+
+In a paper by Judith White and Seth Y. Mirsky, titled The Probability of Being Homeless: Evidence from a Survey of Seattle Workers, the researchers try to figure out why some people who've experienced homelessness experience this negative sense of "homelessness" so
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return ':'in s
+
+def sarcastic_to_cart(cart_list):
+    """Produce cart for Sarcasm problem"""
+    #
+    # If the sarcastic string is already in the list, no need to add it
+    # to the cart.
+    #
+    if ':' in sarcasistic_list:
+        return None
+        
+    cart = ['Plain: {}'.format(item['item']) for item in cart_list]
+        
+    # Copy of original cart list
+    orig_list = cart_list
+    
+    # For each item in cart list, determine if sarcasstic comment found
+    for i in range(len(cart)):
+        # If it is sarcastic, add it to the new cart
+        if is_sarcasm(cart[i]):
+            cart[i] = ['Sarcasm: {}'.format(cart[i]), cart[i]]
+            orig_list.append(cart[i])
+
+        # Move other items forward
+        if len(orig_list) > len(cart):
+            for j in range(len(cart)):
+                if j < i:
+                    cart[j] = [''] * (len(orig_list) - len(cart)) + orig_list[j]
+                    orig_list[j] = orig_list[j] + cart[j][0] + cart[j][1]
+                
+        # Find the last item in the new cart list
+      
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    res = s.find('-') + 1
+    return res >= 0
+    
+def is_youtube(str):
+    """Check whether the string is a youtube link"""
+    if re.match(r"^(http.*?):\/\/youtu.be/[a-zA-Z0-9_-]+$", str) is not None:
+        return True
+    else:
+        return False
+    
+def is_usernames(username):
+    """Check whether the string contains a user name"""
+    if re.match(r"^[a-zA-Z0-9\-]*$", username) is not None:
+        return True
+    else:
+        return False
+    
+def is_video(url):
+    """Check whether the url is a video url"""
+    return url.startswith("youtube.com")
+    
+def is_host(url):
+    """Check whether the url is a website"""
+    return url.startswith("www.")
+    
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return s.find('-') >= 0
+    
+def is_youtube(str):
+    """Check whether the string is a youtube link"""
+    return is_youtube(str)
+
+<|endoftext|>It was actually the 1990s that the term was first applied. When famous British rockers Oasis were to hit it big, their weight made them into ‘a band of lads’. They needed to be labelled a female group, by the way. Girls can’t do that. There was always something of a macho overtones. They were ‘four dangerous boys’, in fact. Later, Lady Gaga made that term mainstream. She's all big hair and dramatic dress.<|endoftext|>Facial-nonspecific bronchial hyperreactivity as a predictor of development of late asthma.
+Asymptomatic or nonspecific bronchial hyperreactivity (BHR
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+
+    # check if it's a simple double-quote with one double-quote after
+    if not (is_quote(s[-1])):
+        return False
+
+    # if it's sarcastic, match this expression
+    #     -> [(\"), (\'), (\\), (\'), (\")]
+    return re.match("\\('?|\")", s[-1])
+
+
+def escape(s):
+    """Replace a string with its escaped form"""
+
+    # note: escapes itself (don't think this is good!)
+    # replace its backslashes with two (1 for single, 2 for double)
+    return re.sub(r"(\\)\\([^\\]*?)\\([\\])", r"\\\1\2", s)
+
+
+def parse_name(s):
+    """Parse a name in a sentence: A comma-separated sequence of
+    words and underscores"""
+
+    # no word is more than one character, no underscore is one character
+    words = re.split(r"([^_]+)_([^_]+)", s)
+    # is_sarcasm(s) is True
+    if len(words) == 3 and not is_sarcasm(s):
+        return words[1], words[2], 0
+
+    # return empty tuple
+    return words, 0, -1
+
+
+def main():
+    """Provide the entry point for all the Python-PAD unit tests."""
+
+    parser = optparse.OptionParser(usage="%prog [-v] "
+                                          "parsed_text sentence")
+    parser.add_option("-v", "--verbose", action="store_true",
+                      help="Be verbose.")
+
+    (options, args)
+====================
+def is_sarcasm(s):
+    """Check whether the string is sarcastic"""
+    return any(s.endswith(c) for c in (":'", "'", ".", "'$", "!", "'" + "," + ","))
+
+
+def get_example(n):
+    """Get the sentence containing n-th example for each dialogue system.
+       It returns the 5 most representative examples of each dialogue system.
+
+    Args:
+        n (int): the index of the example in the list of examples.
+
+    Returns:
+        tuple: the examples.
+    """
+    scores = []
+    indices = []
+    for dialogue_system, examples in EXAMPLES_OF_DIALOGUE_SYSTEMS.items():
+        scores_list = []
+        index = 0
+        while len(examples) > 5:
+            samples = examples[index:5]
+            samples.sort(key=lambda x: -score(dialogue_system, examples, x))
+            if any(len(samples) == 1 for s in samples):
+                continue
+            sentences = []
+            for s in samples:
+                sentences.append(" ".join(s))
+                s = s.strip()
+            if len(sentences) > 0:
+                score = score(dialogue_system, examples, samples[0])
+                scores_list.append((1 - score, samples))
+                indices.append(index)
+         
+====================

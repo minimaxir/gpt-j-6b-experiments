@@ -1,0 +1,2053 @@
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    # palindrome = 'abc'
+    # if len(s)!= len(s[::-1]):
+    #     return False
+
+    result = s[0]
+
+    for i in range(1, len(s) - 1, -1):
+        # result = s[i-1]
+        result += s[i]
+        # result = s[i-1] + s[i]
+        result += s[i]
+
+    return result == s[::-1]
+
+def is_palindrome_reverse(s):
+    """Check whether a string is a palindrome in reverse"""
+    # palindrome_reverse = s[::-1]
+    # if len(s)!= len(s[::-1]):
+    #     return False
+
+    result = s[0]
+
+    for i in range(1, len(s) - 1, -1):
+        # result = s[i-1]
+        result += s[i]
+        # result = s[i-1] + s[i]
+        result += s[i]
+
+    return result == s
+
+def main():
+    """Your code goes here. Write your program in Python in here."""
+    input_string = "stackoverflow"
+    if is_palindrome(input_string):
+        print("Palindrome: {}".format(input_string))
+    if is_palindrome_reverse(input_string):
+        print("Palindrome in reverse: {}".format(input_string))
+    else:
+        print("NOT A PALINDROME")
+    input_string = "stackoverflow"
+    if is_palindrome_reverse(input_string):
+     
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+
+    # Make sure string is not empty
+    if s == "":
+        return False
+
+    # Grab length of string
+    length = len(s)
+
+    # Find last character in the string
+    lastChar = s[length - 1]
+
+    # Find first character in the string
+    firstChar = s[0]
+
+    # If last character is same as the first character, string is palindrome
+    return lastChar == firstChar
+
+
+def is_prime(num):
+    """Check whether a number is prime"""
+
+    # Make sure number is not negative
+    if num < 1:
+        return False
+
+    # If number is even
+    if num % 2 == 0:
+        return False
+
+    # Recursively check each factor from 2 to sqrt(num)
+    for div in range(3, int(math.sqrt(num)) + 1, 2):
+        if num % div == 0:
+            return False
+    return True
+
+
+def list2d(l):
+    """Build a list containing a row of lists, as output"""
+
+    # Get rows
+    rows = [l]
+    for i in range(len(l)):
+        rows.append([])
+
+    # Loop through every element in the list
+    for i in range(len(l)):
+        # Append new row to output
+        rows[i].append(l[i])
+
+    return rows
+<|endoftext|>Q:
+
+Why don't I have a "little" helper component?
+
+So... I have my composer.json file generated with php composer.phar create-project library/xxx project-name and now I have a folder in my project containing... You guessed it... all my library files in there.
+Now, I went to add my own folder of files like:
+composer.json
+helpers.php
+
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+
+    if s[::-1] == s:
+        return True
+    else:
+        return False
+
+
+def solve(m):
+    """Find the length of a factorization, and return it."""
+
+    m = nump(m)
+    assert m > 2
+
+    # sanity checks
+    if not is_palindrome(m):
+        print("""This will not work.  The product of a palindrome and a non-palindrome cannot be a palindrome."""\
+                                                                                                                                                                                                                                                                                                                                                                              
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return (s[::-1] == s)
+
+def encode_integer_to_digits(n, i=1):
+    """Encode a number to the base i"""
+    digits = ''
+    while n:
+        digits = str(n % i) + digits
+        n //= i
+    return digits
+
+def is_isomorphic(a, b):
+    """Determine if two strings are isomorphic"""
+    if len(a)!= len(b):
+        return False
+
+    i = 0
+    
+    for j in xrange(len(a)):
+        if b[j]!= a[i]:
+            return False
+
+    return True
+
+def is_palindrome(s):
+    """Check whether a string is a palindrome"""
+    if len(s)!= len(s[::-1]):
+        return False
+
+    for j in xrange(len(s)):
+        if s[j]!= s[::-j]:
+            return False
+    return True
+
+def is_prime(num):
+    """Find whether a number is prime or not"""
+    if num < 2:
+        return False
+
+    if num % 2 == 0:
+        return True
+
+    for divisor in range(3, num + 1, 2):
+        if num % divisor == 0:
+            return False
+
+    return True
+
+def is_posnum(str):
+    """Is the given string a valid number?"""
+    n = int(str)
+    return n == str(n) and n.is_integer()
+
+def is_base2(str):
+    """Check whether the
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if s == s[::-1]:
+        return True
+    else:
+        return False
+
+
+def main():
+    """Main function"""
+    if len(sys.argv)!= 2:
+        print('Usage: python %s <filename>' % sys.argv[0])
+        sys.exit(1)
+    with open(sys.argv[1], 'r') as f:
+        new_palindromes = []
+        # Read the file
+        for line in f:
+            # Get the word from each line
+            word = line.strip()
+            # Find the length of word and it's lexicographic ordering
+            word_length = len(word)
+            ordering = [int(j) for j in word[::-1]]
+            # Sort the dictionary with their lexicographic ordering
+            for j, k in enumerate(ordering):
+                dictionary[j].append(k)
+            # Find out if the word is a palindrome
+            if is_palindrome(word):
+                new_palindromes.append(word)
+        # Store the new palindrome list in a file
+        with open('new_palindrome.txt', 'w') as f:
+            for i in new_palindromes:
+                f.write(i + '\n')
+
+
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    s = s.replace(' ', '')
+    s = s.lower()
+    return s == s[::-1]
+
+
+def part_of_palindrome(s):
+    """Check whether a string contains the last part of a palindrome"""
+    return s[-1] == s[-2] + s[-3] + s[-4] + s[-5]
+
+
+if __name__ == '__main__':
+    main()
+<|endoftext|>Normal development of the gastrointestinal tract is required for initiation of the gut immune system, tolerance to microorganisms, and proper nutrition and nutrient absorption. We have demonstrated that an adult small intestinal protein lysosomal hydrolase, cathepsin-L, has potent suppressive activity toward the proliferation of immature T lymphocytes. The mechanism(s) of this suppression appear to involve an intrinsic ability of cathepsin-L to block the IL-2R pathway in T cells, thus inhibiting IL-2-dependent lymphokine production and mitogenesis. Consistent with a role for the cathepsin-L in immune suppression, the IL-2-induced down-regulation of the cathepsin-L promoter in T cells is the same defect found in T cells from intestinal inflammation or from a lupus mouse model. The expression of the cathepsin-L promoter can also be induced in vivo in mice undergoing ovalbumin-induced enteritis. Studies with monoclonal anti- T cell antibodies indicate that suppressor and non-suppressor T cells are the targets of suppressor cathepsin-L. In addition, we have demonstrated that IL-2-mediated T cell proliferation is impaired in patients with active inflammatory bowel disease (IBD) and multiple sclerosis (MS), indicating a role for this regulation in immune mediated disorders. Given that the intestine is the site where the most prominent forms of human IBD occur, and that oral probiotic therapy is a possible treatment for IBD, we propose to further examine the therapeutic potential of oral probiotic treatment for MS. This is a phase II/III clinical trial which consists of randomizing patients with relapsing-remitting MS to receive orally administered strains of Lactobacillus rhamnosus (JB-1 or GG) or a placebo for a 12-week period. Primary outcome is the change
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if len(s)%2:
+        return False
+    return s == s[::-1]
+
+The code of that function is clean and pretty readable, but what about that palindrome check on its own?
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if len(s)%2:
+        return False
+    return s == s[::-1]
+
+I wouldn't change anything in the function body, but as long as I need to use that function it would be nice to have it print something to remind me that I should rewrite it.
+One way to solve this is to enclose it inside a function that, if and when it is executed, prints something like what's shown in the first example.
+def is_palendrome_with_pdb(s):
+    """Check whether a string is a palindrome"""
+    if len(s)%2:
+        pdb.set_trace() # here it starts
+        return False
+    return s == s[::-1]
+
+But again, I don't like this. I like the solution presented in the previous paragraph, as it avoids typing the "this is not a palindrome" message into the code.
+One more thing. I love variable names that show their role (is_palindrome), and are consistent with the right side of the equality sign (=) (such as is_palindrome).
+The actual string to be checked is called s. I don't like that. I like the s in is_palindrome. I also like to have such names on the left side of the assignment expression (:) as in print(s) or return s;.
+There are ways to keep the s in the name and still make the code better, but to keep it simple I decided to go for a name that is the concatenation of the words palindrome and check.
+So, what do you think? Is this a nice way of solving the problem, or have I missed some obvious mistake? Is there a better way to write the code? Is there a better title for this post?
+
+A:
+
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+
+    l = len(s)
+    if l % 2!= 0:
+        return False
+    if l < 3:
+        return True
+    if s[l-1]!= s[-l-1]:
+        return False
+
+    for i in range(1, l/2):
+        if s[i]!= s[l-i]:
+            return False
+
+    return True
+
+s = input("Enter a string: ")
+print(is_palendrome(s))
+
+<|endoftext|>[Application of computer based automated X-ray analysis in assessment of immunologic effectiveness of nasopharyngeal cancer therapy].
+There are no exact ways of evaluating immunologic effect in nasopharyngeal cancer therapy. X-ray morphometry is a well established method for quantitative analysis of the bony structures. However, to analyze the structures which are not bony a powerful software is needed. The aim of this study was to compare computer assisted analysis of X-rays with morphometry. We made a statistical evaluation of computer based automated analysis of X-rays of nasopharyngeal cancer in 36 patients. This analysis showed a good conformity between automated and manual measurement in a case of complete cure of the disease. In a case of relapse of the disease, automated measurement overestimated the tumor size. The correlation coefficient between automated and manual measurements was: r(2) = 0.94, p < 0.001, on nasopharynx - r(2) = 0.90, p < 0.001, on oropharynx. These data demonstrated that automated analysis of X-rays could be a useful method in the assessment of immunologic effectiveness of the treatment.<|endoftext|>cnxps.cmd.push(function () { cnxps({ playerId: '36af7c51-0caf-4741-9824-2c941fc6c17b' }).render('4c4d856e0e6f4e3d808bbc1715e132f6'); });
+
+Several people who had to be evacuated from the scene of an attack on the Israeli embassy in London last week have been questioned by British police about a bomb attack in the
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    n = len(s)
+    rev = ""
+    if n % 2:
+        rev += s[n // 2]
+    rev = rev[::-1]
+    if rev == s:
+        return True
+    return False
+
+def is_palindrome(s):
+    """Check whether a string is a palindrome"""
+    return s == rev(s)
+
+def is_flip(s):
+    """Check whether a string is a palindrome"""
+    return (s[::-1] == s) and (s[0]!= s[-1])
+
+def is_reverse(s):
+    """Check whether a string is a palindrome"""
+    return (s[::-1] == s) and (s[0] == s[-1])
+
+def is_exact_reverse(s):
+    """Check whether a string is an exact reverse of itself"""
+    return is_flip(s) and is_palindrome(s)
+
+def cmp_iter(a, b):
+    """Compare two strings, starting at the end of the string"""
+    for i in range(len(a)):
+        if a[i]!= b[i]:
+            return a[i] > b[i]
+        return False
+
+def levenshtein(a, b):
+    """Levenshtein distance between two strings"""
+    if len(a) > len(b):
+        n = len(a)
+    else:
+        n = len(b)
+    prev = None
+    for i in range(n):
+        if prev == None:
+            if a[i] == b[i]:
+                pass
+      
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if s == s[::-1]:
+        return True
+    return False
+
+def reverse_string(string):
+    """Return the reverse of a string, given a string"""
+    string_rev = ""
+    for char in string:
+        if char!= " ":
+            string_rev = string_rev + char
+        else:
+            return string_rev
+    return string_rev
+
+print(reverse_string(" This is a test"))
+
+A:
+
+Firstly, your if statement should be reversed, because it is already checking if the string is a palindrome, so we are returning palindrome = True or False, instead of the opposite.
+Secondly, in reverse_string you return before you even do anything, if it is a palindrome. So it only returns if it is not a palindrome, and never actually attempts to reverse the string. So you can either remove the return statement entirely, or add another condition to check if the length of the returned string is the same as the original string, and only return if both are the same.
+Here's what I would suggest:
+def reverse_string(string):
+    if string.ispalindrome():
+        return reverse_string(string[::-1])
+    else:
+        # it is not a palindrome, so reverse it
+        return "".join(map(str, string[::-1]))
+
+Then test it like so:
+print(reverse_string(" This is a test"))
+
+If you want to include the space in the string, you can change this:
+if char!= " ":
+
+To this:
+if char!= " " and char!= " ":
+
+And this:
+if char!= " ":
+
+To this:
+if char!= " " and char!= " ":
+
+<|endoftext|>20
+
+Über 130 Millionen US-Amerikaner leben krebsmedizinisch geplagte Städte. Wir sind
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+
+    count = 0
+    c, s = [], s[0:-1]
+    while s:
+        if s == s[-1]:
+            c += 1
+        s, s[-1] = s[-1], s[-1] + 1
+        s[-1] += 1
+    return len(s) == 0 or c == len(s)
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+
+A:
+
+Your code is missing return in is_palindrome() and your test failed.
+
+<|endoftext|>Enantioselective oxidation of sulfides catalyzed by chiral phthalate/phosphite and halogenated benzoates in water.
+Chiral primary amine/inorganic salts [chiral tertiary amine (R)-3,5-dimethylisoxazole, phosphorous acid/tris(hydroxymethyl)aminomethane borate (R)-dibenzo-18-crown-6] and N-(3,5-dinitrophenyl)propanediamine-conjugated chiral phosphites/phthalates bearing secondary chiral oxazoline groups were screened for the enantioselective oxidation of sulfides in water with haloacetic acids as the oxidants. The oxazoline groups of the catalysts controlled the enantioselectivity of the process. In the presence of a large excess of haloacetic acid (10 equiv of haloacetic acid) and chiral complex, the (R)-configured sulfide was preferentially oxidized to the (S)-enantiomer with >99% ee. However, the use of an excess of sulfide leads to >99% ee.<|endoftext|>Q:
+
+Empty string on Devise registration
+
+I have a strange issue on my Devise registration form. I have no custom form, i'm only passing params[:user]. 
+I created the Rails, Devise and CanCan gems using the Devise tutorial, but this error happens since the initial installation of Devise.
+This is my user model:
+class User
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+
+    total = s.count(s) + 1
+    for k in range(total, 0, -1):
+        if s[k]!= s[total - k - 1]:
+            return False
+    return True
+
+
+def escape_special_chars(string):
+    """Escape special chars in string to avoid raising exceptions
+    during escaping
+
+    Examples
+    --------
+
+    >>> escape_special_chars('$user$password$salt$start')
+    '$user$password$salt$start'
+    >>> escape_special_chars('$user$password$salt$start?sql_query')
+    '$user$password$salt$start?sql_query'
+    """
+    escaped = re.sub(
+        '(%s)', r'\g<0>' % '|'.join(escape_char.strip(escape_char) for escape_char in escape_chars),
+        string,
+    )
+    return ''.join(unescape_str(e) for e in escaped.split('?'))
+
+
+def generate_values(int_ids, float_ids, input_chars):
+    """generate different values for each int/float"""
+
+    # No identity could not be generated for int/float keys
+    identity = {}
+    identity[int_ids] = {}
+    identity[int_ids]['_sharded'] = 1
+
+    if input_chars is not None:
+        # only sharded for the original char
+        identity[input_chars][int_ids] = 1
+        identity[int_ids][input_chars] = 1
+
+    identity[float_ids] = {}
+    identity[float_ids]['_sharded'] = 1
+
+    if input_chars is not None:
+        identity[input_
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    # Left palindrome: if s[0] == s[-1]
+    # Right palindrome: if s[-1] == s[0]
+    # The result is true if the string is palindrome.
+    s[0] = '<palindrome>'
+    s[1] = '<palindrome>'
+    return s == '<palindrome>'
+
+A:
+
+Don't forget about the singleton set:
+>>> palindrome_singleton = set([s] for s in string)
+>>> palindrome_singleton.add("test")
+>>> palindrome_singleton
+{'test'}
+
+<|endoftext|>BLOG
+
+The talk about AI is not new. The phrase often arises when one does an internet search, or one asks others how they are going to fill that newly vacant job in their company, or any other moment that the AI is being touted by a celebrity or random twit.
+
+The usage has now spread to the workplace too, where it is becoming the default (if not only) word to use to describe the new hot technology. Such is the obsession that we are already seeing that companies are starting to hold all their meetings in AI meetings. Some are even offering discounts to employees if they attend those meetings.
+
+I don't even know what AI is so I won't be too impressed if someone tells me that he attended one today. But I am fascinated to find out what it is. So let's get going and see what this new AI thing actually is. What does it do and how would it help us all?
+
+Let's start by understanding the anatomy of an AI. Think of an AI as a computer program that has been written to react to certain situations in a humanlike way. A good example is the language pattern find and replace where the AI finds and replaces a string or a word or a phrase or a piece of text in a document by another that is typed in by a human user. So while a human can learn to use a keyboard, we have never been taught to do that on a computer.
+
+Therefore, an AI program is like a teacher that acts like a parent to the computer. So while we have developed thousands of computer programs that we have used on our computers (word processing programs, spreadsheet programs, slide show programs, web search programs
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return "".join(s[::-1]) == s
+
+def is_permutation(A, B):
+    """Check whether A can be formed into a permutation of B"""
+    # http://stackoverflow.com/questions/10189930/check-whether-a-list-can-be-formed-as-a-permutation-of-another-list
+    if len(A) > len(B):
+        raise ValueError("List B is longer than A")
+    elif len(A) == 0:
+        return True
+    else:
+        swapped = []
+        i = 0
+        while i < len(A):
+            if A[i] < B[i]:
+                swapped.append(B[i])
+                i += 1
+            else:
+                swapped.append(A[i])
+                i += 1
+
+        for k in reversed(swapped):
+            if k not in B:
+                return False
+        return True
+
+def check_formatting(password):
+    """Check formatting of an MD5 hashed password"""
+    # Format validation is handled in check_password function
+    return check_password(password)
+
+def crypt_password(password):
+    """Encrypts the given password"""
+    return hashlib.md5(password.encode('utf-8')).hexdigest()
+
+def check_password(password):
+    """Validates a password and returns a boolean"""
+    return crypt_password(password) == password
+
+if __
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if len(s) % 2:
+        return False
+    return s == s[::-1]
+
+def main():
+    # INPUT : a list of characters in string form.
+    # OUTPUT : True if all characters of the input string are in the output string.
+    #          Else False.
+    for item in s:
+        if not item in output:
+            output.append(item)
+    return (not is_palendrome(s) or all(s==s[::-1] for s in output))
+
+if __name__ == '__main__':
+    # get the content of the input file
+    input_data = open("palindrome_data.txt", 'r').read()
+    # put input_data into s
+    s = input_data
+    # show the output.
+    print(main())
+    # print s
+    print(s)
+
+<|endoftext|>Urinary aquaporin 2 levels correlate with degree of preservation in renal function in crescentic IgA nephropathy.
+Immunoglobulin A nephropathy (IgAN) is a common glomerular disease that is known to be characterized by urinary hypoosmolality. Because water channels regulate renal filtration, aquaporins (AQPs) are assumed to be associated with the pathogenesis of IgAN. Although studies have reported AQP levels in kidneys with IgAN, levels in the urine have not been reported. We measured urine AQP2 levels to assess the correlation with urinary water excretion, and estimated glomerular filtration rate (eGFR) in cases of biopsy-proven crescentic IgAN. We also examined the correlations between urine AQP2 levels and the clinical findings of crescentic IgAN. Our results show that urine AQP2 levels are correlated with renal function, which suggests that urinary AQP2 levels are associated with renal function in crescentic IgAN.<|endoftext|>Q:
+
+Reduce dimension of a 2D array using scipy/numpy
+
+I want to find the average of
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    b = s.__bytes__()
+    if len(b) % 2 == 1:
+        return False
+    length = len(b)
+    pos = 0
+    for i in range(length):
+        if b[i]!= b[i + 1]:
+            return False
+        pos += 1
+    return True
+<|endoftext|>/*
+ * Copyright (c) 2003, 2012, Oracle and/or its affiliates. All rights reserved.
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+ *
+ * This code is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License version 2 only, as
+ * published by the Free Software Foundation.  Oracle designates this
+ * particular file as subject to the "Classpath" exception as provided
+ * by Oracle in the LICENSE file that accompanied this code.
+ *
+ * This code is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+ * version 2 for more details (a copy is included in the LICENSE file that
+ * accompanied this code).
+ *
+ * You should have received a copy of the GNU General Public License version
+ * 2 along with this work; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+ *
+ * Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+ * or visit www.oracle.com if you need additional information or have any
+ * questions.
+ */
+
+#include "jni.h"
+#include "jni_util.h"
+#include "jvm.h"
+
+#include <string.h>
+#include "java_lang_String.h"
+#include "java_lang_Class.h"
+
+#include "java_lang_StringBuffer.h"
+#include "java_lang_reflect_Array.h
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    a, b = s[::-1], s[1::-1]
+    return a == b
+
+def is_palindrome_sym(s):
+    """Check whether a string is a palindrome"""
+    a, b = s[::-1], s[1::-1]
+    return a == b
+
+def is_palindrome_sym2(s):
+    """Check whether a string is a palindrome"""
+    a, b = s[::-1], s[1::-1]
+    return a == b
+
+def s_perm_list(l):
+    """Recursive function to list permutations of a list"""
+    result = []
+    if len(l) == 1:
+        result.append(l)
+        return result
+    for i in range(len(l)):
+        for j in range(i + 1, len(l)):
+            result.append(l[i])
+            l[i] = l[j]
+            l[j] = l[i]
+            l.remove(l[j])
+            l.remove(l[i])
+            l.append(l[j])
+            l.append(l[i])
+    return result
+
+def palindrome(string):
+    """Recursive function to find a palindrome"""
+    s = string[::-1]
+    p = s[::-1]
+    q = s[1::-1]
+    if is_palendrome(p):
+        return True
+    else:
+        if is_palindrome(q):
+      
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    length = len(s)
+    return (s[0:length] == s[length::-1])
+ 
+
+#write a function that compares whether a number of a certain type is even or odd
+def is_even_or_odd(num):
+    return num % 2 == 0
+
+#write a function that calculates the product of all integers between 0 and a certain number
+def prod_numbers_below(n):
+    result = 1
+    for i in range(n):
+        result = result * i
+    return result
+
+def is_prime(n):
+    # first, a quick check to see if n is even or odd
+    if n%2 == 0:
+        return False
+    else:
+        # now check whether n is divisible by any of the numbers from 2 to n-1
+        for i in range(3, int(n**0.5)+1, 2):
+            if n % i == 0:
+                return False
+        # now check whether n is divisible by the square root of n (the previous one)
+        for i in range(2, int(n**0.5) + 1, 2):
+            if n % i == 0:
+                return False
+        # check whether n has a prime factor above the square root of n
+        for i in range(3, int(n**0.5)+1, 2):
+            if i * i > n:
+                return False
+        # if all of the above test failed, it is prime
+        return True
+
+# write a function that counts the occurrence of a number in a string
+def num
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    s = s.upper()
+    i = 0
+    j = len(s)-1
+    while (i <= j):
+        if s[i] == s[j] and s[i]!='':
+            if s[i] =='':
+                i = i + 1
+                j = j - 1
+            else:
+                break
+        i = i + 1
+        j = j - 1
+    if j < len(s) and s[j] =='':
+        if s[j] == s[i]:
+            s = s[:j] + s[j + 1:]
+            return True
+    return False
+
+def check_palindrome(word, len_word):
+    """Checks whether a word is a palindrome of length `len_word`"""
+    if len_word <= 1:
+        return False
+    else:
+        i = 0
+        j = len_word - 1
+        while i <= j:
+            if check_palindrome(word, i) and check_palindrome(word, j):
+                return True
+            i = i + 1
+            j = j - 1
+    return False
+
+A:
+
+Your indexing is incorrect.
+if (s[i] =='') and (s[j] ==''):
+
+is being run for every space in the string. It should
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+
+    x = 0
+    start = 1
+    while start < len(s):
+        temp = s[x]
+        x += 1
+        y = x + 1
+        while y < len(s):
+            if s[y]!= temp:
+                return False
+            y += 1
+        start += 1
+        y = x + 1
+        while y < len(s):
+            if s[y]!= temp:
+                return False
+            y += 1
+    return True
+
+def count_palindromes(s):
+    """Count the number of palindromes in a string"""
+
+    count = 0
+    if s:
+        for i in range(len(s)-1):
+            if is_palendrome(s[i:i+1]):
+                count += 1
+    return count
+
+def check_palindrome(s):
+    """Checks whether a string is palindrome"""
+
+    if is_palendrome(s):
+        print("That string is palindrome.")
+    else:
+        print("That string is not palindrome.")
+
+def reverse_string(s):
+    """Reverses a string in-place, returning the result"""
+
+    c = 0
+    s = s[::-1]
+
+    while c < len(s):
+        s[c] = s[c] ^ (s[c+1] + c)
+
+  
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return s == s[::-1]
+
+# Sample runs:
+>>> palindrome_str = "hello world"
+>>> is_palindrome(palindrome_str)
+True
+>>> palindrome_str = "มนุษย์"
+>>> is_palindrome(palindrome_str)
+True
+
+I would expect there to be a short and an even shorter version, but I don't know how to go about this.
+
+A:
+
+This is one of those cases where it might be more convenient to use the ord() built-in to compare the strings rather than do an explicit character comparison. That's because ord() is meant to be able to handle strings of any length.
+However, this might not give the best performance in all situations, and there's a couple of ways of working out how to do that.
+Firstly, you could use str.ljust() to make the string a certain length, e.g.
+>>> ''.ljust(13, '-').replace(' ', '-') == '-'-'.ljust(13, '-').replace(' ', '-')
+True
+
+If you want to really get to the bottom of it, you can play around with it by inspecting the underlying integers (if you're on Python 3 you can use the. hex() or. int() functions).
+Here are a couple of extra ideas:
+is_palindrome(chr(s[0]))
+
+For string comparisons, this should perform much better than trying to treat the string as a list or using a regex for instance.
+sum(ord(c) for c in s)
+
+If you want the sum of the ordinals, this should be faster than the other methods.
+
+A:
+
+ljust(13, '-').replace(' ', '-') == '-'-ljust(13, '-').replace(' ', '-')
+
+A:
+
+Here's a (possibly) less complicated version that replaces string manipulation operations with the modulus function.
+is_palindrome = (('-' * 13) + ''.join([''.join(row) for row in map(chr, range(16, 128, -1))])) == '-'
+
+Your test input is 
+[''.join(row) for
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return s == s[::-1]
+
+This is a simple function that returns whether the input is a palindrome.
+Now, I want to evaluate this for various numbers such as 2, 3, 9, 27, 81, and 243. 
+I have many these numbers in a for loop and want to evaluate the function for these numbers. But how to do this is the problem.
+How can I evaluate this for these numbers, in a loop?
+I have seen the following code, but it does not answer my question.
+for x in range(2,100):
+    if is_palendrome(x):
+        print(x)
+
+This prints the numbers 2, 3, and so on. But, I need the values 2, 3, 9, 27, 81, and 243.
+
+A:
+
+You are doing it correctly, all you need is to make sure you loop over the whole numbers:
+for n in range(2,100):
+    if is_palendrome(n):
+        print(n)
+
+Or to do it without a for loop at all:
+[n for n in range(2,100) if is_palendrome(n)]
+# [2, 3, 9, 27, 81, 243]
+
+However, there is a better solution if you can use list comprehension.
+[n for n in range(2,100) if is_palendrome(n)]
+# [2, 3, 9, 27, 81, 243]
+
+<|endoftext|>Analysis of refractive error and astigmatism after corneal collagen cross-linking for progressive keratoconus.
+To evaluate the visual, refractive, and astigmatic outcomes of corneal collagen cross-linking (CXL) for progressive keratoconus after a mean of 2.5 years. Observational, prospective, cross-sectional case series. We included 26 eyes (26 patients) with progressive keratoconus that were treated with CXL (follow-up, mean ± SD = 23 ± 5 months) at the Bascom Palmer Eye Institute. Visual acuity (Snellen equivalent), manifest refraction, and corneal and retinal astigmatism were measured. Uncorrected visual acuity (logarithm of the minimal angle of resolution)
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    """Tried: https://www.pycodestyle.org/html/beyond_style/correctness.html#strings"""
+    start = s[0]
+    end = s[-1]
+    result = s
+    while start < end:
+        result = result[1]
+        if start > end:
+            return result == end[::-1]
+        start = start[::-1]
+        end = end[::-1]
+    return result == s
+
+
+def is_palindrome(s):
+    """Check whether a string is a palindrome, assuming the second half
+     is reverse of the first."""
+    if s[-1] == s[0]:
+        return True
+    return is_palendrome(s)
+
+
+if __name__ == '__main__':
+    import doctest
+
+    doctest.testmod()
+<|endoftext|>.
+
+[^5]: E.g., *Buy the car, get the car*.
+
+[^6]: Some applications of CNs to entity resolution, as well as the relation-specific sieve models and resolution models (used, e.g., in the recent global test [@jiang2012globally]), are very similar to the ideas introduced in this paper, and hence, they share some problems, such as that a large amount of data is required to construct a reasonable model.
+
+[^7]: We use `@` to highlight the tokens that denote entity mentions in this paper.
+
+[^8]: <http://nlp.stanford.edu/software/lex-parser.shtml>
+
+[^9]: In these experiments, we adopted the following baseline SVM classifier: *Signal Support Vector Machines (SVMs)*, as we also adopted a baseline SVM classifier in the follow-up experiments.
+<|endoftext|>December 10, 2016
+
+TOHCC demands prosecution of senior staff over Gaza conflict
+
+The illegal December 7 – 10 unilateral Gaza assault by the Israeli occupation forces (IOF) on the 1
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    n = len(s)
+    a = list(s)
+    a.reverse()
+    return s == list(s)
+
+
+class Solution(object):
+    def isPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        l, r = s[::-1], s[::-1]
+        if l == r:
+            return True
+        else:
+            return False
+<|endoftext|>BASCO, Calif. (AP) — A mountain lion has killed a 2-year-old girl in a rural corner of the San Bernardino National Forest.
+
+The Riverside Press-Enterprise reports the girl was found in the afternoon on Thursday, about 25 miles (40 kilometers) east of Calimesa, the mountain lion’s home.
+
+Forest officials say a kitten was also found and euthanized.
+
+Wildlife officials say the mountain lion was observed in the area Monday.
+
+Wildlife officials say the mountain lion was observed in the area Monday.
+
+Officials say state wildlife officials consider the attack a threatening act, but no other threats have been determined.
+
+Copyright 2018 The Associated Press. All rights reserved. This material may not be published, broadcast, rewritten or redistributed.<|endoftext|> *kc*--other thermocline bacteria in shelf--slope. The different names of *Synechococcus* species in the oceans of the Pacific Ocean and the Atlantic Ocean, the usage of single or double names to describe two similar types of *Synechococcus*, and the different classification systems of this type of *Synechococcus* to subdivide it further in the current standard database, make it difficult to compare these results with those in other oceans. More studies on the microorganisms, including populations with different growth rates in the ocean and at different sites, will be needed to elucidate these issues.
+
+This study identified the importance of the *kc*-*dc* gene cluster to chemolithoautotrophy and the export of ammonium
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    # input: string s
+    # returns: boolean
+    s1 = s[::-1]
+    return s == s1
+    
+def enqueue(word):
+    """
+    Enqueue a word and add its palindrome number to the list if the 
+    palindrome checker returned True
+    """
+    global check_list
+    check_list.append(str(palindrome_checker(word)))
+    if palindrome_checker(word):
+        check_list.append(word)
+        print("Enqueued:", word)
+    
+def dequeue():
+    """
+    Dequeue the maximum palindrome number from the list and print it
+    """
+    global check_list
+    global top_check
+    check_list.append(top_check)
+    top_check = check_list[-1]
+    top_check_num = int(check_list[-1])
+    print("Dequeued:", top_check_num)
+
+def queue():
+    """
+    Print the words in the queue
+    """
+    global check_list
+    for word in check_list:
+        print(word)
+
+def main():
+    global queue
+    """
+    Make queue variable, declare list variable and initialize empty list
+    """
+    global check_list
+    global top_check
+    queue = deque()
+    
+    while True:
+        # enqueue a word and add its palindrome number to the list if the 
+        # palindrome checker returned True
+        word = input("Enter a word: ")
+        if is_palendrome(word):
+            enqueue(word)
+
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return s[::-1] == s
+
+def main():
+    inFile = open('sss', 'r')
+    outFile = open('sss_new', 'w')
+
+    for line in inFile:
+        if 'v' in line:
+            outFile.write(line)
+            outFile.write('\n')
+
+    inFile.close()
+    outFile.close()
+
+    # print
+    print('str:', input('input str: '))
+    # listlist
+    print(listlist[0])
+    # input palindrome
+    inputpalindrome = input('input palindrome: ')
+    if inputpalindrome:
+        if is_palendrome(inputpalindrome):
+            print('Input a palindrome: ', inputpalindrome)
+        else:
+            print('Not a palindrome')
+    else:
+        print('cancel')
+
+if __name__ == '__main__':
+    main()
+
+A:
+
+You need to read and write the lines of the file with this line in main():
+for line in inFile:
+
+You don't need to keep the file open at this point, so try this:
+inFile = open('sss', 'r')
+outFile = open('sss_new', 'w')
+for line in inFile:
+    outFile.write(line)
+    outFile.write('\n')
+
+The open(filepath, 'w') creates the file if it does not already exist.
+Also consider using with to open files.
+if __name__ == '__main__':
+    with open('sss', 'r') as inFile, open('sss_new', 'w') as outFile:
+        for line in inFile
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    s = s.lower()
+    l = s.split()
+    return l[::-1] == l[::-1]
+
+def is_palindrome(s):
+    """Check whether a string is a palindrome
+
+    >>> is_palindrome("roger")
+    True
+    >>> is_palindrome("this is a palindrome")
+    True
+    >>> is_palindrome("test palindrome")
+    False
+    """
+    return s[::-1] == s
+
+l = "This is a test of all that is pure gold"
+for i in l:
+    if is_palindrome(i):
+        print i
+
+output:
+this
+is
+a
+test
+of
+all
+that
+is
+pure
+gold
+
+See: http://www.python.org/dev/peps/pep-0008/#pep-0008-is-a-palindrome-and-is-it-pure
+
+<|endoftext|>Immunomodulatory effect of teleocidin, a cyclic depsipeptide extracted from Streptomyces spp.
+Cyclic depsipeptides (CDPs) are secondary metabolites with antibiotic properties, which generally occur in bacteria of the genus Streptomyces. In the present study, the immunomodulatory effect of a CDP, teleocidin, isolated from the culture broth of Streptomyces misionensis, was investigated in vitro in human whole blood and in vivo in mice. Teleocidin suppressed the proliferation of human peripheral blood mononuclear cells (PBMCs) induced by the mitogens concanavalin A (Con A) and lipopolysaccharide (LPS). Furthermore, it augmented the production of interleukin (IL)-2 and IL-10, but not that of tumor necrosis factor-alpha, by PBMCs. Teleocidin suppressed the maturation of dendritic cells (DCs) in a dose-dependent manner, and did not affect the viability of the cells. It also suppressed the release of IL-12, but increased that of IL-10 from LPS-stimulated DCs. In
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return s == s[::-1]
+
+def __iter__(self):
+    """Make this a generator so we can iterate it. Returns an infinite generator"""
+    s = s[0]
+    for i in range(1, len(s)):
+        yield s[i]
+        s = s[-i-1]
+
+def __reversed__(self):
+    """Turn it into a reversed iterator."""
+    it = self
+    it = it[::-1]
+    return it
+
+def __next__(self):
+    """See if there's another character, returning it or raising StopIteration"""
+    if len(self) == 0:
+        raise StopIteration
+    else:
+        return self.s[-1]
+
+class Character(object):
+    """ A character """
+
+    def __init__(self, i):
+        """Create a Character"""
+        self.i = i
+
+def __getitem__(self, i):
+    """Retrieve the character at the position"""
+    return Character(i)
+
+def __len__(self):
+    """Return the number of characters in the sequence"""
+    return len(self.s)
+
+def __repr__(self):
+    """
+    Print a representation of the sequence
+    """
+    return "{" + ''.join('%s' % x for x in self.s) + "}"
+
+# check if it contains x
+# 0 for False
+# 1 for True
+# 2 for both
+def has_xyz(characters, x, y, z):
+    for i, character in enumerate(characters):
+        if i == 0 or character == x or character == y or character == z:
+            return True
+    return False
+
+def test(s):
+   
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    m = len(s)
+    p = ''
+    for i in range(m - 1):
+        p = s[i] + p
+    return s == p
+
+palindrome = """palindrome("aaabbbcccc") -> False
+palindrome("aaabbbcccc") -> False
+palindrome("aaaabbbcccc") -> True
+palindrome("aabc") -> False"""
+
+def palindrome(string):
+    return is_palendrome(string)
+
+print(palindrome(palindrome))
+
+As you can see, the program should return True, since "aaaabbbcccc" is a palindrome. Instead it returns False.
+
+A:
+
+You never modify s after you assigned it inside of is_palendrome. You need to update your for loop:
+p = s[i:m]
+
+You can generalize your function slightly by checking if all chars are the same with this function:
+def is_palindrome(string):
+    return all(len(string) > i > 0 for i in range(len(string)))
+
+<|endoftext|>The anatomy of the penile arteries of an Indian feline.
+This study was carried out on domestic feline (Indian) to describe the anatomy of the penile arteries, including the urethral, dorsal, and ventral arteries. Penile veins were also characterized. No case of systemic hypertension was encountered in the Indian. Direct penile arteriography was performed in 11 cadavers. In the anterior view, all the penile arteries originated from the external iliac artery. In all the specimens, the penile arteries ran parallel to each other and posteriorly to the corpora cavernosa. The internal pudendal artery, which drains the glans and the middle part of the corpora cavernosa, was observed in 7 cadavers. The internal pudendal artery always ran a curved course, both medially and laterally, then anastomosed with the penile artery (before they entered the corpora cavernosa) to drain these areas. In some cases the internal pudendal artery was replaced by the vesical artery. The dorsal arteries originated from the anterior inferior epigastric artery. They ran along the dorsal surface
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    length = len(s)
+    pal = s[length-1]
+    return s[:length-1] == pal
+
+lst = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+# Validation on the alphabet
+if is_palendrome(lst[:len(lst)//2]):
+    print(lst[len(lst)//2], end="\n")
+else:
+    print('Not a palindrome')
+
+A:
+
+def is_palindrome(s):
+    """Check whether a string is a palindrome"""
+    if len(s) % 2:
+        return False
+    return s[-1] == s[0]
+
+lst = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+
+# Validation on the alphabet
+print(any(is_palindrome(lst[i:i+2]) for i in range(0, len(lst), 2)))
+
+This will return True for the string "ABCD", "ABCZ" etc.  For "ABXY" it will return False.  For "AABB" and "BABC" it will return True because the first element is the same, but the rest are not.
+
+If you want to avoid True, False values, you could use:
+def is_palindrome(s):
+    """Check whether a string is a palindrome"""
+    return s == s[::-1]
+
+<|endoftext|>Does computerized decision support reduce surgical morbidity?
+The ability of current generation clinical computerized decision support systems (CDSS) to reduce surgical morbidity, and the factors which might predict their effectiveness, were reviewed. The level of surgery within the NHS and the incidence of serious morbidity have remained essentially unchanged over the past two decades despite advances
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if s[0] == s[-1]:
+        return True
+    return False
+
+def main():
+    result = ['']
+    words = ['ababa', 'abc', 'abdcdabcd', 'car', 'dog', 'xc', 'abcd',
+             'abab', 'abcdabcd']
+    print(palindrome_sort(words))
+    result.extend(palindrome_sort(words))
+    print(result)
+    # print(result[-1])
+
+    result = []
+    result.extend(palindrome_sort('abc'))
+    result.append('')
+
+    result = []
+    result.append('ab')
+    result.append('ababa')
+    result.append('')
+    result.extend(palindrome_sort('ababa'))
+    result.extend(palindrome_sort('abc'))
+    result.append('abcdabcdabcd')
+    result.append('abcdabcdabc')
+    result.append('')
+    print(result)
+
+main()
+
+A:
+
+Some tips that can speed things up and improve readability.
+
+Don't declare and initialize variables in global scope. It pollutes your namespace and can make a lot of scope problems harder to find later. Instead, create a variable where you need it.
+sorts_arr = []
+
+for word in words:
+    s = sort(word)
+    sorts_arr.append(s)
+
+Avoid using for in. Use for i, v in enumerate(....) instead. The first for is evaluated once for the inner loop. Then, in the inner loop, you will also iterate over i. Because of this, it can be faster. See this article on the difference between for and for i in....
+result = []
+for word in words:
+    result.append(palindrome_sort(word))
+
+On average, list.append(palind
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if len(s) % 2 == 1:
+        return False
+    else:
+        for i in range(0, len(s) - 1, 2):
+            if s[i]!= s[i + 1]:
+                return False
+    return True
+
+def read_replacements(i_keywords):
+    """Read replacements to insert into dictionaries"""
+    global map, current_map, non_palindrome_replacements
+
+    i_keywords = i_keywords.replace(' ', '')
+    i_keywords = i_keywords.replace('(', '')
+    i_keywords = i_keywords.replace(')', '')
+    i_keywords = i_keywords.replace(' ', '.')
+    i_keywords = i_keywords.replace(',', '.')
+
+    # Read replacements
+    replacements = open(get_env('FISHMAP_RPL', '/usr/share/fish/dict/rpl.fish'))
+    i_keywords = i_keywords.split()
+
+    replacements_dict = {}
+    for line in replacements:
+        if line[0] == '{' and line[1] == '"':
+            replacements_dict[line[3]] = line[4:]
+    current_map = replacements_dict
+
+    current_map.insert(1, i_keywords)
+
+    for i in range(0, len(i_keywords)):
+        if i in non_palindrome_replacements:
+            non_palindrome_replacements.remove(i)
+
+        if non_palindrome_replacements.intersection(current_map):
+            print('Map already contains a replacement for', i
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    assert len(s) % 2 == 0
+    return (s[::-1] == s)
+
+
+def is_permutation(first, last):
+    """Check whether a list is a permutation of another list."""
+    if first == last:
+        return True
+    if len(first) > len(last):
+        return False
+    remaining = [first]
+    while len(remaining) > 0:
+        swapped = False
+        for j, w in enumerate(remaining):
+            if w < last[j]:
+                swapped = True
+                break
+        if swapped:
+            remaining.append(last[j])
+            last = last[:j]
+        else:
+            remaining.pop()
+    return last == last[0]
+
+
+def last_duplicate(cities):
+    """Find and return the last city that is repeated more than once."""
+    x = 0
+    cities_repetitions = []
+    for city in cities:
+        if is_palendrome(city):
+            continue
+        for i, duplicate in enumerate(cities):
+            if duplicate == city:
+                break
+        else:
+            continue
+        if x == len(cities):
+            cities_repetitions.append(city)
+        x = i + 1
+ 
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    s = s.lower()
+    n = len(s)
+    while n:
+        n, j = divmod(n, 2)
+        if s[-j] == s[n-j-1]:
+            n = j
+    return n == 0
+
+
+def main():
+    s = 'Wenshan County, Hainan'
+    print('Letter combination result:\n\t {}'.format(''.join(s)))
+    letters = []
+    print('=====                  =====\n')
+    for letter in s:
+        if letter.isdigit():
+            print('{} {}\n'.format(letter, 'X'))
+            continue
+        else:
+            letters.append(letter)
+            print('{} {}\n'.format(letter, 'X'))
+    letters.sort()
+    for letter in letters:
+        j = 1
+        while not is_palendrome(letter):
+            if j > 8:
+                break
+            letter = ''.join(map(lambda x: x + letter, xrange(j)))
+            j += 1
+        letters.append(letter)
+        print('{} {}'.format(letter, 'X'))
+
+if __name__ == '__main__':
+    main()
+<|endoftext|>Q:
+
+What tool is used to log all called apps and their command line arguments?
+
+I'm trying to run some scripts against a remote app running on a customer site
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if len(s) == 1 or s == '':
+        return True
+    if s == s[::-1]:
+        return True
+    return False
+
+from selenium import webdriver
+
+browser = webdriver.Firefox()
+browser.get('http://www.geekli.st')
+
+#The logic that checks whether a palindrome should be sorted to the top of the list
+while True:
+    result = browser.find_elements_by_css_selector(".g-list-sub")
+    print(is_palendrome(str(len(result))))
+    print(len(result))
+    if len(result) == 0:
+        break
+
+for i in range(10):
+    browser.find_element_by_css_selector("#gd-lbl-image").click()
+    result = browser.find_elements_by_css_selector(".g-list-sub")
+    print(is_palendrome(str(len(result))))
+    print(len(result))
+    if len(result) == 0:
+        break
+
+print(browser.current_url)
+browser.close()
+
+A:
+
+Your code contains a few typos which do not actually affect functionality.  For example, there's no need to use is_palindrome as that is not a Python function.
+However, the logic of your script is flawed in a few places.  Firstly, you have no reason for a loop at all.  Just open the URL and scrape the list.  Secondly, the list doesn't need to be sorted, just printed.  Thirdly, it seems you are trying to traverse the source code in search of list elements rather than search the source code directly for a list with a single entry.  These issues are just example, however; as written you would not be able to find a list with more than one element, and you would be trying to parse non-text elements (a ul tag, I assume).
+Finally, your question is unclear about which page you are trying to find a specific list on.
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if len(s) > 1:
+        return s == s[::-1]
+    else:
+        return True
+
+if __name__ == '__main__':
+    S = "aabaabaaba"
+    #print(is_palendrome(S))
+    print(is_palindrome(S))
+
+A:
+
+'aabaabaaba'[::-1]
+
+is equivalent to:
+'abaabaaba'[::-1]
+
+Which makes Python iterate over the whole string (and return 'aaa', as if you had iterated from 0 to 3).
+In [17]: 'aabaabaaba'[::-1]
+Out[17]: 'abaabaaba'
+
+In [18]: 'aabaabaaba'[0:3]
+Out[18]: 'aabaaba'
+
+In [19]: 'aabaabaaba'[0:3][::-1]
+Out[19]: 'abaabaaba'
+
+In [20]: 'aabaabaaba'[0:3]
+Out[20]: 'aabaaba'
+
+Instead of calling is_palindrome(), you should just compare the string with itself:
+if s == s[::-1]:
+
+will do what you want. 
+It may be clearer to just check for the fact that the string is an even length by checking if len(s) % 2 == 0.
+
+<|endoftext|>Russian women dating American men
+
+Gostinitsa is known for offering cheap (compared to western cities) one day tours of Moscow with all the cultural and historical experiences.Though I wanted to wait until I could move out to be safe, I decided to find a roommate to split rent with.After a two week exchange program in San Francisco, I got hooked and continued to date American men. Although most of these guys were good catch, they didn’t work out, but all of them gave me first impressions about American men I later had to deal with.
+
+We didn't know what to expect, but all he did was give us tickets to the Moscow Kremlin. We sat on the hard wooden benches and waited for over an hour, with only a couple of other men to keep us company.
+
+No wonder
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    n = len(s)
+    while True:
+        if s[n - 1]!= s[n - 2]:
+            return False
+        else:
+            n -= 1
+
+
+def parse_config_spec_section(config):
+    # Read lines
+    for i in range(0, config.get('section_count')):
+        config_spec_line = config.get('section_%d' % i)
+        if 'name' not in config_spec_line:
+            raise Exception('Config section %d missing name' % i)
+        config_spec = config_spec_line.split('=')
+        config_spec[-1] = config_spec[-1].strip()
+        config.set('config_section_name', config_spec[0], config_spec[1])
+        yield config_spec
+
+
+def has_colon_in_config(str):
+    """Check whether colon is inside config string
+       if there is colon, return True, otherwise return False
+    """
+    for i in range(len(str)):
+        if str[i] == ':' and i < len(str) - 1:
+            return True
+    return False
+
+
+def parse_config_key(config_spec):
+    if not isinstance(config_spec, list):
+        config_spec = [config_spec]
+    for config_spec in config_spec:
+        config_spec = [x.strip() for x in config_spec.split(',' if x!= '' else '') if x!= '']
+        if config_spec and 'name' in config_spec:
+      
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return s == s[::-1]
+<|endoftext|>class UmpleToJava {
+    non_cardinality_one_to_one_Association_Set_setOwners "owners" <<==> {
+        oneOwner, <<===> twoOwners;
+        if(oneOwner.isOwned(instance_association(this, Association.class)) == false) {
+            if(oneOwner.isOwned(instance_association(this, Association.class)) == false) {
+                twoOwners <<===> (ONE_TO_MANY_ASSOCIATION.setOwners(instance_association(this, Association.class), oneOwner), ONE_TO_MANY_ASSOCIATION.setOwners(instance_association(this, Association.class), twoOwners));
+                umple_log("Class '" << instance_association(this, Association.class) << "' has an association to Class '" << instance_association(this, Association.class) << "' with " + oneOwner + ", and a bidirectional association to Class '" << instance_association(this, Association.class) << "' with " + twoOwners + ". However, Class '" << instance_association(this, Association.class) << "' is owned by Class '" << instance_association(this, Owner.class) << "'", "ERROR");
+            }
+            else {
+                //return ONE_TO_MANY_ASSOCIATION.getOwners(instance_association(this, Association.class));
+                oneOwner.addToOwners(twoOwners);
+                TWO_TO_MANY_ASSOCIATION.addOwners(instance_association(this, Association.class), twoOwners);
+ 
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    result = True
+    len_s = len(s)
+    print('start')
+    print(" ", len_s)
+    s2 = ""
+    for x in range(len_s):
+        s2 += s[x]
+    s2 = s2 + s[0]
+    for x in range(len_s):
+        if s2[x]!= s[len_s - x - 1]:
+            result = False
+    print(" ", len_s)
+    return result
+
+While this seems to work as expected, I'm concerned with performance. Is there a better way to accomplish this?
+
+A:
+
+A function like this is well suited for static analysis. 
+
+Add parametrized types, and compare types:  
+def is_palendrome(s:str, acc:str):
+    """Check whether a string is a palindrome"""
+    result = True
+    if isinstance(s, str):
+        if s == acc:
+            result = True
+    elif isinstance(s, bool):
+        if s:
+            result = True
+    elif isinstance(s, float):
+        if s == acc:
+            result = True
+    elif isinstance(s, int):
+        if s == acc:
+            result = True
+    elif isinstance(s, list):
+        if len(s) == 0:
+            result = True
+    elif isinstance(s, tuple):
+        if len(s) == 0:
+            result = True
+    elif isinstance(
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    n = len(s)
+    for i in range(n - 1, -1, -1):
+        if s[i]!= s[-i - 1]:
+            return False
+    return True
+
+A:
+
+Instead of storing n, store only the current value:
+def is_palendrome(s):
+    current = s[0]
+    for i in range(1, len(s) - 1):
+        if s[i]!= current:
+            return False
+    return True
+
+An explicit return is usually unnecessary unless you're calling it somewhere other than its own definition.
+Not only does it result in a more idiomatic coding style, it also speeds things up because that return is bypassing the recursion and that would otherwise have to happen.
+
+A:
+
+You can do it by using recursion:
+def is_palindrome(s):
+    # base case
+    if len(s) < 1:
+        return True
+
+    # If we are not at the end of the string, and the value at the
+    # last position is not equal to the first character of the string,
+    # then we have a string that is not a palindrome.
+    if not s[-1] == s[0]:
+        return False
+
+    # Otherwise, we can conclude that if we are not at the end of the
+    # string, and the value at the last position is equal to the first
+    # character of the string, then this string is a palindrome.
+    return is_palindrome(s[:-1])
+
+I didn't type test it in python, but it should work.
+
+<|endoftext|>Fractional flow reserve by automated intracoronary pressure measurement to detect myocardial ischemia.
+Fractional flow reserve (FFR) by automated intracoronary pressure measurements (AICPM) has been shown to detect myocardial ischemia. This study sought to determine if the
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    reverse = list(reversed(s))
+    return len(s) == len(reverse) and s == "".join(reverse)
+
+It is too long-winded, isn't it? 
+
+A:
+
+If you can make assumptions about the input string, like that it always starts with the same character, you can just compare and subtract:
+def is_palendrome(s):
+    return s[:1] == s[::-1]
+
+You could use a generator and indexing instead:
+def is_palendrome(s):
+    start = 0
+    yield from s[start:start+1]
+    yield from s[start::-1]
+
+<|endoftext|>**\
+Modified relative brachial index. $\documentclass[12pt]{minimal}
+                \usepackage{amsmath}
+                \usepackage{wasysym} 
+                \usepackage{amsfonts} 
+                \usepackage{amssymb} 
+                \usepackage{amsbsy}
+                \usepackage{mathrsfs}
+                \usepackage{upgreek}
+                \setlength{\oddsidemargin}{-69pt}
+                \begin{document}$$\bar{x} \pm \, SE$$\end{document}$\
+0.904 $\documentclass[12pt]{minimal}
+                \usepackage{amsmath}
+                \usepackage{wasysym} 
+              
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+
+    def is_rev(str):
+        rstr = ""
+        for i in range(len(str) - 1, -1, -1):
+            if str[i] == str[i]:
+                rstr += str[i]
+            else:
+                break
+
+        return str + rstr
+
+    if len(s) == 0:
+        return True
+
+    if is_rev(s) == s:
+        return True
+
+    return False
+
+
+def sorted_list(a):
+    """
+    Sort a list and return it.
+    """
+
+    l = [item for item in a if item]
+
+    l.sort()
+    return l
+<|endoftext|> like in RPG video games. Player's action in a role playing game is expressed using an action button, and are treated as attacks. The action buttons serve as a shortcut to the player when one wishes to use their particular skills. The action buttons and the role playing video game model are both used when the player attacks enemies. In this respect, the commands for attacking the enemies (i.e., attacking the enemy characters) are similar to the command for attacking the enemy character in a role playing game.
+When the player is attacked, an event response occurs, which prompts a dialogue system. The role playing video game model is implemented by recording the player's input and then automatically generating the player's dialogue from a database containing the records. In the case of a role playing game, the player's input is recorded, but in a role playing video game, the player's input is interpreted as the movement of the action buttons on the controller. In both cases, the commands are given as text input, and therefore, the player may not be able to clearly express the command if they do not know the game well.
+When a RPG or action button method is used, it is necessary to record the player's input in order to implement the dialogues which are given in response to the player's input
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return s[::-1] == s
+
+def find_unique(ar):
+    """Find the unique elements in a list"""
+    if not ar:
+        return
+    return list(set(ar))
+
+def is_constant(s):
+    """Check whether a string is a constant"""
+    return len(s)==0
+
+def only_if(pred, if_true, if_false):
+    """Perform an operation only if the boolean value is True"""
+    if pred:
+        return if_true
+    else:
+        return if_false
+
+def only_if_stmt(stmt, if_true, if_false):
+    """Perform an operation only if the boolean value is True"""
+    return only_if(stmt, if_true, if_false)
+
+def only_if_list(list_expr, if_true, if_false):
+    """Perform an operation only if the boolean value is True"""
+    return only_if(list_expr, if_true, if_false)
+
+def only_if_true(true_expr, if_true, if_false):
+    """Perform an operation only if the boolean value is True"""
+    return only_if(true_expr, if_true, if_false)
+
+def only_if_false(false_expr, if_true, if_false):
+    """Perform an operation only if the boolean value is False"""
+    return only_if(false_expr, if_true, if_false)
+
+def str_to_upper(s):
+    """Convert a string to upper case"""
+    return s.upper()
+
+def maybe_newline(s):
+    """Add a line feed for EOL and text files"""
+    return "\n" + s + "\n"
+
+def process_dict(infile):
+    """Handle all input files and organize it into a dictionary"""
+    all_files = list(
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return s == s[::-1]
+
+
+def get_max_digit(s):
+    """Get the maximum digit in a string"""
+    if s[0] == '0':
+        return 0
+    else:
+        return len(s)
+
+
+def merge_digits(s, max_digit):
+    """Merge strings, skipping zero digits"""
+    # We need to handle the case where the resulting string would be
+    # greater than max_digit, since that would mean we should start
+    # at the beginning and append that.
+    return ''.join(s)
+
+
+def replace_digits(s, max_digit, replacing):
+    """Replace some digits with another digit"""
+    if max_digit < 0 or max_digit > 9:
+        return s
+
+    # Handle replacing each digit in turn.
+    def replace_digit(c, digits):
+        if c == '0':
+            return ''.join(digits)
+        return c + ''.join(digits)
+
+    # Replace every digit we can in the given range, up to
+    # max_digit.
+    i = 0
+    j = len(s)
+    while i < j:
+        if max_digit >= i and max_digit <= j - i:
+            s[i:j] = replace_digit(s[i:j], max_digit)
+        else:
+            s[i:j] = replace_digit(s[i:j], max_digit - i)
+        i = i + 1
+
+    return s
+
+
+def main():
+    print(is_palendrome('asdf'))
+    print(is_palendrome('1234'))
+    print(
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return len(s) <= 1 or s == s[::-1]
+
+print(is_palindrome("dasdsa"))
+print(is_palindrome("ss"))
+print(is_palindrome("hello world"))
+
+Try it online!
+The above code works correctly on the three input cases, I haven't tested on larger inputs to make sure it doesn't go haywire.
+The other variant uses a generator:
+def is_palendrome_gen(s):
+    """Check whether a string is a palindrome"""
+    for c in s:
+        yield c == s[::-1]
+
+print(is_palendrome_gen("dasdsa"))
+print(is_palendrome_gen("ss"))
+print(is_palendrome_gen("hello world"))
+
+Try it online!
+
+<|endoftext|> so soon after his hasty exit from Euro 2016 he could probably be forgiven for having a bit of a wobble. With regard to Andrea Raggi in fact he didn’t really have one. He performed exceptionally well under the least advantageous of circumstances. It was only to be expected. The Italian under 20s were widely considered by many to be the worst side in the competition, struggling to find a purpose to their game, never fully functioning as a unit and always being placed under significant pressure to deliver. Much has changed since and although the tournament ended in disappointing fashion for his side, Andrea Raggi must be considered to have been a pivotal figure in the development of this side.
+
+https://www.youtube.com/watch?v=fq2dDjXGbfk
+
+However, much was not to be so straightforward for Diego Perotti. For it was revealed that he was forced to undergo emergency surgery for a serious heart condition. The youngster’s ordeal came as a shock to the Italian public in general and to La Nazione in particular. Perotti had only just returned to first team action after picking up an injury at the beginning of the year. Following his return Perotti began to quickly establish himself as a regular in his first team team. His big play and much coveted goalscoring ability took him to a new level of development.
+
+It seems Perotti was to return from injury with gusto. A superb all-round display for the national
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return s[::-1] == s
+
+print(is_palindrome("foo"))   # True
+print(is_palindrome("baz"))   # False
+print(is_palindrome("") or "empty string")  # False
+print(is_palindrome(''))   # True
+print(is_palindrome('foo'))  # False
+print(is_palindrome('fo'))  # True
+print(is_palindrome('foo0'))  # False
+
+What's going on here?
+
+A:
+
+The expression foo[::-1] is undefined when f is an empty string, and thus the expression evaluates to False.
+The return s[::-1] == s expression is also undefined when s is an empty string.
+Your code should thus have:
+def is_palindrome(s):
+    return s[::-1] == s
+
+print(is_palindrome("foo"))   # True
+print(is_palindrome("baz"))   # False
+print(is_palindrome(""))   # False
+print(is_palindrome(''))   # True
+print(is_palindrome('foo'))  # False
+print(is_palindrome('fo'))  # True
+print(is_palindrome('foo0'))  # False
+
+As noted in the comments, the expression 
+if 'fo' in s or 'f0' in s:
+
+is also undefined when f is an empty string.
+The expression 
+if not s:
+
+is true when f is an empty string.  In that case, the expression s is not defined, so there is nothing to compare to.  When not s is True, the next line, and the following lines, are not executed.
+You can use the built-in function len:
+if not len(s):
+
+which returns 0 when f is an empty string, and returns a different number when f is not an empty string.
+A possible simplification of your code is
+def is_palindrome(s):
+    if not s:
+        return True
+    return s[::-1] ==
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+
+    length = len(s)
+    pal = s[::-1]
+
+    # if the string has length equal to 2, then the palindrome is true
+    if length == 2:
+        return True
+
+    # recursion
+    if length > 1:
+        # remove the middle character and recurse
+        s = s[:length//2]
+        return is_palendrome(s)
+
+    return False
+
+My logic is that we will either be removing the middle character or the whole string. The middle character will never be the same as the initial character if it is a palindrome. This means that it will have no effect on the initial character, the same logic applies if we remove the whole string.
+With a simple example, using a = 'aab', I tried to print the if statement with
+    if(a == 'a'):
+        print('true')
+    else:
+        print('false')
+
+To my surprise, the function returns true, when I want it to return false. I tested the condition by setting s = 'aaaa' and len(s) = 8, and again, the function returns true.
+I am confused about this. Can anyone tell me why this is happening?
+
+A:
+
+It's happening because is_palendrome() checks whether s is a palindrome in the following order:
+
+(the first letter)
+(the first letter of s[::-1])
+(the first letter of s[::-2])
+(the first letter of s[::-3])
+and so on and so forth, until:
+(the first letter of s)
+
+It only evaluates the first letter, and checks whether it is equal to the second one; which it is.
+If you want is_palendrome() to work as you intended, you need to keep track of all the characters that have been evaluated and check for any palindromes later in the string.
+
+<|endoftext|> + 1071*s**2 + 5. Let x be l(0). Suppose -4*o = -k - 56, 3*o +
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    return ''.join(s[i:i+1] for i in xrange(len(s)-1, -1, -1)) == s
+
+
+def palindrome_check(str):
+    """Return the string's palindrome status"""
+    return len(str) > 1 and is_palendrome(str[::-1])
+<|endoftext|>
+
+He walks through the hall, carrying his burden of a life. He, too, is dust to dust. He remembers every moment of his life.
+
+They meet in the common room of the dilapidated mobile home. He has his bottle of water. She says, “It’s the one I was going to give you before.”
+
+He says, “Is it?”
+
+“It is. Now I don’t want to give it to you.”
+
+He laughs at this. She is embarrassed. He throws a blanket over her small lap and gently pulls her down. She covers her face. They lie on the sofa.
+
+They lie there with his heavy shoe on her stomach, her small body flapping above it. The oil stains that stain the floor between them. It is disgusting, but he can’t help it. It all comes back.
+
+They lie together. She says, “I remember. The story I told you.”
+
+He looks at her face. He kisses her cold, damp forehead.
+
+She says, “I was trying to be a good girl. But it was so hard.”
+
+“Yeah, I know.”
+
+“No,” she says. “I don’t know. I wanted to be different.”
+
+“It’s okay. It’s all okay.”
+
+She smiles at him, and he smiles back. He tells her he is sorry about that time he hit her.
+
+He tells her he was worried about her. She tells him she forgives him for that. He tells her about the surgery he had when he was a kid. He tells her how scared he was. He tells her he is sorry he couldn’t do more. He tells her about his father and his mother. He tells her about her, how her face is soft and sweet. He tells her
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    i = j = 0
+    if len(s) % 2 == 0:
+        if s[j] == s[-1-j]:
+            return True
+        elif s[j] < s[-1-j]:
+            j += 1
+    while j < len(s) - 1:
+        if s[i]!= s[-i-1]:
+            return False
+        i += 1
+    return True
+
+def main():
+    global counter
+
+    s = input("Enter a string: ")
+    print("Are '%s' a palindrome or not?\n" % s)
+    count = 0
+
+    while s!= "exit":
+        print("%s\t%d\n" % (s, is_palendrome(s)))
+        count += 1
+        s = input("Enter a string: ")
+    print("%d\tTotal: %d" % (counter, count))
+    return
+
+if __name__ == "__main__":
+    main()
+
+Any help would be really appreciated.
+
+A:
+
+You can use set to check for palindromes. The else in the while loop will only be executed if the number of letters is odd.
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    i = j = 0
+    if len(s) % 2 == 0:
+        if s[j] == s[-1-j]:
+            return True
+        elif s[j] < s[-1-j]:
+            j += 1
+    else:
+        while j
+====================
+def is_palendrome(s):
+    """Check whether a string is a palindrome"""
+    if s[::-1] == s:
+        return True
+    else:
+        return False
+
+def is_greedy_pattern(pattern):
+    """Check whether the pattern is greedy"""
+    if len(pattern) == 2 and pattern[0] == '*':
+        if pattern[1]!= '*':
+            return True
+    else:
+        return False
+
+def try_regex_pattern(regex, pattern):
+    """
+    Return True if the pattern matches the text
+    """
+    if re.search(regex, pattern):
+        return True
+    else:
+        return False
+
+def try_pattern(pattern):
+    """
+    Returns True if the pattern is valid
+    """
+    pattern = pattern.replace("*", ".*") # Special case: wildcard '*' matches any sequence
+    if is_palendrome(pattern):
+        pattern = pattern.replace("*", ".*") # Special case: wildcard '*' matches any sequence
+        if re.search(pattern, pattern):
+            return True
+    elif pattern.find("*")!= -1:
+        return False
+    return try_regex_pattern(regex_pattern, pattern)
+
+def try_patterns(pattern_list):
+    """
+    Returns True if all of the patterns in the list are valid
+    """
+    valid_pattern = True
+    for pattern in pattern_list:
+        if not try_pattern(pattern):
+            valid_pattern = False
+            break
+    return valid_pattern
+
+def loop(pattern_list):
+    """
+
+====================

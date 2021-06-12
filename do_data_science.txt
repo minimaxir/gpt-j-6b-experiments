@@ -1,0 +1,1930 @@
+def do_data_science():
+    """Does a data science"""
+    return
+
+def action_name_under_encoding(context, default_value):
+    """Find action name with given encoding in context"""
+    # cast content to a list
+    content = context.action_context.render().encode('utf-8')
+    content = list(content)
+    # select the first 3 letters of content
+    selected_content = list(filter(lambda x: len(x) == 3, content))
+    # if selected_content is not an empty list, then the action is found and returns it
+    if selected_content:
+        return selected_content[0]
+    return default_value
+
+def catch_entry_title(context, title_name):
+    """Finds the main action name with the given title and returns it"""
+    # cast content to a list
+    content = context.action_context.render().encode('utf-8')
+    # remove \n from title
+    title = title_name.replace("\n"," ")
+    # select the first 3 letters of title
+    selected_content = list(filter(lambda x: len(x) == 3, content))
+    if selected_content:
+        return selected_content[0]
+    return ''
+
+def validate_exit(context):
+    """Finds the action name and its exit property name and returns it if both are present"""
+    # cast content to a list
+    content = context.action_context.render().encode('utf-8')
+    if re.match(r'\w+\:exit', content) and 'exit' in content:
+        # extract the name
+        name = content.split(':')[1].split('\n')[0]
+        # get the id from the action
+        id = content.split(':')[1].split('\n')[1]
+        # find the exit of the
+====================
+def do_data_science():
+    """Does a data science"""
+    global user_id
+    queries = []
+
+    v = []
+
+    for i in range(len(queries)):
+        try:
+            for query in queries[i]:
+                # Selecting dates for multiple queries
+                dates_raw = query.dates
+                dates_datetime = []
+
+                dates = []
+                # looping the dates
+                for j in range(len(dates)):
+                    # Parse date string
+                    date = datetime.strptime(dates[j], '%Y-%m-%d')
+                    # converting date to UTC
+                    date = datetime.datetime(date.year, date.month, date.day, tz=date.tzinfo)
+                    # formatting the date to YYYYMMDD format
+                    date = date.strftime('%Y%m%d')
+                    # Creating new date datetime object
+                    dates_datetime.append(date)
+                # Making querying query
+                v.append(SELECT("allday")
+   
+====================
+def do_data_science():
+    """Does a data science"""
+    # only run this function once
+
+    ### TEST data *******************************************************************************************************************************
+
+    ### now set some basic parameters
+
+    # Input to work with
+    path = 'data/temperature.csv'
+
+    # Where to save the output
+    out_dir = 'output/data_science/'
+
+    # setting format for output
+    format_args = dict(autocast=True,
+                       ordered=True,
+                       pretty=True,
+                       num_labels=2,
+                       valid_values=['Temperature'])
+
+    # Set up names for figures
+    fig_names = ['Temperature', 'Parsimonious', 'Useful']
+
+    # Set all figures to share colors
+    axcolor_args = dict(autocast=True,
+                        autoticks=True,
+                        normalize=True,
+                        dtick=1,
+                        normed=True)
+
+    # Set up numeric axes for all plots
+    ax_args = dict(autocast=True,
+                   autoticks=True,
+                   label=False,
+                   minor=False,
+              
+====================
+def do_data_science():
+    """Does a data science"""
+    if verbose:
+        print("Steps:")
+        print("Read and save data.models.txt")
+        print("Check point saved on github.com/Imuststopcrying/killer_slides")
+        print("and this laptop's usr/bin/ on chm")
+        print("where the killermouth is code")
+        print("and the book is text")
+        print("Also, input speech data into this notebook.")
+        print("Save (export) as wav on another computer. Otherwise killermouth says \n%s" % mae.mallard.checkpoint)
+        print("Now, split audio into segments with:")
+        print("perl -MText::Spell -e \\\\")
+        print("s/^(a|an|and|the|I)([^a-zA-Z0-9_])/\\$1/g; s/\\$/\\.\\/g; s/^\\.\\//; s/\\.\\//")
+        print("s/^\\(?![a-zA-Z])/\\ /g; s/ -//g; s/\\//g")
+        print("when done, make it like:")
+        print("sox --t -r8000 -c1 --r8 --twav --silence-before-signal info/marionette_mallard_vgg16_start_training.wav \\\\...\")
+        print("sox --t -r8000 -c1 --r8 --twav --silence-before-signal info/marionette_mallard_vgg16_start_training_00.wav \\\\...\")
+        print("sox --t -r8000 -c1 --r8 --twav --silence-before-sign
+====================
+def do_data_science():
+    """Does a data science"""
+    """performed data analysis"""
+    global item
+    item = Thing()
+    if request.method == 'GET':
+        return render_template("home.html")
+    elif request.method == 'POST':
+        new_thing = request.form['submit']
+        my_function(new_thing)
+        return redirect(url_for('main_app.index'))
+
+With render_template I am able to show the result of the function, but I don't know how I could go on to a different page that is a href.
+I tried:
+<a href="{{ url_for('main_app.data_science') }}">
+
+But it doesn't work.
+
+A:
+
+You can return the url to be called directly, and after the redirect, change the href to the new url, like:
+from flask import Flask, render_template, request, url_for, redirect
+
+app = Flask(__name__)
+
+def my_function(new_thing):
+      return redirect(url_for('main_app.data_science', thing=new_thing))
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/data_science')
+def data_science():
+    if request.method == 'GET':
+        return render_template("home.html")
+    elif request.method == 'POST':
+        new_thing = request.form['submit']
+        my_function(new_thing)
+        return redirect(url_for('main_app.data_science', thing=new_thing))
+
+if __name__ == '__main__':
+    app.run()
+
+this way you will change the page with no problem
+
+<|endoftext|>/*
+ * Copyright (c) 2005-2012 National Technology & Engineering Solutions
+ * of Sandia, LLC (NTESS).  Under the terms of Contract DE-NA0003525 with
+ * NTESS
+====================
+def do_data_science():
+    """Does a data science"""
+
+    raw_train_data = 'names,birth_month,birth_day,last_name,first_name,time_of_birth,ethnicity'
+    raw_train_data = raw_train_data.split(',')
+    raw_valid_data = 'names,birth_month,birth_day,last_name,first_name,time_of_birth,ethnicity'
+    raw_valid_data = raw_valid_data.split(',')
+    cols = ['first_name', 'last_name', 'birth_month', 'birth_day', 'time_of_birth', 'ethnicity']
+
+    inputs = [[x for x in raw_train_data],
+              [[x for x in raw_valid_data]]]
+    outputs = [[], []]
+
+    data_map = dict(zip(cols, inputs))
+    data_map.update({"ethnicity": [''], "time_of_birth": []})
+    df_valid_2 = pd.read_csv(os.path.join('./data', 'validation', 'train.csv'), header=None, names=cols, skiprows=1)
+    df_valid_2['ethnicity'] = df_valid_2['ethnicity'].astype(int)
+
+    X_train = data_map.values()[0]
+    X_valid = data_map.values()[1]
+
+    Y_train = [i for i in raw_train_data]
+    Y_valid = [i for i in raw_valid_data]
+
+    inputs = [[x for x in X_train],
+              [[x for x in X_valid]]]
+    outputs = [[], []]
+
+    data_map.update({"last_name": [], "first_name": []})
+    data_map.update({"time_of_birth": []})
+    df_valid_1 = pd.read_csv(os.
+====================
+def do_data_science():
+    """Does a data science"""
+    global do_all_steps
+    if not do_all_steps:
+        return 0
+    return 1
+
+def help_step(p):
+    """Convenience function for help message"""
+    print("""
+$ program: $ help
+
+--Commands--
+
+{0}
+
+--Commands--
+""".format(p.__name__))
+
+def help_module(name):
+    """Convenience function for help message"""
+    print("""
+$ program: $ help $module_name
+
+--Commands--
+
+{0}
+
+--Commands--
+""".format(name))
+
+def help_catalog():
+    """Convenience function for help message"""
+    print("""
+$ program: $ help $catalog
+
+--Commands--
+
+{0}
+
+--Commands--
+""".format(sys.argv[0]))
+
+def run(modname, args, use_dry_run):
+    """Helper function for running the Jupyter notebook"""
+    catalog = ""
+    try:
+        cat = load_catalog()
+        assert not hasattr(cat, 'init_catalog'), "catalog doesn't contain " \
+                                                  "the init function"
+        cat.init_catalog(modname)
+        catalog = str(cat.get_catalog())
+    except KeyboardInterrupt:
+        return
+    try:
+        current = Current()
+        current.modname = modname
+        current.argv = list(args)
+        current.debug = args.debug
+        current.catalog = catalog
+  
+====================
+def do_data_science():
+    """Does a data science"""
+    # Turn on debugging. Useful for debugging startup errors
+    pd.options.display.info = True
+
+    # Load in data
+    values = pd.read_csv(r"C:\Users\Chuky Saha\Desktop\CS 365 Data Science Project\Customer Researh and Analytics Data.csv")
+
+    # Choose a feature column
+    values.columns = [
+        'Name',
+        'Attribute1',
+        'Attribute2',
+        'Attribute3',
+        'Attribute4',
+        'Attribute5',
+    ]
+
+    # Create an array for the min, max and range of the data. We want the array to be shorter than the input data so it can be effectively used with the pd.dataframe.groupby method
+    min_vals, max_vals, num_vals = np.array([v.min() for v in values.values], np.float_), np.array([v.max() for v in values.values], np.float_), np.array([v.shape[0] for v in values.values])
+
+    # Create a NumPy array containing the min, max and range values for each row in the dataframe
+    values_arr = np.zeros([num_vals, num_vals, num_vals])
+
+    # Go through each row in the input dataframe
+    for row in values.values:
+
+        # If this row doesn't have a data type in the Attribute1 column
+        if values.dtypes['Attribute1'].numeric_dtype!= 'object':
+
+            # Get the min, max, and range of the row's data
+            values_arr[...,...,...] = values.iloc[row, 0:4].values.tolist()
+
+        # If this row does have a data type in the Attribute1 column
+  
+====================
+def do_data_science():
+    """Does a data science"""
+    date = datetime.today()
+    social_perception = 123
+    emotion = 'happy'
+    happy_dataset = {}
+
+    happy_dataset["happy"] = {}
+    happy_dataset["happy"]["body_bmi"] = {}
+
+    happy_dataset["happy"]["body_bmi"]["2015/07/13"] = {'male': {"36.5":0.093,"36.9":0.14,"37.1":0.15,"37.3":0.2,"37.4":0.12,"37.5":0.12,"37.6":0.13,"37.7":0.16,"37.8":0.16,"37.9":0.17,"38":0.19,"38.1":0.19,"38.2":0.19,"38.3":0.19,"38.4":0.19,"38.5":0.19,"38.6":0.2,"38.7":0.2,"38.8":0.2,"38.9":0.22,"39":0.24,"39.1":0.24,"39.2":0.26,"39.3":0.28,"39.4":0.28,"39.5":0.29,"39.6":0.3,"39.7":0.31,"39.8":0.33,"39.9":0.34,"40":0.36,"40.1":0.37,"40.2":0.39,"40.3":0.4,"40.4":0.44,"40.5":0.46,"40.6":0.48,"40.7":0.5,"40.8":0.53,"40.9":0.56,"41":0.58,"41.1":0.6,"41.2":0.62,"41.3":0.64,"41.4":0.66,"41.5":0.68,"41.6":0.7,"41.7":0.72,"41.8":0.74,"41.9":0.76,"42":0.78,"42.1":
+====================
+def do_data_science():
+    """Does a data science"""
+    u"""
+    Here we will run data science algorithms using the data in this github repository:
+    https://github.com/YujiShinoda/pdc
+    
+    Note that you have to upload your.zip file first"""
+    
+    # Import the libraries
+    from sklearn.ensemble import RandomForestClassifier
+    from sklearn.ensemble import RandomForestRegressor
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.tree import DecisionTreeRegressor
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.neighbors import KNeighborsRegressor
+    from sklearn.feature_selection import SelectKBest, SelectFromModel
+    
+    # Import the dataset
+    from pdc.analysis.movies_science import read_csv_features_from_files
+
+    # Here we create a tree to understand if it is a good data mining approach
+    decision_tree = DecisionTreeClassifier()
+    decision_tree.fit(X, Y)
+    class_from_tree = decision_tree.predict(X)
+    
+    # Use the class_from_tree in your data science
+    
+    # The Random Forest is a decision tree with random features
+    random_forest = RandomForestClassifier()
+    random_forest.fit(X, Y)
+    class_from_random_forest = random_forest.predict(X)
+    
+    # Use the class_from_random_forest in your data science
+    
+    # The knn algorithm is a classification using a distance. The idea is that you
+    # will keep the k nearest neighbors of a test case and you will classify it with
+    # the majority
+    knn_k = KNeighborsClassifier(metric='minkowski')
+    knn_k.fit(X, Y)
+    class_from_knn_k = knn_k.p
+====================
+def do_data_science():
+    """Does a data science"""
+    input = sys.stdin
+    output = sys.stdout
+
+    add_step("Other Steps")
+
+    # Commented out for brevity
+    # input = cgi.FieldStorage()
+
+    pass
+
+
+class AbstractSequentialWorkflow(AbstractWorkflow):
+    """Abstract implementation of a basic sequential workflow.
+
+    """
+
+    @staticmethod
+    def run(workflow_dir, name=None):
+        """Runs the workflow.
+
+        Args:
+            workflow_dir (str): The directory of the workflow.
+            name (str): The name of the workflow.
+
+        """
+        print("Starting workflow {}".format(name))
+        workspace.run(name, workflow_dir)
+        print("Finished workflow {}".format(name))
+
+
+class BasicWorkflow(AbstractSequentialWorkflow):
+    """A workflow that contains only steps that do the required work.
+
+    """
+
+    def set_inputs(self, inputs):
+        self.inputs = inputs
+
+    def set_outputs(self, outputs):
+        self.outputs = outputs
+
+    def get_data_path(self, step):
+        return self.step_dict[step].inputs["data_path"]
+
+    def get_labels(self, step):
+        return self.step_dict[step].outputs["labels"]
+
+    def set_labels(self, step, labels):
+        self.step_dict[step].outputs["labels"] = labels
+
+    def get_mismatch_percentage(self, step):
+        return self.step_dict[step].outputs["mismatch_percentage"]
+
+    def set_mismatch_
+====================
+def do_data_science():
+    """Does a data science"""
+
+    data_list = []
+    with open("/home/pi/Documents/w2/House Data/Data.txt", 'r') as f:
+        for line in f:
+            data = line.split()
+            data_list.append(data)
+            labels = str(data[0])
+            categories = str(data[1])
+            mode = str(data[2])
+            data = data_list[0].append(labels)
+            data = data.append(categories)
+            data = data.append(mode)
+    return np.array(data)
+
+data = do_data_science()
+print (data.shape)
+
+g = datetime.datetime.now()
+print (g)
+
+g = pd.read_csv("https://titanic-master.appspot.com/data?date=%d&from=2014-06-01&to=2014-06-31" % (g))
+
+print(g)
+
+with open("House Data/Data.txt", "w") as f:
+    f.write("""(1, 2, 0)
+(1, 4, 0)
+(1, 8, 0)
+(1, 12, 0)
+(1, 1, 1)
+(1, 3, 1)
+(1, 7, 1)
+(1, 11, 1)
+(1, 15, 1)
+(1, 5, 2)
+(1, 9, 2)
+(1, 13, 2)
+(1, 17, 2)
+(1, 6, 3)
+(1, 10, 3)
+(1, 14, 3)
+(1, 18, 3)
+(1, 19, 3)
+(1, 10, 4)
+(1, 12, 4)
+(1, 16, 4)
+====================
+def do_data_science():
+    """Does a data science"""
+    #if "csa" in ctx.get_current_project():
+    #    get_file(ctx, "csa.yml")
+    yml = os.path.join(__dir__, "csa.yml")
+    print(yml)
+    with open(yml, "r") as f:
+        cur = ctx.env.create_project(yml)
+        ctx.add_to_project(cur)
+        ctx.env.add_repo(cur)
+        ctx.set_status_level(cur, "minor")
+        ctx.fire_all_events()
+        ctx.set_last_project(cur)
+
+
+@register.filter(name='flask')
+def do_flask(value, **kwargs):
+    """Runs the flask code"""
+    #    return re.sub(r"(?<!\S)hello\S", "world", value)
+    # if "hello" in value:
+    #     return "hello"
+    return "%s world" % value
+
+@register.filter(name='fnmatch')
+def do_fnmatch(value, pattern, **kwargs):
+    """Uses the fnmatch library"""
+    if "bob" in value and '*' in pattern:
+        return True
+    return False
+<|endoftext|>KJOB
+
+KJOB (100.7 FM) is a radio station licensed to Lindale, Texas, United States. The station is currently owned by Pippin Pippin Media and the broadcast license is held by Orchard Park, Inc.
+
+History
+The Federal Communications Commission issued a construction permit for the station on July 16, 2002. The station was assigned the call letters KJOB-FM on January 12, 2004, and the station's call letters were changed to the current KJOB on March 2, 2004.
+
+References
+
+External links
+
+JOB
+
+====================
+def do_data_science():
+    """Does a data science"""
+    print("Program Data Science:")
+    ### Python should be at the first line. 
+    #  This skips the previous part of code where we imported the modules to run that program
+    from scipy.stats import kde
+    data_file = []
+    filename = input("Enter the name of the file to read: ")
+    # Get the data as a list.
+    data = []
+    f = open(filename, "r")
+    lines = f.readlines()
+    f.close()
+    for line in lines:
+        try:
+            data.append(float(line))
+        except:
+            continue
+    print("Entered values in the following order:")
+    for i in range(len(data)):
+        print("\t", data[i], "||", "", "", "|", "\n")
+    data_file = data
+    import numpy as np
+    x = np.array(data_file)
+    # Add up the elements. 
+    total_sum = sum(x)
+    x_new = np.divide(x, total_sum)
+    import matplotlib.pyplot as plt
+    plt.rc("font", size=12)
+    plt.xlabel("Number of Boxes in a bin")
+    plt.ylabel("Number of Cars")
+    plt.figure()
+    plt.plot(x)
+    plt.show()
+    ### The `kde` module is to calculate the density. `from sklearn.utils import resample` gives us the list of most frequent cars. We get the information from the corresponding value and use that information.
+    from sklearn.base import BaseEstimator
+    class Estimator(BaseEstimator):
+        def fit
+====================
+def do_data_science():
+    """Does a data science"""
+    print "Welcome to the data science unit"
+    print "This is a simple tutorial to get you started"
+    print "This file will teach you what to do"
+    print "Do as many data science problems as you like"
+
+class summary_one(tk.Tk):
+    """ summary of data science unit"""
+    def __init__(self):
+        super().__init__()
+        self.grid()
+        self.geometry("500x500")
+        self.title("Data Science")
+        self.columnconfigure(0,weight=1)
+        self.columnconfigure(1,weight=0)
+        self.rowconfigure(1,weight=0)
+        self.rowconfigure(2,weight=1)
+        self.heading("Data Science",text="This is a summary of the data science unit")
+
+        tk.Label(self,text="This is a quick introduction to data science").grid(column=0,row=0,padx=20)
+        tk.Label(self,text="This text contains many tips and hints and this allows you to work quickly and smartly").grid(column=1,row=0,padx=20)
+        tk.Label(self,text="To get started with data science all you need is", bd=1).grid(column=2,row=0,padx=20)
+        tk.Label(self,text="Python library and a computer").grid(column=3,row=0,padx=20)
+
+        self.variable_name_lbl = tk.Label(self,text=" Variable Name", font=("Verdana", 9, "bold"))
+        self.variable_name_lbl.grid(column=3,row=0, padx=20, sticky="W
+====================
+def do_data_science():
+    """Does a data science"""
+    df = pd.read_csv("data_science_challenge.csv", encoding='utf-8', index_col=False, skiprows=1)
+    import h2o
+    import h2o
+    h2o.init(start_h2o_session=False)
+    from h2o.estimators.gbm import H2OGradientBoostingEstimator
+    from h2o.estimators.xgboost import H2OXGBoostEstimator
+    from h2o.estimators.glm import H2OGeneralizedLinearEstimator
+    from h2o.estimators.sklearn import H2OSklearnEstimator
+    from h2o.tools import h2o_browse, h2o_import
+
+    # Setup the predictors
+    df[['attributes', 'consequence', 'active']].head()
+
+    # All categorical predictors
+    categorical_predictors = ["attributes", "consequence", "active"]
+    categorical_feature_length = len(categorical_predictors)
+
+    # Compute the proportion of missing values for each categorical feature
+    df.loc[:, categorical_predictors] = df.loc[:, categorical_predictors].fillna(0)
+    missing_values_df = df.loc[:, categorical_predictors].dropna()
+    missing_values_df.head()
+    missing_features = 0
+    missing_values_per_predictor = missing_values_df.applymap(lambda x: (x.count(True) / len(x)) * 100)
+    missing_values_per_predictor = missing_values_per_predictor.to_frame()
+    missing_values_per_predictor.head()
+
+    # Get the dimensionality of the problem
+    try:
+        k = missing_values_per_predictor.shape[0]
+    
+====================
+def do_data_science():
+    """Does a data science"""
+    nh = []
+    ds = pd.DataFrame()
+    key = 'key'
+    val = 'value'
+
+    # setting
+    nh.append(key)
+    nh.append(key)
+
+    # Get values
+    for i in range(1, 11):
+        val = 'val'
+        nh.append(key)
+        nh.append(key)
+        nh.append(val)
+        nh.append(val)
+        nh.append(val)
+
+    return [key, val, df.groupby('key').sum()]
+
+<|endoftext|>Cystic echinococcosis of the facial bone.
+A rare case of cystic echinococcosis affecting the temporal bone with extensive infiltration of the facial bone is described. This echinococcosis was associated with a septicemia, the pathogenesis of which is discussed. The surgical management of this infection of the facial bone with a cyst of the temporal bone is reviewed. This is one of the two cases of cystic echinococcosis affecting the temporal bone, the other case being reported by Würtz and Fischer in 1993.<|endoftext|>Q:
+
+How to ignore an error when parsing a string in Swift 3
+
+I want to parse a string like [%uP%rP"C"%8%s{"name":"anurag"}%g] in Swift 3, it will return an error like "cannot assign value of type '[String]' to type 'String?'", now I just want to ignore the error, I do not want to check the type of result in Swift3.
+When I typecast it as [String], there is an error: 
+
+Value of type 'String' has no member 'componentsJoined(by:)'
+
+This error tells me that string can not return [String], but I just want to ignore it, is there a solution?
+
+A:
+
+You're using an older way to build an array using string interpolation. This doesn't work in Swift 3, as it's deprecated. Instead, use conc
+====================
+def do_data_science():
+    """Does a data science"""
+    stats = pd.read_csv('datasciencestats.csv', engine='python')
+
+    # Find the row of the first cell
+    first_row = stats.groupby('cell_id')[0].agg('first')
+
+    # How many words were in this text?
+    count = stats['text']
+    with open('text_file.txt', 'w') as output:
+        for cell_id, count in first_row.groupby(level=0):
+            with open('datasciencestats.csv', 'r') as input_file:
+                for i in range(cell_id.index.count()):
+                    output.write(cell_id.values[i] + '\n')
+                    count.to_csv(input_file, header=False, index=False)
+
+A:
+
+It's because cell_id is a Series in your sample data, and if you call its.index() method, it gives you an index with no data (as you'd expect, since you are not actually using cell_id as a key), but its.values gives you a dataframe with a value for each key. You can instead do the following:
+first_row = stats.groupby('cell_id')[0].agg('first')
+with open('text_file.txt', 'w') as output:
+    for cell_id, count in first_row.groupby(level=0):
+        with open('datasciencestats.csv', 'r') as input_file:
+            for i in range(cell_id.index.count()):
+                output.write(cell_id.values[i] + '\n')
+                count.to_csv(input_file
+====================
+def do_data_science():
+    """Does a data science"""
+    # web call of some sort. Then returns the requested object
+    object = web_call()
+    # data science!
+    return object
+
+def get_link_content(link):
+    """Sends a link for the web"""
+    response = urllib2.urlopen(link)
+    return response.read()
+
+def get_csv(link):
+    """Sends a link for the web and then extracts a csv"""
+    print "Going to get csv"
+    # more web call
+    object = web_call()
+    response = urllib2.urlopen(link)
+    csv_obj = simplejson.loads(response.read())
+    return csv_obj
+
+def read_csv(link):
+    """Sends a link for the web and then extracts a csv"""
+    print "Going to read csv"
+    # more web call
+    response = urllib2.urlopen(link)
+    csv_obj = simplejson.loads(response.read())
+    return csv_obj
+
+def main():
+    # Quickly test each function by feeding it a data science
+    print "Testing your functions"
+    do_data_science()
+    print "Done"
+
+if __name__ == '__main__':
+    main()
+
+<|endoftext|>Sting (video game)
+
+Sting is a shoot-'em-up video game by King for the Super Famicom that was released in 1995. It stars Sting, an agent of Interpol who works for a secret agency called Element X. Players must defeat several different robots, each with their own special weapon and move set. The story is set in New York City, where Sting must defeat a series of master criminals.
+
+Sting was heavily inspired by the early years of Nintendo's Super Nintendo Entertainment System and Sega's Sega Genesis/Mega Drive.
+
+Story
+Sting is an elite agent of Interpol. When his latest assignment comes in the form of a briefing with the heads of all the underworlds, Sting is instructed to go after a mysterious group called Element X.
+====================
+def do_data_science():
+    """Does a data science"""
+
+    # Import packages
+    from libraries.DataScience import *
+
+    # Begin execution
+    return docutils.nodes.execute(do_data_science())
+
+I try to call this from terminal with
+python do_data_science.py
+
+when i try this i receive an error message that the module isnt found in library folder. 
+
+A:
+
+The quickest and most straightforward way is to import it from another.py file (or the top level script):
+if __name__ == '__main__':
+    do_data_science()
+
+That way, your script can be used like:
+python do_data_science.py
+
+But of course, you can't import a function from another file in the same script.
+
+If you want to save this for later, you can put the following line at the top of the script:
+#import_modules()
+
+Then:
+import_modules()
+do_data_science()
+
+That way, the script's first statement is equivalent to calling the function.
+
+But as others have mentioned, it's generally better to avoid this kind of globals.
+
+If you really want to implement globals, you can modify your code like this:
+globals().update(do_data_science())
+
+<|endoftext|>ST. LOUIS – The San Antonio Spurs will start to celebrate their first championship in two decades Saturday when the 28-man NBA champion squad celebrates the momentous occasion on their own turf with a championship parade.
+
+Mayor Clarence Harmon has announced that the evening festivities – where the game-worn green and white-emblazoned uniforms of the Spurs will be among the trophies on display – will start at 9 p.m. Saturday at Riverfront Plaza and head down Main Street to the Alamo. The city is expecting over half a million people to show up to show the Spurs their appreciation for an historic title.
+
+The parade is expected to begin at City Hall, then head up Lamar Street to Commerce Street and then go over the river into Downtown San Antonio. Festivities will end at the old Alamo.
+
+“I don’t think anyone is surprised that the Spurs are the only team to win three championships in the past 10 seasons,” said Lamar, who grew up watching the Spurs during their halcyon days under the coaching of Tom N
+====================
+def do_data_science():
+    """Does a data science"""
+    # Convert pandas DataFrame to np.ndarray
+    df_content = df.content
+    df_content_np = np.array(df_content)
+    print('Converted df_content to np array')
+    # Pandas DataFrame to numpy array
+    df_content_array = pandas_dataframe_to_numpy_array(df_content_np)
+    # Model training: csr_model or load_model (its not loaded yet)
+    model = csr_model.create_model(
+        df_content_array, train=True, load_model=True)
+    model.show()
+
+When I run this function:
+def test_script():
+    test_content = get_content_data()
+    scp_content = test_content.to_csv()
+    do_data_science()
+    export_csv('my_data.csv', scp_content)
+
+I see this output:
+Beginning: I import from this df:
+df_content_array:
+id,time_stamp,air_temp,wind_direction,humidity,feels_like,cloudy,wind_speed
+1              1543175322         23.3            95          73          1           2
+2              1543175322          2.2           45          46          1           2
+3              1543175322          4.1            5          25          1  
+====================
+def do_data_science():
+    """Does a data science"""
+    a = {}
+    b = {}
+    c = {}
+    a["label1"] = "data1"
+    a["label2"] = "data2"
+    a["label3"] = "data3"
+    a["label4"] = "data4"
+    a["label5"] = "data5"
+    b["label6"] = "data1"
+    b["label7"] = "data2"
+    b["label8"] = "data3"
+    b["label9"] = "data4"
+    b["label10"] = "data5"
+    c["label11"] = "data1"
+    c["label12"] = "data2"
+    c["label13"] = "data3"
+    c["label14"] = "data4"
+    c["label15"] = "data5"
+    df = pd.DataFrame(data={"label": a, "label1": b, "label2": c,})
+
+    #Logic to find closest distance to a,b and c
+    #which works perfectly
+    def distance(x, y):
+        return np.linalg.norm(x-y)
+
+    close_by_distance = []
+    distance_table = {}
+    distance_tables = {}
+    for distance in range(1, 6):
+        close_by_distance.append(0)
+        distance_table[distance] = {}
+        distance_tables[distance] = []
+        for k, v in df.label.unique().sort_values().to_dict().items():
+            distance_table[distance][k] = v
+        for i in range(0,3):
+            distance_tables[distance][i] = df.label.iloc[distance
+====================
+def do_data_science():
+    """Does a data science"""
+    #%%% read data
+    y = np.random.randint(10, size=100000)
+    x = np.random.randint(0, 100, size=100000)
+
+    #%%% do a data science
+    y_train = np.array(y)
+    x_train = np.array(x)
+
+    model = build_model(x_train, y_train, 'xgb', 20, 'y', "linear_model")
+    score = train(x_train, y_train, model)
+
+if __name__ == '__main__':
+    #%%% test the program
+    do_data_science()
+
+The error in my case :
+
+An error occurred while reading the model file 'CNN\CNN\resnet50.model': (not a
+  file)
+
+A:
+
+Note that model_path must be a string, not a filepath. In the model file below you should change path to '/home/XingYi/Desktop/learning/data/course001_data_science/data' and it works.
+
+<|endoftext|>Q:
+
+Dynamically add function to object
+
+Trying to figure out if there is a good way to add a function to an object dynamically.
+You would do something like:
+//Setup an object with some stuff in it
+var obj = { 
+            someVar: 42,
+            someOtherVar: 'what the hell'
+            someOtherFunction: function() {
+                    console.log("it's a function");
+                }
+            }
+
+and then do a 
+obj.addFunction(function(){
+    console.log('hey')
+});
+
+My problem here is that addFunction only takes two arguments. If I want to dynamically add a function to it that is going to take a ton of arguments, what's the best way to do it?
+I
+====================
+def do_data_science():
+    """Does a data science"""
+    df = pd.read_csv(DATA_FOLDER_PATH + 'CCI_Summary.csv')
+
+    df.to_csv(DATA_FOLDER_PATH + 'CCI_data.csv', index=False)
+
+if __name__ == '__main__':
+    main()
+
+A:
+
+You could use glob to get the file names that match your pattern:
+import glob
+import pandas as pd
+
+path = '/path/to/directory'
+filenames = glob.glob('**/CCI_Summary.csv')
+
+dfs = [pd.read_csv(path + filenames[i]) for i in range(len(filenames))]
+
+df = pd.concat(dfs, ignore_index=True)
+
+To get all the files use os.walk():
+import os
+import glob
+
+path = '/path/to/directory'
+filenames = glob.glob('**/CCI_Summary.csv')
+
+for root, dirs, files in os.walk(path):
+    for file in files:
+        file_path = os.path.join(root, file)
+        df = pd.read_csv(file_path)
+
+As a sidenote, you could use pd.ExcelFile and pd.read_excel():
+import pandas as pd
+import os
+
+path = '/path/to/directory'
+
+df = pd.ExcelFile(path + 'CCI_Summary.xlsx').parse(0)
+df.to_csv(path + 'CCI_data.csv', index=False)
+
+<|endoftext|>Posted
+by
+CmdrTacoon Monday March 13, 2008 11:27AM
+
+Posted by: Shane.Ithaca@gmail.com (Shane Ithaca) on Monday March 13, 2008 10:39AM
+
+And of course, Bambi Williams is back (for more pop-culture silliness), too.
+
+Posted
+by
+kdawsonon Sunday March 12, 2008 10:21AM
+
+Get ready to get a history lesson today! Super Numbers in History is a new
+====================
+def do_data_science():
+    """Does a data science"""
+    prediction_func = [np.log(func), np.log(+func)]
+    fig, axes = plt.subplots(2, 3, figsize=(10, 5))
+    for i in range(2):
+        axes[i, 0].plot(range(50), prediction_func[i](range(50)))
+        axes[i, 0].set_xlabel('X')
+        axes[i, 0].set_ylabel('Y')
+        axes[i, 0].set_title('Prediction for {}'.format(func_name))
+        axes[i, 0].grid(True)
+        axes[i, 0].set_xlim(1, 60)
+        axes[i, 0].set_ylim(1, 1)
+        axes[i, 0].grid(False)
+        axes[i, 0].set_aspect('equal')
+        axes[i, 1].plot(range(50), func(range(50)))
+        axes[i, 1].set_xlabel('X')
+        axes[i, 1].set_ylabel('Y')
+        axes[i, 1].set_title('Input for {}'.format(func_name))
+        axes[i, 1].grid(True)
+        axes[i, 1].set_xlim(1, 60)
+        axes[i, 1].set_ylim(1, 1)
+        axes[i, 1].grid(False)
+        axes[i, 1].set_aspect('equal')
+        axes[i, 2].plot(range(50), func(range(50)) + 1)
+        axes[i, 2].set_xlabel('X')
+====================
+def do_data_science():
+    """Does a data science"""
+    # [['john', '01/03/2016', 'banana', 'peach', 'june'], ['nicole', '06/04/2016', 'oranges','mango', 'july']]
+    filename = raw_input("DataScience: Please enter the name of the file you wish to enter the data to. 'C:\Users\Dr_Apple\Desktop\Bookmarks.txt' will be the default file: ")
+    file = open(filename, "r+")
+    mydata = []
+    for i in range(0, 3):
+        mydata.append(raw_input("what's the next letter you'd like to save?: "))
+        mydata.append(raw_input("is there another letter you'd like to save?: "))
+    mydata.append("-1")
+    # Write Data to the file
+    file.writelines(mydata)
+    file.close()
+    # Read Data from the file
+    readFile = open(filename, "r")
+    fileContents = readFile.read()
+    readFile.close()
+    myFile = str(fileContents)
+    # Fill in the next letter
+    j = str(raw_input("Enter the next letter you'd like to save: "))
+    # Remove blank characters from the file
+    j = j.replace(" ", "")
+    # Replace blank spaces with " "
+    j = j.replace(" ", "")
+    fileContents = str(fileContents).replace(" ", "")
+    fileContents = str(fileContents).replace(" ", "")
+    # Write to file
+    readFile = open(filename, "w")
+    readFile.write(j + fileContents)
+    readFile.close()
+    # Write next letter to the file
+    for i in range(0, 6):
+        j = str(raw_input("Enter the next letter you'd like to save: "))
+
+====================
+def do_data_science():
+    """Does a data science"""
+
+    # The Python level optimizer settings
+    # -----------------------------
+
+    from sklearn.externals import joblib
+    import warnings
+
+    warnings.filterwarnings("ignore")
+    warnings.filterwarnings("error")
+
+    J = joblib.load('data_science.pkl')
+    X_ = J['X_']
+    y_ = J['y_']
+
+    #----------------------------------------------------------------
+    # Get the percentages of category values
+    #
+    from sklearn.utils import indexable
+
+    def get_category_percentage_dataframe():
+
+        table = indexable.CategoryTable(
+            X_,
+            y_,
+            class_table=list(range(1, 11)),
+            single_category=True
+        )
+        return table.get_categories_per_class_table()
+
+    #----------------------------------------------------------------
+    # Performing binary prediction
+    #
+    import predict
+
+    df_pred = pd.DataFrame(columns=['result'])
+    df_pred['result'] = np.where(y_ == 1, 1, 0)
+
+    df_real = pd.DataFrame(columns=['result'])
+    df_real['result'] = np.where(y_ == 1, 1, 0)
+
+    df_totals = df_pred.merge(df_real, how='outer', left_on=['X_', 'y_'], right_on=['X_', 'y_'])
+    df_totals = df_totals.dropna(subset=['result'])
+    df_totals.index = ['cat', 'dog', 'hamster', 'pizza', 'fish', 'cheese','spam', 'nut','skateboard','soccer
+====================
+def do_data_science():
+    """Does a data science"""
+
+    # Most of the functionality is in __init__.py
+    # (which is part of the same directory as code, of course)
+    #
+    if not my_code_path:
+        # Throw a helpful error message
+        msg = """
+
+    Please place your code in a directory named \"my_code_path\" in
+    the same directory as ``python manage.py runserver 0.0.0.0:8080``.
+
+    You can put your code directly in any directory. To avoid accidental
+    incompatibility with other developers or project build tools,
+    avoid including filenames like ``CODING/__init__.py``,
+    ``CODING/webapp2.py``, or ``CODING/production.py``.
+    """
+
+        raise OSError(msg)
+
+The decorator can be used with a function of any of these names:
+
+* __init__
+* __project_file__
+* __project_file_stub__
+* __project_file_namespace__
+* __project_file_ns_prefix__
+* __project_file_with_prefix__
+* __project_file_with_full_path__
+
+If the filename is not of a supported format or is not valid Python code,
+an exception is raised.
+"""
+
+from inspect import getfullargspec
+import os
+import sys
+import textwrap
+from urlparse import urljoin, urlparse
+
+from google.appengine.ext import webapp
+from google.appengine.ext.webapp import fs_storage_adapter
+from google.appengine.tools import run_util
+
+
+# Argument validation is done by the code_path checker
+def check_argspec(func):
+    """Validate function arguments"""
+
+    if not getfullargspec(func).return_annotation is None:
+        raise ValueError("Function arguments must return annotations")
+
+    return func
+
+
+class run_project(object):
+    """Keep a reference to the root directory of the project"""
+
+  
+====================
+def do_data_science():
+    """Does a data science"""
+    # Run some preprocessors
+    call_preprocessor_registry()
+    call_assessments_registry()
+    # Do the model
+    m = machine_learn_model(experiments_model, contexts_model, metrics_model)
+    # Train the model
+    m.train(model_parameters,
+            data_parameters,
+            model_final_training_summaries,
+            summary_frequency,
+            number_of_epochs,
+            model_final_training_graph)
+    # Predict
+    predictions, predictions_graph = m.predict(predictions_parameters)
+    # Show predictions graphically
+    predictions_graph.show_predictions_graph(predictions_graph)
+    # Return
+    return predictions, predictions_graph
+
+#
+# Load The Registry Of Classifiers
+#
+class registry_of_classifiers():
+    def __init__(self, name=None, persistent=False):
+        # Default is name is None
+        if name is None:
+            self.persistent = persistent
+        else:
+            self.name = name
+            self.persistent = persistent
+        self.name_registry = {}
+        # Add our class for job flow
+        self.machine_learn_classifier = core_types.MachineLearnClassifier()
+        self.create_job_flow_args_class(MachineLearnConstants.class)
+        # Call the classifiers registry methods
+        super(registry_of_classifiers, self).__init__()
+
+ 
+====================
+def do_data_science():
+    """Does a data science"""
+    df = pd.DataFrame()
+
+    p = 10
+    p_drop_unwanted = 15
+    q = 20
+    q_drop_unwanted = 25
+    r = 20
+    r_drop_unwanted = 35
+    o = 0
+    df.loc[o, "pos"] = p
+    df.loc[o, "neg"] = p
+    df.loc[o, "neg_drop"] = p_drop_unwanted
+    df.loc[o, "pos_drop"] = q
+    df.loc[o, "pos_drop_neg"] = q_drop_unwanted
+    df.loc[o, "pos_drop_neg_drop"] = r
+    df.loc[o, "neg_drop_neg_drop"] = r_drop_unwanted
+
+    data = {"data_context": {"fill_empty_nums": True, "randomize_answer_per_row": False},
+            "data_objective": {"score": True, "is_good": False},
+            "data_size": {"n_rows": 10, "n_cols": 10},
+            "columns": ["row_num", "pos", "neg", "neg_drop", "pos_drop", "pos_drop_neg", "neg_drop_neg_drop"],
+            "data_exploratory": {"div_quotient": 0.5, "learning_rate": 0.05, "loss_function": "logistic_classification_loss",
+                                 "optimizer": "adam", "evaluation_frequent": 0, "hidden_units": [20, 50, 40],
+                          
+====================
+def do_data_science():
+    """Does a data science"""
+    return "Data science was performed"
+
+def get_data_science():
+    """Returns a function from "do_data_science"
+    it's a function that takes one argument: the state"""
+    def _do_data_science(state):
+        do_data_science()
+    return _do_data_science
+
+def map_to_scores():
+    """Maps a function to a scores table
+    if state is None, we return the column table itself"""
+    def map_to_scores(scores):
+        state = None
+        col_table = []
+        for i in range(len(col_name)):
+            col_table.append(col_name[i])
+        if state == None:
+            return col_table
+        if state == "unsuccessful":
+            return col_table
+        else:
+            return [map_to_scores(score) for score in scores]
+    return map_to_scores
+
+def filter_by_solving():
+    """Filters the state and data science string
+    TODO: apply the filter in a loop"""
+    table = map_to_scores()
+    solution = []
+    for state, table in state_dict.items():
+        state = _do_data_science(state)
+        score = state.split()[1]
+        if filter_by_solving in filter_solvers and score.lower() in filter_solvers[filter_by_solving]:
+            solution.append(state)
+    return solution
+
+state_dict = {}
+
+def main():
+    my_dict = dict
+====================
+def do_data_science():
+    """Does a data science"""
+    if len(sys.argv) < 2:
+        print("Usage: python " + __file__ + " [-u USERNAME] [-g GROUPNAME] [-h]")
+        sys.exit()
+    if "-u" in sys.argv:
+        username = sys.argv[-1]
+    if "-g" in sys.argv:
+        group = sys.argv[-1]
+    else:
+        group = "host"
+        # Do something like this instead if it's your first run, where you're not in the same
+        # group as the user that runs this script.
+        if "__main__" not in locals():
+            group = random_text(16)
+    else:
+        print("No group selected. How would you like to proceed? [Y/n]")
+        group = raw_input()
+
+    try:
+        if len(sys.argv) > 2:
+            x = float(sys.argv[2])
+        else:
+            x = float(float(time.time()))
+    except ValueError:
+        print("Please make sure you include a number, for instance, python " + __file__ + " -t 5")
+        sys.exit()
+
+    for i in range(x):
+        # Do something with the data here
+        print(i)
+        time.sleep(3)
+
+if __name__ == "__main__":
+    sys.exit(do_data_science())
+
+A:
+
+You can make it better if you try to avoid putting commands in python code because
+====================
+def do_data_science():
+    """Does a data science"""
+    df = pd.read_csv('data_science.csv')
+    df = df.rename(columns = {'Var1' : 'col1', 'Var2' : 'col2'})
+    df = df.drop_duplicates(subset='col2', keep='first', keep_duplicates=False)
+    X = df[['col1', 'col2']].values
+    Y = df['col2'].values
+    print('Variables of data science data science and saved X and Y.')
+    model = linear_model.LinearRegression()
+    print("Columns selected for X")
+    model.fit(X, Y)
+    return "RUNNING"
+
+if __name__ == '__main__':
+    do_data_science()
+    print('Done')
+
+I am able to read the CSV file and then rename the columns as intended, but then I am stuck with how to pass data through the function to actually perform the calculations?
+
+A:
+
+First of all, there is no line with the name do_data_science, only the function do_data_science. So I assume you are looking for the function:
+def do_data_science():
+    """Does a data science"""
+    df = pd.read_csv('data_science.csv')
+    df = df.rename(columns = {'Var1' : 'col1', 'Var2' : 'col2'})
+    df = df.drop_duplicates(subset='col2', keep='first', keep_duplicates=False)
+    X = df[['col1', 'col2']].values
+    Y = df['col2'].values
+    print('Variables of data science data science and saved X and Y.')
+    model = linear_model.LinearRegression()
+    print("Columns selected for X")
+    model.fit(X, Y)
+    return "RUNNING"
+
+Now, you can call the function with:
+if __name
+====================
+def do_data_science():
+    """Does a data science"""
+    print('--Data Science--')
+    scores_hash = load_score()
+    print('Best Score: ', scores_hash['best'])
+    print('Highest Score: ', scores_hash['highest'])
+    print('Highest Weight: ', scores_hash['highest_weight'])
+    print('Top 10 Weights: ')
+    print('\n'.join(sorted(scores_hash.keys(), key=lambda x: -x['weights'], reverse=True)))
+    # end of data science
+
+def do_evolution():
+    """Does evolution"""
+    print('--Evolution--')
+    scores_hash = load_score()
+    print('Score: ', scores_hash['score'])
+    print('----------------------------------')
+    print('Survival:', survival_percentage(scores_hash['population'],'male_r'))
+    print('Fitness:', fitness_score(scores_hash['population'],'male_r'))
+    print('------------------------------------------------------------------')
+    # end of evolution
+
+def do_classification():
+    """Does classification"""
+    print('--Classification--')
+    scores_hash = load_score()
+    print('Classification : ', scores_hash['score'])
+    print('------------------------------------------------------------------')
+    # end of classification
+
+def do_pareto():
+    """Does Pareto"""
+    print('--Pareto--')
+    pareto_hash = load_pareto_value()
+    print('\n'.join(pareto_hash['name'], pareto_hash['value'], pareto_hash['weight'], pareto_hash['name_weight']))
+    # end of Pareto
+
+def do_mutations():
+    """Does mutations"""
+    print('--Mutations--')
+    scores_hash = load_score()
+    print('Crowd score: ', scores_hash['score'])
+====================
+def do_data_science():
+    """Does a data science"""
+    df = data_science(df)
+
+<|endoftext|>A novel miRNA-based in vitro molecular mimicry approach.
+Despite the increasing evidence of an antiviral role of miRNA and the success of early miRNA-based treatment approaches for specific miRNAs, a high variability of in vivo efficacy and potency as well as side effects remains unsolved. In order to provide a proof of principle that an in vitro miRNA mimic can cause viral inhibition, we established an in vitro DNA/RNA-driven molecular mimicry system and demonstrated its potency and mechanism of action. We provide the first example of a drug-like in vitro antiviral strategy that, by a short DNA oligonucleotide/RNA duplex, is capable of inhibiting the replication of diverse RNA and DNA viruses and is effective at nanomolar drug concentrations, which are 1 to 3 orders of magnitude less than what can be achieved by individual antisense oligonucleotides. Antiviral potency and cellular toxicity are comparable to viral inhibition by its antiviral RNAi counterpart. Molecular mimicry does not affect the cellular uptake and distribution of the mimics. The data show that a simple and economically priced in vitro chemical system is capable of mimicking the small but clinically relevant RNAi mechanism of action in a drug-like manner and may become a useful alternative to in vivo studies.<|endoftext|><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id
+====================
+def do_data_science():
+    """Does a data science"""
+
+    #first we import the packages
+    import numpy as np
+    from pandas import Series
+    import datetime
+    import pandas as pd
+
+    #the data we are using for the analysis
+
+    df = pd.DataFrame()
+    s = Series()
+    df['EVENTNAME'] = ['SPUT', 'LIGHTS OUT', 'HORSE WHIP']
+    df['DATE'] = pd.to_datetime(["4/17/17 11:12", "4/17/17 11:13", "4/17/17 11:13"], format='%d/%m/%y %I:%M')
+    df['EVENTID'] = pd.Series(['P1', 'P2', 'P3'], index=['SPUT', 'LIGHTS OUT', 'HORSE WHIP'])
+    df['AREA'] = pd.Series(["500", "500", "500"], index=['SPUT', 'LIGHTS OUT', 'HORSE WHIP'])
+    df['Volume'] = pd.Series(["40", "40", "40"], index=['SPUT', 'LIGHTS OUT', 'HORSE WHIP'])
+    df['VISIT'] = pd.Series(["50", "30", "50"], index=['SPUT', 'LIGHTS OUT', 'HORSE WHIP'])
+    df['POSITION'] = pd.Series(["ZEN (15,30)", "RIGHT-OPEN", "ZEN (30,60)", "LEFT-OPEN"], index=['SPUT', 'LIGHTS OUT', 'HORSE WHIP'])
+    df['GRAVITY'] = pd.Series(["25", "30", "30", "25"], index=['SPUT', 'LIGHTS OUT', 'HORSE WHIP'])
+
+    #we make sure the data is float
+    s = s.astype('float')
+
+    df['POSITION'] = df['POSITION'].astype(int)
+    df['GRAV
+====================
+def do_data_science():
+    """Does a data science"""
+
+    features = load_dataset(dataset_path, transform=None,
+                            n_bootstrap=2, n_trees=5, max_features='sqrt')
+
+    k_features = feature_subset(features, n_features=1)
+
+    if force_loss_model == 'RFECV':
+        from sklearn.ensemble import RandomForestClassifier
+        from sklearn.model_selection import RFECV
+    else:
+        from sklearn.ensemble import RandomForestClassifier
+        from sklearn.model_selection import GridSearchCV
+
+    model = get_random_forest(k_features, n_trees, max_features)
+    model_cv = GridSearchCV(RandomForestClassifier(),
+                            param_distributions={'max_features': ['sqrt', 'auto']},
+                            n_jobs=-1,
+                            cv=5)
+    print("start")
+
+    model_cv.fit(features, 0)
+    model_cv.score(features, 0)
+
+    return {'dataset_name': dataset_name,
+            'rf_model': model_cv.best_estimator_,
+           'model_name': model.best_estimator_._name,
+            'rf_cv_model': model_cv.best_estimator_,
+            'rf_cv_model_name': model_cv.best_
+====================
+def do_data_science():
+    """Does a data science"""
+    form = FormInput(initial={'name':'','class':'','address':''})
+
+    print "Enter your name :"
+    name = input()
+    print "Enter your class :"
+    class = input()
+    print "Enter your address :"
+    address = input()
+    form.save()
+    return render_template('/data_science.html', form=form)
+
+When I run this code, I get the error :
+C:\Users\hp\AppData\Local\Programs\Python\Python37-32\python.exe C:/Users/hp/Desktop/gravy/sofa/data_science.py
+Traceback (most recent call last):
+  File "C:/Users/hp/Desktop/gravy/sofa/data_science.py", line 8, in <module>
+    do_data_science()
+  File "C:/Users/hp/Desktop/gravy/sofa/data_science.py", line 1, in do_data_science
+    from flask_mail import send_mail
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python37-32\lib\site-packages\flask_mail\__init__.py", line 6, in <module>
+    from.helpers import get_output, get_message, get_boundary, send_messages
+  File "C:\Users\hp\AppData\Local\Programs\Python\Python37-32\lib\site-packages\flask_mail\helpers.py", line 4, in <module>
+    from werkzeug.exceptions import SecurityWarning
+ModuleNotFoundError: No module named 'werkzeug'
+
+I have installed werkzeug. Why is this not working?
+
+A:
+
+You are using Python 3, which has removed the werkzeug module as a security vulnerability, so you have to use an older Flask version, which also has dropped support for Werkzeug.
+For version 0.12.2:
+pip install -U Flask==0.12.2
+
+<|endoftext|>Matching of healthy carriers and patients with cystic
+====================
+def do_data_science():
+    """Does a data science"""
+    report = types.Report(title="Data science",
+                          description="do_data_science description"
+                                      )
+    report.run(
+        action='import_data',
+        source='/dev/null',
+        label_field='type',
+        status_field='status',
+        shape='box',
+        timestamp='Time &date',
+        dshape='box',
+        dropbox_id='dr',
+        text_pars='{"type":"text","payload":{"value":"4","width":"350px","color":"blue"},"target":"0"',
+        editable=False
+                          )
+
+If the command's outcome is negative, data science won't be executed. And it did. Even if the command's execution is successful, data science is disabled in many cases. So, in addition to it being a backend "check," it's a "lock" which is applied to the data science rules if they don't match the user's agreement to run them.
+
+A:
+
+The problem is with these two rules:
+exchange_data       = exchange_data | and_(depends_on_state=True, status_code=True)
+import_data         = import_data | and_(depends_on_state=True, status_code=True)
+write_logs          = write_logs | and_(depends_on_state=True, status_code=True)
+
+Status code is being evaluated and in case it's negative, the dependency chain is broken and the data science pipeline is being disabled. In your case
+====================
+def do_data_science():
+    """Does a data science"""
+    return
+
+if __name__ == '__main__':
+    do_data_science()
+
+<|endoftext|>Q:
+
+How to give the permission to windows system account of hosting company in Django web application
+
+My Django application will be deployed in hosting company.
+When I tried to view the my application in the browser, it always shows an error.
+Error:
+
+'ASP.NET_SessionId' is not available for use in ASP.NET 4 applications.
+  This can be temporarily disabled by adding '<configuration>' within the
+ 'system.web' section of your Web.config, and then restarting the
+  server.
+
+I searched this topic in Stackoverflow. It suggest to add the following line in the configuration file:
+<system.web>
+         <sessionState mode="Off" />
+</system.web>
+
+I have tried this suggestion but it didn't work for me. 
+I don't know how to ask the hosting company to add the mentioned line in the configuration file.
+Do anyone has any idea?
+Thank you.
+
+A:
+
+It's not just one line. You need to add config like this in Web.Config:
+<sessionState mode="Off" />
+
+and probably also (if you use AuthenticationMode.Forms in your code):
+<authentication mode="Forms">
+    <forms name="MyApp" loginUrl="~/Login" timeout="1" />
+</authentication>
+
+<|endoftext|>Tranilast in the treatment of primary biliary cirrhosis.
+Tranilast is a new anti-inflammatory drug that inhibits the proliferation of fibroblasts, and has recently been reported to be effective in patients with primary biliary cirrhosis. We retrospectively analysed the effect of tranilast on symptoms and biochemical features in 22 patients with primary biliary cirrhosis followed for up to six years. Twelve patients were treated for more than three years, and the remaining 10 patients for six months or less. Tranilast significantly (p < 0.05) reduced the frequency of jaundice in the total group, with a mean of 3.2 episodes per patient per year during the two years before the onset of treatment, and 0.9 episodes per patient per year during the two years after treatment. It also improved ch
+====================
+def do_data_science():
+    """Does a data science"""
+    num_def = col.count()
+    key_def = col.extract("key").head(1)
+    name_def = col.extract("name")
+    ad_name = name_def[name_def["type"] == "Any"]
+    return ad_name
+
+df1 = df.groupby(['ad','brand']).apply(do_data_science())
+df1 = df1.reset_index()
+
+df1['_]'] = df1['title'].apply(lambda x: " ".join(x.split(" ")))
+df1['Description'] = df1['_'].apply(lambda x: "".join(x.split()))
+df1['header'] = df1['Name'].apply(lambda x: " ".join(x.split()))
+
+df1.head()
+
+I'm getting this error :
+Traceback (most recent call last):
+  File "C:/Users/uestang/Desktop/gnd/test.py", line 32, in <module>
+    df1['Name'] = df1['_'].apply(lambda x: " ".join(x.split()))
+TypeError: 'NoneType' object has no attribute'split'
+
+I tried to replace " ".join(x.split()) with " ".join(re.split(r'(?<=[a-zA-Z]+)',x)) but I got the same error.
+Thanks in advance
+
+A:
+
+I think you should convert Name to a regular expression and use re.findall.
+import re
+df1['Name'] = df1['_'].apply(lambda x: " ".join(x.split()))
+df1['Name'] = df1['Name'].apply(lambda x: re.findall(r'(?<=[a-zA-Z]+)', x))
+
+<|endoftext|>Q:
+
+When can unadorned groups admit a finite index torsion-free normal subgroup with no central commutator?
+
+The question is taken from this paper
+The first and second conditions seem easy but the condition seems hard and difficult to make sense. I don't know how to handle this. Thanks in advance.
+
+A
+====================
+def do_data_science():
+    """Does a data science"""
+    pass
+
+The secret is:
+class funciones:
+
+    funciones.do_data_science = do_data_science()
+
+<|endoftext|>
+
+I Am Getting Rid of One of My Gadgets - juanpablo
+
+A few days ago I got a message on my Google + that talks about an application where we can upload our applications and have them updated automatically when someones use them.
+I was very happy about this, but the more I tried to look for this application to use it, I found that most of the time I couldn&#x27;t find the app, I guess it was taken down or has something to do with google+, because I&#x27;m very keen to use it.
+Can anybody tell me a good source of application like this, where I can find one I want to use?
+======
+arcarter
+You might be able to find it in the Apple App Store or Android Market.
+
+[https://play.google.com/store/apps/details?id=org.mozilla.c...](https://play.google.com/store/apps/details?id=org.mozilla.chrome.android.suggest)
+
+[http://www.appbrain.com/app/android-auto-updater-for-
+apps/a...](http://www.appbrain.com/app/android-auto-updater-for-apps/astromedia)
+
+You can also try [http://www.pocketclick.com/](http://www.pocketclick.com/) or
+[http://itunes.apple.com/us/app/pocketclick/id358176420](http://itunes.apple.com/us/app/pocketclick/id358176420)
+
+~~~
+juanpablo
+Thanks
+
+<|endoftext|>Possibility of multiple sequence alignment using large set of cDNA clones.
+Using a large set of expressed sequence tag (EST) clones it was possible to develop a theoretical method of similarity search for multiple alignment of DNA or protein sequences. The algorithm is based on the principle that the longer a cDNA sequence is, the less effective is it to choose any random location in the sequence. Thus, longer cDNA sequences can be considered to have greater probability to be expressed in their original state. It was found that the probability of detecting a given similarity
+====================
+def do_data_science():
+    """Does a data science"""
+    data = []
+    #Lets say user has three data.txt files with txt in them.
+    fname = "data.txt"
+    fname1 = "data1.txt"
+    fname2 = "data2.txt"
+    print("Reading Data Files...")
+    for line in open(fname, 'r').readlines():
+        data.append(line)
+    fname1 = "D.txt"
+    fname2 = "E.txt"
+    print("Reading Data Files..for D.txt and E.txt")
+    for line in open(fname1, 'r').readlines():
+        data.append(line)
+    for line in open(fname2, 'r').readlines():
+        data.append(line)
+    return data
+
+def merge_data(data1, data2):
+    """Merges two data"""
+    merged_data = []
+    for row in data1:
+        for row2 in data2:
+            if row[0] == row2[0]:
+                if len(row) == 1:
+                    #This gets rid of the blank lines.
+                    new_row = [row2[1]]
+                else:
+                    #This merges the other row.
+                    new_row = [row[1], row2[1]]
+                #We check to make sure there are still data
+              
+====================
+def do_data_science():
+    """Does a data science"""
+    df = read_Census()
+    for i in range(7):
+        for j in range(7):
+            ij = df.iloc[i, j]
+            if ij > 0:
+                cat(data_science_log.format(ijk))
+            else:
+                pass
+                break
+            if jj < len(df.iloc):
+                t = df.iloc[jj + 7]['tid'][ijk]
+                z = df.iloc[jj + 7]['ZZ']
+                temp = np.where(df['Z' == t, 'X'].sum() == 0)
+                df['XX'] = df['X'][temp]
+                df['XX'] = df['XX'] + '\n' + df['X'][temp].center(3).map({'z': [df['ZZ'][ijk], df['ZZ'][ijk]]})
+                df.iloc[jj + 7]['XX'] = 'Total'
+                df.iloc[jj + 7]['ZZ'] = z
+                print(f'{i} | {j} | {jj} | {z}')
+
+In your question, you ask for a number of situations. The number of situations may vary depending on the length of the lists. But this is the idea you need:
+data_science_log =
+====================
+def do_data_science():
+    """Does a data science"""
+    pass
+
+if __name__ == "__main__":
+    #print(main_routine.do_data_science)
+    main_routine.do_data_science()
+    pass
+
+Thanks in advance.
+
+A:
+
+A 'callback' function is a function that returns a function.
+A function in Python is defined as a 'closure' - a set of code that can be evaluated.  The closure contains the current state of the environment.
+When you call the functino "do_data_science" you are passing the function object, which contains a reference to the environment of its execution.
+When you pass a function as a parameter, that function will retain a reference to the environment it was created in.   This reference is typically a value in the parameters of the function, and is accessible using the variable that is usually referred to as self.
+def do_data_science(self):
+    """
+    Does a data science.  Should be called from within a method or function.
+    """
+    print 'Calling do_data_science!'
+
+def a_more_usual_method(self, func_as_param):
+    """
+    Does a more usual task.
+    """
+    def func_as_callback(*args, **kwargs):
+        print 'the function as a callback has been called'
+        return func_as_param(self, *args, **kwargs)
+    return func_as_callback
+
+In this example, the function a_more_usual_method returns a function.  That returned function has access to the same reference to the environment in which it was created as the function passed as a parameter.   
+More usual examples:
+>>> fun = do_data_science
+>>> def cb_function():
+...     print 'callback was called'
+>>> cb_function = fun
+>>> cb_function()
+>>> cb_function()
+>>> fun.do_data_science.do_data_science.do_data_science.do_data_science.do_data_science.do_data_science.do_data_science
+Calling
+====================
+def do_data_science():
+    """Does a data science"""
+
+    table = np.loadtxt('data/df.txt')
+    print(table)
+    index = [table[:,0], table[:,1]]
+    cell = table[:,2]
+
+    X = pd.DataFrame(index = index)
+    X['col'+str(cell)] = cell
+
+    print(X)
+    # + str(cell)  
+
+    X.to_csv('Data/df.csv', index = True)
+
+    print("done")
+
+A:
+
+The plus operator is not a concatenation but a string concatenation
+
+With respect to Python, the plus sign is the addition operator, not
+  the string concatenation operator.
+The + sign is used as the default string concatenation operator when
+  joining two or more strings. If you want to use the plus sign to
+  indicate that you are doing string concatenation, use two separate
+  operations: "foo" + "bar".
+
+Source: http://docs.python.org/2/reference/simple_stmts.html
+Hence you are getting a KeyError when you do this: 
+X['col'+str(cell)] = cell
+
+Change it to: 
+X['col'+str(cell)] = cell.rstrip('0')
+
+Another approach is to split the string and then use append to append the values. Something like this:
+# create a list with the string
+cells = cell.rstrip('0').split(' ')
+
+# append the list of values
+X['col'+str(cells)] = cells
+
+A:
+
+You're trying to concatenate cell which is a str type to another column col which is a number type. This obviously won't work.
+The answer for this question would have been simpler and would've worked if you've just concatenated the cell with a space:
+X['col'+' '+str(cell)] = cell.rstrip('0')
+
+<|endoftext|>Control of reading during simultaneous multiple naming: evidence from the Stroop test.
+We measured event-related potentials to investigate how orthographic memory access is affected by concurrent naming in the Stroop test. There was a reading-related N400 effect in the
+====================
+def do_data_science():
+    """Does a data science"""
+    import pandas as pd
+    pd.set_option('display.float_format', '{:.3f}'.format)
+
+    import matplotlib as mpl
+    mpl.rcParams.update({'axes.unicode_minus': True})
+
+    plt.figure(figsize=(10, 6))
+    plt.show()
+
+# # Extract data into a pandas dataframe
+# print(df_sales)
+
+# # Create the plot function
+# plot_func = np.load("plot.py")
+# df_sold = pd.DataFrame(df_sales)
+
+A:
+
+As you can read here, matplotlib expects all dimensions to be in range [-1, 1]. It will crop the axes as needed, so it'll always look nicer.
+You can try to use 
+import matplotlib as mpl
+mpl.rcParams.update({'fig.subplot.right': 0})
+
+to change it to the default, you can also play with the xlim and ylim attributes of a subplot.
+
+<|endoftext|>2019 FIBA Africa Clubs Champions Cup squads
+
+This article displays the rosters for the participating teams at the 2019 FIBA Africa Clubs Champions Cup.
+
+AR Mosport
+
+AR Tishreen
+
+Elite A
+
+FAO Gomela
+
+FIBA Africa
+
+Top Division
+
+FAFIS Cup
+
+2018–19 season
+
+ES Tunis
+
+Excelsior
+
+Godosha
+
+Lebanese Basketball Cup
+
+2018–19 season
+
+Men's
+
+Group A
+
+Group B
+
+Racing Club
+
+Vezi Simteba
+
+Volos Chania
+
+Group A
+
+Group B
+
+Women's
+
+Morocco Tournament
+
+2018–19 season
+
+Group B
+
+Group C
+
+Group D
+
+Super Division
+
+References
+
+External links
+Official website
+
+FIBA Africa 2019 Teams
+Category:FIBA Africa Clubs Champions Cup squads
+FIBA<|endoftext|>Amazon has just announced a new Kindle, which is among the best Kindle devices on the market as it comes with a neat feature of being water resistant. Apart from being water resistant, the new Kindle comes with a built-in Fire
+====================
+def do_data_science():
+    """Does a data science"""
+    return
+
+# run do_app_specific_data_science() when called as do_data_science()
+def data_science_test(args):
+    """the function is called when the test is run"""
+    print('called')
+
+if __name__ == "__main__":
+    do_app_specific_data_science()
+    data_science_test()
+
+Or you can put a guard around do_data_science() in do_app_specific_data_science() and run it. If it is a specific function of a specific module, you should be able to find it. But you may need to write it in python.
+
+<|endoftext|>[Immunomodulation of mammary carcinomas by sodium levulinate].
+Rats were treated with D-sorbitol-8-C-levulinate monohydrate (Na-Levulinate) administered as a single daily oral dose of 200 mg/kg in the diet for a total period of 30 days. This treatment resulted in the inhibition of growth of the Walker 256 mammary carcinoma at a slow rate. After tumor excision, the regression of the lymph nodes was more complete than in untreated controls. These data may be of interest in respect of patients with breast cancer and other neoplastic diseases.<|endoftext|>Prospective outcome study of intraoperative assessment of left main coronary stenosis in patients undergoing off-pump coronary artery bypass grafting.
+Pre-operative assessment of coronary artery disease in patients undergoing non-emergent on-pump coronary artery bypass grafting (CABG) is standard. The aim of this study was to assess the prevalence of coronary lesions < 30% assessed intraoperatively and to evaluate the impact on surgical management. Patients were scheduled for elective, elective CABG, and pre-operative risk stratification according to the EuroSCORE II was performed. During surgery, all three coronary artery ostia and segments with > or = 50% stenosis were assessed. These stenoses were considered significant, and further treatment (i.e., stent, additional distal anastomosis, or CABG) was performed. During 30 months, 635 patients with 431 isolated on-pump and 204 off-pump CABGs were enrolled. Of 805 grafts planned, 831 were performed (95% grafts to coronary arteries). Pre-
+====================
+def do_data_science():
+    """Does a data science"""
+    data_science()
+
+As we have covered more features, we introduce the ability to send a plain-text document containing "magic" bytes or in some cases, the original filename to the function that will result in some interesting insights. These two methods are handled by the `bin_write` and `read_text` methods of the `log` object that is passed to `main()`. Each file in this text format consists of a number of sentences. Our first function in this section extracts these words by leveraging the `word_tokenize()` function from the `gensim` package.
+
+As we did in the previous chapter, we test our function for the ability to automatically recognize its input. The results, shown in Example 5-9, shows our ability to determine if the filename provided contains a magic character. This prevents the file from being downloaded if you don't have access to the file. If the file is there, it will save it to your hard disk.
+
+##### Example 5-9. Extract magic words and render output of data science: magicsc.py
+
+    def data_science(log, args):
+        try:
+            fname = args[0]
+        except IndexError:
+            print('Usage: magicsc <filename>')
+            return -1
+
+        if '!' in fname or '@' in fname:
+            print("Failed to read file because magic bytes have been detected.")
+            return -1
+        else:
+            #Read the file
+            f = open(fname, 'rb')
+            data = f.read()
+            f.close()
+
+            #Tokenize text
+            log.writelines(word_tokenize(data))
+
+    
+====================
+def do_data_science():
+    """Does a data science"""
+
+    input_train = open("./data/input/training.csv", "r").read()
+    input_test = open("./data/input/test.csv", "r").read()
+    testing_df = pd.read_csv("./data/input/test.csv", delimiter=";", names=["num","name","state","city","lng","lat","zip"])
+    testing_df["class"] = ["NS"] + testing_df["num"].astype(str).str.split().str[0]
+    pd.to_csv("./data/input/test_prediction.csv", header=True, index=False)
+    pd.to_csv("./data/input/train_prediction.csv", header=True, index=False)
+
+    np.random.seed(1)
+    plt.figure(figsize=(10,10))
+    for index,line in enumerate(input_test):
+        if not str(index).isnumeric():
+            break
+        else:
+            training_df = pd.read_csv("./data/input/training.csv")
+            prediction = get_result(training_df,line)
+            np.random.seed(1)
+            plt.scatter(prediction["num"], prediction["name"], label=line)
+            plt.savefig("./data/graph/test_prediction_%d.png" % index, dpi=400)
+
+A:
+
+I think what you are looking for is called "local minimum"
+in your example you start with line 62:
+X_scatter = plt.scatter(x, y, c=c, s=size, linestyle="-", label="X")
+
+But I think you are looking for the X_scatter that should have
+====================
